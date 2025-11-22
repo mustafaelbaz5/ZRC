@@ -7,10 +7,18 @@ class AuthRepo {
   AuthRepo({AuthService? authService})
     : _authService = authService ?? AuthService();
 
-  /// Login user using email & password
-  Future<void> login({required String email, required String password}) async {
+  /// Login user using email & password and return the role
+  Future<String> login({
+    required String email,
+    required String password,
+  }) async {
     try {
-      await _authService.loginUser(email: email, password: password);
+      // Call the service and get the role
+      final role = await _authService.loginUser(
+        email: email,
+        password: password,
+      );
+      return role;
     } catch (e) {
       // Propagate AppError
       if (e is AppError) {

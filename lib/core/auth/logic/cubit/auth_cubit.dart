@@ -18,9 +18,9 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
 
     try {
-      await _authRepo.login(email: email, password: password);
+      final role = await _authRepo.login(email: email, password: password);
 
-      emit(AuthSuccess());
+      emit(AuthSuccess(role: role));
     } on AppError catch (e) {
       emit(AuthError(e.message, errorType: e.type));
     } catch (_) {

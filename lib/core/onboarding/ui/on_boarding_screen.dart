@@ -52,7 +52,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       );
     } else {
       // Navigate to Login using your navigation extension
-      context.pushNamed(Routes.loginScreen);
+      context.pushReplacementNamed(Routes.loginScreen);
     }
   }
 
