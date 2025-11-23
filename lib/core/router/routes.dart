@@ -1,4 +1,5 @@
 class Routes {
+  static const String initialScreen = '/initialScreen';
   static const String onBoardingScreen = '/onBoardingScreen';
   static const String loginScreen = '/loginScreen';
   // student
