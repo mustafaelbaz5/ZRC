@@ -4,7 +4,7 @@ import 'package:zrc/core/error/types/error_type.dart';
 
 import '../../../error/models/app_error.dart';
 import '../../../error/types/error_handler.dart';
-import '../../../utils/secure_storage.dart';
+import '../../../storage/secure_storage.dart';
 
 class AuthService {
   final _supabase = Supabase.instance.client;
