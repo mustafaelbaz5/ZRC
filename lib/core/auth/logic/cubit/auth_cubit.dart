@@ -27,4 +27,18 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthError('Something went wrong. Please try again.'));
     }
   }
+
+  Future<void> checkAutoLogin() async {
+    emit(AuthLoading());
+    try {
+      final role = await _authRepo.getLoggedInRole();
+      if (role != null) {
+        emit(AuthSuccess(role: role));
+      } else {
+        emit(AuthInitial()); // not logged in
+      }
+    } catch (_) {
+      emit(AuthInitial());
+    }
+  }
 }

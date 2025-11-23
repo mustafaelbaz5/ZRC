@@ -28,4 +28,12 @@ class AuthRepo {
       throw AppError.unknown('Something went wrong. Please try again.');
     }
   }
+
+  Future<String?> getLoggedInRole() async {
+    try {
+      return await _authService.getLoggedInRole();
+    } catch (_) {
+      return null;
+    }
+  }
 }

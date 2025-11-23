@@ -69,4 +69,18 @@ class AuthService {
       );
     }
   }
+
+  Future<String?> getLoggedInRole() async {
+    try {
+      final role = await _secureStorage.getString(key: 'role');
+      final userId = await _secureStorage.getString(key: 'user_id');
+      if (role != null && userId != null) {
+        return role;
+      }
+      return null;
+    } catch (e) {
+      debugPrint('Error checking login: $e');
+      return null;
+    }
+  }
 }
