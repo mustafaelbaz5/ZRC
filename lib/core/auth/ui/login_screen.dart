@@ -3,9 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:zrc/core/auth/ui/widgets/login_body.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/utils/functions/navigate_to_role_home.dart';
 import '../logic/cubit/auth_cubit.dart';
-import '../../extensions/navigation.dart';
-import '../../router/routes.dart';
 import '../../widgets/show_error_dialog.dart';
 import 'widgets/background_shapes.dart';
 
@@ -17,17 +16,7 @@ class LoginScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          switch (state.role) {
-            case 'student':
-              context.pushReplacementNamed(Routes.studentScaffold);
-              break;
-            case 'instructor':
-              context.pushReplacementNamed(Routes.instructorHomeScreen);
-              break;
-            case 'admin':
-              context.pushReplacementNamed(Routes.adminHomeScreen);
-              break;
-          }
+          navigateToRoleHome(context, state.role);
         } else if (state is AuthError) {
           showErrorDialog(
             context: context,
