@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/core/auth/ui/widgets/initial_screen.dart';
 import 'package:zrc/modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
+import 'package:zrc/modules/student/features/courses/ui/courses_details_screen.dart';
 
 import '../../modules/student/core/widgets/student_scaffold.dart';
 import '../../modules/student/features/courses/ui/courses_screen.dart';
@@ -19,8 +20,7 @@ final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
 class AppRouter {
   Route<dynamic>? generateRoute(RouteSettings settings) {
-    // ignore: unused_local_variable
-    final arguments = settings.arguments;
+    // final arguments = settings.arguments;
 
     switch (settings.name) {
       case Routes.onBoardingScreen:
@@ -47,11 +47,11 @@ class AppRouter {
           builder: (_) => StudentScaffold(navigationKey: navigationKey),
         );
       case Routes.studentHomeScreen:
-        return MaterialPageRoute(
-          builder: (_) => HomeScreen(navigationKey: navigationKey),
-        );
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.studentCoursesScreen:
         return MaterialPageRoute(builder: (_) => const CoursesScreen());
+      case Routes.studentCoursesDetailsScreen:
+        return MaterialPageRoute(builder: (_) => const CoursesDetailsScreen());
       case Routes.studentMaterialScreen:
         return MaterialPageRoute(builder: (_) => const MaterialsScreen());
       case Routes.studentProfileScreen:
