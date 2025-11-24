@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/utils/app_assets.dart';
-import '../../data/model/courses_card_model.dart';
+import '../../../../core/models/courses_card_model.dart';
 import 'courses_list_view_item.dart';
 
 class CoursesListView extends StatelessWidget {
