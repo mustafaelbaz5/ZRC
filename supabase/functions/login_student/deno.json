@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "strict": true
+  },
+  "tasks": {
+    "dev": "deno run -A index.ts",
+    "deploy": "supabase functions deploy login_student"
+  },
+  "imports": {
+    "supabase-js/": "npm:@supabase/supabase-js/"
+  }
+}

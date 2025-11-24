@@ -17,8 +17,7 @@ class ZrcApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoardingScreen,
-
+          initialRoute: Routes.initialScreen,
           onGenerateRoute: appRouter.generateRoute,
           title: 'ZRC - ZNU Robotics Community',
           theme: ThemeData(

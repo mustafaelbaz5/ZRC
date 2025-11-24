@@ -1,6 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/core/auth/ui/widgets/initial_screen.dart';
+import 'package:zrc/modules/admin/features/dashboard/ui/dashboard_screen.dart';
+import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
 
 import '../../modules/student/core/widgets/student_scaffold.dart';
 import '../../modules/student/features/courses/ui/courses_screen.dart';
@@ -22,6 +25,14 @@ class AppRouter {
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
+
+      case Routes.initialScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => AuthCubit()..checkAutoLogin(),
+            child: const InitialScreen(),
+          ),
+        );
 
       case Routes.loginScreen:
         return MaterialPageRoute(
@@ -47,6 +58,13 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
       //Instructor module
+      case Routes.instructorHomeScreen:
+        return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
+
+      // Admin module
+      case Routes.adminHomeScreen:
+        return MaterialPageRoute(builder: (_) => const DashboardScreen());
+
       default:
         return null;
     }

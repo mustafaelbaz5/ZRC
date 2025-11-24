@@ -1,4 +1,5 @@
 class Routes {
+  static const String initialScreen = '/initialScreen';
   static const String onBoardingScreen = '/onBoardingScreen';
   static const String loginScreen = '/loginScreen';
   // student
@@ -7,4 +8,12 @@ class Routes {
   static const String studentCoursesScreen = '/studentCoursesScreen';
   static const String studentMaterialScreen = '/studentMaterialScreen';
   static const String studentProfileScreen = '/studentProfileScreen';
+
+  // Instructor
+  static const String instructorScaffold = '/instructorScaffold';
+  static const String instructorHomeScreen = '/instructorHomeScreen';
+
+  // Admin
+  static const String adminScaffold = '/adminScaffold';
+  static const String adminHomeScreen = '/adminHomeScreen';
 }

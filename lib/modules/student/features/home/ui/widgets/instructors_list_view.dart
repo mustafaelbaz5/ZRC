@@ -11,6 +11,7 @@ class InstructorsListView extends StatelessWidget {
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: instructors.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
