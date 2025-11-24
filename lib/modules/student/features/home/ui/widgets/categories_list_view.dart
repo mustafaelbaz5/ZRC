@@ -19,6 +19,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

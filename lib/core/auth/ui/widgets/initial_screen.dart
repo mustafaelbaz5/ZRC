@@ -14,7 +14,8 @@ class InitialScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          navigateToRoleHome(context, state.role);
+          final user = state.userModel;
+          navigateToRoleHome(context, user.role);
         } else if (state is AuthError) {
           showErrorDialog(
             context: context,
