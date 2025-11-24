@@ -7,9 +7,9 @@ final class AuthInitial extends AuthState {}
 final class AuthLoading extends AuthState {}
 
 final class AuthSuccess extends AuthState {
-  final String role;
+  final UserModel userModel;
 
-  AuthSuccess({required this.role});
+  AuthSuccess({required this.userModel});
 }
 
 final class AuthError extends AuthState {

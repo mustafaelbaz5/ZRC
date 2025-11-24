@@ -1,39 +1,57 @@
+import 'package:zrc/core/auth/data/model/user_model.dart';
+
 import '../../../error/models/app_error.dart';
 import '../service/auth_service.dart';
+import '../../../storage/secure_storage.dart';
 
 class AuthRepo {
   final AuthService _authService;
+  final SecureStorage _secureStorage;
 
-  AuthRepo({AuthService? authService})
-    : _authService = authService ?? AuthService();
+  AuthRepo({AuthService? authService, SecureStorage? secureStorage})
+    : _authService = authService ?? AuthService(),
+      _secureStorage = secureStorage ?? SecureStorage();
 
-  /// Login user using email & password and return the role
-  Future<String> login({
+  /// Login user using email & password and return the full StudentModel
+  Future<UserModel> login({
     required String email,
     required String password,
   }) async {
     try {
-      // Call the service and get the role
-      final role = await _authService.loginUser(
+      final student = await _authService.loginUser(
         email: email,
         password: password,
       );
-      return role;
+
+      // Store full student data in secure storage
+      await _secureStorage.saveString(
+        key: 'student_data',
+        value: student.toJsonString(),
+      );
+
+      return student;
     } catch (e) {
-      // Propagate AppError
       if (e is AppError) {
         rethrow;
       }
-      // Convert any other exception to AppError
       throw AppError.unknown('Something went wrong. Please try again.');
     }
   }
 
-  Future<String?> getLoggedInRole() async {
+  /// Get logged-in student from secure storage
+  Future<UserModel?> getLoggedInStudent() async {
     try {
-      return await _authService.getLoggedInRole();
+      final jsonString = await _secureStorage.getString(key: 'student_data');
+      if (jsonString == null) return null;
+
+      return UserModel.fromJsonString(jsonString);
     } catch (_) {
       return null;
     }
+  }
+  
+  /// Clear logged-in student data
+  Future<void> logout() async {
+    await _secureStorage.clear(key: 'student_data');
   }
 }
