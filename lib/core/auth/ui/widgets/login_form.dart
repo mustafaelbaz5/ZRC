@@ -41,80 +41,83 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     final isLoading = context.watch<AuthCubit>().state is AuthLoading;
 
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Email
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Email',
-              style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
-            ),
-          ),
-          verticalSpacing(8),
-          CustomTextFormField(
-            controller: _emailController,
-            hintText: 'Enter your email',
-            keyboardType: TextInputType.emailAddress,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Email cannot be empty';
-              } else if (!AppRegex.isEmailValid(value.trim())) {
-                return 'Please enter a valid email[********@.znu.edu.eg]';
-              }
-              return null;
-            },
-          ),
-          verticalSpacing(24),
-
-          // Password
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Password',
-              style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
-            ),
-          ),
-          verticalSpacing(8),
-          CustomTextFormField(
-            controller: _passwordController,
-            hintText: 'Enter your password',
-            isObscureText: true,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Password cannot be empty';
-              }
-              return null;
-            },
-          ),
-
-          Align(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () {},
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Email
+            Align(
+              alignment: Alignment.centerLeft,
               child: Text(
-                'Forgot Password?',
-                style: AppTextStyles.font16BlackRegular.copyWith(
-                  color: AppColors.lightBlue,
+                'Email',
+                style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
+              ),
+            ),
+            verticalSpacing(8),
+            CustomTextFormField(
+              controller: _emailController,
+              hintText: 'Enter your email',
+              keyboardType: TextInputType.emailAddress,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Email cannot be empty';
+                } else if (!AppRegex.isEmailValid(value.trim())) {
+                  return 'Please enter a valid email[********@.znu.edu.eg]';
+                }
+                return null;
+              },
+            ),
+            verticalSpacing(24),
+
+            // Password
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Password',
+                style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
+              ),
+            ),
+            verticalSpacing(8),
+            CustomTextFormField(
+              controller: _passwordController,
+              hintText: 'Enter your password',
+              isObscureText: true,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Password cannot be empty';
+                }
+                return null;
+              },
+            ),
+
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Forgot Password?',
+                  style: AppTextStyles.font16BlackRegular.copyWith(
+                    color: AppColors.lightBlue,
+                  ),
                 ),
               ),
             ),
-          ),
-          verticalSpacing(24),
+            verticalSpacing(24),
 
-          // Login button
-          CustomTextButton(
-            buttonText: 'Login',
-            onPressed: isLoading ? null : _onLoginPressed,
-            isLoading: isLoading,
-            buttonHeight: 56.h,
-            buttonWidth: double.infinity,
-            borderRadius: 12.r,
-          ),
-        ],
+            // Login button
+            CustomTextButton(
+              buttonText: 'Login',
+              onPressed: isLoading ? null : _onLoginPressed,
+              isLoading: isLoading,
+              buttonHeight: 56.h,
+              buttonWidth: double.infinity,
+              borderRadius: 12.r,
+            ),
+          ],
+        ),
       ),
     );
   }
