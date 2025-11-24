@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/instructors_list_view.dart';
 
@@ -11,8 +10,8 @@ import 'widgets/home_app_bar.dart';
 import 'widgets/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, required this.navigationKey});
-  final GlobalKey<CurvedNavigationBarState> navigationKey;
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpacing(20),
               const HomeAppBar(userName: 'Mustafa', userId: '51546'),
               verticalSpacing(20),
-              HomeHeader(navigationKey: navigationKey),
+              const HomeHeader(),
               verticalSpacing(24),
               Text("Categories", style: AppTextStyles.font16BlackBold),
               verticalSpacing(12),

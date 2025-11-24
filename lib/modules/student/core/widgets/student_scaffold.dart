@@ -60,8 +60,8 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           onTap: (index) => setState(() => bottomNavIndex = index),
         ),
         body: [
-          HomeScreen(navigationKey: widget.navigationKey),
-          const CoursesScreen(),
+          HomeScreen(),
+          CoursesScreen(),
           const MaterialsScreen(),
           const ProfileScreen(),
         ][bottomNavIndex],
