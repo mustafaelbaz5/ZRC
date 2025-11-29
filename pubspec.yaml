@@ -29,16 +29,17 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  curved_navigation_bar: ^1.0.6
+  firebase_core: ^4.2.1
   flutter:
     sdk: flutter
-  flutter_screenutil: ^5.9.3
-  get_it: ^9.0.5
-  flutter_svg: ^2.2.2
-  supabase_flutter: ^2.10.3
-  flutter_secure_storage: ^9.2.4
   flutter_bloc: ^9.1.1
-  firebase_core: ^4.2.1
-  curved_navigation_bar: ^1.0.6
+  flutter_screenutil: ^5.9.3
+  flutter_secure_storage: ^9.2.4
+  flutter_svg: ^2.2.2
+  get_it: ^9.0.5
+  supabase_flutter: ^2.10.3
+  youtube_player_iframe: ^5.2.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -57,7 +58,6 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see

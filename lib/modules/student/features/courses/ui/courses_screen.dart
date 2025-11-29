@@ -15,9 +15,9 @@ class CoursesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomAppBar(title: "Courses", routes: 0),
+            const CustomAppBar(title: "Courses"),
             verticalSpacing(8),
-            Text("Categories", style: AppTextStyles.font16BlackBold),
+            Text("Categories", style: AppTextStyles.font18GreyRegular),
             verticalSpacing(16),
             const AllCoursesFilterListView(),
             const Expanded(child: AllCoursesSliverList()),

@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:zrc/core/router/app_router.dart';
+import 'package:zrc/core/extensions/navigation.dart';
 
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/app_assets.dart';
 import 'package:zrc/core/utils/spacing.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title, required this.routes});
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    this.showNotificationIcon = true,
+    this.showBackButton = false,
+    this.route,
+  });
+
   final String title;
-  final int routes;
+  final bool showNotificationIcon;
+  final bool showBackButton;
+  final String? route; // Nullable now
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,15 +27,26 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         children: [
           horizontalSpacing(8),
-          IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-            onPressed: () {
-              navigationKey.currentState?.setPage(routes);
-            },
-          ),
+
+          // BACK BUTTON (Only when available AND route is provided)
+          if (showBackButton)
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+              onPressed: () {
+                if (route != null) {
+                  context.pushNamed(route!);
+                }
+              },
+            )
+          else
+            const Spacer(),
+
           horizontalSpacing(8),
+
           Text(title, style: AppTextStyles.font20BlackBold),
+
           const Spacer(),
+
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -40,12 +61,15 @@ class CustomAppBar extends StatelessWidget {
                 ),
               ],
             ),
-            child: SvgPicture.asset(
-              AppAssets.notificationIcon,
-              width: 20,
-              height: 20,
-            ),
+            child: showNotificationIcon
+                ? SvgPicture.asset(
+                    AppAssets.notificationIcon,
+                    width: 20,
+                    height: 20,
+                  )
+                : const SizedBox.shrink(),
           ),
+
           horizontalSpacing(16),
         ],
       ),
