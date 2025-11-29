@@ -34,9 +34,6 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     _initializeController();
   }
 
-  /// ------------------------------
-  /// INITIALIZATION
-  /// ------------------------------
   void _initializeController() {
     final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
 
@@ -51,15 +48,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     );
   }
 
-  /// ------------------------------
-  /// ORIENTATION HELPERS
-  /// ------------------------------
-  Future<void> _lockPortrait() async {
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-  }
+  Future<void> _lockPortrait() async {}
 
   Future<void> _lockLandscape() async {
     await SystemChrome.setPreferredOrientations([
@@ -175,6 +164,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
       const CurrentPosition(),
       const ProgressBar(isExpanded: true),
       horizontalSpacing(10),
+      const RemainingDuration(),
 
       /// REWIND
       IconButton(
