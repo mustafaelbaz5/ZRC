@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/themes/app_colors.dart';
-import 'package:zrc/core/utils/app_assets.dart';
+import '../../../../core/utils/app_assets.dart';
 import '../../features/courses/ui/courses_screen.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/materials/ui/materials_screen.dart';
@@ -60,8 +60,8 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           onTap: (index) => setState(() => bottomNavIndex = index),
         ),
         body: [
-          HomeScreen(navigationKey: widget.navigationKey),
-          const CoursesScreen(),
+          HomeScreen(),
+          CoursesScreen(),
           const MaterialsScreen(),
           const ProfileScreen(),
         ][bottomNavIndex],

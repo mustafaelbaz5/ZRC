@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
-import '../../data/model/courses_card_model.dart';
+import '../../../../core/models/courses_card_model.dart';
 
 class CourseCardFooter extends StatelessWidget {
   const CourseCardFooter({super.key, required this.coursesCardModel});

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/navigation.dart';
+
+import '../../../../../../core/router/routes.dart';
 import '../../../../../../core/utils/app_assets.dart';
-import '../../data/model/courses_card_model.dart';
+import '../../../../core/models/courses_card_model.dart';
 import 'courses_list_view_item.dart';
 
 class CoursesListView extends StatelessWidget {
@@ -12,7 +15,7 @@ class CoursesListView extends StatelessWidget {
     return SizedBox(
       height: 260.h,
       child: ListView.separated(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         physics: const BouncingScrollPhysics(),
@@ -22,9 +25,15 @@ class CoursesListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return SizedBox(
             width: 230.w,
-            child: CoursesListViewCard(
-              coursesCardModel: _dummyCourses[index],
-              onTap: () {},
+            child: GestureDetector(
+              child: CoursesListViewCard(
+                coursesCardModel: _dummyCourses[index],
+                onTap: () {
+                  context.pushNamed(
+                    Routes.studentCoursesDetailsScreen,
+                  );
+                },
+              ),
             ),
           );
         },

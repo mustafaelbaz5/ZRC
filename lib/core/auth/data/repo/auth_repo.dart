@@ -1,8 +1,7 @@
-import 'package:zrc/core/auth/data/model/user_model.dart';
-
 import '../../../error/models/app_error.dart';
-import '../service/auth_service.dart';
 import '../../../storage/secure_storage.dart';
+import '../model/user_model.dart';
+import '../service/auth_service.dart';
 
 class AuthRepo {
   final AuthService _authService;

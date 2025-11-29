@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:flutter/widgets.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
+
+import '../auth/data/model/user_model.dart';
 import '../storage/secure_storage.dart';
 
 class UserStorage {

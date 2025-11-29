@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../utils/spacing.dart';
 import '../themes/app_text_styles.dart';
 
 /// Show error dialog

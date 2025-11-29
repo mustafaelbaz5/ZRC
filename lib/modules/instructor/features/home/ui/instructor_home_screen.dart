@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/navigation.dart';
-import 'package:zrc/core/router/routes.dart';
+
+import '../../../../../core/extensions/navigation.dart';
+import '../../../../../core/router/routes.dart';
 
 class InstructorHomeScreen extends StatelessWidget {
   const InstructorHomeScreen({super.key});

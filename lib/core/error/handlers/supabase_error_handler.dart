@@ -1,4 +1,5 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 import '../models/app_error.dart';
 import '../types/error_type.dart';
 

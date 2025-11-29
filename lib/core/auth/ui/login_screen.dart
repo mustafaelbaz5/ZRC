@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:zrc/core/auth/ui/widgets/login_body.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/navigate_to_role_home.dart';
-import '../logic/cubit/auth_cubit.dart';
+import '../../themes/app_text_styles.dart';
+import '../../utils/functions/navigate_to_role_home.dart';
 import '../../widgets/show_error_dialog.dart';
+import '../logic/cubit/auth_cubit.dart';
 import 'widgets/background_shapes.dart';
+import 'widgets/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
