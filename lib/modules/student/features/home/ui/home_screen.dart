@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/instructors_list_view.dart';
+import 'widgets/instructors_list_view.dart';
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';

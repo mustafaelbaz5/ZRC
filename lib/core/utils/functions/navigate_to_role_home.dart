@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/router/routes.dart';
+import '../../router/routes.dart';
 
 void navigateToRoleHome(BuildContext context, String role) {
   switch (role) {

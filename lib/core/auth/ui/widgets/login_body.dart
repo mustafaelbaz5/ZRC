@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/auth/ui/widgets/log_in_header.dart';
-import 'package:zrc/core/auth/ui/widgets/login_form.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import 'log_in_header.dart';
+import 'login_form.dart';
+import '../../../utils/spacing.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/all_courses_filter_list_view_item.dart';
-import 'package:zrc/modules/student/features/home/data/model/category_model.dart';
+import 'all_courses_filter_list_view_item.dart';
+import '../../../home/data/model/category_model.dart';
 
 class AllCoursesFilterListView extends StatefulWidget {
   const AllCoursesFilterListView({super.key});

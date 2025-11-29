@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/instructor_stat.dart';
+import 'instructor_stat.dart';
 
 class InstructorCard extends StatelessWidget {
   const InstructorCard({
