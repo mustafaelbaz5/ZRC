@@ -242,10 +242,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: "5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1"
+      sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "6.0.0"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -306,10 +306,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_svg
-      sha256: "055de8921be7b8e8b98a233c7a5ef84b3a6fcc32f46f1ebf5b9bb3576d108355"
+      sha256: "87fbd7c534435b6c5d9d98b01e1fd527812b82e68ddd8bd35fc45ed0fa8f0a95"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.2"
+    version: "2.2.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -332,10 +332,10 @@ packages:
     dependency: "direct main"
     description:
       name: get_it
-      sha256: "84792561b731b6463d053e9761a5236da967c369da10b134b8585a5e18429956"
+      sha256: "2c120112e34bbd5f4ce2ca1ad3076a5b2068eb1e48aae8dd7b717b26cdd38543"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.5"
+    version: "9.1.1"
   gotrue:
     dependency: transitive
     description:
@@ -412,10 +412,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
+      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bb243bff242ef5b13e26883547fce9a0
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.1"
+    version: "6.0.0"
   logging:
     dependency: transitive
     description:
@@ -464,14 +464,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
-  objective_c:
-    dependency: transitive
-    description:
-      name: objective_c
-      sha256: "1f81ed9e41909d44162d7ec8663b2c647c202317cc0b56d3d56f6a13146a0b64"
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.1.0"
   path:
     dependency: transitive
     description:
@@ -500,18 +492,18 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "95c68a74d3cab950fd0ed8073d9fab15c1c06eb1f3eec68676e87aabc9ecee5a"
+      sha256: f2c65e21139ce2c3dad46922be8272bb5963516045659e71bb16e151c93b580e
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.21"
+    version: "2.2.22"
   path_provider_foundation:
     dependency: transitive
     description:
       name: path_provider_foundation
-      sha256: "6192e477f34018ef1ea790c56fffc7302e3bc3efede9e798b934c252c8c105ba"
+      sha256: "6d13aece7b3f5c5a9731eaf553ff9dcbc2eff41087fd2df587fd0fed9a3eb0c4"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.0"
+    version: "2.5.1"
   path_provider_linux:
     dependency: transitive
     description:
@@ -576,14 +568,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.5+1"
-  pub_semver:
-    dependency: transitive
-    description:
-      name: pub_semver
-      sha256: "5bfcf68ca79ef689f8990d1160781b4bad40a3bd5e5218ad4076ddb7f4081585"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   realtime_client:
     dependency: transitive
     description:
@@ -620,10 +604,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: "07d552dbe8e71ed720e5205e760438ff4ecfb76ec3b32ea664350e2ca4b0c43b"
+      sha256: "46a46fd64659eff15f4638bbe19de43f9483f0e0bf024a9fb6b3582064bacc7b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.16"
+    version: "2.4.17"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -761,10 +745,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "5387615091fb9bcacfe03e140437be22c3a3cd7ac53052ec9a16d2a6a370a994"
+      sha256: "767344bf3063897b5cf0db830e94f904528e6dd50a6dfaf839f0abf509009611"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.27"
+    version: "6.3.28"
   url_launcher_ios:
     dependency: transitive
     description:

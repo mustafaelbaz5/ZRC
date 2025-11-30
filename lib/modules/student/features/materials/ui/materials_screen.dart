@@ -5,6 +5,6 @@ class MaterialsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Center(child: Text("Materials Screen")));
+    return const SafeArea(child: Center(child: Text("Materials Screen")));
   }
 }
