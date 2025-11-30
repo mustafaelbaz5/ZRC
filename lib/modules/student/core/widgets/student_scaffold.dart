@@ -6,7 +6,7 @@ import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../features/courses/ui/courses_screen.dart';
 import '../../features/home/ui/home_screen.dart';
-import '../../features/materials/ui/materials_screen.dart';
+import '../../features/quizzes/ui/quizzes_screen.dart';
 import '../../features/profile/ui/profile_screen.dart';
 
 class StudentScaffold extends StatefulWidget {
@@ -62,7 +62,7 @@ class _StudentScaffoldState extends State<StudentScaffold> {
         body: [
           const HomeScreen(),
           const CoursesScreen(),
-          const MaterialsScreen(),
+          const QuizzesScreen(),
           const ProfileScreen(),
         ][bottomNavIndex],
       ),

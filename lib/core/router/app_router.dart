@@ -9,7 +9,7 @@ import '../../modules/student/features/courses/ui/courses_details_screen.dart';
 import '../../modules/student/core/widgets/student_scaffold.dart';
 import '../../modules/student/features/courses/ui/courses_screen.dart';
 import '../../modules/student/features/home/ui/home_screen.dart';
-import '../../modules/student/features/materials/ui/materials_screen.dart';
+import '../../modules/student/features/quizzes/ui/quizzes_screen.dart';
 import '../../modules/student/features/profile/ui/profile_screen.dart';
 import '../auth/logic/cubit/auth_cubit.dart';
 import '../auth/ui/login_screen.dart';
@@ -52,8 +52,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const CoursesScreen());
       case Routes.studentCoursesDetailsScreen:
         return MaterialPageRoute(builder: (_) => const CoursesDetailsScreen());
-      case Routes.studentMaterialScreen:
-        return MaterialPageRoute(builder: (_) => const MaterialsScreen());
+      case Routes.studentQuizzesScreen:
+        return MaterialPageRoute(builder: (_) => const QuizzesScreen());
       case Routes.studentProfileScreen:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
