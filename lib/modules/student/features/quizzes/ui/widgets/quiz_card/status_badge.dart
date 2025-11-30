@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../data/model/quiz_model.dart';
+import '../../../data/model/quiz_model.dart';
 
 class StatusBadge extends StatelessWidget {
   const StatusBadge({super.key, required this.status, this.score});

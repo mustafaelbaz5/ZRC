@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../data/model/quiz_model.dart';
-import 'quiz_card.dart';
+import 'quiz_card/quiz_card.dart';
 
 class QuizzesListView extends StatelessWidget {
   final String filter;

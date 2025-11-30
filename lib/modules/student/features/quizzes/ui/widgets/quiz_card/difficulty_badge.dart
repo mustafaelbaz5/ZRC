@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../core/utils/spacing.dart';
-import '../../data/model/quiz_model.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
 
 class DifficultyBadge extends StatelessWidget {
   const DifficultyBadge({super.key, required this.difficulty});
