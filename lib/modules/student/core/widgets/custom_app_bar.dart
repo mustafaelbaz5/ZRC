@@ -13,64 +13,105 @@ class CustomAppBar extends StatelessWidget {
     this.showNotificationIcon = true,
     this.showBackButton = false,
     this.route,
+    this.onNotificationTap,
   });
 
   final String title;
   final bool showNotificationIcon;
   final bool showBackButton;
-  final String? route; // Nullable now
+  final String? route;
+  final VoidCallback? onNotificationTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withAlpha(25),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: Row(
         children: [
-          horizontalSpacing(8),
-
-          // BACK BUTTON (Only when available AND route is provided)
+          // BACK BUTTON
           if (showBackButton)
-            IconButton(
-              icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-              onPressed: () {
-                if (route != null) {
-                  context.pushNamed(route!);
-                }
-              },
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: () {
+                  if (route != null) {
+                    context.pushNamed(route!);
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                },
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Colors.grey[800],
+                    size: 20,
+                  ),
+                ),
+              ),
             )
           else
-            const Spacer(),
+            const SizedBox(width: 8),
 
-          horizontalSpacing(8),
+          if (showBackButton) horizontalSpacing(12),
 
-          Text(title, style: AppTextStyles.font20BlackBold),
-
-          const Spacer(),
-
-          Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey[400]!,
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+          // TITLE
+          Expanded(
+            child: Text(
+              title,
+              style: AppTextStyles.font20BlackBold,
+              textAlign: showBackButton ? TextAlign.left : TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
             ),
-            child: showNotificationIcon
-                ? SvgPicture.asset(
+          ),
+
+          if (showBackButton) horizontalSpacing(12),
+
+          // NOTIFICATION ICON
+          if (showNotificationIcon)
+            Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap:
+                    onNotificationTap ??
+                    () {
+                      // Default notification action
+                    },
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.grey[200]!, width: 1),
+                  ),
+                  child: SvgPicture.asset(
                     AppAssets.notificationIcon,
                     width: 20,
                     height: 20,
-                  )
-                : const SizedBox.shrink(),
-          ),
-
-          horizontalSpacing(16),
+                  ),
+                ),
+              ),
+            )
+          else
+            const SizedBox(width: 8),
         ],
       ),
     );
