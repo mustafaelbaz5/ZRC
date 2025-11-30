@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/quiz_detailed_screen.dart';
 import '../auth/ui/widgets/initial_screen.dart';
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
@@ -46,14 +47,22 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => StudentScaffold(navigationKey: navigationKey),
         );
+
       case Routes.studentHomeScreen:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+
       case Routes.studentCoursesScreen:
         return MaterialPageRoute(builder: (_) => const CoursesScreen());
+
       case Routes.studentCoursesDetailsScreen:
         return MaterialPageRoute(builder: (_) => const CoursesDetailsScreen());
+
       case Routes.studentQuizzesScreen:
         return MaterialPageRoute(builder: (_) => const QuizzesScreen());
+
+      case Routes.studentQuizDetailedScreen:
+        return MaterialPageRoute(builder: (_) => const QuizDetailedScreen());
+
       case Routes.studentProfileScreen:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
 
