@@ -2,12 +2,13 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../features/courses/ui/courses_screen.dart';
 import '../../features/home/ui/home_screen.dart';
-import '../../features/quizzes/ui/quizzes_screen.dart';
 import '../../features/profile/ui/profile_screen.dart';
+import '../../features/quizzes/ui/quizzes_screen.dart';
 
 class StudentScaffold extends StatefulWidget {
   const StudentScaffold({super.key, required this.navigationKey});

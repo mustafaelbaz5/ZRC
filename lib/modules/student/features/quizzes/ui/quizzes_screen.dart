@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/student/core/widgets/custom_app_bar.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_filter_row.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_list_view.dart';
+import '../../../core/widgets/custom_app_bar.dart';
+import 'widgets/quizzes_filter_row.dart';
+import 'widgets/quizzes_list_view.dart';
 
 class QuizzesScreen extends StatefulWidget {
   const QuizzesScreen({super.key});

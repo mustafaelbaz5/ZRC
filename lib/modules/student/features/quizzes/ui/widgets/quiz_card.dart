@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/navigation.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/attempts_info.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/difficulty_badge.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/due_date_info.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detail_item.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/status_badge.dart';
+
+import '../../../../../../core/extensions/navigation.dart';
+import '../../../../../../core/router/routes.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/utils/spacing.dart';
+import '../../data/model/quiz_model.dart';
+import 'attempts_info.dart';
+import 'difficulty_badge.dart';
+import 'due_date_info.dart';
+import 'quiz_detail_item.dart';
+import 'status_badge.dart';
 
 class QuizCard extends StatelessWidget {
   final QuizModel quiz;
