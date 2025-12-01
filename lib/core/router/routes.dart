@@ -10,6 +10,7 @@ class Routes {
       '/studentCoursesDetailsScreen';
   static const String studentQuizzesScreen = '/studentQuizzesScreen';
   static const String studentQuizDetailedScreen = '/studentQuizDetailedScreen';
+  static const String studentQuizQuestionScreen = '/studentQuizQuestionScreen';
   static const String studentProfileScreen = '/studentProfileScreen';
 
   // Instructor
