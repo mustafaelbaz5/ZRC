@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/navigation.dart';
+import 'package:zrc/core/router/routes.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 
 class StartQuizButton extends StatelessWidget {
@@ -22,8 +24,22 @@ class StartQuizButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: canStart
             ? () {
-                // Navigate to quiz taking screen
-                // Navigator.push(context, MaterialPageRoute(builder: (_) => QuizTakingScreen(quiz: quiz)));
+                if (quiz.attemptStatus == QuizAttemptStatus.completed) {
+                  context.pushReplacementNamed(
+                    Routes.studentQuizQuestionScreen,
+                    arguments: quiz,
+                  );
+                } else if (quiz.attemptStatus == QuizAttemptStatus.inProgress) {
+                  context.pushReplacementNamed(
+                    Routes.studentQuizQuestionScreen,
+                    arguments: quiz,
+                  );
+                } else {
+                  context.pushReplacementNamed(
+                    Routes.studentQuizQuestionScreen,
+                    arguments: quiz,
+                  );
+                }
               }
             : null,
         style: ElevatedButton.styleFrom(
