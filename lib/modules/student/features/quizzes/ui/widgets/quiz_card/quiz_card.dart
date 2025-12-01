@@ -23,7 +23,10 @@ class QuizCard extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          context.pushNamed(Routes.studentQuizDetailedScreen, arguments: quiz);
+          context.pushNamed(
+            Routes.studentQuizDetailedScreen,
+            arguments: {'quiz': quiz},
+          );
         },
         borderRadius: BorderRadius.circular(20.r),
         child: Ink(

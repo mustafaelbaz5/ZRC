@@ -27,17 +27,17 @@ class StartQuizButton extends StatelessWidget {
                 if (quiz.attemptStatus == QuizAttemptStatus.completed) {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: quiz,
+                    arguments: {'quiz': quiz, 'isRetake': true},
                   );
                 } else if (quiz.attemptStatus == QuizAttemptStatus.inProgress) {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: quiz,
+                    arguments: {'quiz': quiz, 'isRetake': true},
                   );
                 } else {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: quiz,
+                    arguments: {'quiz': quiz, 'isRetake': true},
                   );
                 }
               }

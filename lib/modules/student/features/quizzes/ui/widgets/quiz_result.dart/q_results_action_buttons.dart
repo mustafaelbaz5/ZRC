@@ -41,11 +41,12 @@ class QResultsActionButtons extends StatelessWidget {
                   // Navigate back to quiz details to retake
                   context.pushReplacementNamed(
                     Routes.studentQuizDetailedScreen,
+                    arguments: {'quiz': quiz},
                   );
                 },
                 icon: Icon(Icons.replay, size: 20.sp),
                 label: Text(
-                  'Retake Quiz',
+                  'finished'.toUpperCase(),
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
@@ -62,31 +63,28 @@ class QResultsActionButtons extends StatelessWidget {
                 ),
               ),
             ),
-          if (canRetake) SizedBox(height: 12.h),
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton.icon(
-              onPressed: () {
-                context.pushReplacementNamed(
-                  Routes.studentScaffold,
-                  arguments: {'initialPage': 0},
-                );
-              },
-              icon: Icon(Icons.home_outlined, size: 20.sp),
-              label: Text(
-                'Back to Home',
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
-              ),
-              style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.grey[700],
-                padding: EdgeInsets.symmetric(vertical: 16.h),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.r),
-                ),
-                side: BorderSide(color: Colors.grey[300]!, width: 1.5),
-              ),
-            ),
-          ),
+          // if (canRetake) SizedBox(height: 12.h),
+          // SizedBox(
+          //   width: double.infinity,
+          //   child: OutlinedButton.icon(
+          //     onPressed: () {
+          //       context.pushNamed(Routes.initialScreen);
+          //     },
+          //     icon: Icon(Icons.home_outlined, size: 20.sp),
+          //     label: Text(
+          //       'Back to Home',
+          //       style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+          //     ),
+          //     style: OutlinedButton.styleFrom(
+          //       foregroundColor: Colors.grey[700],
+          //       padding: EdgeInsets.symmetric(vertical: 16.h),
+          //       shape: RoundedRectangleBorder(
+          //         borderRadius: BorderRadius.circular(16.r),
+          //       ),
+          //       side: BorderSide(color: Colors.grey[300]!, width: 1.5),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
