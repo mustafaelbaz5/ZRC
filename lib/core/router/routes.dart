@@ -11,6 +11,7 @@ class Routes {
   static const String studentQuizzesScreen = '/studentQuizzesScreen';
   static const String studentQuizDetailedScreen = '/studentQuizDetailedScreen';
   static const String studentQuizQuestionScreen = '/studentQuizQuestionScreen';
+  static const String studentQuizResultScreen = '/studentQuizResultScreen';
   static const String studentProfileScreen = '/studentProfileScreen';
 
   // Instructor
