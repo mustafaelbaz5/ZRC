@@ -65,6 +65,11 @@ class AppTextStyles {
   );
 
   // White
+  static TextStyle font24WhiteRegular = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: Colors.white,
+  );
   static TextStyle font18WhiteRegular = TextStyle(
     fontSize: 18.sp,
     fontWeight: FontWeightHelper.semiBold,
