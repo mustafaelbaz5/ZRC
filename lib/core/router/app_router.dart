@@ -24,12 +24,14 @@ final navigationKey = GlobalKey<CurvedNavigationBarState>();
 
 class AppRouter {
   Route<dynamic>? generateRoute(RouteSettings settings) {
-    // final arguments = settings.arguments;
+    final args = (settings.arguments as Map<String, dynamic>?) ?? {};
 
     switch (settings.name) {
+      // ----------------- ONBOARDING -----------------
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
 
+      // ----------------- INITIAL / AUTH -----------------
       case Routes.initialScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -41,13 +43,15 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (context) => AuthCubit(),
+            create: (_) => AuthCubit(),
             child: const LoginScreen(),
           ),
         );
-      // Student module
+
+      // ----------------- STUDENT APP -----------------
       case Routes.studentScaffold:
         return MaterialPageRoute(
+          settings: const RouteSettings(name: Routes.studentScaffold),
           builder: (_) => StudentScaffold(navigationKey: navigationKey),
         );
 
@@ -65,67 +69,34 @@ class AppRouter {
 
       case Routes.studentQuizDetailedScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizDetailedScreen(
-            quiz: QuizModel(
-              id: 'quiz_001',
-              title: 'Mathematics Chapter 5 Quiz',
-              subject: 'Mathematics',
-              description:
-                  'This quiz covers algebraic equations, quadratic formulas, and problem-solving techniques from Chapter 5.',
-              instructorName: 'Dr. Ahmed Hassan',
-              instructorAvatar: null,
-              questionsCount: 20,
-              duration: 45,
-              totalMarks: 100,
-              passingMarks: 60,
-              dueDate: DateTime.now().add(const Duration(days: 5)),
-              publishedDate: DateTime.now().subtract(const Duration(days: 2)),
-              attemptStatus: QuizAttemptStatus.notStarted,
-              userScore: null,
-              attemptsAllowed: 2,
-              attemptsUsed: 0,
-              difficulty: QuizDifficulty.medium,
-            ),
-          ),
+          builder: (_) => QuizDetailedScreen(quiz: args['quiz'] as QuizModel),
         );
 
       case Routes.studentQuizQuestionScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizQuestionsScreen(
-            quiz: QuizModel(
-              id: 'quiz_001',
-              title: 'Mathematics Chapter 5 Quiz',
-              subject: 'Mathematics',
-              description:
-                  'This quiz covers algebraic equations, quadratic formulas, and problem-solving techniques from Chapter 5.',
-              instructorName: 'Dr. Ahmed Hassan',
-              instructorAvatar: null,
-              questionsCount: 20,
-              duration: 10,
-              totalMarks: 100,
-              passingMarks: 60,
-              dueDate: DateTime.now().add(const Duration(days: 5)),
-              publishedDate: DateTime.now().subtract(const Duration(days: 2)),
-              attemptStatus: QuizAttemptStatus.notStarted,
-              userScore: null,
-              attemptsAllowed: 2,
-              attemptsUsed: 0,
-              difficulty: QuizDifficulty.medium,
-            ),
+          builder: (_) => QuizQuestionsScreen(quiz: args['quiz'] as QuizModel),
+        );
+
+      case Routes.studentQuizResultScreen:
+        return MaterialPageRoute(
+          builder: (_) => QuizResultScreen(
+            quiz: args['quiz'] as QuizModel,
+            score: args['score'] as int,
           ),
         );
-      case Routes.studentQuizResultScreen:
-        return MaterialPageRoute(builder: (_) => const QuizResultScreen());
+
       case Routes.studentProfileScreen:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
-      //Instructor module
+
+      // ----------------- INSTRUCTOR -----------------
       case Routes.instructorHomeScreen:
         return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
 
-      // Admin module
+      // ----------------- ADMIN -----------------
       case Routes.adminHomeScreen:
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
 
+      // ----------------- DEFAULT -----------------
       default:
         return null;
     }
