@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class QResultResultHeader extends StatelessWidget {
   final bool isPassed;
@@ -43,25 +45,17 @@ class QResultResultHeader extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 20.h),
+          verticalSpacing(16),
           Text(
             isPassed ? 'Congratulations!' : 'Keep Trying!',
-            style: TextStyle(
-              fontSize: 28.sp,
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
-            ),
+            style: AppTextStyles.font24WhiteBold,
           ),
-          SizedBox(height: 8.h),
+          verticalSpacing(8),
           Text(
             isPassed
                 ? 'You passed the quiz successfully'
                 : 'You can improve with practice',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-              color: Colors.white.withAlpha((0.9 * 255).toInt()),
-            ),
+            style: AppTextStyles.font16WhiteRegular,
           ),
         ],
       ),

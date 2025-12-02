@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class QResultsStatItem extends StatelessWidget {
   final IconData icon;
@@ -24,7 +26,7 @@ class QResultsStatItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -33,24 +35,10 @@ class QResultsStatItem extends StatelessWidget {
       child: Column(
         children: [
           Icon(icon, size: 24.sp, color: color),
-          SizedBox(height: 8.h),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
-              color: Colors.grey[900],
-            ),
-          ),
+          verticalSpacing(8),
+          Text(value, style: AppTextStyles.font16BlackBold),
           SizedBox(height: 4.h),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 11.sp,
-              color: Colors.grey[600],
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          Text(label, style: AppTextStyles.font13greyRegular),
         ],
       ),
     );

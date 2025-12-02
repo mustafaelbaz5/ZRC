@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_analysis_row.dart';
 
 class QResultsPerformanceAnalysis extends StatelessWidget {
@@ -7,7 +9,8 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
   final int percentage;
   final int passingMarks;
 
-  const QResultsPerformanceAnalysis({super.key, 
+  const QResultsPerformanceAnalysis({
+    super.key,
     required this.isPassed,
     required this.percentage,
     required this.passingMarks,
@@ -23,7 +26,7 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -39,42 +42,38 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                 size: 20.sp,
                 color: Colors.blue[700],
               ),
-              SizedBox(width: 8.w),
+              horizontalSpacing(8),
               Text(
                 'Performance Analysis',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.grey[900],
-                ),
+                style: AppTextStyles.font16BlackBold,
               ),
             ],
           ),
-          SizedBox(height: 16.h),
+          verticalSpacing(16),
           QResultsAnalysisRow(
             label: 'Your Score',
             value: '$percentage%',
             color: isPassed ? Colors.green : Colors.orange,
           ),
-          SizedBox(height: 10.h),
+          verticalSpacing(12),
           QResultsAnalysisRow(
             label: 'Passing Score',
             value: '$passingMarks%',
             color: Colors.blue,
           ),
-          SizedBox(height: 10.h),
+          verticalSpacing(12),
           QResultsAnalysisRow(
             label: 'Difference',
             value: '${(percentage - passingMarks).abs()}%',
             color: Colors.grey,
           ),
-          SizedBox(height: 16.h),
+          verticalSpacing(12),
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
               color: isPassed
-                  ? Colors.green.withOpacity(0.1)
-                  : Colors.blue.withOpacity(0.1),
+                  ? Colors.green.withAlpha((0.09 * 255).toInt())
+                  : Colors.blue.withAlpha((0.09 * 255).toInt()),
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Row(
@@ -84,17 +83,13 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                   size: 18.sp,
                   color: isPassed ? Colors.green[700] : Colors.blue[700],
                 ),
-                SizedBox(width: 10.w),
+                horizontalSpacing(10),
                 Expanded(
                   child: Text(
                     isPassed
                         ? 'Excellent work! Keep up the good performance.'
                         : 'Review the material and try again to improve your score.',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      color: Colors.grey[800],
-                      height: 1.4,
-                    ),
+                    style: AppTextStyles.font13greyRegular,
                   ),
                 ),
               ],

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class QResultsAttemptsInfo extends StatelessWidget {
   final int attemptsUsed;
   final int attemptsAllowed;
   final bool canRetake;
 
-  const QResultsAttemptsInfo({super.key, 
+  const QResultsAttemptsInfo({
+    super.key,
     required this.attemptsUsed,
     required this.attemptsAllowed,
     required this.canRetake,
@@ -22,7 +25,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -34,8 +37,8 @@ class QResultsAttemptsInfo extends StatelessWidget {
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
               color: canRetake
-                  ? Colors.blue.withOpacity(0.1)
-                  : Colors.red.withOpacity(0.1),
+                  ? Colors.blue.withAlpha((0.1 * 255).toInt())
+                  : Colors.red.withAlpha((0.1 * 255).toInt()),
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Icon(
@@ -44,27 +47,16 @@ class QResultsAttemptsInfo extends StatelessWidget {
               color: canRetake ? Colors.blue[700] : Colors.red[700],
             ),
           ),
-          SizedBox(width: 16.w),
+          horizontalSpacing(16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Attempts Used',
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: Colors.grey[600],
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(height: 4.h),
+                Text('Attempts Used', style: AppTextStyles.font13greyRegular),
+                verticalSpacing(8),
                 Text(
                   '$attemptsUsed / $attemptsAllowed',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.grey[900],
-                  ),
+                  style: AppTextStyles.font16BlackBold,
                 ),
               ],
             ),
@@ -73,7 +65,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
               decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.1),
+                color: Colors.green.withAlpha((0.1 * 255).toInt()),
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(
@@ -89,7 +81,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
               decoration: BoxDecoration(
-                color: Colors.red.withOpacity(0.1),
+                color: Colors.red.withAlpha((0.1 * 255).toInt()),
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class QResultsScoreCard extends StatelessWidget {
   final int score;
@@ -25,7 +27,7 @@ class QResultsScoreCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withAlpha((0.4 * 255).toInt()),
             blurRadius: 16,
             offset: const Offset(0, 4),
           ),
@@ -33,15 +35,8 @@ class QResultsScoreCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            'Your Score',
-            style: TextStyle(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey[600],
-            ),
-          ),
-          SizedBox(height: 16.h),
+          Text('Your Score', style: AppTextStyles.font16greyRegular),
+          verticalSpacing(16),
           // Circular Progress
           SizedBox(
             width: 150.w,
@@ -76,24 +71,18 @@ class QResultsScoreCard extends StatelessWidget {
                     ),
                     Text(
                       '$score / $totalMarks',
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[600],
-                      ),
+                      style: AppTextStyles.font16greyRegular,
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(height: 20.h),
+          verticalSpacing(24),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
             decoration: BoxDecoration(
-              color: isPassed
-                  ? Colors.green.withOpacity(0.1)
-                  : Colors.orange.withOpacity(0.1),
+              color: isPassed ? Colors.green[100] : Colors.orange[100],
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Row(
@@ -107,11 +96,7 @@ class QResultsScoreCard extends StatelessWidget {
                 SizedBox(width: 8.w),
                 Text(
                   isPassed ? 'Passed' : 'Not Passed',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
-                    color: isPassed ? Colors.green[700] : Colors.orange[700],
-                  ),
+                  style: AppTextStyles.font16greyRegular,
                 ),
               ],
             ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class QResultsAnalysisRow extends StatelessWidget {
   final String label;
   final String value;
   final Color color;
 
-  const QResultsAnalysisRow({super.key, 
+  const QResultsAnalysisRow({
+    super.key,
     required this.label,
     required this.value,
     required this.color,
@@ -17,18 +19,11 @@ class QResultsAnalysisRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 14.sp,
-            color: Colors.grey[700],
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        Text(label, style: AppTextStyles.font13greyRegular),
         Text(
           value,
           style: TextStyle(
-            fontSize: 14.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w700,
             color: color,
           ),

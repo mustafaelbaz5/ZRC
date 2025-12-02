@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_stat_item.dart';
 
@@ -27,7 +28,7 @@ class QResultsStatsGrid extends StatelessWidget {
               color: Colors.purple,
             ),
           ),
-          SizedBox(width: 12.w),
+          horizontalSpacing(12),
           Expanded(
             child: QResultsStatItem(
               icon: Icons.timer_outlined,
@@ -36,7 +37,7 @@ class QResultsStatsGrid extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          SizedBox(width: 12.w),
+          horizontalSpacing(12),
           Expanded(
             child: QResultsStatItem(
               icon: Icons.trending_up,

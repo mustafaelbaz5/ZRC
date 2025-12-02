@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class QResultsInfoRow extends StatelessWidget {
   final String label;
@@ -12,24 +12,8 @@ class QResultsInfoRow extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '$label: ',
-          style: TextStyle(
-            fontSize: 13.sp,
-            color: Colors.grey[600],
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        Expanded(
-          child: Text(
-            value,
-            style: TextStyle(
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey[900],
-            ),
-          ),
-        ),
+        Text('$label: ', style: AppTextStyles.font13BlueBold),
+        Expanded(child: Text(value, style: AppTextStyles.font13greyRegular)),
       ],
     );
   }
