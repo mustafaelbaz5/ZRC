@@ -50,9 +50,13 @@ class AppRouter {
 
       // ----------------- STUDENT APP -----------------
       case Routes.studentScaffold:
+        final key =
+            (settings.arguments as Map<String, dynamic>?)?['navigationKey']
+                as GlobalKey<CurvedNavigationBarState>? ??
+            GlobalKey<CurvedNavigationBarState>();
+
         return MaterialPageRoute(
-          settings: const RouteSettings(name: Routes.studentScaffold),
-          builder: (_) => StudentScaffold(navigationKey: navigationKey),
+          builder: (_) => StudentScaffold(navigationKey: key),
         );
 
       case Routes.studentHomeScreen:
