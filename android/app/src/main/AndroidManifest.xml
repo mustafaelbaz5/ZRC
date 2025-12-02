@@ -19,10 +19,6 @@
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme"
             />
-<<<<<<< HEAD
-
-=======
->>>>>>> bad27c137fbf7f9bf0e1ad327b44957e52ceb4ac
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

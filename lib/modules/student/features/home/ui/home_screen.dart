@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'widgets/instructors_list_view.dart';
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';
@@ -8,6 +7,7 @@ import 'widgets/categories_list_view.dart';
 import 'widgets/courses_list_view.dart';
 import 'widgets/home_app_bar.dart';
 import 'widgets/home_header.dart';
+import 'widgets/instructors_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -36,7 +36,7 @@ class AllCoursesSliverList extends StatelessWidget {
                   onTap: () {
                     context.pushNamed(
                       Routes.studentCoursesDetailsScreen,
-                      arguments: course,
+                      arguments: {'course': course},
                     );
                   },
                   child: AllCoursesListViewCard(coursesCardModel: course),

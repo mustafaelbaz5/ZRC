@@ -12,6 +12,7 @@ platform :android do
       "m9stafa05@gmail.com",
       "mohmmedhosni34@gmail.com",
       "Amrb3556@gmail.com",
+      "ahmedghanem442004@gmail.com",
     ]
 
     # Convert array to comma-separated string

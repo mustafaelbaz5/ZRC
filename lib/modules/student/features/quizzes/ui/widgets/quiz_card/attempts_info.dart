@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class AttemptsInfo extends StatelessWidget {
+  const AttemptsInfo({
+    super.key,
+    required this.attemptsUsed,
+    required this.attemptsAllowed,
+  });
+  final int attemptsUsed;
+  final int attemptsAllowed;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+      decoration: BoxDecoration(
+        color: Colors.indigo.withAlpha(25),
+        borderRadius: BorderRadius.circular(8.r),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.replay_outlined, size: 14.sp, color: Colors.indigo[700]),
+          SizedBox(width: 6.w),
+          Text(
+            '$attemptsUsed/$attemptsAllowed attempts',
+            style: TextStyle(
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w600,
+              color: Colors.indigo[800],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../logic/cubit/auth_cubit.dart';
+
 import '../../../router/routes.dart';
 import '../../../themes/app_colors.dart';
 import '../../../utils/functions/navigate_to_role_home.dart';
 import '../../../widgets/show_error_dialog.dart';
+import '../../logic/cubit/auth_cubit.dart';
 
 class InitialScreen extends StatelessWidget {
   const InitialScreen({super.key});
