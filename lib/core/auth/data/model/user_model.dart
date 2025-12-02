@@ -5,7 +5,7 @@ class UserModel {
   final int studentCode;
   final String name;
   final String email;
-  final String? password;
+
   final String? college;
   final int? nationalId;
   final String? phoneNumber;
@@ -16,7 +16,7 @@ class UserModel {
     required this.studentCode,
     required this.name,
     required this.email,
-    this.password,
+
     this.college,
     this.nationalId,
     this.phoneNumber,
@@ -28,7 +28,6 @@ class UserModel {
     studentCode: json['student_code'],
     name: json['name'] ?? '',
     email: json['email'] ?? '',
-    password: json['password'],
     college: json['college'],
     nationalId: json['national_id'],
     phoneNumber: json['phone_number'],
@@ -40,7 +39,6 @@ class UserModel {
     'student_code': studentCode,
     'name': name,
     'email': email,
-    'password': password,
     'college': college,
     'national_id': nationalId,
     'phone_number': phoneNumber,
