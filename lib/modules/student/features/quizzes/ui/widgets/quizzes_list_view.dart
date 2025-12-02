@@ -22,8 +22,8 @@ class QuizzesListView extends StatelessWidget {
         instructorAvatar: null,
         questionsCount: 15 + (index * 2),
         duration: 30 + (index * 5),
-        totalMarks: 100,
-        passingMarks: 60,
+        totalMarks: 30,
+        passingMarks: 15,
         dueDate: DateTime.now().add(Duration(days: index + 2)),
         publishedDate: DateTime.now().subtract(const Duration(days: 2)),
         attemptStatus: index % 4 == 0
@@ -32,7 +32,7 @@ class QuizzesListView extends StatelessWidget {
             ? QuizAttemptStatus.inProgress
             : QuizAttemptStatus.notStarted,
         userScore: index % 4 == 0 ? 85 + index : null,
-        attemptsAllowed: 2,
+        attemptsAllowed: 1,
         attemptsUsed: index % 4 == 0 ? 1 : 0,
         difficulty: index % 3 == 0
             ? QuizDifficulty.hard
