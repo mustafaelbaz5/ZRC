@@ -34,4 +34,8 @@ class AppRegex {
       r'^(01[0125][0-9]{8})$|^(?:\+20)(1[0125][0-9]{8})$',
     ).hasMatch(phoneNumber);
   }
+    bool isArabic(String text) {
+    final arabicRegex = RegExp(r'[\u0600-\u06FF]');
+    return arabicRegex.hasMatch(text);
+  }
 }
