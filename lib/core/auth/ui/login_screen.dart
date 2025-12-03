@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
             } else if (state is AuthError) {
               showErrorDialog(
                 context: context,
-                title: 'Login Failed',
+                title: 'login.title_login_failed'.tr(),
                 message: state.errorMessage,
               );
             }
@@ -33,14 +34,12 @@ class LoginScreen extends StatelessWidget {
           builder: (context, state) {
             return Stack(
               children: [
-                /// MAIN CONTENT
                 AnimatedSwitcher(
                   duration: const Duration(milliseconds: 350),
                   transitionBuilder: (child, animation) =>
                       FadeTransition(opacity: animation, child: child),
                   child: _buildBodyForState(state),
                 ),
-                
               ],
             );
           },
@@ -57,7 +56,7 @@ class LoginScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
           child: Center(
             child: Text(
-              'Welcome, ${state.userModel.name}',
+              'login.welcome_user'.tr(args: [state.userModel.name]),
               style: AppTextStyles.font20BlackBold(),
             ),
           ),
@@ -65,12 +64,11 @@ class LoginScreen extends StatelessWidget {
       );
     }
 
-    // DEFAULT: Login Screen
+    // login view
     return LayoutBuilder(
       builder: (context, constraints) {
         return SingleChildScrollView(
           key: const ValueKey('login_view'),
-
           child: SizedBox(
             height: constraints.maxHeight,
             width: double.infinity,

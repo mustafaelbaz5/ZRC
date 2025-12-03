@@ -1,7 +1,7 @@
 {
   "onboarding": {
     "title1": "مرحبًا بك في ZRC",
-    "subtitle1": "مجتمع روبوتات جامعة الزقازيق",
+    "subtitle1": "مجتمع روبوتات جامعة الزقازيق الاهلية  ",
 
     "title2": "ادخل إلى عالم من التميّز في التعلّم",
     "subtitle2": "انضم إلى الورش والمشاريع",
@@ -16,5 +16,24 @@
     "button_get_started": "ابداء",
 
     "button_skip": "تخطي"
+  },
+  "login": {
+    "title": "مرحباً بعودتك",
+    "subtitle": "سجّل الدخول باستخدام بريدك الجامعي وكلمة المرور",
+
+    "email_label": "البريد الإلكتروني",
+    "email_hint": "أدخل بريدك الإلكتروني",
+    "email_error_empty": "لا يمكن ترك البريد الإلكتروني فارغاً",
+    "email_error_invalid": "يرجى إدخال بريد صحيح [********@znu.edu.eg]",
+
+    "password_label": "كلمة المرور",
+    "password_hint": "أدخل كلمة المرور",
+    "password_error_empty": "لا يمكن ترك كلمة المرور فارغة",
+
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "button_login": "تسجيل الدخول",
+
+    "title_login_failed": "فشل تسجيل الدخول",
+    "welcome_user": "مرحباً، {name}"
   }
 }

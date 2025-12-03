@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,28 +48,23 @@ class _LoginFormState extends State<LoginForm> {
       child: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Email
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Email',
-                style: AppTextStyles.font16BlackBold().copyWith(
-                  fontSize: 16.sp,
-                ),
-              ),
+            Text(
+              'login.email_label'.tr(),
+              style: AppTextStyles.font16BlackBold(),
             ),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _emailController,
-              hintText: 'Enter your email',
+              hintText: 'login.email_hint'.tr(),
               keyboardType: TextInputType.emailAddress,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Email cannot be empty';
+                  return 'login.email_error_empty'.tr();
                 } else if (!AppRegex.isEmailValid(value.trim())) {
-                  return 'Please enter a valid email[********@.znu.edu.eg]';
+                  return 'login.email_error_invalid'.tr();
                 }
                 return null;
               },
@@ -76,34 +72,29 @@ class _LoginFormState extends State<LoginForm> {
             verticalSpacing(24),
 
             // Password
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Password',
-                style: AppTextStyles.font16BlackBold().copyWith(
-                  fontSize: 16.sp,
-                ),
-              ),
+            Text(
+              'login.password_label'.tr(),
+              style: AppTextStyles.font16BlackBold().copyWith(fontSize: 16.sp),
             ),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _passwordController,
-              hintText: 'Enter your password',
+              hintText: 'login.password_hint'.tr(),
               isObscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Password cannot be empty';
+                  return 'login.password_error_empty'.tr();
                 }
                 return null;
               },
             ),
 
             Align(
-              alignment: Alignment.centerRight,
+              alignment: AlignmentDirectional.centerStart,
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Forgot Password?',
+                  'login.forgot_password'.tr(),
                   style: AppTextStyles.font16BlackRegular().copyWith(
                     color: AppColors.lightBlue,
                   ),
@@ -114,7 +105,7 @@ class _LoginFormState extends State<LoginForm> {
 
             // Login button
             CustomTextButton(
-              buttonText: 'Login',
+              buttonText: 'login.button_login'.tr(),
               onPressed: isLoading ? null : _onLoginPressed,
               isLoading: isLoading,
               buttonHeight: 56.h,
