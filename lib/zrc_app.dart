@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'core/router/app_router.dart';
 import 'core/router/routes.dart';
@@ -27,6 +28,9 @@ class ZrcApp extends StatelessWidget {
           theme: ThemeData(
             primaryColor: AppColors.darkBlue,
             scaffoldBackgroundColor: Colors.white,
+            textTheme: context.locale.languageCode == 'ar'
+                ? GoogleFonts.tajawalTextTheme(Theme.of(context).textTheme)
+                : GoogleFonts.robotoTextTheme(Theme.of(context).textTheme),
           ),
         );
       },
