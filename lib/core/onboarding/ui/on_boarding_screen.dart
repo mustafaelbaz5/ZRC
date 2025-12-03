@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../extensions/navigation.dart';
 import '../../router/routes.dart';
-import '../../utils/functions/change_language.dart';
+import '../../utils/functions/app_language.dart';
 import '../data/models/on_boarding_page_model.dart';
 import 'widgets/onboarding_bottom_section.dart';
 import 'widgets/onboarding_content.dart';
@@ -40,7 +40,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   void _onChangeLanguage() {
-    changeLanguage(context);
+    switchLanguage(context);
     setState(() {});
   }
 

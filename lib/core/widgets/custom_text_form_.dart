@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:zrc/core/utils/regex.dart';
 import '../themes/app_colors.dart';
 import '../themes/app_text_styles.dart';
-import '../utils/functions/change_language.dart';
+import '../utils/functions/app_language.dart';
 import 'dart:ui' as ui; // Add this import
 
 class CustomTextFormField extends StatefulWidget {

@@ -63,6 +63,9 @@ dependencies:
   # Arabic to Roman converter
   arabic_roman_conv: ^0.1.0-dev.2
 
+  # Translation
+  translator: ^1.0.4+1
+
 # ------------------------------
 #        DEV DEPENDENCIES
 # ------------------------------

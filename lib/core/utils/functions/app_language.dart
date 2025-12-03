@@ -1,8 +1,9 @@
 import 'package:arabic_roman_conv/arabic_roman_conv.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:translator/translator.dart';
 
-void changeLanguage(BuildContext context) {
+void switchLanguage(BuildContext context) {
   final current = context.locale;
 
   // Switch locale
@@ -14,6 +15,7 @@ void changeLanguage(BuildContext context) {
   (context as Element).markNeedsBuild();
 }
 
+/// Converts Arabic name to English
 String changeNameToEn(BuildContext context, String nameAr) {
   if (context.locale.languageCode == 'en') {
     // Create an instance of ArabicRomanConv
@@ -24,4 +26,16 @@ String changeNameToEn(BuildContext context, String nameAr) {
     // Keep Arabic
     return nameAr;
   }
+}
+
+/// Checks if the app language is Arabic
+bool isAppLanguageArabic(BuildContext context) {
+  return Localizations.localeOf(context).languageCode == 'ar';
+}
+
+/// Translates text to Arabic
+Future<String> translateToArabic(String text) async {
+  final translator = GoogleTranslator();
+  var translation = await translator.translate(text, to: 'ar');
+  return translation.text;
 }

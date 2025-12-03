@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/auth/data/model/user_model.dart';
 import '../../../../../core/storage/secure_storage.dart';
-import '../../../../../core/utils/functions/change_language.dart';
+import '../../../../../core/utils/functions/app_language.dart';
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';
