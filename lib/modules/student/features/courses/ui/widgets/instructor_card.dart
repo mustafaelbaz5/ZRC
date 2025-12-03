@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'instructor_stat.dart';
@@ -74,17 +75,17 @@ class InstructorCard extends StatelessWidget {
               InstructorStat(
                 icon: Icons.star,
                 value: rating.toString(),
-                label: 'Rating',
+                label: tr('student_courses.instructor_card.rating'),
               ),
               InstructorStat(
                 icon: Icons.school,
                 value: courses.toString(),
-                label: 'Courses',
+                label: tr('student_courses.instructor_card.courses'),
               ),
               InstructorStat(
                 icon: Icons.people,
                 value: _formatNumber(students),
-                label: 'Students',
+                label: tr('student_courses.instructor_card.students'),
               ),
             ],
           ),

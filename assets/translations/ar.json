@@ -50,5 +50,73 @@
     "instructors_title": "أفضل المدربين",
 
     "see_all": "عرض الكل"
+  },
+
+  "student_courses": {
+    "screen_title": "الدورات",
+    "categories": "الفئات",
+    "course_details": "تفاصيل الدورة",
+
+    "meta": {
+      "instructor": "المدرب",
+      "duration": "المدة",
+      "lessons": "الدروس",
+      "level": "المستوى",
+      "rating": "التقييم",
+      "students": "الطلاب",
+      "hours": "ساعات",
+      "enrolled": "المسجلين",
+      "completion_rate": "معدل الإكمال"
+    },
+
+    "levels": {
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم"
+    },
+
+    "sections": {
+      "about": "حول هذه الدورة",
+      "what_you_learn": "ما ستتعلمه",
+      "instructor": "المدرب",
+      "requirements": "المتطلبات",
+      "reviews": "التقييمات",
+      "curriculum": "المنهج"
+    },
+
+    "stats": {
+      "rating": "التقييم",
+      "ratings": "تقييمات",
+      "enrolled": "مسجل",
+      "completion": "الإكمال",
+      "courses": "دورات",
+      "students": "طلاب"
+    },
+
+    "instructor_card": {
+      "rating": "التقييم",
+      "courses": "دورات",
+      "students": "طلاب",
+      "years_experience": "{count}+ سنوات من الخبرة",
+      "taught_students": "دَرّس أكثر من {count} طالب حول العالم"
+    },
+
+    "buttons": {
+      "enroll": "سجل الآن",
+      "start_learning": "ابدأ التعلم",
+      "view_all": "عرض الكل",
+      "preview": "معاينة",
+      "save": "حفظ",
+      "share": "مشاركة"
+    },
+
+    "filter": {
+      "all": "الكل",
+      "popular": "الأكثر شعبية",
+      "newest": "الأحدث",
+      "trending": "الرائج",
+      "free": "مجاني",
+      "paid": "مدفوع"
+    }
   }
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/themes/app_text_styles.dart';
@@ -16,10 +17,13 @@ class CoursesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomAppBar(title: "Courses"),
+            CustomAppBar(title: tr('student_courses.screen_title')),
+            verticalSpacing(18),
+            Text(
+              tr('student_courses.categories'),
+              style: AppTextStyles.font20BlackBold(),
+            ),
             verticalSpacing(8),
-            Text("Categories", style: AppTextStyles.font18GreyRegular()),
-            verticalSpacing(16),
             const AllCoursesFilterListView(),
             const Expanded(child: AllCoursesSliverList()),
           ],

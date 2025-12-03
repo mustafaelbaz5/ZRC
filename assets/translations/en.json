@@ -51,5 +51,72 @@
     "instructors_title": "Top Instructors",
 
     "see_all": "See all"
+  },
+  "student_courses": {
+    "screen_title": "Courses",
+    "categories": "Categories",
+    "course_details": "Course Details",
+
+    "meta": {
+      "instructor": "Instructor",
+      "duration": "Duration",
+      "lessons": "Lessons",
+      "level": "Level",
+      "rating": "Rating",
+      "students": "Students",
+      "hours": "Hours",
+      "enrolled": "Enrolled",
+      "completion_rate": "Completion Rate"
+    },
+
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+
+    "sections": {
+      "about": "About This Course",
+      "what_you_learn": "What You'll Learn",
+      "instructor": "Instructor",
+      "requirements": "Requirements",
+      "reviews": "Reviews",
+      "curriculum": "Curriculum"
+    },
+
+    "stats": {
+      "rating": "Rating",
+      "ratings": "Ratings",
+      "enrolled": "Enrolled",
+      "completion": "Completion",
+      "courses": "Courses",
+      "students": "Students"
+    },
+
+    "instructor_card": {
+      "rating": "Rating",
+      "courses": "Courses",
+      "students": "Students",
+      "years_experience": "{count}+ years of experience",
+      "taught_students": "Taught over {count} students worldwide"
+    },
+
+    "buttons": {
+      "enroll": "Enroll Now",
+      "start_learning": "Start Learning",
+      "view_all": "View All",
+      "preview": "Preview",
+      "save": "Save",
+      "share": "Share"
+    },
+
+    "filter": {
+      "all": "All",
+      "popular": "Popular",
+      "newest": "Newest",
+      "trending": "Trending",
+      "free": "Free",
+      "paid": "Paid"
+    }
   }
 }

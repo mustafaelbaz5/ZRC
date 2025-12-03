@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CourseStatsRow extends StatelessWidget {
@@ -23,7 +24,7 @@ class CourseStatsRow extends StatelessWidget {
             icon: Icons.star,
             iconColor: Colors.amber,
             value: rating.toString(),
-            label: '$totalRatings ratings',
+            label: '$totalRatings ${tr('student_courses.stats.ratings')}',
           ),
         ),
         const SizedBox(width: 12),
@@ -32,7 +33,7 @@ class CourseStatsRow extends StatelessWidget {
             icon: Icons.people_outline,
             iconColor: Colors.blue,
             value: _formatNumber(enrolled),
-            label: 'Students',
+            label: tr('student_courses.stats.completion'),
           ),
         ),
         const SizedBox(width: 12),
@@ -41,7 +42,7 @@ class CourseStatsRow extends StatelessWidget {
             icon: Icons.check_circle_outline,
             iconColor: Colors.green,
             value: '$completionRate%',
-            label: 'Complete',
+            label: tr('student_courses.stats.completion'),
           ),
         ),
       ],
