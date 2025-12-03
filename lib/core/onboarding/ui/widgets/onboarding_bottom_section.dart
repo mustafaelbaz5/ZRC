@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +50,9 @@ class OnBoardingBottomSection extends StatelessWidget {
         horizontalSpacing(12.w),
         Expanded(
           child: CustomTextButton(
-            buttonText: isLastPage ? 'Get Started' : 'Next',
+            buttonText: isLastPage
+                ? 'onboarding.button_get_started'.tr()
+                : 'onboarding.button_next'.tr(),
             onPressed: onNext,
             buttonHeight: 56.h,
             buttonWidth: double.infinity,
