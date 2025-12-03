@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/core/utils/functions/change_language.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/core/utils/functions/change_language.dart';
+import '../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../core/storage/secure_storage.dart';
+import '../../../../../core/utils/functions/change_language.dart';
+
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';

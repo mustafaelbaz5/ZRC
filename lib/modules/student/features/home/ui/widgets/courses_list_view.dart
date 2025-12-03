@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/extensions/navigation.dart';
 
+import '../../../../../../core/extensions/navigation.dart';
 import '../../../../../../core/router/routes.dart';
 import '../../../../../../core/utils/app_assets.dart';
 import '../../../../core/models/courses_card_model.dart';

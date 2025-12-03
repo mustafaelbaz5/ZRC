@@ -1,4 +1,4 @@
-import 'package:zrc/core/utils/app_assets.dart';
+import '../../../utils/app_assets.dart';
 
 class OnBoardingPageModel {
   final String image;

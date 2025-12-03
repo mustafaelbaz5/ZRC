@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/date_formate.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/detail_row.dart';
+
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/functions/date_formate.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
+import 'detail_row.dart';
 
 class QuizzesDetailsFilterChip extends StatelessWidget {
   final QuizModel quiz;

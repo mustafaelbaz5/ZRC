@@ -1,22 +1,22 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/quiz_result_screen.dart';
+
+import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
+import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
+import '../../modules/student/core/widgets/student_scaffold.dart';
+import '../../modules/student/features/courses/ui/courses_details_screen.dart';
+import '../../modules/student/features/courses/ui/courses_screen.dart';
+import '../../modules/student/features/home/ui/home_screen.dart';
+import '../../modules/student/features/profile/ui/profile_screen.dart';
 import '../../modules/student/features/quizzes/data/model/quiz_model.dart';
 import '../../modules/student/features/quizzes/ui/quiz_detailed_screen.dart';
 import '../../modules/student/features/quizzes/ui/quiz_questions_screen.dart';
-import '../auth/ui/widgets/initial_screen.dart';
-import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
-import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
-import '../../modules/student/features/courses/ui/courses_details_screen.dart';
-
-import '../../modules/student/core/widgets/student_scaffold.dart';
-import '../../modules/student/features/courses/ui/courses_screen.dart';
-import '../../modules/student/features/home/ui/home_screen.dart';
+import '../../modules/student/features/quizzes/ui/quiz_result_screen.dart';
 import '../../modules/student/features/quizzes/ui/quizzes_screen.dart';
-import '../../modules/student/features/profile/ui/profile_screen.dart';
 import '../auth/logic/cubit/auth_cubit.dart';
 import '../auth/ui/login_screen.dart';
+import '../auth/ui/widgets/initial_screen.dart';
 import '../onboarding/ui/on_boarding_screen.dart';
 import 'routes.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/true_false_card.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'true_false_card.dart';
 
 class TrueFalseOptions extends StatelessWidget {
   final dynamic selectedAnswer;

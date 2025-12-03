@@ -1,11 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/navigation.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+
+import '../../../../../../../core/extensions/navigation.dart';
+import '../../../../../../../core/router/routes.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../data/model/quiz_model.dart';
 
 class QResultsActionButtons extends StatelessWidget {
   final bool isPassed;

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_result_result_header.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../data/model/quiz_model.dart';
+import 'widgets/quiz_result.dart/q_result_result_header.dart';
 
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_action_buttons.dart';
+import 'widgets/quiz_result.dart/q_results_action_buttons.dart';
 
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_attempts_info.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_performance_analysis.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_quiz_info_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_score_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_stats_grid.dart';
+import 'widgets/quiz_result.dart/q_results_attempts_info.dart';
+import 'widgets/quiz_result.dart/q_results_performance_analysis.dart';
+import 'widgets/quiz_result.dart/q_results_quiz_info_card.dart';
+import 'widgets/quiz_result.dart/q_results_score_card.dart';
+import 'widgets/quiz_result.dart/q_results_stats_grid.dart';
 
 class QuizResultScreen extends StatelessWidget {
   final QuizModel quiz;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/functions/change_language.dart';
 
 import '../../extensions/navigation.dart';
 import '../../router/routes.dart';
+import '../../utils/functions/change_language.dart';
 import '../data/models/on_boarding_page_model.dart';
 import 'widgets/onboarding_bottom_section.dart';
 import 'widgets/onboarding_content.dart';

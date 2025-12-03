@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/fill_in_blank_input.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/m_c_q_options.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/true_false_options.dart';
+import '../../../data/model/quiz_questions_model.dart';
+import 'fill_in_blank_input.dart';
+import 'm_c_q_options.dart';
+import 'true_false_options.dart';
 
 class AnswerWidget extends StatelessWidget {
   final QuizQuestionsModel question;

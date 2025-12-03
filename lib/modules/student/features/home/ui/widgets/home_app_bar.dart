@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zrc/core/utils/functions/names_functions.dart';
+import '../../../../../../core/utils/functions/names_functions.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/app_assets.dart';

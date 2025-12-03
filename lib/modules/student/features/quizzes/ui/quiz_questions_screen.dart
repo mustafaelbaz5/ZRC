@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/navigation.dart';
@@ -9,13 +11,10 @@ import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart'
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/answer_widget.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/exit_dialog.dart';
-
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/navigation_buttons.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/question_card.dart';
-
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/submit_dialog.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/quiz_header.dart';
-import 'dart:async';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/submit_dialog.dart';
 
 class QuizQuestionsScreen extends StatefulWidget {
   final QuizModel quiz;
