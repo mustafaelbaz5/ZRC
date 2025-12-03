@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../utils/spacing.dart';
+
 import '../themes/app_text_styles.dart';
+import '../utils/spacing.dart';
 
 /// Show error dialog
 void showErrorDialog({
@@ -48,7 +49,7 @@ void showErrorDialog({
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.font20BlackBold,
+                style: AppTextStyles.font20BlackBold(),
               ),
               SizedBox(height: 12.h),
 
@@ -56,9 +57,7 @@ void showErrorDialog({
               Text(
                 message,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.font16GreyRegular.copyWith(
-                  fontSize: 16.sp,
-                ),
+                style: AppTextStyles.font16GreyRegular(),
               ),
               verticalSpacing(16),
 
@@ -76,7 +75,7 @@ void showErrorDialog({
                   onPressed: () => Navigator.of(ctx).pop(),
                   child: Text(
                     buttonText,
-                    style: AppTextStyles.font16BlackRegular,
+                    style: AppTextStyles.font16BlackRegular(),
                   ),
                 ),
               ),

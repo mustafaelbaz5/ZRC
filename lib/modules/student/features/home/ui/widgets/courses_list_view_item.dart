@@ -46,14 +46,14 @@ class CoursesListViewCard extends StatelessWidget {
                   children: [
                     Text(
                       coursesCardModel.title,
-                      style: AppTextStyles.font16BlackBold,
+                      style: AppTextStyles.font16BlackBold(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     verticalSpacing(6),
                     Text(
                       coursesCardModel.description,
-                      style: AppTextStyles.font13greyRegular,
+                      style: AppTextStyles.font13greyRegular(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.start,

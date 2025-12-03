@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../../../../../../core/utils/spacing.dart';
+import '../../../../../../../core/utils/spacing.dart';
 import 'youtube_player_error.dart';
 import 'youtube_player_loading.dart';
 

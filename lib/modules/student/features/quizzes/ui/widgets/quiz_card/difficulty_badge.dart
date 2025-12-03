@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,15 +16,15 @@ class DifficultyBadge extends StatelessWidget {
     switch (difficulty) {
       case QuizDifficulty.easy:
         color = Colors.green;
-        label = 'Easy';
+        label = tr('student_quizzes.difficulty.easy');
         break;
       case QuizDifficulty.medium:
         color = Colors.orange;
-        label = 'Medium';
+        label = tr('student_quizzes.difficulty.medium');
         break;
       case QuizDifficulty.hard:
         color = Colors.red;
-        label = 'Hard';
+        label = tr('student_quizzes.difficulty.hard');
         break;
     }
 

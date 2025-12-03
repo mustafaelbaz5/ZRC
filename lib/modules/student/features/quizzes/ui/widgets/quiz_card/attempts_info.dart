@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +24,7 @@ class AttemptsInfo extends StatelessWidget {
           Icon(Icons.replay_outlined, size: 14.sp, color: Colors.indigo[700]),
           SizedBox(width: 6.w),
           Text(
-            '$attemptsUsed/$attemptsAllowed attempts',
+            '$attemptsUsed/$attemptsAllowed ${tr('student_quizzes.quiz_card.attempts')}',
             style: TextStyle(
               fontSize: 12.sp,
               fontWeight: FontWeight.w600,

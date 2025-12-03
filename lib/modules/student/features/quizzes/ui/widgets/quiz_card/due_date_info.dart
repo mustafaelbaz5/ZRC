@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,9 +10,13 @@ class DueDateInfo extends StatelessWidget {
     final now = DateTime.now();
     final difference = dueDate.difference(now).inDays;
 
-    if (difference == 0) return "Due today";
-    if (difference == 1) return "Due tomorrow";
-    if (difference < 7) return "Due in $difference days";
+    if (difference == 0) return tr('student_quizzes.due_date.due_today');
+    if (difference == 1) return tr('student_quizzes.due_date.due_tomorrow');
+    if (difference < 7)
+      return tr(
+        'student_quizzes.due_date.due_in_days',
+        namedArgs: {'days': difference.toString()},
+      );
     return "${dueDate.day}/${dueDate.month}/${dueDate.year}";
   }
 

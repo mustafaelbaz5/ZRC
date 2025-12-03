@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,13 +25,13 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildTitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font32BlackBold.copyWith(
+      style: AppTextStyles.font32BlackBold().copyWith(
         fontSize: 28.sp,
         height: 1.3,
         letterSpacing: -0.5,
       ),
       child: Text(
-        title,
+        title.tr(),
         textAlign: TextAlign.center,
         maxLines: 3,
         overflow: TextOverflow.ellipsis,
@@ -41,13 +42,9 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildSubtitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font18GreyRegular.copyWith(
-        fontSize: 16.sp,
-        color: Colors.grey[600],
-        height: 1.5,
-      ),
+      style: AppTextStyles.font18GreyRegular(),
       child: Text(
-        subtitle,
+        subtitle.tr(),
         textAlign: TextAlign.center,
         maxLines: 2,
         overflow: TextOverflow.ellipsis,

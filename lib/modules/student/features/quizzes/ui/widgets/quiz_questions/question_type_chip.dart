@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_questions_model.dart';
 
 class QuestionTypeChip extends StatelessWidget {
   final QuestionType type;
@@ -17,17 +18,19 @@ class QuestionTypeChip extends StatelessWidget {
 
     switch (type) {
       case QuestionType.mcq:
-        label = 'MCQ';
+        label = tr('student_quizzes.quiz_questions.question_types.mcq');
         icon = Icons.list_alt;
         color = Colors.purple;
         break;
       case QuestionType.trueFalse:
-        label = 'True/False';
+        label = tr('student_quizzes.quiz_questions.question_types.true_false');
         icon = Icons.check_circle_outline;
         color = Colors.teal;
         break;
       case QuestionType.fillInBlank:
-        label = 'Fill in Blank';
+        label = tr(
+          'student_quizzes.quiz_questions.question_types.fill_in_blank',
+        );
         icon = Icons.edit_outlined;
         color = Colors.orange;
         break;
@@ -46,7 +49,7 @@ class QuestionTypeChip extends StatelessWidget {
           horizontalSpacing(12),
           Text(
             label,
-            style: AppTextStyles.font13BlueBold.copyWith(color: color),
+            style: AppTextStyles.font13BlueBold().copyWith(color: color),
           ),
         ],
       ),

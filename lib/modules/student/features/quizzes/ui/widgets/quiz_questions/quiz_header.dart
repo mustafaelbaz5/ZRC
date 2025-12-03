@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class QuizHeader extends StatelessWidget {
   final String remainingTime;
@@ -88,12 +89,23 @@ class QuizHeader extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Question $questionNumber of $totalQuestions',
-                    style: AppTextStyles.font16greyRegular,
+                    tr(
+                      'student_quizzes.quiz_questions.header.question_of',
+                      namedArgs: {
+                        'current': questionNumber.toString(),
+                        'total': totalQuestions.toString(),
+                      },
+                    ),
+                    style: AppTextStyles.font16GreyRegular(),
                   ),
                   Text(
-                    '${(progress * 100).toInt()}%',
-                    style: AppTextStyles.font16BlueBold,
+                    tr(
+                      'student_quizzes.quiz_questions.header.progress_percent',
+                      namedArgs: {
+                        'percent': (progress * 100).toInt().toString(),
+                      },
+                    ),
+                    style: AppTextStyles.font16BlueBold(),
                   ),
                 ],
               ),

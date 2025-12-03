@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_stat_item.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
+import 'q_results_stat_item.dart';
 
 class QResultsStatsGrid extends StatelessWidget {
   final QuizModel quiz;
@@ -23,7 +24,7 @@ class QResultsStatsGrid extends StatelessWidget {
           Expanded(
             child: QResultsStatItem(
               icon: Icons.help_outline_rounded,
-              label: 'Questions',
+              label: tr('student_quizzes.quiz_result.stats.questions'),
               value: '${quiz.questionsCount}',
               color: Colors.purple,
             ),
@@ -32,7 +33,7 @@ class QResultsStatsGrid extends StatelessWidget {
           Expanded(
             child: QResultsStatItem(
               icon: Icons.timer_outlined,
-              label: 'Duration',
+              label: tr('student_quizzes.quiz_result.stats.duration'),
               value: '${quiz.duration}m',
               color: Colors.blue,
             ),
@@ -41,7 +42,7 @@ class QResultsStatsGrid extends StatelessWidget {
           Expanded(
             child: QResultsStatItem(
               icon: Icons.trending_up,
-              label: 'Grade',
+              label: tr('student_quizzes.quiz_result.stats.grade'),
               value: _getGrade(percentage),
               color: Colors.teal,
             ),

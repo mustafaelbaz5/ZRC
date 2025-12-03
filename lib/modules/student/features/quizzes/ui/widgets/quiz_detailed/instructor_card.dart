@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
 
 class InstructorCard extends StatelessWidget {
   final QuizModel quiz;
@@ -39,9 +40,15 @@ class InstructorCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Instructor', style: AppTextStyles.font13greyRegular),
+                Text(
+                  tr('student_quizzes.quiz_detailed.instructor'),
+                  style: AppTextStyles.font13greyRegular(),
+                ),
                 verticalSpacing(4),
-                Text(quiz.instructorName, style: AppTextStyles.font16BlackBold),
+                Text(
+                  quiz.instructorName,
+                  style: AppTextStyles.font16BlackBold(),
+                ),
               ],
             ),
           ),

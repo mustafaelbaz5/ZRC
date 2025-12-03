@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class QResultsAttemptsInfo extends StatelessWidget {
   final int attemptsUsed;
@@ -52,11 +53,14 @@ class QResultsAttemptsInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Attempts Used', style: AppTextStyles.font13greyRegular),
+                Text(
+                  tr('student_quizzes.quiz_result.attempts.attempts_used'),
+                  style: AppTextStyles.font13greyRegular(),
+                ),
                 verticalSpacing(8),
                 Text(
                   '$attemptsUsed / $attemptsAllowed',
-                  style: AppTextStyles.font16BlackBold,
+                  style: AppTextStyles.font16BlackBold(),
                 ),
               ],
             ),
@@ -69,7 +73,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(
-                'Retake Available',
+                tr('student_quizzes.quiz_result.attempts.retake_available'),
                 style: TextStyle(
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w700,
@@ -85,7 +89,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(
-                'No Attempts Left',
+                tr('student_quizzes.quiz_result.attempts.no_attempts_left'),
                 style: TextStyle(
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w700,

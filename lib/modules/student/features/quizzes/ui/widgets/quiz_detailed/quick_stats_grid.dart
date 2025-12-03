@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/stat_card.dart';
+
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
+import 'stat_card.dart';
 
 class QuickStatsGrid extends StatelessWidget {
   final QuizModel quiz;
@@ -19,7 +21,7 @@ class QuickStatsGrid extends StatelessWidget {
             child: StatCard(
               icon: Icons.help_outline_rounded,
               value: '${quiz.questionsCount}',
-              label: 'Questions',
+              label: tr('student_quizzes.quiz_detailed.questions'),
               color: Colors.purple,
             ),
           ),
@@ -28,7 +30,7 @@ class QuickStatsGrid extends StatelessWidget {
             child: StatCard(
               icon: Icons.timer_outlined,
               value: '${quiz.duration}',
-              label: 'Minutes',
+              label: tr('student_quizzes.quiz_detailed.minutes'),
               color: Colors.orange,
             ),
           ),
@@ -37,7 +39,7 @@ class QuickStatsGrid extends StatelessWidget {
             child: StatCard(
               icon: Icons.grade_outlined,
               value: '${quiz.totalMarks}',
-              label: 'Marks',
+              label: tr('student_quizzes.quiz_detailed.marks'),
               color: Colors.teal,
             ),
           ),

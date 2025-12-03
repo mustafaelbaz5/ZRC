@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -71,7 +72,7 @@ class QuizCard extends StatelessWidget {
                         children: [
                           Text(
                             quiz.title,
-                            style: AppTextStyles.font20BlackBold,
+                            style: AppTextStyles.font20BlackBold(),
                           ),
                           verticalSpacing(6),
                           Row(
@@ -87,7 +88,7 @@ class QuizCard extends StatelessWidget {
                                 ),
                                 child: Text(
                                   quiz.subject,
-                                  style: AppTextStyles.font13BlueBold,
+                                  style: AppTextStyles.font13BlueBold(),
                                 ),
                               ),
                               SizedBox(width: 8.w),
@@ -113,7 +114,7 @@ class QuizCard extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 12.h),
                     child: Text(
                       quiz.description,
-                      style: AppTextStyles.font13greyRegular,
+                      style: AppTextStyles.font13greyRegular(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -159,17 +160,20 @@ class QuizCard extends StatelessWidget {
                   children: [
                     QuizDetailItem(
                       icon: Icons.help_outline_rounded,
-                      label: '${quiz.questionsCount} Questions',
+                      label:
+                          '${quiz.questionsCount} ${tr('student_quizzes.quiz_card.questions')}',
                       color: Colors.purple,
                     ),
                     QuizDetailItem(
                       icon: Icons.timer_outlined,
-                      label: '${quiz.duration} mins',
+                      label:
+                          '${quiz.duration} ${tr('student_quizzes.quiz_card.minutes')}',
                       color: Colors.orange,
                     ),
                     QuizDetailItem(
                       icon: Icons.grade_outlined,
-                      label: '${quiz.totalMarks} marks',
+                      label:
+                          '${quiz.totalMarks} ${tr('student_quizzes.quiz_card.marks')}',
                       color: Colors.teal,
                     ),
                   ],

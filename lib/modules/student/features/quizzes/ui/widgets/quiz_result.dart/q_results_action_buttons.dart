@@ -1,11 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/navigation.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+
+import '../../../../../../../core/extensions/navigation.dart';
+import '../../../../../../../core/router/routes.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../data/model/quiz_model.dart';
 
 class QResultsActionButtons extends StatelessWidget {
   final bool isPassed;
@@ -49,8 +51,10 @@ class QResultsActionButtons extends StatelessWidget {
                 },
                 icon: Icon(Icons.replay, size: 20.sp),
                 label: Text(
-                  'finished'.toUpperCase(),
-                  style: AppTextStyles.font16WhiteRegular,
+                  tr(
+                    'student_quizzes.quiz_result.actions.finished',
+                  ).toUpperCase(),
+                  style: AppTextStyles.font16WhiteRegular(),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.lightBlue,
@@ -79,7 +83,7 @@ class QResultsActionButtons extends StatelessWidget {
               },
               icon: Icon(Icons.home_outlined, size: 20.sp),
               label: Text(
-                'Back to Home',
+                tr('student_quizzes.quiz_result.actions.back_to_home'),
                 style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
               ),
               style: OutlinedButton.styleFrom(

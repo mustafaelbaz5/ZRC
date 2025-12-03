@@ -1,5 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:async';
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/navigation.dart';
@@ -9,13 +12,10 @@ import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart'
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/answer_widget.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/exit_dialog.dart';
-
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/navigation_buttons.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/question_card.dart';
-
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/submit_dialog.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/quiz_header.dart';
-import 'dart:async';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/submit_dialog.dart';
 
 class QuizQuestionsScreen extends StatefulWidget {
   final QuizModel quiz;
@@ -176,17 +176,20 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
               borderRadius: BorderRadius.circular(20.r),
             ),
             title: Text(
-              'Exit Quiz?',
+              tr('student_quizzes.quiz_questions.exit_dialog.title'),
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
             ),
             content: Text(
-              'Your progress will be lost. Are you sure?',
+              tr('student_quizzes.quiz_questions.exit_dialog.message'),
               style: TextStyle(fontSize: 14.sp),
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: Text('Cancel', style: TextStyle(fontSize: 14.sp)),
+                child: Text(
+                  tr('student_quizzes.quiz_questions.exit_dialog.cancel'),
+                  style: TextStyle(fontSize: 14.sp),
+                ),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
@@ -196,7 +199,10 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                 ),
-                child: Text('Exit', style: TextStyle(fontSize: 14.sp)),
+                child: Text(
+                  tr('student_quizzes.quiz_questions.exit_dialog.exit'),
+                  style: TextStyle(fontSize: 14.sp),
+                ),
               ),
             ],
           ),

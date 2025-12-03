@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class NavigationButtons extends StatelessWidget {
   final int currentIndex;
@@ -45,8 +46,8 @@ class NavigationButtons extends StatelessWidget {
                 onPressed: onPrevious,
                 icon: Icon(Icons.arrow_back, size: 18.sp, color: Colors.grey),
                 label: Text(
-                  'Previous',
-                  style: AppTextStyles.font14BlackRegular,
+                  tr('student_quizzes.quiz_questions.navigation.previous'),
+                  style: AppTextStyles.font14BlackRegular(),
                 ),
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.grey[80],
@@ -70,8 +71,12 @@ class NavigationButtons extends StatelessWidget {
                 size: 18.sp,
               ),
               label: Text(
-                isLastQuestion ? 'Submit Quiz' : 'Next',
-                style: AppTextStyles.font18WhiteRegular,
+                isLastQuestion
+                    ? tr(
+                        'student_quizzes.quiz_questions.navigation.submit_quiz',
+                      )
+                    : tr('student_quizzes.quiz_questions.navigation.next'),
+                style: AppTextStyles.font18WhiteRegular(),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion

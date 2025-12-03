@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:easy_localization/easy_localization.dart';
+import 'package:zrc/core/utils/regex.dart';
 import '../themes/app_colors.dart';
 import '../themes/app_text_styles.dart';
+import '../utils/functions/app_language.dart';
+import 'dart:ui' as ui; // Add this import
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -48,16 +51,32 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _obscureText;
+  ui.TextDirection? _direction = ui.TextDirection.ltr;
 
   @override
   void initState() {
     super.initState();
     _obscureText = widget.isObscureText;
+
+    // Initialize direction based on initial text
+    if (widget.controller != null && widget.controller!.text.isNotEmpty) {
+      _direction = AppRegex().isArabic(widget.controller!.text)
+          ? ui.TextDirection.rtl
+          : ui.TextDirection.ltr;
+    }
   }
 
   void _toggleObscure() {
     setState(() {
       _obscureText = !_obscureText;
+    });
+  }
+
+  void _updateDirection(String value) {
+    setState(() {
+      _direction = AppRegex().isArabic(value)
+          ? ui.TextDirection.rtl
+          : ui.TextDirection.ltr;
     });
   }
 
@@ -68,12 +87,27 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
-      onChanged: widget.onChanged,
       obscureText: _obscureText,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
-      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular,
+      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular(),
       validator: widget.validator,
+      textDirection: _direction,
+      onChanged: (value) {
+        // Update text direction
+        _updateDirection(value);
+
+        // Automatically romanize if locale is English
+        if (context.locale.languageCode == 'en' && AppRegex().isArabic(value)) {
+          final converted = changeNameToEn(context, value);
+          widget.controller?.value = TextEditingValue(
+            text: converted,
+            selection: TextSelection.collapsed(offset: converted.length),
+          );
+        }
+
+        if (widget.onChanged != null) widget.onChanged!(value);
+      },
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
@@ -84,7 +118,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
-            AppTextStyles.font16greyRegular.copyWith(
+            AppTextStyles.font16BlackRegular().copyWith(
               color: const Color(0xFFC1C1C1),
             ),
         prefixIcon: widget.prefixIcon,

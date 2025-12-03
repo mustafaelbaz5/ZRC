@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_analysis_row.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'q_results_analysis_row.dart';
 
 class QResultsPerformanceAnalysis extends StatelessWidget {
   final bool isPassed;
@@ -44,26 +45,26 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
               ),
               horizontalSpacing(8),
               Text(
-                'Performance Analysis',
-                style: AppTextStyles.font16BlackBold,
+                tr('student_quizzes.quiz_result.performance.title'),
+                style: AppTextStyles.font16BlackBold(),
               ),
             ],
           ),
           verticalSpacing(16),
           QResultsAnalysisRow(
-            label: 'Your Score',
+            label: tr('student_quizzes.quiz_result.performance.your_score'),
             value: '$percentage%',
             color: isPassed ? Colors.green : Colors.orange,
           ),
           verticalSpacing(12),
           QResultsAnalysisRow(
-            label: 'Passing Score',
+            label: tr('student_quizzes.quiz_result.performance.passing_score'),
             value: '$passingMarks%',
             color: Colors.blue,
           ),
           verticalSpacing(12),
           QResultsAnalysisRow(
-            label: 'Difference',
+            label: tr('student_quizzes.quiz_result.performance.difference'),
             value: '${(percentage - passingMarks).abs()}%',
             color: Colors.grey,
           ),
@@ -87,9 +88,13 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                 Expanded(
                   child: Text(
                     isPassed
-                        ? 'Excellent work! Keep up the good performance.'
-                        : 'Review the material and try again to improve your score.',
-                    style: AppTextStyles.font13greyRegular,
+                        ? tr(
+                            'student_quizzes.quiz_result.performance.excellent_work',
+                          )
+                        : tr(
+                            'student_quizzes.quiz_result.performance.review_material',
+                          ),
+                    style: AppTextStyles.font13greyRegular(),
                   ),
                 ),
               ],

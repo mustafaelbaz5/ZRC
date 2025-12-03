@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/true_false_card.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'true_false_card.dart';
 
 class TrueFalseOptions extends StatelessWidget {
   final dynamic selectedAnswer;
@@ -18,7 +19,7 @@ class TrueFalseOptions extends StatelessWidget {
       children: [
         Expanded(
           child: TrueFalseCard(
-            label: 'True',
+            label: tr('student_quizzes.quiz_questions.true_false.true'),
             icon: Icons.check_circle,
             color: Colors.green,
             isSelected: selectedAnswer == 'True',
@@ -28,7 +29,7 @@ class TrueFalseOptions extends StatelessWidget {
         horizontalSpacing(12),
         Expanded(
           child: TrueFalseCard(
-            label: 'False',
+            label: tr('student_quizzes.quiz_questions.true_false.false'),
             icon: Icons.cancel,
             color: Colors.red,
             isSelected: selectedAnswer == 'False',

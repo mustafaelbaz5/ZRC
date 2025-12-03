@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_results_info_row.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
+import 'q_results_info_row.dart';
 
 class QResultsQuizInfoCard extends StatelessWidget {
   final QuizModel quiz;
@@ -33,15 +34,27 @@ class QResultsQuizInfoCard extends StatelessWidget {
             children: [
               Icon(Icons.quiz_outlined, size: 20.sp, color: Colors.blue[700]),
               SizedBox(width: 8.w),
-              Text('Quiz Details', style: AppTextStyles.font16BlackBold),
+              Text(
+                tr('student_quizzes.quiz_result.quiz_info.title'),
+                style: AppTextStyles.font16BlackBold(),
+              ),
             ],
           ),
           verticalSpacing(16),
-          QResultsInfoRow(label: 'Quiz Title', value: quiz.title),
+          QResultsInfoRow(
+            label: tr('student_quizzes.quiz_result.quiz_info.quiz_title'),
+            value: quiz.title,
+          ),
           verticalSpacing(8),
-          QResultsInfoRow(label: 'Subject', value: quiz.subject),
+          QResultsInfoRow(
+            label: tr('student_quizzes.quiz_result.quiz_info.subject'),
+            value: quiz.subject,
+          ),
           verticalSpacing(8),
-          QResultsInfoRow(label: 'Instructor', value: quiz.instructorName),
+          QResultsInfoRow(
+            label: tr('student_quizzes.quiz_result.quiz_info.instructor'),
+            value: quiz.instructorName,
+          ),
         ],
       ),
     );

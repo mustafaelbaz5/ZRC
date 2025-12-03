@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class QResultsStatItem extends StatelessWidget {
   final IconData icon;
@@ -36,9 +36,9 @@ class QResultsStatItem extends StatelessWidget {
         children: [
           Icon(icon, size: 24.sp, color: color),
           verticalSpacing(8),
-          Text(value, style: AppTextStyles.font16BlackBold),
+          Text(value, style: AppTextStyles.font16BlackBold()),
           SizedBox(height: 4.h),
-          Text(label, style: AppTextStyles.font13greyRegular),
+          Text(label, style: AppTextStyles.font13greyRegular()),
         ],
       ),
     );

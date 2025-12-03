@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/utils/functions/app_language.dart';
 
 class CourseInfo extends StatelessWidget {
   const CourseInfo({
@@ -21,8 +22,9 @@ class CourseInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      alignment: WrapAlignment.center,
       spacing: 16,
-      runSpacing: 8,
+      runSpacing: 10,
       children: [
         _MetaChip(icon: Icons.person_outline, label: instructor),
         _MetaChip(icon: Icons.schedule_outlined, label: duration),
@@ -31,9 +33,8 @@ class CourseInfo extends StatelessWidget {
       ],
     );
   }
-
-
 }
+
 class _MetaChip extends StatelessWidget {
   const _MetaChip({required this.icon, required this.label});
 
@@ -50,6 +51,9 @@ class _MetaChip extends StatelessWidget {
         border: Border.all(color: Colors.grey[300]!),
       ),
       child: Row(
+        mainAxisAlignment: isAppLanguageArabic(context)
+            ? MainAxisAlignment.end
+            : MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(icon, size: 16, color: Colors.grey[700]),

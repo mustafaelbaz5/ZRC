@@ -47,7 +47,7 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center, // center below the icon
-              style: AppTextStyles.font14BlackRegular,
+              style: AppTextStyles.font14BlackRegular(),
             ),
           ),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
+
+import '../../../../../../../core/themes/app_text_styles.dart';
 
 class QResultsAnalysisRow extends StatelessWidget {
   final String label;
@@ -19,7 +20,7 @@ class QResultsAnalysisRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label, style: AppTextStyles.font13greyRegular),
+        Text(label, style: AppTextStyles.font13greyRegular()),
         Text(
           value,
           style: TextStyle(

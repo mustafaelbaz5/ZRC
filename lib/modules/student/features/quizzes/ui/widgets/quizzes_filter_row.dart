@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'quizzes_filter_chip.dart';
 
 class QuizzesFilterRow extends StatelessWidget {
@@ -19,21 +21,23 @@ class QuizzesFilterRow extends StatelessWidget {
       child: Row(
         children: [
           QuizzesFilterChip(
-            label: 'All',
-            isSelected: selectedFilter == 'All',
-            onTap: () => onFilterChanged('All'),
+            label: tr('student_quizzes.filters.all'),
+            isSelected: selectedFilter == tr('student_quizzes.filters.all'),
+            onTap: () => onFilterChanged(tr('student_quizzes.filters.all')),
           ),
           SizedBox(width: 8.w),
           QuizzesFilterChip(
-            label: 'Pending',
-            isSelected: selectedFilter == 'Pending',
-            onTap: () => onFilterChanged('Pending'),
+            label: tr('student_quizzes.filters.pending'),
+            isSelected: selectedFilter == tr('student_quizzes.filters.pending'),
+            onTap: () => onFilterChanged(tr('student_quizzes.filters.pending')),
           ),
           SizedBox(width: 8.w),
           QuizzesFilterChip(
-            label: 'Completed',
-            isSelected: selectedFilter == 'Completed',
-            onTap: () => onFilterChanged('Completed'),
+            label: tr('student_quizzes.filters.completed'),
+            isSelected:
+                selectedFilter == tr('student_quizzes.filters.completed'),
+            onTap: () =>
+                onFilterChanged(tr('student_quizzes.filters.completed')),
           ),
         ],
       ),

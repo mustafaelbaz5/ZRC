@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
 
 class QuizDetailedAppBar extends StatelessWidget {
   const QuizDetailedAppBar({super.key, required this.quiz});
@@ -54,7 +54,7 @@ class QuizDetailedAppBar extends StatelessWidget {
                     ),
                   ),
                   verticalSpacing(12),
-                  Text(quiz.title, style: AppTextStyles.font24WhiteRegular),
+                  Text(quiz.title, style: AppTextStyles.font24WhiteRegular()),
                 ],
               ),
             ),
