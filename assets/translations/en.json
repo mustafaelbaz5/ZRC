@@ -50,7 +50,43 @@
     "courses_title": "Courses",
     "instructors_title": "Top Instructors",
 
-    "see_all": "See all"
+    "see_all": "See all",
+
+    "categories": {
+      "programming": "Programming",
+      "hardware": "Hardware",
+      "mechanical_design": "Mechanical Design",
+      "3d_design": "3D Design",
+      "graphic_design": "Graphic Design",
+      "others": "Others"
+    },
+
+    "sample_courses": {
+      "mathematics": {
+        "title": "Mathematics",
+        "description": "Learn the basics of algebra, geometry, and calculus."
+      },
+      "physics": {
+        "title": "Physics",
+        "description": "Explore the laws of nature, motion, and energy."
+      },
+      "chemistry": {
+        "title": "Chemistry",
+        "description": "Discover the world of elements, compounds, and reactions."
+      },
+      "computer_science": {
+        "title": "Computer Science",
+        "description": "Master programming fundamentals and algorithms."
+      },
+      "biology": {
+        "title": "Biology",
+        "description": "Explore the science of life and living organisms."
+      },
+      "english_literature": {
+        "title": "English Literature",
+        "description": "Analyze classic and contemporary literary works."
+      }
+    }
   },
   "student_courses": {
     "screen_title": "Courses",

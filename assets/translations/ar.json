@@ -49,7 +49,43 @@
     "courses_title": "الدورات",
     "instructors_title": "أفضل المدربين",
 
-    "see_all": "عرض الكل"
+    "see_all": "عرض الكل",
+
+    "categories": {
+      "programming": "البرمجة",
+      "hardware": "الأجهزة",
+      "mechanical_design": "التصميم الميكانيكي",
+      "3d_design": "التصميم ثلاثي الأبعاد",
+      "graphic_design": "التصميم الجرافيكي",
+      "others": "أخرى"
+    },
+
+    "sample_courses": {
+      "mathematics": {
+        "title": "الرياضيات",
+        "description": "تعلم أساسيات الجبر والهندسة وحساب التفاضل والتكامل."
+      },
+      "physics": {
+        "title": "الفيزياء",
+        "description": "استكشف قوانين الطبيعة والحركة والطاقة."
+      },
+      "chemistry": {
+        "title": "الكيمياء",
+        "description": "اكتشف عالم العناصر والمركبات والتفاعلات."
+      },
+      "computer_science": {
+        "title": "علوم الحاسوب",
+        "description": "أتقن أساسيات البرمجة والخوارزميات."
+      },
+      "biology": {
+        "title": "الأحياء",
+        "description": "استكشف علم الحياة والكائنات الحية."
+      },
+      "english_literature": {
+        "title": "الأدب الإنجليزي",
+        "description": "حلل الأعمال الأدبية الكلاسيكية والمعاصرة."
+      }
+    }
   },
 
   "student_courses": {
