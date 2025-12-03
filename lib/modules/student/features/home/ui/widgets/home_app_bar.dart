@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../../core/utils/functions/names_functions.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
@@ -16,10 +17,9 @@ class HomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      color: Colors.white, // No shadow here
+      color: Colors.white,
       child: Row(
         children: [
-          // Welcome + ID
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,7 +27,7 @@ class HomeAppBar extends StatelessWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'Welcome,  ',
+                      text: '${tr('student_home.welcome')}  ',
                       style: AppTextStyles.font16GreyRegular(),
                     ),
                     TextSpan(
@@ -38,7 +38,10 @@ class HomeAppBar extends StatelessWidget {
                 ),
               ),
               verticalSpacing(4),
-              Text("  ID: $userId", style: AppTextStyles.font13greyRegular()),
+              Text(
+                "  ${tr('student_home.id_label')} $userId",
+                style: AppTextStyles.font13greyRegular(),
+              ),
             ],
           ),
           const Spacer(),

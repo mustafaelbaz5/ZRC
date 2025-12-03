@@ -35,5 +35,20 @@
 
     "title_login_failed": "فشل تسجيل الدخول",
     "welcome_user": "مرحباً، {name}"
+  },
+
+  "student_home": {
+    "welcome": "مرحباً،",
+    "guest": "ضيف",
+    "id_label": "الرقم التعريفي:",
+
+    "header_title": "شاهد أحدث الكورسات \nتعلم من الخبراء",
+    "header_button": "ابدأ الآن",
+
+    "categories_title": "الفئات",
+    "courses_title": "الدورات",
+    "instructors_title": "أفضل المدربين",
+
+    "see_all": "عرض الكل"
   }
 }

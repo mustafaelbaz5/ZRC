@@ -34,7 +34,22 @@
     "forgot_password": "Forgot Password?",
     "button_login": "Login",
 
-        "title_login_failed": "Login Failed",
+    "title_login_failed": "Login Failed",
     "welcome_user": "Welcome, {name}"
+  },
+
+  "student_home": {
+    "welcome": "Welcome,",
+    "guest": "Guest",
+    "id_label": "ID:",
+
+    "header_title": "Watch Latest Videos, \nLearn from Experts",
+    "header_button": "Start Now",
+
+    "categories_title": "Categories",
+    "courses_title": "Courses",
+    "instructors_title": "Top Instructors",
+
+    "see_all": "See all"
   }
 }

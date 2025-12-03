@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/auth/data/model/user_model.dart';
 import '../../../../../core/storage/secure_storage.dart';
 import '../../../../../core/utils/functions/change_language.dart';
-
 
 import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';
@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
 
         final String userName = userData != null
             ? changeNameToEn(context, userData.name)
-            : "Guest";
+            : tr('student_home.guest');
         final String userId = userData?.studentCode.toString() ?? "-";
 
         return Scaffold(
@@ -47,20 +47,26 @@ class HomeScreen extends StatelessWidget {
                   verticalSpacing(20),
                   const HomeHeader(),
                   verticalSpacing(24),
-                  Text("Categories", style: AppTextStyles.font16BlackBold()),
+                  Text(
+                    tr('student_home.categories_title'),
+                    style: AppTextStyles.font16BlackBold(),
+                  ),
                   verticalSpacing(12),
                   const CategoriesListView(),
                   verticalSpacing(24),
                   Row(
                     children: [
-                      Text("Courses", style: AppTextStyles.font16BlackBold()),
+                      Text(
+                        tr('student_home.courses_title'),
+                        style: AppTextStyles.font16BlackBold(),
+                      ),
                       const Spacer(),
                       GestureDetector(
                         onTap: () {},
                         child: Row(
                           children: [
                             Text(
-                              "See all",
+                              tr('student_home.see_all'),
                               style: AppTextStyles.font13BlueBold(),
                             ),
                             horizontalSpacing(4),
@@ -78,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                   const CoursesListView(),
                   verticalSpacing(24),
                   Text(
-                    "Top Instructors",
+                    tr('student_home.instructors_title'),
                     style: AppTextStyles.font16BlackBold(),
                   ),
                   verticalSpacing(12),
