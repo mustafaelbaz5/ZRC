@@ -60,6 +60,9 @@ dependencies:
   # Google fonts
   google_fonts: ^6.3.3
 
+  # Arabic to Roman converter
+  arabic_roman_conv: ^0.1.0-dev.2
+
 # ------------------------------
 #        DEV DEPENDENCIES
 # ------------------------------
