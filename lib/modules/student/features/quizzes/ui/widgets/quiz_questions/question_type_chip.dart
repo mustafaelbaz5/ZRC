@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
@@ -17,17 +18,19 @@ class QuestionTypeChip extends StatelessWidget {
 
     switch (type) {
       case QuestionType.mcq:
-        label = 'MCQ';
+        label = tr('student_quizzes.quiz_questions.question_types.mcq');
         icon = Icons.list_alt;
         color = Colors.purple;
         break;
       case QuestionType.trueFalse:
-        label = 'True/False';
+        label = tr('student_quizzes.quiz_questions.question_types.true_false');
         icon = Icons.check_circle_outline;
         color = Colors.teal;
         break;
       case QuestionType.fillInBlank:
-        label = 'Fill in Blank';
+        label = tr(
+          'student_quizzes.quiz_questions.question_types.fill_in_blank',
+        );
         icon = Icons.edit_outlined;
         color = Colors.orange;
         break;

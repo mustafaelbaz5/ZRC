@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,39 +32,42 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Quiz Information', style: AppTextStyles.font16BlackBold()),
+          Text(
+            tr('student_quizzes.quiz_detailed.quiz_information'),
+            style: AppTextStyles.font16BlackBold(),
+          ),
           verticalSpacing(16),
           DetailRow(
             icon: Icons.event_outlined,
-            label: 'Due Date',
+            label: tr('student_quizzes.quiz_detailed.due_date'),
             value: formatFull(quiz.dueDate),
             color: _getDueDateColor(quiz.dueDate),
           ),
           SizedBox(height: 12.h),
           DetailRow(
             icon: Icons.published_with_changes_outlined,
-            label: 'Published',
+            label: tr('student_quizzes.quiz_detailed.published'),
             value: formatFull(quiz.publishedDate),
             color: Colors.grey,
           ),
           verticalSpacing(12),
           DetailRow(
             icon: Icons.trending_up,
-            label: 'Difficulty',
+            label: tr('student_quizzes.quiz_detailed.difficulty'),
             value: quiz.difficulty.name.toUpperCase(),
             color: _getDifficultyColor(quiz.difficulty),
           ),
           verticalSpacing(12),
           DetailRow(
             icon: Icons.replay_outlined,
-            label: 'Attempts',
+            label: tr('student_quizzes.quiz_detailed.attempts'),
             value: '${quiz.attemptsUsed}/${quiz.attemptsAllowed}',
             color: Colors.indigo,
           ),
           verticalSpacing(12),
           DetailRow(
             icon: Icons.check_circle_outline,
-            label: 'Passing Score',
+            label: tr('student_quizzes.quiz_detailed.passing_score'),
             value: '${quiz.passingMarks}%',
             color: Colors.green,
           ),

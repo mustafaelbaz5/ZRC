@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,9 +46,9 @@ class QuizzesListView extends StatelessWidget {
 
     // Filter quizzes
     final filteredQuizzes = allQuizzes.where((quiz) {
-      if (filter == 'Pending') {
+      if (filter == tr('student_quizzes.filters.pending')) {
         return quiz.attemptStatus != QuizAttemptStatus.completed;
-      } else if (filter == 'Completed') {
+      } else if (filter == tr('student_quizzes.filters.completed')) {
         return quiz.attemptStatus == QuizAttemptStatus.completed;
       }
       return true;
@@ -61,7 +62,7 @@ class QuizzesListView extends StatelessWidget {
             Icon(Icons.quiz_outlined, size: 64.sp, color: Colors.grey[400]),
             SizedBox(height: 16.h),
             Text(
-              'No quizzes found',
+              tr('student_quizzes.empty_state.title'),
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
@@ -70,7 +71,7 @@ class QuizzesListView extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              'Check back later for new quizzes',
+              tr('student_quizzes.empty_state.subtitle'),
               style: TextStyle(fontSize: 14.sp, color: Colors.grey[500]),
             ),
           ],

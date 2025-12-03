@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,7 +47,9 @@ class StatusCard extends StatelessWidget {
           ),
           SizedBox(height: 12.h),
           Text(
-            isCompleted ? 'Quiz Completed!' : 'Quiz Pending',
+            isCompleted
+                ? tr('student_quizzes.quiz_detailed.quiz_completed')
+                : tr('student_quizzes.quiz_detailed.quiz_pending'),
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.w700,
@@ -62,7 +65,10 @@ class StatusCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(
-                'Your Score: ${quiz.userScore}%',
+                tr(
+                  'student_quizzes.quiz_detailed.your_score',
+                  namedArgs: {'score': quiz.userScore.toString()},
+                ),
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
@@ -74,7 +80,7 @@ class StatusCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 8.h),
               child: Text(
-                'You can retake this quiz',
+                tr('student_quizzes.quiz_detailed.can_retake'),
                 style: TextStyle(
                   fontSize: 13.sp,
                   color: Colors.white.withAlpha((0.04 * 255).toInt()),

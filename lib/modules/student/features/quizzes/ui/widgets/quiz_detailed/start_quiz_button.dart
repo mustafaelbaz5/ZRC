@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/extensions/navigation.dart';
@@ -13,10 +14,10 @@ class StartQuizButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final canStart = quiz.attemptsUsed < quiz.attemptsAllowed;
     final buttonText = quiz.attemptStatus == QuizAttemptStatus.completed
-        ? 'Retake Quiz'
+        ? tr('student_quizzes.quiz_detailed.retake_quiz')
         : quiz.attemptStatus == QuizAttemptStatus.inProgress
-        ? 'Continue Quiz'
-        : 'Start Quiz';
+        ? tr('student_quizzes.quiz_detailed.continue_quiz')
+        : tr('student_quizzes.quiz_detailed.start_quiz');
 
     return Container(
       width: double.infinity,
@@ -61,7 +62,9 @@ class StartQuizButton extends StatelessWidget {
             ),
             SizedBox(width: 12.w),
             Text(
-              canStart ? buttonText : 'No Attempts Left',
+              canStart
+                  ? buttonText
+                  : tr('student_quizzes.quiz_detailed.no_attempts_left'),
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w700,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
@@ -35,7 +36,10 @@ class QResultsScoreCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text('Your Score', style: AppTextStyles.font16GreyRegular()),
+          Text(
+            tr('student_quizzes.quiz_result.score.your_score'),
+            style: AppTextStyles.font16GreyRegular(),
+          ),
           verticalSpacing(16),
           // Circular Progress
           SizedBox(
@@ -95,7 +99,9 @@ class QResultsScoreCard extends StatelessWidget {
                 ),
                 SizedBox(width: 8.w),
                 Text(
-                  isPassed ? 'Passed' : 'Not Passed',
+                  isPassed
+                      ? tr('student_quizzes.quiz_result.score.passed')
+                      : tr('student_quizzes.quiz_result.score.not_passed'),
                   style: AppTextStyles.font16GreyRegular(),
                 ),
               ],

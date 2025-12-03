@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
@@ -36,7 +37,10 @@ class DescriptionCard extends StatelessWidget {
                 color: Colors.blue[700],
               ),
               horizontalSpacing(8),
-              Text('Description', style: AppTextStyles.font16BlackBold()),
+              Text(
+                tr('student_quizzes.quiz_detailed.description'),
+                style: AppTextStyles.font16BlackBold(),
+              ),
             ],
           ),
           verticalSpacing(12),

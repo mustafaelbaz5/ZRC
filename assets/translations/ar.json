@@ -118,5 +118,137 @@
       "free": "مجاني",
       "paid": "مدفوع"
     }
+  },
+  "student_quizzes": {
+    "screen_title": "الاختبارات",
+    "filters": {
+      "all": "الكل",
+      "pending": "قيد الانتظار",
+      "completed": "مكتمل"
+    },
+    "empty_state": {
+      "title": "لا توجد اختبارات",
+      "subtitle": "تحقق لاحقًا للحصول على اختبارات جديدة"
+    },
+    "status": {
+      "completed": "مكتمل",
+      "in_progress": "قيد التنفيذ",
+      "not_started": "لم يبدأ"
+    },
+    "difficulty": {
+      "easy": "سهل",
+      "medium": "متوسط",
+      "hard": "صعب"
+    },
+    "due_date": {
+      "due_today": "مستحق اليوم",
+      "due_tomorrow": "مستحق غدًا",
+      "due_in_days": "مستحق خلال {days} أيام"
+    },
+    "quiz_card": {
+      "questions": "أسئلة",
+      "minutes": "دقائق",
+      "marks": "درجات",
+      "attempts": "محاولات"
+    },
+    "quiz_detailed": {
+      "quiz_completed": "تم إكمال الاختبار!",
+      "quiz_pending": "الاختبار قيد الانتظار",
+      "your_score": "نقاطك: {score}%",
+      "can_retake": "يمكنك إعادة الاختبار",
+      "questions": "أسئلة",
+      "minutes": "دقائق",
+      "marks": "درجات",
+      "description": "الوصف",
+      "instructor": "المدرب",
+      "quiz_information": "معلومات الاختبار",
+      "due_date": "تاريخ الاستحقاق",
+      "published": "تاريخ النشر",
+      "difficulty": "الصعوبة",
+      "attempts": "المحاولات",
+      "passing_score": "الدرجة المطلوبة",
+      "start_quiz": "ابدأ الاختبار",
+      "retake_quiz": "أعد الاختبار",
+      "continue_quiz": "تابع الاختبار",
+      "no_attempts_left": "لا توجد محاولات متبقية"
+    },
+    "quiz_questions": {
+      "exit_dialog": {
+        "title": "الخروج من الاختبار؟",
+        "message": "سيتم فقدان تقدمك. هل أنت متأكد؟",
+        "cancel": "إلغاء",
+        "exit": "خروج"
+      },
+      "header": {
+        "question_of": "السؤال {current} من {total}",
+        "progress_percent": "{percent}%"
+      },
+      "question": {
+        "marks": "درجات",
+        "your_answer": "إجابتك:",
+        "answer_hint": "اكتب إجابتك هنا..."
+      },
+      "question_types": {
+        "mcq": "اختيار من متعدد",
+        "true_false": "صحيح/خطأ",
+        "fill_in_blank": "املأ الفراغ"
+      },
+      "true_false": {
+        "true": "صحيح",
+        "false": "خطأ"
+      },
+      "navigation": {
+        "previous": "السابق",
+        "next": "التالي",
+        "submit_quiz": "إرسال الاختبار"
+      },
+      "submit_dialog": {
+        "title": "إرسال الاختبار؟",
+        "message": "لقد أجبت على {answered} من أصل {total} أسئلة. هل تريد الإرسال؟",
+        "cancel": "إلغاء",
+        "submit": "إرسال"
+      }
+    },
+    "quiz_result": {
+      "header": {
+        "congratulations": "تهانينا!",
+        "keep_trying": "استمر في المحاولة!",
+        "passed_message": "لقد نجحت في الاختبار بنجاح",
+        "improve_message": "يمكنك التحسين بالممارسة"
+      },
+      "score": {
+        "your_score": "نقاطك",
+        "passed": "نجح",
+        "not_passed": "لم ينجح"
+      },
+      "stats": {
+        "questions": "أسئلة",
+        "duration": "المدة",
+        "grade": "الدرجة"
+      },
+      "performance": {
+        "title": "تحليل الأداء",
+        "your_score": "نقاطك",
+        "passing_score": "الدرجة المطلوبة",
+        "difference": "الفرق",
+        "excellent_work": "عمل ممتاز! استمر في الأداء الجيد.",
+        "review_material": "راجع المادة وحاول مرة أخرى لتحسين درجتك."
+      },
+      "attempts": {
+        "attempts_used": "المحاولات المستخدمة",
+        "retake_available": "إعادة متاحة",
+        "no_attempts_left": "لا توجد محاولات متبقية"
+      },
+      "quiz_info": {
+        "title": "تفاصيل الاختبار",
+        "quiz_title": "عنوان الاختبار",
+        "subject": "المادة",
+        "instructor": "المدرب"
+      },
+      "actions": {
+        "finished": "انتهى",
+        "back_to_home": "العودة إلى الرئيسية"
+      }
+    }
   }
 }

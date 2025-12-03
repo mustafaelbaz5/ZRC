@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -159,17 +160,20 @@ class QuizCard extends StatelessWidget {
                   children: [
                     QuizDetailItem(
                       icon: Icons.help_outline_rounded,
-                      label: '${quiz.questionsCount} Questions',
+                      label:
+                          '${quiz.questionsCount} ${tr('student_quizzes.quiz_card.questions')}',
                       color: Colors.purple,
                     ),
                     QuizDetailItem(
                       icon: Icons.timer_outlined,
-                      label: '${quiz.duration} mins',
+                      label:
+                          '${quiz.duration} ${tr('student_quizzes.quiz_card.minutes')}',
                       color: Colors.orange,
                     ),
                     QuizDetailItem(
                       icon: Icons.grade_outlined,
-                      label: '${quiz.totalMarks} marks',
+                      label:
+                          '${quiz.totalMarks} ${tr('student_quizzes.quiz_card.marks')}',
                       color: Colors.teal,
                     ),
                   ],

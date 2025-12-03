@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,19 +19,21 @@ class StatusBadge extends StatelessWidget {
       case QuizAttemptStatus.completed:
         bgColor = Colors.green.withOpacity(0.12);
         textColor = Colors.green[700]!;
-        label = score != null ? '$score%' : 'Completed';
+        label = score != null
+            ? '$score%'
+            : tr('student_quizzes.status.completed');
         icon = Icons.check_circle;
         break;
       case QuizAttemptStatus.inProgress:
         bgColor = Colors.orange.withOpacity(0.12);
         textColor = Colors.orange[700]!;
-        label = 'In Progress';
+        label = tr('student_quizzes.status.in_progress');
         icon = Icons.access_time;
         break;
       case QuizAttemptStatus.notStarted:
         bgColor = Colors.blue.withOpacity(0.12);
         textColor = Colors.blue[700]!;
-        label = 'Not Started';
+        label = tr('student_quizzes.status.not_started');
         icon = Icons.play_circle_outline;
         break;
     }

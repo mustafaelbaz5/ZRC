@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -37,7 +38,7 @@ class QuestionCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: Text(
-                  '${question.marks} marks',
+                  '${question.marks} ${tr('student_quizzes.quiz_questions.question.marks')}',
                   style: AppTextStyles.font13BlueBold(),
                 ),
               ),

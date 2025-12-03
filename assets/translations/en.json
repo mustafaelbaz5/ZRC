@@ -118,5 +118,137 @@
       "free": "Free",
       "paid": "Paid"
     }
+  },
+  "student_quizzes": {
+    "screen_title": "Quizzes",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "completed": "Completed"
+    },
+    "empty_state": {
+      "title": "No quizzes found",
+      "subtitle": "Check back later for new quizzes"
+    },
+    "status": {
+      "completed": "Completed",
+      "in_progress": "In Progress",
+      "not_started": "Not Started"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "due_date": {
+      "due_today": "Due today",
+      "due_tomorrow": "Due tomorrow",
+      "due_in_days": "Due in {days} days"
+    },
+    "quiz_card": {
+      "questions": "Questions",
+      "minutes": "mins",
+      "marks": "marks",
+      "attempts": "attempts"
+    },
+    "quiz_detailed": {
+      "quiz_completed": "Quiz Completed!",
+      "quiz_pending": "Quiz Pending",
+      "your_score": "Your Score: {score}%",
+      "can_retake": "You can retake this quiz",
+      "questions": "Questions",
+      "minutes": "Minutes",
+      "marks": "Marks",
+      "description": "Description",
+      "instructor": "Instructor",
+      "quiz_information": "Quiz Information",
+      "due_date": "Due Date",
+      "published": "Published",
+      "difficulty": "Difficulty",
+      "attempts": "Attempts",
+      "passing_score": "Passing Score",
+      "start_quiz": "Start Quiz",
+      "retake_quiz": "Retake Quiz",
+      "continue_quiz": "Continue Quiz",
+      "no_attempts_left": "No Attempts Left"
+    },
+    "quiz_questions": {
+      "exit_dialog": {
+        "title": "Exit Quiz?",
+        "message": "Your progress will be lost. Are you sure?",
+        "cancel": "Cancel",
+        "exit": "Exit"
+      },
+      "header": {
+        "question_of": "Question {current} of {total}",
+        "progress_percent": "{percent}%"
+      },
+      "question": {
+        "marks": "marks",
+        "your_answer": "Your Answer:",
+        "answer_hint": "Type your answer here..."
+      },
+      "question_types": {
+        "mcq": "MCQ",
+        "true_false": "True/False",
+        "fill_in_blank": "Fill in Blank"
+      },
+      "true_false": {
+        "true": "True",
+        "false": "False"
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "submit_quiz": "Submit Quiz"
+      },
+      "submit_dialog": {
+        "title": "Submit Quiz?",
+        "message": "You have answered {answered} out of {total} questions. Do you want to submit?",
+        "cancel": "Cancel",
+        "submit": "Submit"
+      }
+    },
+    "quiz_result": {
+      "header": {
+        "congratulations": "Congratulations!",
+        "keep_trying": "Keep Trying!",
+        "passed_message": "You passed the quiz successfully",
+        "improve_message": "You can improve with practice"
+      },
+      "score": {
+        "your_score": "Your Score",
+        "passed": "Passed",
+        "not_passed": "Not Passed"
+      },
+      "stats": {
+        "questions": "Questions",
+        "duration": "Duration",
+        "grade": "Grade"
+      },
+      "performance": {
+        "title": "Performance Analysis",
+        "your_score": "Your Score",
+        "passing_score": "Passing Score",
+        "difference": "Difference",
+        "excellent_work": "Excellent work! Keep up the good performance.",
+        "review_material": "Review the material and try again to improve your score."
+      },
+      "attempts": {
+        "attempts_used": "Attempts Used",
+        "retake_available": "Retake Available",
+        "no_attempts_left": "No Attempts Left"
+      },
+      "quiz_info": {
+        "title": "Quiz Details",
+        "quiz_title": "Quiz Title",
+        "subject": "Subject",
+        "instructor": "Instructor"
+      },
+      "actions": {
+        "finished": "FINISHED",
+        "back_to_home": "Back to Home"
+      }
+    }
   }
 }
