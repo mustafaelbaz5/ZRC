@@ -1,0 +1,20 @@
+{
+  "onboarding": {
+    "title1": "Welcome to ZRC",
+    "subtitle1": "ZNU Robotics Community",
+
+    "title2": "Step into a World of Learning Excellence",
+    "subtitle2": "Join workshops and projects",
+
+    "title3": "Explore Endless Possibilities",
+    "subtitle3": "Collaborate with peers and mentors",
+
+    "title4": "Start Your SkillUp Journey Today",
+    "subtitle4": "Unlock a World of Possibilities",
+
+    "button_next": "Next",
+    "button_get_started": "Get Started",
+
+    "button_skip": "Skip"
+  }
+}

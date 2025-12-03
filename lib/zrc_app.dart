@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,8 +17,11 @@ class ZrcApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.initialScreen,
+          initialRoute: Routes.onBoardingScreen,
           onGenerateRoute: appRouter.generateRoute,
           title: 'ZRC - ZNU Robotics Community',
           theme: ThemeData(
