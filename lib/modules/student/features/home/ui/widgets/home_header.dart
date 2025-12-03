@@ -59,7 +59,7 @@ class HomeHeader extends StatelessWidget {
                         children: [
                           Text(
                             'Watch Latest Videos, \nLearn from Experts',
-                            style: AppTextStyles.font16WhiteRegular,
+                            style: AppTextStyles.font16WhiteRegular(),
                           ),
                           verticalSpacing(16),
                           // Enhanced button with subtle elevation and ripple
@@ -72,7 +72,7 @@ class HomeHeader extends StatelessWidget {
                                 navigationKey.currentState?.setPage(1);
                               },
                               backgroundColor: Colors.white,
-                              textStyle: AppTextStyles.font16BlackBold,
+                              textStyle: AppTextStyles.font16BlackBold(),
                               borderRadius: 12,
                             ),
                           ),

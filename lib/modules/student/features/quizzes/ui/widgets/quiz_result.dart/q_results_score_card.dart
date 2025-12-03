@@ -35,7 +35,7 @@ class QResultsScoreCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text('Your Score', style: AppTextStyles.font16greyRegular),
+          Text('Your Score', style: AppTextStyles.font16GreyRegular()),
           verticalSpacing(16),
           // Circular Progress
           SizedBox(
@@ -71,7 +71,7 @@ class QResultsScoreCard extends StatelessWidget {
                     ),
                     Text(
                       '$score / $totalMarks',
-                      style: AppTextStyles.font16greyRegular,
+                      style: AppTextStyles.font16GreyRegular(),
                     ),
                   ],
                 ),
@@ -96,7 +96,7 @@ class QResultsScoreCard extends StatelessWidget {
                 SizedBox(width: 8.w),
                 Text(
                   isPassed ? 'Passed' : 'Not Passed',
-                  style: AppTextStyles.font16greyRegular,
+                  style: AppTextStyles.font16GreyRegular(),
                 ),
               ],
             ),

@@ -40,7 +40,7 @@ class OnBoardingTopBar extends StatelessWidget {
       icon: Icon(Icons.language, size: 20.sp, color: Colors.grey[600]),
       label: Text(
         context.locale.languageCode.toUpperCase(),
-        style: AppTextStyles.font16BlackBold,
+        style: AppTextStyles.font16BlackBold(),
       ),
     );
   }
@@ -55,7 +55,7 @@ class OnBoardingTopBar extends StatelessWidget {
       ),
       child: Text(
         'onboarding.button_skip'.tr(),
-        style: AppTextStyles.font16BlueBold,
+        style: AppTextStyles.font16BlueBold(),
       ),
     );
   }

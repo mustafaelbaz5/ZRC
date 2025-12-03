@@ -28,7 +28,7 @@ class QuizDetailItem extends StatelessWidget {
           SizedBox(width: 6.w),
           Text(
             label,
-            style: AppTextStyles.font13BlueBold.copyWith(
+            style: AppTextStyles.font13BlueBold().copyWith(
               color: color,
               fontSize: 12.sp,
             ),

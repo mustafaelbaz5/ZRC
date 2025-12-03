@@ -60,7 +60,7 @@ class FillInBlankInput extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.blue[700]!, width: 2),
               ),
             ),
-            style: AppTextStyles.font16BlackRegular,
+            style: AppTextStyles.font16BlackRegular(),
           ),
         ],
       ),

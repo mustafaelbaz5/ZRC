@@ -72,7 +72,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: _obscureText,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
-      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular,
+      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular(),
       validator: widget.validator,
       decoration: InputDecoration(
         isDense: true,
@@ -84,7 +84,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
-            AppTextStyles.font16greyRegular.copyWith(
+            AppTextStyles.font16BlackRegular().copyWith(
               color: const Color(0xFFC1C1C1),
             ),
         prefixIcon: widget.prefixIcon,

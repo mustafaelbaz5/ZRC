@@ -36,9 +36,9 @@ class QResultsStatItem extends StatelessWidget {
         children: [
           Icon(icon, size: 24.sp, color: color),
           verticalSpacing(8),
-          Text(value, style: AppTextStyles.font16BlackBold),
+          Text(value, style: AppTextStyles.font16BlackBold()),
           SizedBox(height: 4.h),
-          Text(label, style: AppTextStyles.font13greyRegular),
+          Text(label, style: AppTextStyles.font13greyRegular()),
         ],
       ),
     );

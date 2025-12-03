@@ -46,7 +46,7 @@ class QuestionTypeChip extends StatelessWidget {
           horizontalSpacing(12),
           Text(
             label,
-            style: AppTextStyles.font13BlueBold.copyWith(color: color),
+            style: AppTextStyles.font13BlueBold().copyWith(color: color),
           ),
         ],
       ),

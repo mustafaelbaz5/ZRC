@@ -54,7 +54,9 @@ class _LoginFormState extends State<LoginForm> {
               alignment: Alignment.centerLeft,
               child: Text(
                 'Email',
-                style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
+                style: AppTextStyles.font16BlackBold().copyWith(
+                  fontSize: 16.sp,
+                ),
               ),
             ),
             verticalSpacing(8),
@@ -78,7 +80,9 @@ class _LoginFormState extends State<LoginForm> {
               alignment: Alignment.centerLeft,
               child: Text(
                 'Password',
-                style: AppTextStyles.font16BlackBold.copyWith(fontSize: 16.sp),
+                style: AppTextStyles.font16BlackBold().copyWith(
+                  fontSize: 16.sp,
+                ),
               ),
             ),
             verticalSpacing(8),
@@ -100,7 +104,7 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: () {},
                 child: Text(
                   'Forgot Password?',
-                  style: AppTextStyles.font16BlackRegular.copyWith(
+                  style: AppTextStyles.font16BlackRegular().copyWith(
                     color: AppColors.lightBlue,
                   ),
                 ),

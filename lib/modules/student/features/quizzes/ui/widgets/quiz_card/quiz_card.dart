@@ -71,7 +71,7 @@ class QuizCard extends StatelessWidget {
                         children: [
                           Text(
                             quiz.title,
-                            style: AppTextStyles.font20BlackBold,
+                            style: AppTextStyles.font20BlackBold(),
                           ),
                           verticalSpacing(6),
                           Row(
@@ -87,7 +87,7 @@ class QuizCard extends StatelessWidget {
                                 ),
                                 child: Text(
                                   quiz.subject,
-                                  style: AppTextStyles.font13BlueBold,
+                                  style: AppTextStyles.font13BlueBold(),
                                 ),
                               ),
                               SizedBox(width: 8.w),
@@ -113,7 +113,7 @@ class QuizCard extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 12.h),
                     child: Text(
                       quiz.description,
-                      style: AppTextStyles.font13greyRegular,
+                      style: AppTextStyles.font13greyRegular(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

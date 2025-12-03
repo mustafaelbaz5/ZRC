@@ -75,7 +75,7 @@ class CustomAppBar extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppTextStyles.font20BlackBold,
+              style: AppTextStyles.font18BlackBold(),
               textAlign: showBackButton ? TextAlign.left : TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,

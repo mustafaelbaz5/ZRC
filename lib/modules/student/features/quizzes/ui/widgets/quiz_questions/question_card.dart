@@ -37,7 +37,7 @@ class QuestionCard extends StatelessWidget {
                 ),
                 child: Text(
                   '${question.marks} marks',
-                  style: AppTextStyles.font13BlueBold,
+                  style: AppTextStyles.font13BlueBold(),
                 ),
               ),
               const Spacer(),
@@ -45,7 +45,7 @@ class QuestionCard extends StatelessWidget {
             ],
           ),
           verticalSpacing(16),
-          Text(question.text, style: AppTextStyles.font16BlackBold),
+          Text(question.text, style: AppTextStyles.font16BlackBold()),
         ],
       ),
     );

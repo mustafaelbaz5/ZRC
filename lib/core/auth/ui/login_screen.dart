@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
           child: Center(
             child: Text(
               'Welcome, ${state.userModel.name}',
-              style: AppTextStyles.font20BlackBold,
+              style: AppTextStyles.font20BlackBold(),
             ),
           ),
         ),

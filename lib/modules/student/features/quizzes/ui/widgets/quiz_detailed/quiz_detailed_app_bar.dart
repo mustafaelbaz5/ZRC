@@ -54,7 +54,7 @@ class QuizDetailedAppBar extends StatelessWidget {
                     ),
                   ),
                   verticalSpacing(12),
-                  Text(quiz.title, style: AppTextStyles.font24WhiteRegular),
+                  Text(quiz.title, style: AppTextStyles.font24WhiteRegular()),
                 ],
               ),
             ),

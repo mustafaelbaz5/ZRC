@@ -50,7 +50,7 @@ class QResultsActionButtons extends StatelessWidget {
                 icon: Icon(Icons.replay, size: 20.sp),
                 label: Text(
                   'finished'.toUpperCase(),
-                  style: AppTextStyles.font16WhiteRegular,
+                  style: AppTextStyles.font16WhiteRegular(),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.lightBlue,

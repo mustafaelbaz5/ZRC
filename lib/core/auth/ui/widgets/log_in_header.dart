@@ -14,13 +14,13 @@ class LogInHeader extends StatelessWidget {
         Text(
           'Welcome Back',
           textAlign: TextAlign.center,
-          style: AppTextStyles.font32BlackBold.copyWith(fontSize: 32.sp),
+          style: AppTextStyles.font32BlackBold().copyWith(fontSize: 32.sp),
         ),
         verticalSpacing(8),
         Text(
           'Login with your university email and password',
           textAlign: TextAlign.center,
-          style: AppTextStyles.font16GreyRegular.copyWith(),
+          style: AppTextStyles.font16GreyRegular(),
         ),
       ],
     );

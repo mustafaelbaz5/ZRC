@@ -25,7 +25,7 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildTitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font32BlackBold.copyWith(
+      style: AppTextStyles.font32BlackBold().copyWith(
         fontSize: 28.sp,
         height: 1.3,
         letterSpacing: -0.5,
@@ -42,7 +42,7 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildSubtitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font18GreyRegular,
+      style: AppTextStyles.font18GreyRegular(),
       child: Text(
         subtitle.tr(),
         textAlign: TextAlign.center,

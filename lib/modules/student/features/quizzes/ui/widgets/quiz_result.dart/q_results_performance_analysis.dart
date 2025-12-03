@@ -45,7 +45,7 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
               horizontalSpacing(8),
               Text(
                 'Performance Analysis',
-                style: AppTextStyles.font16BlackBold,
+                style: AppTextStyles.font16BlackBold(),
               ),
             ],
           ),
@@ -89,7 +89,7 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                     isPassed
                         ? 'Excellent work! Keep up the good performance.'
                         : 'Review the material and try again to improve your score.',
-                    style: AppTextStyles.font13greyRegular,
+                    style: AppTextStyles.font13greyRegular(),
                   ),
                 ),
               ],

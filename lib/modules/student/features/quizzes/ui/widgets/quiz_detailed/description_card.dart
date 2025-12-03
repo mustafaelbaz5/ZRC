@@ -36,11 +36,11 @@ class DescriptionCard extends StatelessWidget {
                 color: Colors.blue[700],
               ),
               horizontalSpacing(8),
-              Text('Description', style: AppTextStyles.font16BlackBold),
+              Text('Description', style: AppTextStyles.font16BlackBold()),
             ],
           ),
           verticalSpacing(12),
-          Text(quiz.description, style: AppTextStyles.font13greyRegular),
+          Text(quiz.description, style: AppTextStyles.font13greyRegular()),
         ],
       ),
     );

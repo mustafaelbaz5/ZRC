@@ -36,9 +36,9 @@ class StatCard extends StatelessWidget {
         children: [
           Icon(icon, size: 28.sp, color: color),
           verticalSpacing(8),
-          Text(value, style: AppTextStyles.font20BlackBold),
+          Text(value, style: AppTextStyles.font20BlackBold()),
           verticalSpacing(4),
-          Text(label, style: AppTextStyles.font13greyRegular),
+          Text(label, style: AppTextStyles.font13greyRegular()),
         ],
       ),
     );

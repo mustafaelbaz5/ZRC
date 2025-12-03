@@ -26,19 +26,19 @@ class HomeScreen extends StatelessWidget {
               verticalSpacing(20),
               const HomeHeader(),
               verticalSpacing(24),
-              Text("Categories", style: AppTextStyles.font16BlackBold),
+              Text("Categories", style: AppTextStyles.font16BlackBold()),
               verticalSpacing(12),
               const CategoriesListView(),
               verticalSpacing(24),
               Row(
                 children: [
-                  Text("Courses", style: AppTextStyles.font16BlackBold),
+                  Text("Courses", style: AppTextStyles.font16BlackBold()),
                   const Spacer(),
                   GestureDetector(
                     onTap: () {},
                     child: Row(
                       children: [
-                        Text("See all", style: AppTextStyles.font13BlueBold),
+                        Text("See all", style: AppTextStyles.font13BlueBold()),
                         horizontalSpacing(4),
                         const Icon(
                           Icons.arrow_forward_ios,
@@ -53,7 +53,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpacing(12),
               const CoursesListView(),
               verticalSpacing(24),
-              Text("Top Instructors", style: AppTextStyles.font16BlackBold),
+              Text("Top Instructors", style: AppTextStyles.font16BlackBold()),
               verticalSpacing(12),
               const InstructorsListView(),
               verticalSpacing(30),

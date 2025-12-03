@@ -18,7 +18,7 @@ class CoursesScreen extends StatelessWidget {
           children: [
             const CustomAppBar(title: "Courses"),
             verticalSpacing(8),
-            Text("Categories", style: AppTextStyles.font18GreyRegular),
+            Text("Categories", style: AppTextStyles.font18GreyRegular()),
             verticalSpacing(16),
             const AllCoursesFilterListView(),
             const Expanded(child: AllCoursesSliverList()),

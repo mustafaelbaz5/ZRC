@@ -33,7 +33,7 @@ class QResultsQuizInfoCard extends StatelessWidget {
             children: [
               Icon(Icons.quiz_outlined, size: 20.sp, color: Colors.blue[700]),
               SizedBox(width: 8.w),
-              Text('Quiz Details', style: AppTextStyles.font16BlackBold),
+              Text('Quiz Details', style: AppTextStyles.font16BlackBold()),
             ],
           ),
           verticalSpacing(16),

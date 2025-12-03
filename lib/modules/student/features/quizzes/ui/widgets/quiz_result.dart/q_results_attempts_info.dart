@@ -52,11 +52,11 @@ class QResultsAttemptsInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Attempts Used', style: AppTextStyles.font13greyRegular),
+                Text('Attempts Used', style: AppTextStyles.font13greyRegular()),
                 verticalSpacing(8),
                 Text(
                   '$attemptsUsed / $attemptsAllowed',
-                  style: AppTextStyles.font16BlackBold,
+                  style: AppTextStyles.font16BlackBold(),
                 ),
               ],
             ),

@@ -46,7 +46,7 @@ class NavigationButtons extends StatelessWidget {
                 icon: Icon(Icons.arrow_back, size: 18.sp, color: Colors.grey),
                 label: Text(
                   'Previous',
-                  style: AppTextStyles.font14BlackRegular,
+                  style: AppTextStyles.font14BlackRegular(),
                 ),
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.grey[80],
@@ -71,7 +71,7 @@ class NavigationButtons extends StatelessWidget {
               ),
               label: Text(
                 isLastQuestion ? 'Submit Quiz' : 'Next',
-                style: AppTextStyles.font18WhiteRegular,
+                style: AppTextStyles.font18WhiteRegular(),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion

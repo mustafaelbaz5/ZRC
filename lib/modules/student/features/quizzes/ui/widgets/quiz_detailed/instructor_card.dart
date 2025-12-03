@@ -39,9 +39,12 @@ class InstructorCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Instructor', style: AppTextStyles.font13greyRegular),
+                Text('Instructor', style: AppTextStyles.font13greyRegular()),
                 verticalSpacing(4),
-                Text(quiz.instructorName, style: AppTextStyles.font16BlackBold),
+                Text(
+                  quiz.instructorName,
+                  style: AppTextStyles.font16BlackBold(),
+                ),
               ],
             ),
           ),

@@ -89,11 +89,11 @@ class QuizHeader extends StatelessWidget {
                 children: [
                   Text(
                     'Question $questionNumber of $totalQuestions',
-                    style: AppTextStyles.font16greyRegular,
+                    style: AppTextStyles.font16GreyRegular(),
                   ),
                   Text(
                     '${(progress * 100).toInt()}%',
-                    style: AppTextStyles.font16BlueBold,
+                    style: AppTextStyles.font16BlueBold(),
                   ),
                 ],
               ),

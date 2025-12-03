@@ -27,17 +27,17 @@ class HomeAppBar extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'Welcome,  ',
-                      style: AppTextStyles.font16GreyRegular,
+                      style: AppTextStyles.font16GreyRegular(),
                     ),
                     TextSpan(
                       text: userName,
-                      style: AppTextStyles.font20BlackBold,
+                      style: AppTextStyles.font20BlackBold(),
                     ),
                   ],
                 ),
               ),
               verticalSpacing(4),
-              Text("  ID: $userId", style: AppTextStyles.font13greyRegular),
+              Text("  ID: $userId", style: AppTextStyles.font13greyRegular()),
             ],
           ),
           const Spacer(),

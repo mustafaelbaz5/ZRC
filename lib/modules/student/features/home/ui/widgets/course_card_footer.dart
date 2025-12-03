@@ -27,7 +27,7 @@ class CourseCardFooter extends StatelessWidget {
               Expanded(
                 child: Text(
                   coursesCardModel.instructor,
-                  style: AppTextStyles.font13BlueBold,
+                  style: AppTextStyles.font13BlueBold(),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -45,7 +45,10 @@ class CourseCardFooter extends StatelessWidget {
               color: Colors.grey,
             ),
             SizedBox(width: 4.w),
-            Text(coursesCardModel.data, style: AppTextStyles.font13greyRegular),
+            Text(
+              coursesCardModel.data,
+              style: AppTextStyles.font13greyRegular(),
+            ),
           ],
         ),
       ],

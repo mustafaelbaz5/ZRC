@@ -30,7 +30,7 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Quiz Information', style: AppTextStyles.font16BlackBold),
+          Text('Quiz Information', style: AppTextStyles.font16BlackBold()),
           verticalSpacing(16),
           DetailRow(
             icon: Icons.event_outlined,

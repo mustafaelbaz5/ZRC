@@ -30,8 +30,8 @@ class DetailRow extends StatelessWidget {
           child: Icon(icon, size: 20.sp, color: color),
         ),
         horizontalSpacing(12),
-        Expanded(child: Text(label, style: AppTextStyles.font16BlackRegular)),
-        Text(value, style: AppTextStyles.font13greyRegular),
+        Expanded(child: Text(label, style: AppTextStyles.font16BlackRegular())),
+        Text(value, style: AppTextStyles.font13greyRegular()),
       ],
     );
   }

@@ -19,7 +19,7 @@ class QResultsAnalysisRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label, style: AppTextStyles.font13greyRegular),
+        Text(label, style: AppTextStyles.font13greyRegular()),
         Text(
           value,
           style: TextStyle(

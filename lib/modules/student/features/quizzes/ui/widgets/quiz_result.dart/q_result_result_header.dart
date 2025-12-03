@@ -48,14 +48,14 @@ class QResultResultHeader extends StatelessWidget {
           verticalSpacing(16),
           Text(
             isPassed ? 'Congratulations!' : 'Keep Trying!',
-            style: AppTextStyles.font24WhiteBold,
+            style: AppTextStyles.font24WhiteBold(),
           ),
           verticalSpacing(8),
           Text(
             isPassed
                 ? 'You passed the quiz successfully'
                 : 'You can improve with practice',
-            style: AppTextStyles.font16WhiteRegular,
+            style: AppTextStyles.font16WhiteRegular(),
           ),
         ],
       ),

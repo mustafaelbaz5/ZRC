@@ -26,7 +26,7 @@ class CoursesDetailsScreen extends StatelessWidget {
                   icon: const Icon(Icons.arrow_back_ios_new_rounded),
                 ),
                 horizontalSpacing(10),
-                Text("Course Details", style: AppTextStyles.font16BlackBold),
+                Text("Course Details", style: AppTextStyles.font16BlackBold()),
                 const Spacer(),
               ],
             ),
@@ -51,7 +51,7 @@ class CoursesDetailsScreen extends StatelessWidget {
                     // Course Title
                     Text(
                       'Flutter Complete Course 2024',
-                      style: AppTextStyles.font20BlackBold,
+                      style: AppTextStyles.font20BlackBold(),
                     ),
 
                     verticalSpacing(12),
