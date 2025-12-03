@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,17 +12,26 @@ class SubmitDialog extends StatelessWidget {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       title: Text(
-        'Submit Quiz?',
+        tr('student_quizzes.quiz_questions.submit_dialog.title'),
         style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
       ),
       content: Text(
-        'You have answered $answered out of $total questions. Do you want to submit?',
+        tr(
+          'student_quizzes.quiz_questions.submit_dialog.message',
+          namedArgs: {
+            'answered': answered.toString(),
+            'total': total.toString(),
+          },
+        ),
         style: TextStyle(fontSize: 14.sp),
       ),
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context, false),
-          child: Text('Cancel', style: TextStyle(fontSize: 14.sp)),
+          child: Text(
+            tr('student_quizzes.quiz_questions.submit_dialog.cancel'),
+            style: TextStyle(fontSize: 14.sp),
+          ),
         ),
         ElevatedButton(
           onPressed: () => Navigator.pop(context, true),
@@ -31,7 +41,10 @@ class SubmitDialog extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
             ),
           ),
-          child: Text('Submit', style: TextStyle(fontSize: 14.sp)),
+          child: Text(
+            tr('student_quizzes.quiz_questions.submit_dialog.submit'),
+            style: TextStyle(fontSize: 14.sp),
+          ),
         ),
       ],
     );

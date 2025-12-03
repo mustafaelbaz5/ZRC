@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
@@ -32,7 +33,7 @@ class FillInBlankInput extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Your Answer:',
+            tr('student_quizzes.quiz_questions.question.your_answer'),
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w600,
@@ -44,7 +45,9 @@ class FillInBlankInput extends StatelessWidget {
             onChanged: onChanged,
             controller: TextEditingController(text: answer?.toString() ?? ''),
             decoration: InputDecoration(
-              hintText: 'Type your answer here...',
+              hintText: tr(
+                'student_quizzes.quiz_questions.question.answer_hint',
+              ),
               filled: true,
               fillColor: Colors.grey[50],
               border: OutlineInputBorder(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/custom_app_bar.dart';
@@ -12,7 +13,13 @@ class QuizzesScreen extends StatefulWidget {
 }
 
 class _QuizzesScreenState extends State<QuizzesScreen> {
-  String selectedFilter = 'All';
+  late String selectedFilter;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedFilter = tr('student_quizzes.filters.all');
+  }
 
   void onFilterChanged(String newFilter) {
     setState(() {
@@ -25,7 +32,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(title: "Quizzes"),
+          CustomAppBar(title: tr('student_quizzes.screen_title')),
 
           // Filter Tabs
           QuizzesFilterRow(
