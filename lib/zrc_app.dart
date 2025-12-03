@@ -22,7 +22,7 @@ class ZrcApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoardingScreen,
+          initialRoute: Routes.initialScreen,
           onGenerateRoute: appRouter.generateRoute,
           title: 'ZRC - ZNU Robotics Community',
           theme: ThemeData(
