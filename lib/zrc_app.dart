@@ -29,8 +29,8 @@ class ZrcApp extends StatelessWidget {
             primaryColor: AppColors.darkBlue,
             scaffoldBackgroundColor: Colors.white,
             textTheme: context.locale.languageCode == 'ar'
-                ? GoogleFonts.tajawalTextTheme(Theme.of(context).textTheme)
-                : GoogleFonts.robotoTextTheme(Theme.of(context).textTheme),
+                ? GoogleFonts.tajawalTextTheme()
+                : GoogleFonts.interTextTheme(),
           ),
         );
       },
