@@ -1,0 +1,332 @@
+{
+  "onboarding": {
+    "title1": "Welcome to ZRC",
+    "subtitle1": "ZNU Robotics Community",
+
+    "title2": "Step into a World of Learning Excellence",
+    "subtitle2": "Join workshops and projects",
+
+    "title3": "Explore Endless Possibilities",
+    "subtitle3": "Collaborate with peers and mentors",
+
+    "title4": "Start Your SkillUp Journey Today",
+    "subtitle4": "Unlock a World of Possibilities",
+
+    "button_next": "Next",
+    "button_get_started": "Get Started",
+
+    "button_skip": "Skip"
+  },
+
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Login with your university email and password",
+
+    "email_label": "Email",
+    "email_hint": "Enter your email",
+    "email_error_empty": "Email cannot be empty",
+    "email_error_invalid": "Please enter a valid email [********@znu.edu.eg]",
+
+    "password_label": "Password",
+    "password_hint": "Enter your password",
+    "password_error_empty": "Password cannot be empty",
+
+    "forgot_password": "Forgot Password?",
+    "button_login": "Login",
+
+    "title_login_failed": "Login Failed",
+    "welcome_user": "Welcome, {name}"
+  },
+
+  "student_home": {
+    "welcome": "Welcome,",
+    "guest": "Guest",
+    "id_label": "ID:",
+
+    "header_title": "Watch Latest Videos, \nLearn from Experts",
+    "header_button": "Start Now",
+
+    "categories_title": "Categories",
+    "courses_title": "Courses",
+    "instructors_title": "Top Instructors",
+
+    "see_all": "See all",
+
+    "categories": {
+      "programming": "Programming",
+      "hardware": "Hardware",
+      "mechanical_design": "Mechanical Design",
+      "3d_design": "3D Design",
+      "graphic_design": "Graphic Design",
+      "others": "Others"
+    },
+
+    "sample_courses": {
+      "mathematics": {
+        "title": "Mathematics",
+        "description": "Learn the basics of algebra, geometry, and calculus."
+      },
+      "physics": {
+        "title": "Physics",
+        "description": "Explore the laws of nature, motion, and energy."
+      },
+      "chemistry": {
+        "title": "Chemistry",
+        "description": "Discover the world of elements, compounds, and reactions."
+      },
+      "computer_science": {
+        "title": "Computer Science",
+        "description": "Master programming fundamentals and algorithms."
+      },
+      "biology": {
+        "title": "Biology",
+        "description": "Explore the science of life and living organisms."
+      },
+      "english_literature": {
+        "title": "English Literature",
+        "description": "Analyze classic and contemporary literary works."
+      }
+    }
+  },
+  "student_courses": {
+    "screen_title": "Courses",
+    "categories": "Categories",
+    "course_details": "Course Details",
+
+    "meta": {
+      "instructor": "Instructor",
+      "duration": "Duration",
+      "lessons": "Lessons",
+      "level": "Level",
+      "rating": "Rating",
+      "students": "Students",
+      "hours": "Hours",
+      "enrolled": "Enrolled",
+      "completion_rate": "Completion Rate"
+    },
+
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+
+    "sections": {
+      "about": "About This Course",
+      "what_you_learn": "What You'll Learn",
+      "instructor": "Instructor",
+      "requirements": "Requirements",
+      "reviews": "Reviews",
+      "curriculum": "Curriculum"
+    },
+
+    "stats": {
+      "rating": "Rating",
+      "ratings": "Ratings",
+      "enrolled": "Enrolled",
+      "completion": "Completion",
+      "courses": "Courses",
+      "students": "Students"
+    },
+
+    "instructor_card": {
+      "rating": "Rating",
+      "courses": "Courses",
+      "students": "Students",
+      "years_experience": "{count}+ years of experience",
+      "taught_students": "Taught over {count} students worldwide"
+    },
+
+    "buttons": {
+      "enroll": "Enroll Now",
+      "start_learning": "Start Learning",
+      "view_all": "View All",
+      "preview": "Preview",
+      "save": "Save",
+      "share": "Share"
+    },
+
+    "filter": {
+      "all": "All",
+      "popular": "Popular",
+      "newest": "Newest",
+      "trending": "Trending",
+      "free": "Free",
+      "paid": "Paid"
+    }
+  },
+  "student_quizzes": {
+    "screen_title": "Quizzes",
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "completed": "Completed"
+    },
+    "empty_state": {
+      "title": "No quizzes found",
+      "subtitle": "Check back later for new quizzes"
+    },
+    "status": {
+      "completed": "Completed",
+      "in_progress": "In Progress",
+      "not_started": "Not Started"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "due_date": {
+      "due_today": "Due today",
+      "due_tomorrow": "Due tomorrow",
+      "due_in_days": "Due in {days} days"
+    },
+    "quiz_card": {
+      "questions": "Questions",
+      "minutes": "mins",
+      "marks": "marks",
+      "attempts": "attempts"
+    },
+    "quiz_detailed": {
+      "quiz_completed": "Quiz Completed!",
+      "quiz_pending": "Quiz Pending",
+      "your_score": "Your Score: {score}%",
+      "can_retake": "You can retake this quiz",
+      "questions": "Questions",
+      "minutes": "Minutes",
+      "marks": "Marks",
+      "description": "Description",
+      "instructor": "Instructor",
+      "quiz_information": "Quiz Information",
+      "due_date": "Due Date",
+      "published": "Published",
+      "difficulty": "Difficulty",
+      "attempts": "Attempts",
+      "passing_score": "Passing Score",
+      "start_quiz": "Start Quiz",
+      "retake_quiz": "Retake Quiz",
+      "continue_quiz": "Continue Quiz",
+      "no_attempts_left": "No Attempts Left"
+    },
+    "quiz_questions": {
+      "exit_dialog": {
+        "title": "Exit Quiz?",
+        "message": "Your progress will be lost. Are you sure?",
+        "cancel": "Cancel",
+        "exit": "Exit"
+      },
+      "header": {
+        "question_of": "Question {current} of {total}",
+        "progress_percent": "{percent}%"
+      },
+      "question": {
+        "marks": "marks",
+        "your_answer": "Your Answer:",
+        "answer_hint": "Type your answer here..."
+      },
+      "question_types": {
+        "mcq": "MCQ",
+        "true_false": "True/False",
+        "fill_in_blank": "Fill in Blank"
+      },
+      "true_false": {
+        "true": "True",
+        "false": "False"
+      },
+      "navigation": {
+        "previous": "Previous",
+        "next": "Next",
+        "submit_quiz": "Submit Quiz"
+      },
+      "submit_dialog": {
+        "title": "Submit Quiz?",
+        "message": "You have answered {answered} out of {total} questions. Do you want to submit?",
+        "cancel": "Cancel",
+        "submit": "Submit"
+      }
+    },
+    "quiz_result": {
+      "header": {
+        "congratulations": "Congratulations!",
+        "keep_trying": "Keep Trying!",
+        "passed_message": "You passed the quiz successfully",
+        "improve_message": "You can improve with practice"
+      },
+      "score": {
+        "your_score": "Your Score",
+        "passed": "Passed",
+        "not_passed": "Not Passed"
+      },
+      "stats": {
+        "questions": "Questions",
+        "duration": "Duration",
+        "grade": "Grade"
+      },
+      "performance": {
+        "title": "Performance Analysis",
+        "your_score": "Your Score",
+        "passing_score": "Passing Score",
+        "difference": "Difference",
+        "excellent_work": "Excellent work! Keep up the good performance.",
+        "review_material": "Review the material and try again to improve your score."
+      },
+      "attempts": {
+        "attempts_used": "Attempts Used",
+        "retake_available": "Retake Available",
+        "no_attempts_left": "No Attempts Left"
+      },
+      "quiz_info": {
+        "title": "Quiz Details",
+        "quiz_title": "Quiz Title",
+        "subject": "Subject",
+        "instructor": "Instructor"
+      },
+      "actions": {
+        "finished": "FINISHED",
+        "back_to_home": "Back to Home"
+      }
+    }
+  },
+  "student_profile": {
+    "screen_title": "Profile",
+    "unable_to_load": "Unable to load profile",
+    "personal_information": {
+      "title": "Personal Information",
+      "full_name": "Full Name",
+      "email": "Email",
+      "student_code": "Student Code",
+      "college": "College",
+      "phone_number": "Phone Number",
+      "national_id": "National ID"
+    },
+    "settings": {
+      "title": "Settings",
+      "language": "Language",
+      "theme": "Theme",
+      "select_language": "Select Language",
+      "select_theme": "Select Theme",
+      "english": "English",
+      "arabic": "العربية",
+      "light_mode": "Light mode",
+      "dark_mode": "Dark mode",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "stats": {
+      "courses": "Courses",
+      "quizzes": "Quizzes",
+      "avg_score": "Avg Score"
+    },
+    "logout": {
+      "button": "LogOut",
+      "dialog_title": "Logout",
+      "dialog_message": "Are you sure you want to logout?",
+      "cancel": "Cancel",
+      "confirm": "Logout"
+    },
+    "header": {
+      "id_label": "ID"
+    },
+    "copy_to_clipboard": "Copied to clipboard"
+  }
+}

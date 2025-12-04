@@ -1,7 +1,9 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:zrc/core/router/app_router.dart';
+
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/app_assets.dart';
@@ -9,8 +11,8 @@ import '../../../../../../core/utils/spacing.dart';
 import '../../../../../../core/widgets/custom_text_button.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({super.key, required this.navigationKey});
-  final GlobalKey<CurvedNavigationBarState> navigationKey;
+  const HomeHeader({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -20,7 +22,6 @@ class HomeHeader extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         child: Stack(
           children: [
-            // Background image with fit for better coverage
             Positioned.fill(
               child: SvgPicture.asset(
                 AppAssets.onBoardingBackground,
@@ -40,7 +41,6 @@ class HomeHeader extends StatelessWidget {
               ),
             ),
 
-            // Content: Text + Button + Image
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.symmetric(
@@ -50,7 +50,6 @@ class HomeHeader extends StatelessWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Text + Button
                     Expanded(
                       flex: 2,
                       child: Column(
@@ -58,21 +57,20 @@ class HomeHeader extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Watch Latest Videos, \nLearn from Experts',
-                            style: AppTextStyles.font16WhiteRegular,
+                            tr('student_home.header_title'),
+                            style: AppTextStyles.font16WhiteRegular(),
                           ),
                           verticalSpacing(16),
-                          // Enhanced button with subtle elevation and ripple
                           SizedBox(
                             height: 48.h,
                             width: double.infinity,
                             child: CustomTextButton(
-                              buttonText: 'Start Now',
+                              buttonText: tr('student_home.header_button'),
                               onPressed: () {
-                                navigationKey.currentState?.setPage(1);
+                                navigationKey.currentState?.setPage(2);
                               },
                               backgroundColor: Colors.white,
-                              textStyle: AppTextStyles.font16BlackBold,
+                              textStyle: AppTextStyles.font16BlackBold(),
                               borderRadius: 12,
                             ),
                           ),

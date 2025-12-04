@@ -3,42 +3,71 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../../error/models/app_error.dart';
 import '../../../error/types/error_handler.dart';
-import '../../../utils/secure_storage.dart';
+import '../../../error/types/error_type.dart';
+import '../../../storage/user_storage.dart';
+import '../model/user_model.dart';
 
 class AuthService {
   final _supabase = Supabase.instance.client;
-  final _secureStorage = SecureStorage();
+  final UserStorage _userStorage;
 
-  /// Logs in the user and stores user ID in secure storage
-  Future<void> loginUser({
+  AuthService({UserStorage? userStorage})
+    : _userStorage = userStorage ?? UserStorage();
+
+  /// Login user using email & password and return the full UserModel
+  Future<UserModel> loginUser({
     required String email,
     required String password,
   }) async {
     try {
-      final response = await _supabase.auth.signInWithPassword(
-        email: email,
-        password: password,
-      );
+      // Fetch user from Supabase
+      final response = await _supabase
+          .from('students')
+          .select(
+            'id, student_code, name, email, password, college, national_id, phone_number, role',
+          )
+          .eq('email', email)
+          .maybeSingle();
 
-      final userId = response.user?.id;
-      if (userId != null) {
-        await _secureStorage.saveString(key: 'user_id', value: userId);
+      if (response == null) {
+        throw const AppError(
+          message: 'Email not registered',
+          type: ErrorType.invalidCredentials,
+        );
       }
 
-      debugPrint('✅ User logged in successfully: ${response.user?.id}');
+      final storedPassword = response['password'] as String?;
+      if (storedPassword != password) {
+        throw const AppError(
+          message: 'Incorrect password',
+          type: ErrorType.invalidCredentials,
+        );
+      }
+
+      // Build UserModel
+      final user = UserModel.fromJson(response);
+
+      // Save full user data in secure storage via UserStorage
+      await _userStorage.saveUser(user);
+
+      debugPrint(
+        '✅ User logged in successfully: ${user.id}, role: ${user.role}',
+      );
+
+      return user;
     } catch (e) {
-      // Convert to AppError (already has user-friendly message)
       final appError = ErrorHandler.handle(e);
-
       debugPrint('❌ Login failed: ${appError.message}');
-
-      // Rethrow AppError directly
       throw AppError(
-        message: appError.message, // user-friendly message
+        message: appError.message,
         type: appError.type,
         code: appError.code,
         originalError: appError.originalError,
       );
     }
+  }
+
+  Future<void> logout() async {
+    await _userStorage.clearUser();
   }
 }

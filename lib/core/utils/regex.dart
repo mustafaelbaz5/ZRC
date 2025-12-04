@@ -1,8 +1,6 @@
 class AppRegex {
   static bool isEmailValid(String email) {
-    return RegExp(
-      r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$',
-    ).hasMatch(email);
+    return RegExp(r'^[\w.+-]+@[a-zA-Z0-9.-]+\.znu\.edu\.eg$').hasMatch(email);
   }
 
   static bool isPasswordValid(String password) {
@@ -35,5 +33,9 @@ class AppRegex {
     return RegExp(
       r'^(01[0125][0-9]{8})$|^(?:\+20)(1[0125][0-9]{8})$',
     ).hasMatch(phoneNumber);
+  }
+    bool isArabic(String text) {
+    final arabicRegex = RegExp(r'[\u0600-\u06FF]');
+    return arabicRegex.hasMatch(text);
   }
 }

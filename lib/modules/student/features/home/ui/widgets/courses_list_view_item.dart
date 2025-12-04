@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
-import '../../data/model/courses_card_model.dart';
+import '../../../../core/models/courses_card_model.dart';
 import 'course_card_footer.dart';
 import 'course_card_image.dart';
 
@@ -45,14 +46,14 @@ class CoursesListViewCard extends StatelessWidget {
                   children: [
                     Text(
                       coursesCardModel.title,
-                      style: AppTextStyles.font16BlackBold,
+                      style: AppTextStyles.font16BlackBold(),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     verticalSpacing(6),
                     Text(
                       coursesCardModel.description,
-                      style: AppTextStyles.font13greyRegular,
+                      style: AppTextStyles.font13greyRegular(),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.start,

@@ -75,7 +75,7 @@ class CustomTextButton extends StatelessWidget {
                   Flexible(
                     child: Text(
                       buttonText,
-                      style: textStyle ?? AppTextStyles.font18WhiteRegular,
+                      style: textStyle ?? AppTextStyles.font18WhiteRegular(),
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                     ),

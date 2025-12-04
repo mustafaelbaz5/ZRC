@@ -1,0 +1,332 @@
+{
+  "onboarding": {
+    "title1": "مرحبًا بك في ZRC",
+    "subtitle1": "مجتمع روبوتات جامعة الزقازيق الاهلية  ",
+
+    "title2": "ادخل إلى عالم من التميّز في التعلّم",
+    "subtitle2": "انضم إلى الورش والمشاريع",
+
+    "title3": "استكشف آفاقًا بلا حدود",
+    "subtitle3": "تعاون مع الزملاء والموجهين",
+
+    "title4": "ابدأ رحلتك في SkillUp اليوم",
+    "subtitle4": "افتح بابًا لعالم من الفرص",
+
+    "button_next": "التالي",
+    "button_get_started": "ابداء",
+
+    "button_skip": "تخطي"
+  },
+  "login": {
+    "title": "مرحباً بعودتك",
+    "subtitle": "سجّل الدخول باستخدام بريدك الجامعي وكلمة المرور",
+
+    "email_label": "البريد الإلكتروني",
+    "email_hint": "أدخل بريدك الإلكتروني",
+    "email_error_empty": "لا يمكن ترك البريد الإلكتروني فارغاً",
+    "email_error_invalid": "يرجى إدخال بريد صحيح [********@znu.edu.eg]",
+
+    "password_label": "كلمة المرور",
+    "password_hint": "أدخل كلمة المرور",
+    "password_error_empty": "لا يمكن ترك كلمة المرور فارغة",
+
+    "forgot_password": "هل نسيت كلمة المرور؟",
+    "button_login": "تسجيل الدخول",
+
+    "title_login_failed": "فشل تسجيل الدخول",
+    "welcome_user": "مرحباً، {name}"
+  },
+
+  "student_home": {
+    "welcome": "مرحباً،",
+    "guest": "ضيف",
+    "id_label": "الرقم التعريفي:",
+
+    "header_title": "شاهد أحدث الكورسات \nتعلم من الخبراء",
+    "header_button": "ابدأ الآن",
+
+    "categories_title": "الفئات",
+    "courses_title": "الدورات",
+    "instructors_title": "أفضل المدربين",
+
+    "see_all": "عرض الكل",
+
+    "categories": {
+      "programming": "البرمجة",
+      "hardware": "الأجهزة",
+      "mechanical_design": "التصميم الميكانيكي",
+      "3d_design": "التصميم ثلاثي الأبعاد",
+      "graphic_design": "التصميم الجرافيكي",
+      "others": "أخرى"
+    },
+
+    "sample_courses": {
+      "mathematics": {
+        "title": "الرياضيات",
+        "description": "تعلم أساسيات الجبر والهندسة وحساب التفاضل والتكامل."
+      },
+      "physics": {
+        "title": "الفيزياء",
+        "description": "استكشف قوانين الطبيعة والحركة والطاقة."
+      },
+      "chemistry": {
+        "title": "الكيمياء",
+        "description": "اكتشف عالم العناصر والمركبات والتفاعلات."
+      },
+      "computer_science": {
+        "title": "علوم الحاسوب",
+        "description": "أتقن أساسيات البرمجة والخوارزميات."
+      },
+      "biology": {
+        "title": "الأحياء",
+        "description": "استكشف علم الحياة والكائنات الحية."
+      },
+      "english_literature": {
+        "title": "الأدب الإنجليزي",
+        "description": "حلل الأعمال الأدبية الكلاسيكية والمعاصرة."
+      }
+    }
+  },
+
+  "student_courses": {
+    "screen_title": "الدورات",
+    "categories": "الفئات",
+    "course_details": "تفاصيل الدورة",
+
+    "meta": {
+      "instructor": "المدرب",
+      "duration": "المدة",
+      "lessons": "الدروس",
+      "level": "المستوى",
+      "rating": "التقييم",
+      "students": "الطلاب",
+      "hours": "ساعات",
+      "enrolled": "المسجلين",
+      "completion_rate": "معدل الإكمال"
+    },
+
+    "levels": {
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم"
+    },
+
+    "sections": {
+      "about": "حول هذه الدورة",
+      "what_you_learn": "ما ستتعلمه",
+      "instructor": "المدرب",
+      "requirements": "المتطلبات",
+      "reviews": "التقييمات",
+      "curriculum": "المنهج"
+    },
+
+    "stats": {
+      "rating": "التقييم",
+      "ratings": "تقييمات",
+      "enrolled": "مسجل",
+      "completion": "الإكمال",
+      "courses": "دورات",
+      "students": "طلاب"
+    },
+
+    "instructor_card": {
+      "rating": "التقييم",
+      "courses": "دورات",
+      "students": "طلاب",
+      "years_experience": "{count}+ سنوات من الخبرة",
+      "taught_students": "دَرّس أكثر من {count} طالب حول العالم"
+    },
+
+    "buttons": {
+      "enroll": "سجل الآن",
+      "start_learning": "ابدأ التعلم",
+      "view_all": "عرض الكل",
+      "preview": "معاينة",
+      "save": "حفظ",
+      "share": "مشاركة"
+    },
+
+    "filter": {
+      "all": "الكل",
+      "popular": "الأكثر شعبية",
+      "newest": "الأحدث",
+      "trending": "الرائج",
+      "free": "مجاني",
+      "paid": "مدفوع"
+    }
+  },
+  "student_quizzes": {
+    "screen_title": "الاختبارات",
+    "filters": {
+      "all": "الكل",
+      "pending": "قيد الانتظار",
+      "completed": "مكتمل"
+    },
+    "empty_state": {
+      "title": "لا توجد اختبارات",
+      "subtitle": "تحقق لاحقًا للحصول على اختبارات جديدة"
+    },
+    "status": {
+      "completed": "مكتمل",
+      "in_progress": "قيد التنفيذ",
+      "not_started": "لم يبدأ"
+    },
+    "difficulty": {
+      "easy": "سهل",
+      "medium": "متوسط",
+      "hard": "صعب"
+    },
+    "due_date": {
+      "due_today": "مستحق اليوم",
+      "due_tomorrow": "مستحق غدًا",
+      "due_in_days": "مستحق خلال {days} أيام"
+    },
+    "quiz_card": {
+      "questions": "أسئلة",
+      "minutes": "دقائق",
+      "marks": "درجات",
+      "attempts": "محاولات"
+    },
+    "quiz_detailed": {
+      "quiz_completed": "تم إكمال الاختبار!",
+      "quiz_pending": "الاختبار قيد الانتظار",
+      "your_score": "نقاطك: {score}%",
+      "can_retake": "يمكنك إعادة الاختبار",
+      "questions": "أسئلة",
+      "minutes": "دقائق",
+      "marks": "درجات",
+      "description": "الوصف",
+      "instructor": "المدرب",
+      "quiz_information": "معلومات الاختبار",
+      "due_date": "تاريخ الاستحقاق",
+      "published": "تاريخ النشر",
+      "difficulty": "الصعوبة",
+      "attempts": "المحاولات",
+      "passing_score": "الدرجة المطلوبة",
+      "start_quiz": "ابدأ الاختبار",
+      "retake_quiz": "أعد الاختبار",
+      "continue_quiz": "تابع الاختبار",
+      "no_attempts_left": "لا توجد محاولات متبقية"
+    },
+    "quiz_questions": {
+      "exit_dialog": {
+        "title": "الخروج من الاختبار؟",
+        "message": "سيتم فقدان تقدمك. هل أنت متأكد؟",
+        "cancel": "إلغاء",
+        "exit": "خروج"
+      },
+      "header": {
+        "question_of": "السؤال {current} من {total}",
+        "progress_percent": "{percent}%"
+      },
+      "question": {
+        "marks": "درجات",
+        "your_answer": "إجابتك:",
+        "answer_hint": "اكتب إجابتك هنا..."
+      },
+      "question_types": {
+        "mcq": "اختيار من متعدد",
+        "true_false": "صحيح/خطأ",
+        "fill_in_blank": "املأ الفراغ"
+      },
+      "true_false": {
+        "true": "صحيح",
+        "false": "خطأ"
+      },
+      "navigation": {
+        "previous": "السابق",
+        "next": "التالي",
+        "submit_quiz": "إرسال الاختبار"
+      },
+      "submit_dialog": {
+        "title": "إرسال الاختبار؟",
+        "message": "لقد أجبت على {answered} من أصل {total} أسئلة. هل تريد الإرسال؟",
+        "cancel": "إلغاء",
+        "submit": "إرسال"
+      }
+    },
+    "quiz_result": {
+      "header": {
+        "congratulations": "تهانينا!",
+        "keep_trying": "استمر في المحاولة!",
+        "passed_message": "لقد نجحت في الاختبار بنجاح",
+        "improve_message": "يمكنك التحسين بالممارسة"
+      },
+      "score": {
+        "your_score": "نقاطك",
+        "passed": "نجح",
+        "not_passed": "لم ينجح"
+      },
+      "stats": {
+        "questions": "أسئلة",
+        "duration": "المدة",
+        "grade": "الدرجة"
+      },
+      "performance": {
+        "title": "تحليل الأداء",
+        "your_score": "نقاطك",
+        "passing_score": "الدرجة المطلوبة",
+        "difference": "الفرق",
+        "excellent_work": "عمل ممتاز! استمر في الأداء الجيد.",
+        "review_material": "راجع المادة وحاول مرة أخرى لتحسين درجتك."
+      },
+      "attempts": {
+        "attempts_used": "المحاولات المستخدمة",
+        "retake_available": "إعادة متاحة",
+        "no_attempts_left": "لا توجد محاولات متبقية"
+      },
+      "quiz_info": {
+        "title": "تفاصيل الاختبار",
+        "quiz_title": "عنوان الاختبار",
+        "subject": "المادة",
+        "instructor": "المدرب"
+      },
+      "actions": {
+        "finished": "انتهى",
+        "back_to_home": "العودة إلى الرئيسية"
+      }
+    }
+  },
+  "student_profile": {
+    "screen_title": "الملف الشخصي",
+    "unable_to_load": "تعذر تحميل الملف الشخصي",
+    "personal_information": {
+      "title": "المعلومات الشخصية",
+      "full_name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "student_code": "الرقم التعريفي للطالب",
+      "college": "الكلية",
+      "phone_number": "رقم الهاتف",
+      "national_id": "الرقم القومي"
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "language": "اللغة",
+      "theme": "المظهر",
+      "select_language": "اختر اللغة",
+      "select_theme": "اختر المظهر",
+      "english": "English",
+      "arabic": "العربية",
+      "light_mode": "الوضع الفاتح",
+      "dark_mode": "الوضع الداكن",
+      "light": "فاتح",
+      "dark": "داكن"
+    },
+    "stats": {
+      "courses": "الدورات",
+      "quizzes": "الاختبارات",
+      "avg_score": "متوسط الدرجات"
+    },
+    "logout": {
+      "button": "تسجيل الخروج",
+      "dialog_title": "تسجيل الخروج",
+      "dialog_message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "cancel": "إلغاء",
+      "confirm": "تسجيل الخروج"
+    },
+    "header": {
+      "id_label": "الرقم التعريفي"
+    },
+    "copy_to_clipboard": "تم النسخ إلى الحافظة"
+  }
+}

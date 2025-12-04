@@ -12,6 +12,7 @@ platform :android do
       "m9stafa05@gmail.com",
       "mohmmedhosni34@gmail.com",
       "Amrb3556@gmail.com",
+      "ahmedghanem442004@gmail.com",
     ]
 
     # Convert array to comma-separated string
@@ -23,7 +24,7 @@ platform :android do
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
       testers: testers_string,
-      release_notes: "ZRC [Zagazig National University - Robotics - Community] fix production build (v.1.0.3)",
+      release_notes: "ZRC Finish All Most Students Features UI  (v.1.0.4)",
     )
   end
 end
