@@ -286,5 +286,46 @@
         "back_to_home": "Back to Home"
       }
     }
+  },
+  "student_profile": {
+    "screen_title": "Profile",
+    "unable_to_load": "Unable to load profile",
+    "personal_information": {
+      "title": "Personal Information",
+      "full_name": "Full Name",
+      "email": "Email",
+      "student_code": "Student Code",
+      "college": "College",
+      "phone_number": "Phone Number",
+      "national_id": "National ID"
+    },
+    "settings": {
+      "title": "Settings",
+      "language": "Language",
+      "theme": "Theme",
+      "select_language": "Select Language",
+      "select_theme": "Select Theme",
+      "english": "English",
+      "arabic": "العربية",
+      "light_mode": "Light mode",
+      "dark_mode": "Dark mode",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "stats": {
+      "courses": "Courses",
+      "quizzes": "Quizzes",
+      "avg_score": "Avg Score"
+    },
+    "logout": {
+      "button": "LogOut",
+      "dialog_title": "Logout",
+      "dialog_message": "Are you sure you want to logout?",
+      "cancel": "Cancel",
+      "confirm": "Logout"
+    },
+    "header": {
+      "id_label": "ID"
+    }
   }
 }

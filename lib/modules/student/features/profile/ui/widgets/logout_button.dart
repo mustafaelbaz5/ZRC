@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/navigation.dart';
@@ -17,17 +18,20 @@ class LogoutButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
-          'Logout',
+          'student_profile.logout.dialog_title'.tr(),
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
         ),
         content: Text(
-          'Are you sure you want to logout?',
+          'student_profile.logout.dialog_message'.tr(),
           style: TextStyle(fontSize: 14.sp),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: Text('Cancel', style: TextStyle(fontSize: 14.sp)),
+            child: Text(
+              'student_profile.logout.cancel'.tr(),
+              style: TextStyle(fontSize: 14.sp),
+            ),
           ),
           ElevatedButton(
             onPressed: () => Navigator.pop(context, true),
@@ -37,7 +41,10 @@ class LogoutButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
               ),
             ),
-            child: Text('Logout', style: TextStyle(fontSize: 14.sp)),
+            child: Text(
+              'student_profile.logout.confirm'.tr(),
+              style: TextStyle(fontSize: 14.sp),
+            ),
           ),
         ],
       ),
@@ -64,7 +71,7 @@ class LogoutButton extends StatelessWidget {
       buttonWidth: 300,
       buttonHeight: 50,
       backgroundColor: Colors.red,
-      buttonText: "LogOut",
+      buttonText: 'student_profile.logout.button'.tr(),
       textStyle: AppTextStyles.font18WhiteRegular(),
       onPressed: () => _handleLogout(context),
     );

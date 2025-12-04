@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
@@ -142,7 +143,7 @@ class ProfileHeader extends StatelessWidget {
                 Icon(Icons.badge_rounded, size: 18.sp, color: Colors.white),
                 SizedBox(width: 8.w),
                 Text(
-                  "ID: ${user.studentCode}",
+                  '${'student_profile.header.id_label'.tr()}: ${user.studentCode}',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w600,

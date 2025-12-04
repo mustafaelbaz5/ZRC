@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
@@ -63,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Icon(Icons.error_outline, size: 64.sp, color: Colors.grey[400]),
               verticalSpacing(16),
               Text(
-                'Unable to load profile',
+                'student_profile.unable_to_load'.tr(),
                 style: TextStyle(fontSize: 16.sp, color: Colors.grey[600]),
               ),
             ],
@@ -75,7 +76,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return SafeArea(
       child: Column(
         children: [
-          const CustomAppBar(title: "Profile", showNotificationIcon: false),
+          CustomAppBar(
+            title: 'student_profile.screen_title'.tr(),
+            showNotificationIcon: false,
+          ),
           Expanded(
             child: SingleChildScrollView(
               child: Column(

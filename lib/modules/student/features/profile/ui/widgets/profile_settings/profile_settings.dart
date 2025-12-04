@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/utils/functions/app_language.dart';
@@ -16,19 +17,21 @@ class ProfileSettings extends StatelessWidget {
     final isArabic = isAppLanguageArabic(context);
 
     return ProfileSectionBody(
-      title: 'Settings',
+      title: 'student_profile.settings.title'.tr(),
       items: [
         ProfileMenuItem(
           icon: Icons.language_outlined,
-          title: 'Language',
-          subtitle: isArabic ? 'العربية' : 'English',
+          title: 'student_profile.settings.language'.tr(),
+          subtitle: isArabic
+              ? 'student_profile.settings.arabic'.tr()
+              : 'student_profile.settings.english'.tr(),
           onTap: () => _showLanguageDialog(context),
         ),
 
         ProfileMenuItem(
           icon: Icons.palette_outlined,
-          title: 'Theme',
-          subtitle: 'Light mode',
+          title: 'student_profile.settings.theme'.tr(),
+          subtitle: 'student_profile.settings.light_mode'.tr(),
           onTap: () => _showThemeDialog(context),
         ),
       ],
@@ -45,7 +48,7 @@ class ProfileSettings extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
-          'Select Language',
+          'student_profile.settings.select_language'.tr(),
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
         ),
         content: Column(
@@ -53,7 +56,7 @@ class ProfileSettings extends StatelessWidget {
           children: [
             // English option
             LanguageOption(
-              title: 'English',
+              title: 'student_profile.settings.english'.tr(),
               isSelected: !isArabic,
               onTap: () {
                 Navigator.pop(context);
@@ -66,7 +69,7 @@ class ProfileSettings extends StatelessWidget {
 
             // Arabic option
             LanguageOption(
-              title: 'العربية',
+              title: 'student_profile.settings.arabic'.tr(),
               isSelected: isArabic,
               onTap: () {
                 Navigator.pop(context);
@@ -88,21 +91,21 @@ class ProfileSettings extends StatelessWidget {
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
-          'Select Theme',
+          'student_profile.settings.select_theme'.tr(),
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             ThemeOption(
-              title: 'Light',
+              title: 'student_profile.settings.light'.tr(),
               icon: Icons.light_mode,
               isSelected: true,
               onTap: () => Navigator.pop(context),
             ),
             SizedBox(height: 8.h),
             ThemeOption(
-              title: 'Dark',
+              title: 'student_profile.settings.dark'.tr(),
               icon: Icons.dark_mode,
               isSelected: false,
               onTap: () => Navigator.pop(context),

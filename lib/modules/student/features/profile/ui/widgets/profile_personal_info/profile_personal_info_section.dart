@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
 import 'package:zrc/core/utils/functions/app_language.dart';
@@ -16,39 +17,39 @@ class ProfilePersonalInfoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProfileSectionBody(
-      title: 'Personal Information',
+      title: 'student_profile.personal_information.title'.tr(),
       items: [
         ProfileInfoDisplayItem(
           icon: Icons.person_outline,
-          title: 'Full Name',
+          title: 'student_profile.personal_information.full_name'.tr(),
           value: isArabic ? user.name : changeNameToEn(context, user.name),
         ),
         ProfileInfoDisplayItem(
           icon: Icons.email_outlined,
-          title: 'Email',
+          title: 'student_profile.personal_information.email'.tr(),
           value: user.email,
         ),
         ProfileInfoDisplayItem(
           icon: Icons.badge_outlined,
-          title: 'Student Code',
+          title: 'student_profile.personal_information.student_code'.tr(),
           value: user.studentCode.toString(),
         ),
         if (user.college != null)
           ProfileInfoDisplayItem(
             icon: Icons.school_outlined,
-            title: 'College',
+            title: 'student_profile.personal_information.college'.tr(),
             value: user.college!,
           ),
         if (user.phoneNumber != null)
           ProfileInfoDisplayItem(
             icon: Icons.phone_outlined,
-            title: 'Phone Number',
+            title: 'student_profile.personal_information.phone_number'.tr(),
             value: user.phoneNumber!,
           ),
         if (user.nationalId != null)
           ProfileInfoDisplayItem(
             icon: Icons.credit_card_outlined,
-            title: 'National ID',
+            title: 'student_profile.personal_information.national_id'.tr(),
             value: user.nationalId.toString(),
           ),
       ],

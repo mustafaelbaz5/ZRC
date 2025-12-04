@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
@@ -14,29 +15,29 @@ class ProfileStatsCards extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: StatCard(
               icon: Icons.school_outlined,
               value: '12',
-              label: 'Courses',
+              label: 'student_profile.stats.courses'.tr(),
               color: Colors.purple,
             ),
           ),
           SizedBox(width: 12.w),
-          const Expanded(
+          Expanded(
             child: StatCard(
               icon: Icons.quiz_outlined,
               value: '28',
-              label: 'Quizzes',
+              label: 'student_profile.stats.quizzes'.tr(),
               color: Colors.orange,
             ),
           ),
           SizedBox(width: 12.w),
-          const Expanded(
+          Expanded(
             child: StatCard(
               icon: Icons.grade_outlined,
               value: '87%',
-              label: 'Avg Score',
+              label: 'student_profile.stats.avg_score'.tr(),
               color: Colors.teal,
             ),
           ),
