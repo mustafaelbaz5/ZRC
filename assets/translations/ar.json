@@ -286,5 +286,47 @@
         "back_to_home": "العودة إلى الرئيسية"
       }
     }
+  },
+  "student_profile": {
+    "screen_title": "الملف الشخصي",
+    "unable_to_load": "تعذر تحميل الملف الشخصي",
+    "personal_information": {
+      "title": "المعلومات الشخصية",
+      "full_name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "student_code": "الرقم التعريفي للطالب",
+      "college": "الكلية",
+      "phone_number": "رقم الهاتف",
+      "national_id": "الرقم القومي"
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "language": "اللغة",
+      "theme": "المظهر",
+      "select_language": "اختر اللغة",
+      "select_theme": "اختر المظهر",
+      "english": "English",
+      "arabic": "العربية",
+      "light_mode": "الوضع الفاتح",
+      "dark_mode": "الوضع الداكن",
+      "light": "فاتح",
+      "dark": "داكن"
+    },
+    "stats": {
+      "courses": "الدورات",
+      "quizzes": "الاختبارات",
+      "avg_score": "متوسط الدرجات"
+    },
+    "logout": {
+      "button": "تسجيل الخروج",
+      "dialog_title": "تسجيل الخروج",
+      "dialog_message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "cancel": "إلغاء",
+      "confirm": "تسجيل الخروج"
+    },
+    "header": {
+      "id_label": "الرقم التعريفي"
+    },
+    "copy_to_clipboard": "تم النسخ إلى الحافظة"
   }
 }
