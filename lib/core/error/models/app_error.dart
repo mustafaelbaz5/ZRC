@@ -21,7 +21,7 @@ class AppError implements Exception {
   // Factory constructors for common errors
   factory AppError.noInternet() {
     return const AppError(
-      message: 'No internet connection. Please check your network.',
+      message: 'errors.no_internet',
       type: ErrorType.noInternet,
       code: ErrorCode.noInternet,
     );
@@ -29,7 +29,7 @@ class AppError implements Exception {
 
   factory AppError.timeout() {
     return const AppError(
-      message: 'Request timeout. Please try again.',
+      message: 'errors.timeout',
       type: ErrorType.timeout,
       code: ErrorCode.timeout,
     );
@@ -37,7 +37,7 @@ class AppError implements Exception {
 
   factory AppError.unauthorized() {
     return const AppError(
-      message: 'Unauthorized access. Please login again.',
+      message: 'errors.unauthorized',
       type: ErrorType.unauthorized,
       code: ErrorCode.unauthorized,
     );
@@ -45,15 +45,15 @@ class AppError implements Exception {
 
   factory AppError.serverError() {
     return const AppError(
-      message: 'Server error occurred. Please try again later.',
+      message: 'errors.server_error',
       type: ErrorType.internalServer,
       code: ErrorCode.internalServer,
     );
   }
 
-  factory AppError.unknown([String? message]) {
+  factory AppError.unknown([final String? message]) {
     return AppError(
-      message: message ?? 'An unexpected error occurred.',
+      message: message ?? 'errors.unknown',
       type: ErrorType.unknown,
       code: ErrorCode.unknown,
     );
@@ -61,12 +61,12 @@ class AppError implements Exception {
 
   // Copy with method for modifications
   AppError copyWith({
-    String? message,
-    ErrorType? type,
-    int? code,
-    String? technicalMessage,
-    ErrorDetails? details,
-    dynamic originalError,
+    final String? message,
+    final ErrorType? type,
+    final int? code,
+    final String? technicalMessage,
+    final ErrorDetails? details,
+    final dynamic originalError,
   }) {
     return AppError(
       message: message ?? this.message,

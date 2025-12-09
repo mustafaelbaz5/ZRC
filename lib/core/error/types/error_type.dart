@@ -3,7 +3,7 @@ enum ErrorType {
   noInternet,
   timeout,
   connectionError,
-  
+
   // HTTP errors
   badRequest,
   unauthorized,
@@ -11,7 +11,7 @@ enum ErrorType {
   notFound,
   conflict,
   internalServer,
-  
+
   // Auth errors
   invalidCredentials,
   userNotFound,
@@ -20,12 +20,15 @@ enum ErrorType {
   invalidEmail,
   sessionExpired,
   emailNotVerified,
-  
+
   // Service specific
   supabaseAuth,
   supabaseDatabase,
   supabaseStorage,
-  
+  firebaseAuth,
+  firebaseFirestore,
+  firebaseStorage,
+
   // General
   cancel,
   unknown,
@@ -44,7 +47,7 @@ class ErrorCode {
   static const int unprocessableEntity = 422;
   static const int tooManyRequests = 429;
   static const int internalServer = 500;
-  
+
   // Local Error Codes
   static const int noInternet = -1;
   static const int timeout = -2;

@@ -1,20 +1,29 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 import '../handlers/supabase_error_handler.dart';
 import '../models/app_error.dart';
 
 class ErrorHandler {
   /// Handle any error and convert it to AppError
-  static AppError handle(dynamic error) {
+  static AppError handle(final dynamic error) {
+    // Handle AppError (already processed)
+    if (error is AppError) {
+      return error;
+    }
+
     // Check for Supabase errors
     if (_isSupabaseError(error)) {
       return SupabaseErrorHandler.handle(error);
     }
 
-    // Handle AppError (already processed)
-    if (error is AppError) {
-      return error;
-    }
+    // // Check for Dio errors
+    // if (error is DioException) {
+    //   return DioErrorHandler.handle(error);
+    // }
+
+    // // Check for Firebase errors
+    // if (_isFirebaseError(error)) {
+    //   return FirebaseErrorHandler.handle(error);
+    // }
 
     // Handle generic Exception
     if (error is Exception) {
@@ -22,24 +31,18 @@ class ErrorHandler {
     }
 
     // Handle any other error type
-    return AppError.unknown(error?.toString() ?? 'Unknown error occurred');
+    return AppError.unknown(error?.toString() ?? 'errors.unknown');
   }
 
   /// Check if the error is a Supabase-related error
-  static bool _isSupabaseError(dynamic error) {
-    return error is AuthApiException || // for API auth errors
-        error is AuthException || // general auth errors
+  static bool _isSupabaseError(final dynamic error) {
+    return error is AuthException || // general auth errors
         error is PostgrestException ||
         error is StorageException;
   }
-}
 
-// =================================================================
-// Extension for easy error handling
-// =================================================================
-
-extension ErrorHandlerExtension on Object {
-  AppError toAppError() {
-    return ErrorHandler.handle(this);
-  }
+  // /// Check if the error is a Firebase-related error
+  // static bool _isFirebaseError(final dynamic error) {
+  //   return error is FirebaseAuthException || error is FirebaseException;
+  // }
 }
