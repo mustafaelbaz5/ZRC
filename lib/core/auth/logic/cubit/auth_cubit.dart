@@ -10,15 +10,18 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo _authRepo;
 
-  AuthCubit({AuthRepo? authRepo})
+  AuthCubit({final AuthRepo? authRepo})
     : _authRepo = authRepo ?? AuthRepo(),
       super(AuthInitial());
 
   /// Login method
-  Future<void> login({required String email, required String password}) async {
+  Future<void> login({
+    required final String email,
+    required final String password,
+  }) async {
     emit(AuthLoading());
     try {
-      final studentModel = await _authRepo.login(
+      final UserModel studentModel = await _authRepo.login(
         email: email,
         password: password,
       );
@@ -34,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> checkAutoLogin() async {
     emit(AuthLoading());
     try {
-      final studentModel = await _authRepo.getLoggedInStudent();
+      final UserModel? studentModel = await _authRepo.getLoggedInStudent();
       if (studentModel != null) {
         emit(AuthSuccess(userModel: studentModel));
       } else {

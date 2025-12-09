@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import 'q_results_analysis_row.dart';
@@ -18,14 +19,14 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.all(16.w),
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -35,9 +36,9 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.analytics_outlined,
                 size: 20.sp,
@@ -78,7 +79,7 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Row(
-              children: [
+              children: <Widget>[
                 Icon(
                   isPassed ? Icons.lightbulb_outline : Icons.info_outline,
                   size: 18.sp,

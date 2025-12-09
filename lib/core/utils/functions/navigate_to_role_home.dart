@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../router/routes.dart';
 
-void navigateToRoleHome(BuildContext context, String role) {
+void navigateToRoleHome(final BuildContext context, final String role) {
   switch (role) {
     case 'student':
       Navigator.pushReplacementNamed(context, Routes.studentScaffold);

@@ -1,19 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/navigation.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/storage/user_storage.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/widgets/custom_text_button.dart';
+import '../../../../../../core/extensions/navigation.dart';
+import '../../../../../../core/router/routes.dart';
+import '../../../../../../core/storage/user_storage.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/widgets/custom_text_button.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({super.key});
 
-  Future<void> _handleLogout(BuildContext context) async {
-    final shouldLogout = await showDialog<bool>(
+  Future<void> _handleLogout(final BuildContext context) async {
+    final bool? shouldLogout = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (final BuildContext context) => AlertDialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -25,7 +25,7 @@ class LogoutButton extends StatelessWidget {
           'student_profile.logout.dialog_message'.tr(),
           style: TextStyle(fontSize: 14.sp),
         ),
-        actions: [
+        actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.pop(context, false),
             child: Text(
@@ -53,7 +53,7 @@ class LogoutButton extends StatelessWidget {
     if (shouldLogout == true && context.mounted) {
       try {
         // Clear user data from secure storage
-        final userStorage = UserStorage();
+        final UserStorage userStorage = UserStorage();
         await userStorage.clearUser();
 
         if (context.mounted) {
@@ -66,7 +66,7 @@ class LogoutButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return CustomTextButton(
       buttonWidth: 300,
       buttonHeight: 50,

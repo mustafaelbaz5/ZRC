@@ -1,3 +1,4 @@
+// ignore_for_file: always_specify_types
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,11 +21,13 @@ import '../auth/ui/widgets/initial_screen.dart';
 import '../onboarding/ui/on_boarding_screen.dart';
 import 'routes.dart';
 
-final navigationKey = GlobalKey<CurvedNavigationBarState>();
+final GlobalKey<CurvedNavigationBarState> navigationKey =
+    GlobalKey<CurvedNavigationBarState>();
 
 class AppRouter {
-  Route<dynamic>? generateRoute(RouteSettings settings) {
-    final args = (settings.arguments as Map<String, dynamic>?) ?? {};
+  Route<dynamic>? generateRoute(final RouteSettings settings) {
+    final Map<String, dynamic> args =
+        (settings.arguments as Map<String, dynamic>?) ?? <String, dynamic>{};
 
     switch (settings.name) {
       // ----------------- ONBOARDING -----------------
@@ -50,7 +53,7 @@ class AppRouter {
 
       // ----------------- STUDENT APP -----------------
       case Routes.studentScaffold:
-        final key =
+        final GlobalKey<CurvedNavigationBarState> key =
             (settings.arguments as Map<String, dynamic>?)?['navigationKey']
                 as GlobalKey<CurvedNavigationBarState>? ??
             GlobalKey<CurvedNavigationBarState>();

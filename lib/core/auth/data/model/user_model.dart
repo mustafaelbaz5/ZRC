@@ -23,7 +23,7 @@ class UserModel {
     required this.role,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+  factory UserModel.fromJson(final Map<String, dynamic> json) => UserModel(
     id: json['id'],
     studentCode: json['student_code'],
     name: json['name'] ?? '',
@@ -34,7 +34,7 @@ class UserModel {
     role: json['role'] ?? 'student',
   );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => <String, dynamic>{
     'id': id,
     'student_code': studentCode,
     'name': name,
@@ -49,6 +49,6 @@ class UserModel {
   String toJsonString() => jsonEncode(toJson());
 
   // helper to create model from json string from storage
-  factory UserModel.fromJsonString(String jsonString) =>
+  factory UserModel.fromJsonString(final String jsonString) =>
       UserModel.fromJson(jsonDecode(jsonString));
 }

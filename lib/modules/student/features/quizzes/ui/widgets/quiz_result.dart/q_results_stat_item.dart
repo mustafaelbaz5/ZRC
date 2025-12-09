@@ -18,13 +18,13 @@ class QResultsStatItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 16.h),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -33,7 +33,7 @@ class QResultsStatItem extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, size: 24.sp, color: color),
           verticalSpacing(8),
           Text(value, style: AppTextStyles.font16BlackBold()),

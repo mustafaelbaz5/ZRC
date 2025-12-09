@@ -16,13 +16,13 @@ class ProfileStatCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20.h),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.1 * 255).toInt()),
             blurRadius: 8,
@@ -31,7 +31,7 @@ class ProfileStatCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, size: 28.sp, color: color),
           SizedBox(height: 8.h),
           Text(

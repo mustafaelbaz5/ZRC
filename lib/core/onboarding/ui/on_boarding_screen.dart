@@ -28,7 +28,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
-  void _onPageChanged(int index) {
+  void _onPageChanged(final int index) {
     setState(() => _currentPage = index);
   }
 
@@ -64,12 +64,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
-          children: [
+          children: <Widget>[
             OnBoardingTopBar(
               showSkip: !_isLastPage,
               onSkip: _navigateToLogin,
@@ -80,7 +80,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 controller: _pageController,
                 itemCount: onboardingPages.length,
                 onPageChanged: _onPageChanged,
-                itemBuilder: (context, index) {
+                itemBuilder: (final BuildContext context, final int index) {
                   return OnBoardingContent(page: onboardingPages[index]);
                 },
               ),

@@ -8,16 +8,16 @@ class InstructorsListView extends StatelessWidget {
   const InstructorsListView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: instructors.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemBuilder: (context, index) {
+        itemBuilder: (final BuildContext context, final int index) {
           return InstructorsListViewItem(
             isSelected: false,
             onTap: () {},
@@ -29,7 +29,7 @@ class InstructorsListView extends StatelessWidget {
   }
 }
 
-final List<InstructorItemModel> instructors = [
+final List<InstructorItemModel> instructors = <InstructorItemModel>[
   InstructorItemModel(
     id: 1,
     name: "Mustafa",

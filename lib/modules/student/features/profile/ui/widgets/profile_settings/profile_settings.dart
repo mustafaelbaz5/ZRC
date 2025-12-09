@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/language_option.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_menu_item.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_section_body.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/theme_option.dart';
+import '../../../../../../../core/utils/functions/app_language.dart';
+import 'language_option.dart';
+import '../profile_menu_item.dart';
+import '../profile_section_body.dart';
+import 'theme_option.dart';
 
 class ProfileSettings extends StatelessWidget {
   const ProfileSettings({super.key, this.onSwitchLanguageTap});
@@ -13,12 +13,12 @@ class ProfileSettings extends StatelessWidget {
   final VoidCallback? onSwitchLanguageTap;
 
   @override
-  Widget build(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  Widget build(final BuildContext context) {
+    final bool isArabic = isAppLanguageArabic(context);
 
     return ProfileSectionBody(
       title: 'student_profile.settings.title'.tr(),
-      items: [
+      items: <Widget>[
         ProfileMenuItem(
           icon: Icons.language_outlined,
           title: 'student_profile.settings.language'.tr(),
@@ -38,12 +38,12 @@ class ProfileSettings extends StatelessWidget {
     );
   }
 
-  void _showLanguageDialog(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  void _showLanguageDialog(final BuildContext context) {
+    final bool isArabic = isAppLanguageArabic(context);
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (final BuildContext context) => AlertDialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -53,7 +53,7 @@ class ProfileSettings extends StatelessWidget {
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             // English option
             LanguageOption(
               title: 'student_profile.settings.english'.tr(),
@@ -83,10 +83,10 @@ class ProfileSettings extends StatelessWidget {
     );
   }
 
-  void _showThemeDialog(BuildContext context) {
+  void _showThemeDialog(final BuildContext context) {
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (final BuildContext context) => AlertDialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
@@ -96,7 +96,7 @@ class ProfileSettings extends StatelessWidget {
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             ThemeOption(
               title: 'student_profile.settings.light'.tr(),
               icon: Icons.light_mode,

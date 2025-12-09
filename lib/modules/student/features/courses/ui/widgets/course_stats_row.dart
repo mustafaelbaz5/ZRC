@@ -16,9 +16,9 @@ class CourseStatsRow extends StatelessWidget {
   final int completionRate;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Expanded(
           child: _StatCard(
             icon: Icons.star,
@@ -49,7 +49,7 @@ class CourseStatsRow extends StatelessWidget {
     );
   }
 
-  String _formatNumber(int number) {
+  String _formatNumber(final int number) {
     if (number >= 1000) {
       return '${(number / 1000).toStringAsFixed(1)}K';
     }
@@ -71,7 +71,7 @@ class _StatCard extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -80,7 +80,7 @@ class _StatCard extends StatelessWidget {
         border: Border.all(color: Colors.grey[200]!),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, color: iconColor, size: 24),
           const SizedBox(height: 8),
           Text(

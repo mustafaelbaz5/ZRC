@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -17,14 +18,14 @@ class QResultsAttemptsInfo extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w),
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -33,7 +34,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
         ],
       ),
       child: Row(
-        children: [
+        children: <Widget>[
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
@@ -52,7 +53,7 @@ class QResultsAttemptsInfo extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Text(
                   tr('student_quizzes.quiz_result.attempts.attempts_used'),
                   style: AppTextStyles.font13greyRegular(),

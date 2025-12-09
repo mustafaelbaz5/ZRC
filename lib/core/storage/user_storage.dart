@@ -6,22 +6,22 @@ import '../auth/data/model/user_model.dart';
 import '../storage/secure_storage.dart';
 
 class UserStorage {
-  static const _keyUser = 'logged_in_user';
+  static const String _keyUser = 'logged_in_user';
   final SecureStorage _secureStorage;
 
-  UserStorage({SecureStorage? secureStorage})
+  UserStorage({final SecureStorage? secureStorage})
     : _secureStorage = secureStorage ?? SecureStorage();
 
   /// Save the full user object
-  Future<void> saveUser(UserModel user) async {
-    final jsonString = jsonEncode(user.toJson());
+  Future<void> saveUser(final UserModel user) async {
+    final String jsonString = jsonEncode(user.toJson());
     await _secureStorage.saveString(key: _keyUser, value: jsonString);
   }
 
   /// Fetch the full user object from secure storage
   Future<UserModel?> getUser() async {
     try {
-      final jsonString = await _secureStorage.getString(key: _keyUser);
+      final String? jsonString = await _secureStorage.getString(key: _keyUser);
       if (jsonString == null) return null;
       return UserModel.fromJson(jsonDecode(jsonString));
     } catch (e) {

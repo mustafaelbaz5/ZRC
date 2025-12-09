@@ -7,7 +7,7 @@ class InstructorHomeScreen extends StatelessWidget {
   const InstructorHomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(

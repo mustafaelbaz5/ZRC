@@ -17,12 +17,12 @@ class OnBoardingTopBar extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: <Widget>[
           _buildLanguageButton(context),
           if (showSkip) _buildSkipButton(),
         ],
@@ -30,7 +30,7 @@ class OnBoardingTopBar extends StatelessWidget {
     );
   }
 
-  Widget _buildLanguageButton(BuildContext context) {
+  Widget _buildLanguageButton(final BuildContext context) {
     return TextButton.icon(
       onPressed: onChangeLanguage,
       style: TextButton.styleFrom(

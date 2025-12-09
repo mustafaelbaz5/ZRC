@@ -9,9 +9,9 @@ class LogInHeader extends StatelessWidget {
   const LogInHeader({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         Text(
           'login.title'.tr(),
           textAlign: TextAlign.center,

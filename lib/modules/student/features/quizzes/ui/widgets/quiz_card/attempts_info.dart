@@ -11,7 +11,7 @@ class AttemptsInfo extends StatelessWidget {
   final int attemptsUsed;
   final int attemptsAllowed;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
@@ -20,7 +20,7 @@ class AttemptsInfo extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(Icons.replay_outlined, size: 14.sp, color: Colors.indigo[700]),
           SizedBox(width: 6.w),
           Text(

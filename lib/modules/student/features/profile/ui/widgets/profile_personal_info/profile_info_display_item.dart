@@ -18,11 +18,11 @@ class ProfileInfoDisplayItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.h),
       child: Row(
-        children: [
+        children: <Widget>[
           // Left Icon
           Container(
             padding: EdgeInsets.all(10.w),
@@ -39,7 +39,7 @@ class ProfileInfoDisplayItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Text(
                   title,
                   style: TextStyle(

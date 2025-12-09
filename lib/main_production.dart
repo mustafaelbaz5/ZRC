@@ -8,6 +8,7 @@ import 'core/di/dependency_injection.dart';
 import 'core/router/app_router.dart';
 import 'firebase_options.dart';
 import 'zrc_app.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -23,7 +24,7 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('ar')],
+      supportedLocales: const <Locale>[Locale('en'), Locale('ar')],
       path: 'assets/translations',
       startLocale: const Locale('en'),
       fallbackLocale: const Locale('en'),

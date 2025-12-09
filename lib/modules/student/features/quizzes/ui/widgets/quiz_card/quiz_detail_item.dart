@@ -15,7 +15,7 @@ class QuizDetailItem extends StatelessWidget {
   final Color color;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
       decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class QuizDetailItem extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(icon, size: 16.sp, color: color),
           SizedBox(width: 6.w),
           Text(

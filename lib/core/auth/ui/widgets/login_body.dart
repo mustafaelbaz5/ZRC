@@ -8,7 +8,7 @@ class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
@@ -20,7 +20,7 @@ class LoginBody extends StatelessWidget {
         child: IntrinsicHeight(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               verticalSpacing(80),
               const LogInHeader(),
               verticalSpacing(60),

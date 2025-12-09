@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import '../../../../../../core/utils/functions/app_language.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
@@ -13,13 +13,13 @@ class AllCoursesListViewCard extends StatelessWidget {
   final CoursesCardModel coursesCardModel;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       height: 280.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
         color: Colors.white,
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha(50),
             blurRadius: 16,
@@ -29,7 +29,7 @@ class AllCoursesListViewCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           CourseCardImage(coursesCardModel: coursesCardModel),
           Expanded(
             child: Padding(
@@ -39,7 +39,7 @@ class AllCoursesListViewCard extends StatelessWidget {
                     ? CrossAxisAlignment.end
                     : CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children: <Widget>[
                   Text(
                     coursesCardModel.title,
                     style: AppTextStyles.font16BlackBold(),
@@ -56,10 +56,10 @@ class AllCoursesListViewCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Expanded(
                         child: Row(
-                          children: [
+                          children: <Widget>[
                             Icon(
                               Icons.person_outline_rounded,
                               size: 16.sp,
@@ -80,7 +80,7 @@ class AllCoursesListViewCard extends StatelessWidget {
                       horizontalSpacing(12),
                       Row(
                         mainAxisSize: MainAxisSize.min,
-                        children: [
+                        children: <Widget>[
                           Icon(
                             Icons.calendar_today_outlined,
                             size: 14.sp,

@@ -20,7 +20,7 @@ class StudentScaffold extends StatefulWidget {
 class _StudentScaffoldState extends State<StudentScaffold> {
   int bottomNavIndex = 0;
 
-  late final List<String> icons = [
+  late final List<String> icons = <String>[
     AppAssets.homeIcon,
     AppAssets.computerIcon,
     AppAssets.bookIcon,
@@ -28,12 +28,12 @@ class _StudentScaffoldState extends State<StudentScaffold> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    const activeColor = Colors.white;
-    const inactiveColor = AppColors.lightBlue;
+  Widget build(final BuildContext context) {
+    const Color activeColor = Colors.white;
+    const Color inactiveColor = AppColors.lightBlue;
 
-    final items = icons.map((icon) {
-      int i = icons.indexOf(icon);
+    final List<ColorFiltered> items = icons.map((final String icon) {
+      final int i = icons.indexOf(icon);
 
       return ColorFiltered(
         colorFilter: ColorFilter.mode(
@@ -58,9 +58,9 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           height: 50.h,
           index: bottomNavIndex,
           items: items,
-          onTap: (index) => setState(() => bottomNavIndex = index),
+          onTap: (final int index) => setState(() => bottomNavIndex = index),
         ),
-        body: [
+        body: <Widget>[
           const HomeScreen(),
           const CoursesScreen(),
           const QuizzesScreen(),

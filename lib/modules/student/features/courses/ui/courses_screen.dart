@@ -10,13 +10,13 @@ import 'widgets/all_courses_list_view.dart';
 class CoursesScreen extends StatelessWidget {
   const CoursesScreen({super.key});
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             CustomAppBar(title: tr('student_courses.screen_title')),
             verticalSpacing(18),
             Text(

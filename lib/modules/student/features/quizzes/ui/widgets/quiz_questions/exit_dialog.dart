@@ -6,7 +6,7 @@ class ExitDialog extends StatelessWidget {
   const ExitDialog({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       title: Text(
@@ -17,7 +17,7 @@ class ExitDialog extends StatelessWidget {
         tr('student_quizzes.quiz_questions.exit_dialog.message'),
         style: TextStyle(fontSize: 14.sp),
       ),
-      actions: [
+      actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context, false),
           child: Text(tr('student_quizzes.quiz_questions.exit_dialog.cancel')),

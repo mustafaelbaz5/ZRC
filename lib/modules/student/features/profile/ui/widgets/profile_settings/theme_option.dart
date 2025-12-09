@@ -16,7 +16,7 @@ class ThemeOption extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12.r),
@@ -33,7 +33,7 @@ class ThemeOption extends StatelessWidget {
           ),
         ),
         child: Row(
-          children: [
+          children: <Widget>[
             Icon(
               icon,
               color: isSelected ? Colors.blue[700] : Colors.grey[600],

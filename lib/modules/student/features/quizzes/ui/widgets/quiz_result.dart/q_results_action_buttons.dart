@@ -22,12 +22,12 @@ class QResultsActionButtons extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -37,7 +37,7 @@ class QResultsActionButtons extends StatelessWidget {
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           if (canRetake)
             SizedBox(
               width: double.infinity,
@@ -46,7 +46,7 @@ class QResultsActionButtons extends StatelessWidget {
                   // Navigate back to quiz details to retake
                   context.pushReplacementNamed(
                     Routes.studentQuizDetailedScreen,
-                    arguments: {'quiz': quiz},
+                    arguments: <String, QuizModel>{'quiz': quiz},
                   );
                 },
                 icon: Icon(Icons.replay, size: 20.sp),
@@ -75,8 +75,8 @@ class QResultsActionButtons extends StatelessWidget {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   Routes.studentScaffold,
-                  (route) => false,
-                  arguments: {
+                  (final Route<dynamic> route) => false,
+                  arguments: <String, GlobalKey<CurvedNavigationBarState>>{
                     'navigationKey': GlobalKey<CurvedNavigationBarState>(),
                   },
                 );

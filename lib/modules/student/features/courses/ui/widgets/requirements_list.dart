@@ -6,15 +6,15 @@ class RequirementsList extends StatelessWidget {
   final List<String> requirements;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       children: requirements
           .map(
-            (req) => Padding(
+            (final String req) => Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   const Icon(Icons.circle, size: 6, color: Colors.black54),
                   const SizedBox(width: 12),
                   Expanded(

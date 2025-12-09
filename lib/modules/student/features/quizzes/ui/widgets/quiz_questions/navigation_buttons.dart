@@ -23,14 +23,14 @@ class NavigationButtons extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final isLastQuestion = currentIndex == totalQuestions - 1;
+  Widget build(final BuildContext context) {
+    final bool isLastQuestion = currentIndex == totalQuestions - 1;
 
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -39,7 +39,7 @@ class NavigationButtons extends StatelessWidget {
         ],
       ),
       child: Row(
-        children: [
+        children: <Widget>[
           if (currentIndex > 0)
             Expanded(
               child: OutlinedButton.icon(

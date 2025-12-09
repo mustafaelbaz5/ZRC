@@ -18,7 +18,7 @@ class ProfileMenuItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -26,7 +26,7 @@ class ProfileMenuItem extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
           child: Row(
-            children: [
+            children: <Widget>[
               Container(
                 padding: EdgeInsets.all(10.w),
                 decoration: BoxDecoration(
@@ -39,7 +39,7 @@ class ProfileMenuItem extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Text(
                       title,
                       style: TextStyle(

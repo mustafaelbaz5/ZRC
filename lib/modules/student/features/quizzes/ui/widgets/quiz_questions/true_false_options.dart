@@ -14,9 +14,9 @@ class TrueFalseOptions extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Expanded(
           child: TrueFalseCard(
             label: tr('student_quizzes.quiz_questions.true_false.true'),

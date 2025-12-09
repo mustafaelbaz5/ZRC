@@ -12,7 +12,7 @@ class CoursesListView extends StatelessWidget {
   const CoursesListView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       height: 260.h,
       child: ListView.separated(
@@ -23,7 +23,7 @@ class CoursesListView extends StatelessWidget {
         itemCount: _getDummyCourses().length,
 
         // Item Builder
-        itemBuilder: (context, index) {
+        itemBuilder: (final BuildContext context, final int index) {
           return SizedBox(
             width: 230.w,
             child: GestureDetector(
@@ -38,7 +38,8 @@ class CoursesListView extends StatelessWidget {
         },
 
         // Separator Builder → space between items
-        separatorBuilder: (context, index) => SizedBox(width: 16.w),
+        separatorBuilder: (final BuildContext context, final int index) =>
+            SizedBox(width: 16.w),
       ),
     );
   }
@@ -46,7 +47,7 @@ class CoursesListView extends StatelessWidget {
 
 // ==================== Dummy Data ====================
 List<CoursesCardModel> _getDummyCourses() {
-  return [
+  return <CoursesCardModel>[
     CoursesCardModel(
       image: 'assets/images/test.jpg',
       title: tr('student_home.sample_courses.mathematics.title'),

@@ -21,17 +21,17 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
     selectedFilter = tr('student_quizzes.filters.all');
   }
 
-  void onFilterChanged(String newFilter) {
+  void onFilterChanged(final String newFilter) {
     setState(() {
       selectedFilter = newFilter;
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SafeArea(
       child: Column(
-        children: [
+        children: <Widget>[
           CustomAppBar(title: tr('student_quizzes.screen_title')),
 
           // Filter Tabs

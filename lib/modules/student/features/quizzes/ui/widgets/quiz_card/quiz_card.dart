@@ -19,14 +19,14 @@ class QuizCard extends StatelessWidget {
   const QuizCard({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
           context.pushNamed(
             Routes.studentQuizDetailedScreen,
-            arguments: {'quiz': quiz},
+            arguments: <String, QuizModel>{'quiz': quiz},
           );
         },
         borderRadius: BorderRadius.circular(20.r),
@@ -36,14 +36,14 @@ class QuizCard extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
+              colors: <Color>[
                 Colors.white,
                 quiz.attemptStatus == QuizAttemptStatus.completed
                     ? Colors.green.withAlpha(5)
                     : Colors.blue.withAlpha(5),
               ],
             ),
-            boxShadow: [
+            boxShadow: <BoxShadow>[
               BoxShadow(
                 color: Colors.black.withAlpha(10),
                 blurRadius: 12,
@@ -61,22 +61,22 @@ class QuizCard extends StatelessWidget {
             padding: EdgeInsets.all(16.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 // Header: Title & Status Badge
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: <Widget>[
                           Text(
                             quiz.title,
                             style: AppTextStyles.font20BlackBold(),
                           ),
                           verticalSpacing(6),
                           Row(
-                            children: [
+                            children: <Widget>[
                               Container(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 8.w,
@@ -122,7 +122,7 @@ class QuizCard extends StatelessWidget {
 
                 // Instructor Info
                 Row(
-                  children: [
+                  children: <Widget>[
                     CircleAvatar(
                       radius: 14.r,
                       backgroundColor: Colors.blue[100],
@@ -157,7 +157,7 @@ class QuizCard extends StatelessWidget {
                 // Quiz Details Grid
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: <Widget>[
                     QuizDetailItem(
                       icon: Icons.help_outline_rounded,
                       label:
@@ -184,7 +184,7 @@ class QuizCard extends StatelessWidget {
                 // Footer: Due Date & Attempts
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: <Widget>[
                     DueDateInfo(dueDate: quiz.dueDate),
                     if (quiz.attemptsAllowed > 1)
                       AttemptsInfo(

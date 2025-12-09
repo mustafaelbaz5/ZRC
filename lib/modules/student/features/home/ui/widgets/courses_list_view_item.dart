@@ -18,7 +18,7 @@ class CoursesListViewCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -26,7 +26,7 @@ class CoursesListViewCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
+          boxShadow: <BoxShadow>[
             BoxShadow(
               color: Colors.black.withAlpha(50),
               blurRadius: 12,
@@ -36,14 +36,14 @@ class CoursesListViewCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             CourseCardImage(coursesCardModel: coursesCardModel),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(12.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Text(
                       coursesCardModel.title,
                       style: AppTextStyles.font16BlackBold(),

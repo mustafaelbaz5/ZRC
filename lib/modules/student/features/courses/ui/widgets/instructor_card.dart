@@ -24,7 +24,7 @@ class InstructorCard extends StatelessWidget {
   final int students;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -33,15 +33,15 @@ class InstructorCard extends StatelessWidget {
         border: Border.all(color: Colors.grey[200]!),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               CircleAvatar(radius: 30, backgroundImage: NetworkImage(imageUrl)),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Text(
                       name,
                       style: const TextStyle(
@@ -71,7 +71,7 @@ class InstructorCard extends StatelessWidget {
           const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: <Widget>[
               InstructorStat(
                 icon: Icons.star,
                 value: rating.toString(),
@@ -94,7 +94,7 @@ class InstructorCard extends StatelessWidget {
     );
   }
 
-  String _formatNumber(int number) {
+  String _formatNumber(final int number) {
     if (number >= 1000) {
       return '${(number / 1000).toStringAsFixed(1)}K';
     }

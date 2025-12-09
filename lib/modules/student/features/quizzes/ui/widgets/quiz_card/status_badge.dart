@@ -9,7 +9,7 @@ class StatusBadge extends StatelessWidget {
   final QuizAttemptStatus status;
   final int? score;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     Color bgColor;
     Color textColor;
     String label;
@@ -46,7 +46,7 @@ class StatusBadge extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(icon, size: 16.sp, color: textColor),
           SizedBox(width: 4.w),
           Text(

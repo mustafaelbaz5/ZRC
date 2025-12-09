@@ -33,7 +33,7 @@ class CustomTextButton extends StatelessWidget {
   final Icon? icon;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       width: buttonWidth ?? double.infinity,
       height: buttonHeight?.h ?? 52.h,
@@ -41,7 +41,8 @@ class CustomTextButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-            (states) => backgroundColor ?? AppColors.lightBlue,
+            (final Set<WidgetState> states) =>
+                backgroundColor ?? AppColors.lightBlue,
           ),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
@@ -55,7 +56,7 @@ class CustomTextButton extends StatelessWidget {
             ),
           ),
           overlayColor: WidgetStateProperty.resolveWith<Color?>(
-            (states) => Colors.white.withAlpha(20),
+            (final Set<WidgetState> states) => Colors.white.withAlpha(20),
           ),
         ),
         child: isLoading
@@ -70,8 +71,8 @@ class CustomTextButton extends StatelessWidget {
             : Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (icon != null) ...[icon!, SizedBox(width: 8.w)],
+                children: <Widget>[
+                  if (icon != null) ...<Widget>[icon!, SizedBox(width: 8.w)],
                   Flexible(
                     child: Text(
                       buttonText,

@@ -8,7 +8,7 @@ class SubmitDialog extends StatelessWidget {
   const SubmitDialog({super.key, required this.answered, required this.total});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       title: Text(
@@ -18,14 +18,14 @@ class SubmitDialog extends StatelessWidget {
       content: Text(
         tr(
           'student_quizzes.quiz_questions.submit_dialog.message',
-          namedArgs: {
+          namedArgs: <String, String>{
             'answered': answered.toString(),
             'total': total.toString(),
           },
         ),
         style: TextStyle(fontSize: 14.sp),
       ),
-      actions: [
+      actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context, false),
           child: Text(

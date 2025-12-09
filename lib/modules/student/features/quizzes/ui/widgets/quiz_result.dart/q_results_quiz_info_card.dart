@@ -12,14 +12,14 @@ class QResultsQuizInfoCard extends StatelessWidget {
   const QResultsQuizInfoCard({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.all(16.w),
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -29,9 +29,9 @@ class QResultsQuizInfoCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(Icons.quiz_outlined, size: 20.sp, color: Colors.blue[700]),
               SizedBox(width: 8.w),
               Text(

@@ -17,7 +17,7 @@ class AnswerWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     switch (question.type) {
       case QuestionType.mcq:
         return MCQOptions(

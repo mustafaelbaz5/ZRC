@@ -7,7 +7,7 @@ class OnBoardingImage extends StatelessWidget {
   const OnBoardingImage({super.key, required this.imagePath});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Hero(
       tag: 'onboarding_$imagePath',
       child: Container(

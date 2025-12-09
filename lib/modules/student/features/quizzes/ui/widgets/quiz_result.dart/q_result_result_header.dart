@@ -16,7 +16,7 @@ class QResultResultHeader extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(vertical: 40.h),
@@ -25,12 +25,12 @@ class QResultResultHeader extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isPassed
-              ? [Colors.green[600]!, Colors.green[400]!]
-              : [Colors.orange[600]!, Colors.orange[400]!],
+              ? <Color>[Colors.green[600]!, Colors.green[400]!]
+              : <Color>[Colors.orange[600]!, Colors.orange[400]!],
         ),
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           // Icon with animation effect
           Container(
             width: 100.w,

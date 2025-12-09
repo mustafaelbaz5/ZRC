@@ -12,13 +12,13 @@ class ProfileSectionBody extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.1 * 255).toInt()),
             blurRadius: 8,
@@ -28,7 +28,7 @@ class ProfileSectionBody extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Padding(
             padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 12.h),
             child: Text(

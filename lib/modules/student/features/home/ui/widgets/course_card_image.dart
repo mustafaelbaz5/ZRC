@@ -7,14 +7,14 @@ class CourseCardImage extends StatelessWidget {
   const CourseCardImage({super.key, required this.coursesCardModel});
   final CoursesCardModel coursesCardModel;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(16.r),
         topRight: Radius.circular(16.r),
       ),
       child: Stack(
-        children: [
+        children: <Widget>[
           Image.asset(
             coursesCardModel.image,
             height: 120.h,
@@ -27,7 +27,10 @@ class CourseCardImage extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.transparent, Colors.black.withAlpha(20)],
+                  colors: <Color>[
+                    Colors.transparent,
+                    Colors.black.withAlpha(20),
+                  ],
                 ),
               ),
             ),

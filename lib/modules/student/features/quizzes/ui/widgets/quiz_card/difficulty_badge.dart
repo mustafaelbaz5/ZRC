@@ -9,7 +9,7 @@ class DifficultyBadge extends StatelessWidget {
   const DifficultyBadge({super.key, required this.difficulty});
   final QuizDifficulty difficulty;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     Color color;
     String label;
 
@@ -37,7 +37,7 @@ class DifficultyBadge extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(
             difficulty == QuizDifficulty.hard
                 ? Icons.local_fire_department

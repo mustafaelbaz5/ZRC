@@ -11,7 +11,9 @@ import 'package:zrc/core/router/app_router.dart';
 import 'package:zrc/zrc_app.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (
+    final WidgetTester tester,
+  ) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(ZrcApp(appRouter: AppRouter()));
 

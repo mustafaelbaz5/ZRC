@@ -16,11 +16,11 @@ class QResultsStatsGrid extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
-        children: [
+        children: <Widget>[
           Expanded(
             child: QResultsStatItem(
               icon: Icons.help_outline_rounded,
@@ -52,7 +52,7 @@ class QResultsStatsGrid extends StatelessWidget {
     );
   }
 
-  String _getGrade(int percentage) {
+  String _getGrade(final int percentage) {
     if (percentage >= 90) return 'A+';
     if (percentage >= 80) return 'A';
     if (percentage >= 70) return 'B';

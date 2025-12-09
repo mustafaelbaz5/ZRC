@@ -10,7 +10,7 @@ class QuizDetailedAppBar extends StatelessWidget {
   final QuizModel quiz;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SliverAppBar(
       expandedHeight: 200.h,
       pinned: true,
@@ -25,7 +25,7 @@ class QuizDetailedAppBar extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Colors.blue[700]!, Colors.blue[500]!],
+              colors: <Color>[Colors.blue[700]!, Colors.blue[500]!],
             ),
           ),
           child: SafeArea(
@@ -34,7 +34,7 @@ class QuizDetailedAppBar extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: 12.w,

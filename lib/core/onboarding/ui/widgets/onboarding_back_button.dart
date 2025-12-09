@@ -9,7 +9,7 @@ class OnBoardingBackButton extends StatelessWidget {
   const OnBoardingBackButton({super.key, required this.onPressed});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return InkWell(
       onTap: onPressed,
       borderRadius: BorderRadius.circular(12.r),

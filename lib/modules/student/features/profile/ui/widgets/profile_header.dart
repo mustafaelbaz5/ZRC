@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
-import 'package:zrc/core/utils/functions/names_functions.dart';
+import '../../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../../core/utils/functions/app_language.dart';
+import '../../../../../../core/utils/functions/names_functions.dart';
 
 class ProfileHeader extends StatelessWidget {
   final UserModel user;
@@ -11,20 +11,20 @@ class ProfileHeader extends StatelessWidget {
   const ProfileHeader({super.key, required this.user, required this.isArabic});
 
   @override
-  Widget build(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  Widget build(final BuildContext context) {
+    final bool isArabic = isAppLanguageArabic(context);
 
     return Container(
       width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [Color(0xff1E3C72), Color(0xff2A5298)],
+          colors: <Color>[Color(0xff1E3C72), Color(0xff2A5298)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(26.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.blue.shade900.withAlpha((0.25 * 255).toInt()),
             blurRadius: 18,
@@ -33,11 +33,11 @@ class ProfileHeader extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           // -------------------- Avatar + Camera Button --------------------
           Stack(
             alignment: Alignment.center,
-            children: [
+            children: <Widget>[
               AnimatedContainer(
                 duration: const Duration(milliseconds: 350),
                 padding: EdgeInsets.all(6.w),
@@ -47,7 +47,7 @@ class ProfileHeader extends StatelessWidget {
                     color: Colors.white.withAlpha((0.8 * 255).toInt()),
                     width: 3,
                   ),
-                  boxShadow: [
+                  boxShadow: <BoxShadow>[
                     BoxShadow(
                       color: Colors.black.withAlpha((0.25 * 255).toInt()),
                       blurRadius: 10,
@@ -78,7 +78,7 @@ class ProfileHeader extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle,
-                      boxShadow: [
+                      boxShadow: <BoxShadow>[
                         BoxShadow(
                           color: Colors.black.withAlpha((0.22 * 255).toInt()),
                           blurRadius: 6,
@@ -139,7 +139,7 @@ class ProfileHeader extends StatelessWidget {
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: <Widget>[
                 Icon(Icons.badge_rounded, size: 18.sp, color: Colors.white),
                 SizedBox(width: 8.w),
                 Text(

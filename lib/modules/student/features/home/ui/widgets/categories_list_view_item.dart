@@ -20,12 +20,12 @@ class CategoriesListViewItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           // Icon Container
           AnimatedContainer(
             duration: const Duration(milliseconds: 250),
@@ -42,14 +42,14 @@ class CategoriesListViewItem extends StatelessWidget {
               color: isSelected ? Colors.white : Colors.grey.shade200,
               borderRadius: BorderRadius.circular(50),
               boxShadow: isSelected
-                  ? [
+                  ? <BoxShadow>[
                       BoxShadow(
                         color: AppColors.lightBlue.withAlpha(20),
                         blurRadius: 8,
                         offset: const Offset(0, 3),
                       ),
                     ]
-                  : [],
+                  : <BoxShadow>[],
             ),
             child: SvgPicture.asset(icon, width: 30, height: 30),
           ),
