@@ -1,20 +1,19 @@
-import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../../../core/auth/data/model/user_model.dart';
-import '../../../../../core/storage/secure_storage.dart';
-import '../../../../../core/utils/functions/app_language.dart';
+import 'package:flutter/material.dart';
+import 'package:zrc/core/auth/data/model/user_model.dart';
+import 'package:zrc/core/storage/secure_storage.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/functions/app_language.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/categories_list_view.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/courses_list_view.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/home_app_bar.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/home_header.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/instructors_list_view.dart';
 
-import '../../../../../core/themes/app_colors.dart';
-import '../../../../../core/themes/app_text_styles.dart';
-import '../../../../../core/utils/spacing.dart';
-import 'widgets/categories_list_view.dart';
-import 'widgets/courses_list_view.dart';
-import 'widgets/home_app_bar.dart';
-import 'widgets/home_header.dart';
-import 'widgets/instructors_list_view.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class StudentHomeScreen extends StatelessWidget {
+  const StudentHomeScreen({super.key});
 
   @override
   Widget build(final BuildContext context) {
