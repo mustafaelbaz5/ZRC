@@ -42,6 +42,11 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.regular,
     color: Colors.black,
   );
+  static TextStyle font14BlackBold() => GoogleFonts.tajawal(
+    fontSize: 14.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: Colors.black,
+  );
 
   // Blue
   static TextStyle font13BlueBold() => GoogleFonts.tajawal(
