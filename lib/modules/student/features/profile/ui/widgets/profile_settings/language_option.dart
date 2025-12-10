@@ -14,7 +14,7 @@ class LanguageOption extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12.r),
@@ -31,7 +31,7 @@ class LanguageOption extends StatelessWidget {
           ),
         ),
         child: Row(
-          children: [
+          children: <Widget>[
             Text(
               title,
               style: TextStyle(

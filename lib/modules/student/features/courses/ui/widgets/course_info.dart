@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import '../../../../../../core/utils/functions/app_language.dart';
 
 class CourseInfo extends StatelessWidget {
   const CourseInfo({
@@ -20,12 +20,12 @@ class CourseInfo extends StatelessWidget {
   final String students;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Wrap(
       alignment: WrapAlignment.center,
       spacing: 16,
       runSpacing: 10,
-      children: [
+      children: <Widget>[
         _MetaChip(icon: Icons.person_outline, label: instructor),
         _MetaChip(icon: Icons.schedule_outlined, label: duration),
         _MetaChip(icon: Icons.play_circle_outline, label: lessons),
@@ -42,7 +42,7 @@ class _MetaChip extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _MetaChip extends StatelessWidget {
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(icon, size: 16, color: Colors.grey[700]),
           const SizedBox(width: 6),
           Text(

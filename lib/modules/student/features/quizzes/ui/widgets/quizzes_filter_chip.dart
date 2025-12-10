@@ -12,7 +12,7 @@ class QuizzesFilterChip extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(

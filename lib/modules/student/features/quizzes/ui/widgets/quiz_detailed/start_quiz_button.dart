@@ -11,9 +11,9 @@ class StartQuizButton extends StatelessWidget {
   const StartQuizButton({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
-    final canStart = quiz.attemptsUsed < quiz.attemptsAllowed;
-    final buttonText = quiz.attemptStatus == QuizAttemptStatus.completed
+  Widget build(final BuildContext context) {
+    final bool canStart = quiz.attemptsUsed < quiz.attemptsAllowed;
+    final String buttonText = quiz.attemptStatus == QuizAttemptStatus.completed
         ? tr('student_quizzes.quiz_detailed.retake_quiz')
         : quiz.attemptStatus == QuizAttemptStatus.inProgress
         ? tr('student_quizzes.quiz_detailed.continue_quiz')
@@ -28,17 +28,17 @@ class StartQuizButton extends StatelessWidget {
                 if (quiz.attemptStatus == QuizAttemptStatus.completed) {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: {'quiz': quiz, 'isRetake': true},
+                    arguments: <String, Object>{'quiz': quiz, 'isRetake': true},
                   );
                 } else if (quiz.attemptStatus == QuizAttemptStatus.inProgress) {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: {'quiz': quiz, 'isRetake': true},
+                    arguments: <String, Object>{'quiz': quiz, 'isRetake': true},
                   );
                 } else {
                   context.pushReplacementNamed(
                     Routes.studentQuizQuestionScreen,
-                    arguments: {'quiz': quiz, 'isRetake': true},
+                    arguments: <String, Object>{'quiz': quiz, 'isRetake': true},
                   );
                 }
               }
@@ -55,7 +55,7 @@ class StartQuizButton extends StatelessWidget {
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Icon(
               canStart ? Icons.play_circle_filled : Icons.block,
               size: 24.sp,

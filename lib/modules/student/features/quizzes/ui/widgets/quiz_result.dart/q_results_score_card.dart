@@ -19,14 +19,14 @@ class QResultsScoreCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(16.w, 24.h, 16.w, 16.h),
       padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.4 * 255).toInt()),
             blurRadius: 16,
@@ -35,7 +35,7 @@ class QResultsScoreCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Text(
             tr('student_quizzes.quiz_result.score.your_score'),
             style: AppTextStyles.font16GreyRegular(),
@@ -47,7 +47,7 @@ class QResultsScoreCard extends StatelessWidget {
             height: 150.w,
             child: Stack(
               alignment: Alignment.center,
-              children: [
+              children: <Widget>[
                 SizedBox(
                   width: 150.w,
                   height: 150.w,
@@ -62,7 +62,7 @@ class QResultsScoreCard extends StatelessWidget {
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: [
+                  children: <Widget>[
                     Text(
                       '$percentage%',
                       style: TextStyle(
@@ -91,7 +91,7 @@ class QResultsScoreCard extends StatelessWidget {
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
+              children: <Widget>[
                 Icon(
                   isPassed ? Icons.check_circle : Icons.info,
                   size: 18.sp,

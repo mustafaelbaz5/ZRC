@@ -14,12 +14,12 @@ class PageIndicator extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         pageCount,
-        (index) => _PageIndicatorDot(isActive: currentPage == index),
+        (final int index) => _PageIndicatorDot(isActive: currentPage == index),
       ),
     );
   }
@@ -31,7 +31,7 @@ class _PageIndicatorDot extends StatelessWidget {
   const _PageIndicatorDot({required this.isActive});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOutCubic,
@@ -42,7 +42,7 @@ class _PageIndicatorDot extends StatelessWidget {
         color: isActive ? AppColors.lightBlue : Colors.grey[300],
         borderRadius: BorderRadius.circular(4.r),
         boxShadow: isActive
-            ? [
+            ? <BoxShadow>[
                 BoxShadow(
                   color: AppColors.lightBlue.withAlpha(20),
                   blurRadius: 8,

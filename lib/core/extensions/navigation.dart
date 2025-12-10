@@ -2,55 +2,48 @@ import 'package:flutter/material.dart';
 
 extension Navigation on BuildContext {
   /// Push a new route by widget
-  void push(Widget page) {
+  void push(final Widget page) {
     Navigator.push(this, MaterialPageRoute(builder: (_) => page));
   }
 
   /// Replace current screen with a new one
-  void pushReplacement(Widget page) {
-    Navigator.pushReplacement(
-      this,
-      MaterialPageRoute(builder: (_) => page),
-    );
+  void pushReplacement(final Widget page) {
+    Navigator.pushReplacement(this, MaterialPageRoute(builder: (_) => page));
   }
 
   /// Push and remove all previous routes
-  void pushAndRemoveUntil(Widget page) {
+  void pushAndRemoveUntil(final Widget page) {
     Navigator.pushAndRemoveUntil(
       this,
       MaterialPageRoute(builder: (_) => page),
-      (route) => false,
+      (final Route<dynamic> route) => false,
     );
   }
 
   /// Pop current route
-  void pop<T extends Object?>([T? result]) {
+  void pop<T extends Object?>([final T? result]) {
     Navigator.pop(this, result);
   }
 
   /// Push a named route
-  void pushNamed(String routeName, {Object? arguments}) {
+  void pushNamed(final String routeName, {final Object? arguments}) {
     Navigator.pushNamed(this, routeName, arguments: arguments);
   }
 
   /// Push replacement with a named route
-  void pushReplacementNamed(String routeName, {Object? arguments}) {
-    Navigator.pushReplacementNamed(
-      this,
-      routeName,
-      arguments: arguments,
-    );
+  void pushReplacementNamed(final String routeName, {final Object? arguments}) {
+    Navigator.pushReplacementNamed(this, routeName, arguments: arguments);
   }
 
   /// Push named and remove all
   void pushNamedAndRemoveUntil(
-    String routeName, {
-    Object? arguments,
+    final String routeName, {
+    final Object? arguments,
   }) {
     Navigator.pushNamedAndRemoveUntil(
       this,
       routeName,
-      (route) => false,
+      (final Route<dynamic> route) => false,
       arguments: arguments,
     );
   }

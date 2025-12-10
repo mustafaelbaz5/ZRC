@@ -11,9 +11,9 @@ class InstructorStat extends StatelessWidget {
   final String value;
   final String label;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         Icon(icon, size: 20, color: Colors.grey[600]),
         const SizedBox(height: 4),
         Text(

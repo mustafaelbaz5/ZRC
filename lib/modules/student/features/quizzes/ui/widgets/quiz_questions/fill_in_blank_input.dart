@@ -15,13 +15,13 @@ class FillInBlankInput extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -31,7 +31,7 @@ class FillInBlankInput extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Text(
             tr('student_quizzes.quiz_questions.question.your_answer'),
             style: TextStyle(

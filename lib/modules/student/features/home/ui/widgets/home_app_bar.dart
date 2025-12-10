@@ -14,18 +14,18 @@ class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key, required this.userName, required this.userId});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       color: Colors.white,
       child: Row(
-        children: [
+        children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               RichText(
                 text: TextSpan(
-                  children: [
+                  children: <InlineSpan>[
                     TextSpan(
                       text: '${tr('student_home.welcome')}  ',
                       style: AppTextStyles.font16GreyRegular(),
@@ -51,7 +51,7 @@ class HomeAppBar extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.grey[200],
               shape: BoxShape.circle,
-              boxShadow: [
+              boxShadow: <BoxShadow>[
                 BoxShadow(
                   color: Colors.grey[400]!,
                   spreadRadius: 2,

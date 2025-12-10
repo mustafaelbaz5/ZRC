@@ -12,7 +12,7 @@ class OnBoardingPageModel {
   });
 }
 
-final List<OnBoardingPageModel> onboardingPages = [
+final List<OnBoardingPageModel> onboardingPages = <OnBoardingPageModel>[
   OnBoardingPageModel(
     image: AppAssets.onBoardingBanner1,
     title: 'onboarding.title1',

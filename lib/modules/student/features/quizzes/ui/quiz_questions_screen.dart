@@ -28,7 +28,7 @@ class QuizQuestionsScreen extends StatefulWidget {
 
 class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
   int currentQuestionIndex = 0;
-  Map<int, dynamic> answers = {};
+  Map<int, dynamic> answers = <int, dynamic>{};
   late Timer _timer;
   late int _remainingSeconds;
   bool _isSubmitting = false;
@@ -45,12 +45,12 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
 
   void _loadQuestions() {
     // Sample questions - replace with actual data
-    questions = [
+    questions = <QuizQuestionsModel>[
       QuizQuestionsModel(
         id: '1',
         text: 'What is the capital of France?',
         type: QuestionType.mcq,
-        options: ['London', 'Paris', 'Berlin', 'Madrid'],
+        options: <String>['London', 'Paris', 'Berlin', 'Madrid'],
         correctAnswer: 'Paris',
         marks: 5,
       ),
@@ -58,7 +58,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
         id: '2',
         text: 'The Earth is flat.',
         type: QuestionType.trueFalse,
-        options: ['True', 'False'],
+        options: <String>['True', 'False'],
         correctAnswer: 'False',
         marks: 3,
       ),
@@ -73,7 +73,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
         id: '4',
         text: 'Which planet is known as the Red Planet?',
         type: QuestionType.mcq,
-        options: ['Venus', 'Mars', 'Jupiter', 'Saturn'],
+        options: <String>['Venus', 'Mars', 'Jupiter', 'Saturn'],
         correctAnswer: 'Mars',
         marks: 5,
       ),
@@ -81,7 +81,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
         id: '5',
         text: 'Water boils at 100°C at sea level.',
         type: QuestionType.trueFalse,
-        options: ['True', 'False'],
+        options: <String>['True', 'False'],
         correctAnswer: 'True',
         marks: 3,
       ),
@@ -98,9 +98,9 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
     });
   }
 
-  String _formatTime(int seconds) {
-    final minutes = seconds ~/ 60;
-    final secs = seconds % 60;
+  String _formatTime(final int seconds) {
+    final int minutes = seconds ~/ 60;
+    final int secs = seconds % 60;
     return '${minutes.toString().padLeft(2, '0')}:${secs.toString().padLeft(2, '0')}';
   }
 
@@ -116,16 +116,16 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
     }
   }
 
-  void _selectAnswer(dynamic answer) {
+  void _selectAnswer(final dynamic answer) {
     setState(() => answers[currentQuestionIndex] = answer);
   }
 
   Future<void> _submitQuiz() async {
     if (_isSubmitting) return;
 
-    final shouldSubmit = await showDialog<bool>(
+    final bool? shouldSubmit = await showDialog<bool>(
       context: context,
-      builder: (context) =>
+      builder: (final BuildContext context) =>
           SubmitDialog(answered: answers.length, total: questions.length),
     );
 
@@ -133,10 +133,10 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
       setState(() => _isSubmitting = true);
       _timer.cancel();
 
-      int score = _calculateScore();
+      final int score = _calculateScore();
       context.pushReplacementNamed(
         Routes.studentQuizResultScreen,
-        arguments: {'quiz': widget.quiz, 'score': score},
+        arguments: <String, Object>{'quiz': widget.quiz, 'score': score},
       );
     }
   }
@@ -160,18 +160,18 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final currentQuestion = questions[currentQuestionIndex];
-    final progress = (currentQuestionIndex + 1) / questions.length;
+  Widget build(final BuildContext context) {
+    final QuizQuestionsModel currentQuestion = questions[currentQuestionIndex];
+    final double progress = (currentQuestionIndex + 1) / questions.length;
 
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, result) async {
+      onPopInvokedWithResult: (final bool didPop, final Object? result) async {
         if (didPop) return;
 
-        final shouldExit = await showDialog<bool>(
+        final bool? shouldExit = await showDialog<bool>(
           context: context,
-          builder: (context) => AlertDialog(
+          builder: (final BuildContext context) => AlertDialog(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.r),
             ),
@@ -183,7 +183,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
               tr('student_quizzes.quiz_questions.exit_dialog.message'),
               style: TextStyle(fontSize: 14.sp),
             ),
-            actions: [
+            actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
                 child: Text(
@@ -216,14 +216,14 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
         backgroundColor: Colors.grey[50],
         body: SafeArea(
           child: Column(
-            children: [
+            children: <Widget>[
               QuizHeader(
                 remainingTime: _formatTime(_remainingSeconds),
                 progress: progress,
                 questionNumber: currentQuestionIndex + 1,
                 totalQuestions: questions.length,
                 onExit: () async {
-                  final shouldExit = await showDialog<bool>(
+                  final bool? shouldExit = await showDialog<bool>(
                     context: context,
                     builder: (_) => const ExitDialog(),
                   );
@@ -235,7 +235,7 @@ class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
                   padding: EdgeInsets.all(16.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       QuestionCard(question: currentQuestion),
                       verticalSpacing(24),
                       AnswerWidget(

@@ -1,16 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/storage/user_storage.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/widgets/custom_app_bar.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/logout_button.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_header.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_personal_info/profile_personal_info_section.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/profile_settings.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_stats_cards.dart';
+import '../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../core/storage/user_storage.dart';
+import '../../../../../core/utils/functions/app_language.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../core/widgets/custom_app_bar.dart';
+import 'widgets/logout_button.dart';
+import 'widgets/profile_header.dart';
+import 'widgets/profile_personal_info/profile_personal_info_section.dart';
+import 'widgets/profile_settings/profile_settings.dart';
+import 'widgets/profile_stats_cards.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -36,8 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _loadUserData() async {
     try {
-      final userStorage = UserStorage();
-      final user = await userStorage.getUser();
+      final UserStorage userStorage = UserStorage();
+      final UserModel? user = await userStorage.getUser();
       setState(() {
         _user = user;
         _isLoading = false;
@@ -49,8 +49,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  Widget build(final BuildContext context) {
+    final bool isArabic = isAppLanguageArabic(context);
     if (_isLoading) {
       return const SafeArea(child: Center(child: CircularProgressIndicator()));
     }
@@ -60,7 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Icon(Icons.error_outline, size: 64.sp, color: Colors.grey[400]),
               verticalSpacing(16),
               Text(
@@ -75,7 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return SafeArea(
       child: Column(
-        children: [
+        children: <Widget>[
           CustomAppBar(
             title: 'student_profile.screen_title'.tr(),
             showNotificationIcon: false,
@@ -83,7 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: [
+                children: <Widget>[
                   verticalSpacing(20),
                   ProfileHeader(user: _user!, isArabic: isArabic),
                   verticalSpacing(24),

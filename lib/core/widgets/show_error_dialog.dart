@@ -6,15 +6,15 @@ import '../utils/spacing.dart';
 
 /// Show error dialog
 void showErrorDialog({
-  required BuildContext context,
-  required String title,
-  required String message,
-  String buttonText = 'OK',
+  required final BuildContext context,
+  required final String title,
+  required final String message,
+  final String buttonText = 'OK',
 }) {
   showDialog(
     context: context,
     barrierDismissible: true,
-    builder: (ctx) {
+    builder: (final BuildContext ctx) {
       return Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
@@ -29,7 +29,7 @@ void showErrorDialog({
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: [
+            children: <Widget>[
               // Error icon
               Container(
                 padding: EdgeInsets.all(12.w),

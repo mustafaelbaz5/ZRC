@@ -14,14 +14,14 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
   const QuizzesDetailsFilterChip({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w),
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -31,7 +31,7 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Text(
             tr('student_quizzes.quiz_detailed.quiz_information'),
             style: AppTextStyles.font16BlackBold(),
@@ -76,14 +76,14 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
     );
   }
 
-  Color _getDueDateColor(DateTime dueDate) {
-    final difference = dueDate.difference(DateTime.now()).inDays;
+  Color _getDueDateColor(final DateTime dueDate) {
+    final int difference = dueDate.difference(DateTime.now()).inDays;
     if (difference <= 1) return Colors.red;
     if (difference <= 3) return Colors.orange;
     return Colors.grey;
   }
 
-  Color _getDifficultyColor(QuizDifficulty difficulty) {
+  Color _getDifficultyColor(final QuizDifficulty difficulty) {
     switch (difficulty) {
       case QuizDifficulty.easy:
         return Colors.green;

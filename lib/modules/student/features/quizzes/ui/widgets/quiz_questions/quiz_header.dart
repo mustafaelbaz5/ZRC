@@ -21,14 +21,14 @@ class QuizHeader extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final isLowTime = int.parse(remainingTime.split(':')[0]) < 5;
+  Widget build(final BuildContext context) {
+    final bool isLowTime = int.parse(remainingTime.split(':')[0]) < 5;
 
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
@@ -37,9 +37,9 @@ class QuizHeader extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               // Exit Button
               IconButton(
                 onPressed: onExit,
@@ -60,7 +60,7 @@ class QuizHeader extends StatelessWidget {
                   ),
                 ),
                 child: Row(
-                  children: [
+                  children: <Widget>[
                     Icon(
                       Icons.timer_outlined,
                       size: 20.sp,
@@ -84,14 +84,14 @@ class QuizHeader extends StatelessWidget {
           // Progress Bar
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text(
                     tr(
                       'student_quizzes.quiz_questions.header.question_of',
-                      namedArgs: {
+                      namedArgs: <String, String>{
                         'current': questionNumber.toString(),
                         'total': totalQuestions.toString(),
                       },
@@ -101,7 +101,7 @@ class QuizHeader extends StatelessWidget {
                   Text(
                     tr(
                       'student_quizzes.quiz_questions.header.progress_percent',
-                      namedArgs: {
+                      namedArgs: <String, String>{
                         'percent': (progress * 100).toInt().toString(),
                       },
                     ),

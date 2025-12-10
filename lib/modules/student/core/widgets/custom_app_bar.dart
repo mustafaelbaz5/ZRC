@@ -23,13 +23,13 @@ class CustomAppBar extends StatelessWidget {
   final VoidCallback? onNotificationTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         color: Colors.white,
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withAlpha(25),
             blurRadius: 8,
@@ -38,7 +38,7 @@ class CustomAppBar extends StatelessWidget {
         ],
       ),
       child: Row(
-        children: [
+        children: <Widget>[
           // BACK BUTTON
           if (showBackButton)
             Material(

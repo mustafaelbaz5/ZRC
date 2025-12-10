@@ -2,11 +2,11 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
 
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../features/courses/ui/courses_screen.dart';
-import '../../features/home/ui/home_screen.dart';
 import '../../features/profile/ui/profile_screen.dart';
 import '../../features/quizzes/ui/quizzes_screen.dart';
 
@@ -20,7 +20,7 @@ class StudentScaffold extends StatefulWidget {
 class _StudentScaffoldState extends State<StudentScaffold> {
   int bottomNavIndex = 0;
 
-  late final List<String> icons = [
+  late final List<String> icons = <String>[
     AppAssets.homeIcon,
     AppAssets.computerIcon,
     AppAssets.bookIcon,
@@ -28,12 +28,12 @@ class _StudentScaffoldState extends State<StudentScaffold> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    const activeColor = Colors.white;
-    const inactiveColor = AppColors.lightBlue;
+  Widget build(final BuildContext context) {
+    const Color activeColor = Colors.white;
+    const Color inactiveColor = AppColors.lightBlue;
 
-    final items = icons.map((icon) {
-      int i = icons.indexOf(icon);
+    final List<ColorFiltered> items = icons.map((final String icon) {
+      final int i = icons.indexOf(icon);
 
       return ColorFiltered(
         colorFilter: ColorFilter.mode(
@@ -58,10 +58,10 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           height: 50.h,
           index: bottomNavIndex,
           items: items,
-          onTap: (index) => setState(() => bottomNavIndex = index),
+          onTap: (final int index) => setState(() => bottomNavIndex = index),
         ),
-        body: [
-          const HomeScreen(),
+        body: <Widget>[
+          const StudentHomeScreen(),
           const CoursesScreen(),
           const QuizzesScreen(),
           const ProfileScreen(),

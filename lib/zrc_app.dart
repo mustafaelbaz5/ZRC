@@ -11,12 +11,12 @@ class ZrcApp extends StatelessWidget {
   const ZrcApp({super.key, required this.appRouter});
   final AppRouter appRouter;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) {
+      builder: (final BuildContext context, final Widget? child) {
         return MaterialApp(
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
@@ -37,3 +37,6 @@ class ZrcApp extends StatelessWidget {
     );
   }
 }
+
+// dart format .  For Formate all Files 
+//dart fix --apply  For apply Fixes

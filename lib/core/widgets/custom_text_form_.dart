@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:zrc/core/utils/regex.dart';
+import '../utils/regex.dart';
 import '../themes/app_colors.dart';
 import '../themes/app_text_styles.dart';
 import '../utils/functions/app_language.dart';
@@ -72,7 +72,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     });
   }
 
-  void _updateDirection(String value) {
+  void _updateDirection(final String value) {
     setState(() {
       _direction = AppRegex().isArabic(value)
           ? ui.TextDirection.rtl
@@ -81,8 +81,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(widget.borderRadius ?? 16.0);
+  Widget build(final BuildContext context) {
+    final BorderRadius radius = BorderRadius.circular(
+      widget.borderRadius ?? 16.0,
+    );
 
     return TextFormField(
       controller: widget.controller,
@@ -93,13 +95,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular(),
       validator: widget.validator,
       textDirection: _direction,
-      onChanged: (value) {
+      onChanged: (final String value) {
         // Update text direction
         _updateDirection(value);
 
         // Automatically romanize if locale is English
         if (context.locale.languageCode == 'en' && AppRegex().isArabic(value)) {
-          final converted = changeNameToEn(context, value);
+          final String converted = changeNameToEn(context, value);
           widget.controller?.value = TextEditingValue(
             text: converted,
             selection: TextSelection.collapsed(offset: converted.length),

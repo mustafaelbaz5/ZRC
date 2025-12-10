@@ -6,7 +6,7 @@ class YoutubePlayerLoading extends StatelessWidget {
   final double aspectRatio;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: const Center(child: CircularProgressIndicator(color: Colors.red)),

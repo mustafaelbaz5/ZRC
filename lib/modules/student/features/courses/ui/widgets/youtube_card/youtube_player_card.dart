@@ -35,7 +35,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
   }
 
   void _initializeController() {
-    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
+    final String? videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
 
     if (videoId == null) {
       setState(() => _errorMessage = "Invalid YouTube URL");
@@ -51,7 +51,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
   Future<void> _lockPortrait() async {}
 
   Future<void> _lockLandscape() async {
-    await SystemChrome.setPreferredOrientations([
+    await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
@@ -71,12 +71,13 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     await _lockLandscape();
     await _hideSystemUI();
 
+    // ignore: use_build_context_synchronously
     await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => Scaffold(
           backgroundColor: Colors.black,
           body: Stack(
-            children: [
+            children: <Widget>[
               /// Fullscreen player
               Positioned.fill(
                 child: YoutubePlayer(
@@ -113,11 +114,11 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
     await _showSystemUI();
   }
 
-  void _skip(int seconds) {
+  void _skip(final int seconds) {
     if (_controller == null) return;
 
-    final current = _controller!.value.position.inSeconds;
-    final target = (current + seconds).clamp(0, 99999);
+    final int current = _controller!.value.position.inSeconds;
+    final int target = (current + seconds).clamp(0, 99999);
     _controller!.seekTo(Duration(seconds: target));
   }
 
@@ -129,7 +130,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     if (_errorMessage != null) {
       return YoutubePlayerError(
         message: _errorMessage!,
@@ -160,7 +161,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
   /// BOTTOM ACTION BAR
   /// ------------------------------
   List<Widget> _buildBottomActions() {
-    return [
+    return <Widget>[
       const CurrentPosition(),
       const ProgressBar(isExpanded: true),
       horizontalSpacing(10),
@@ -187,7 +188,7 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
           max: 100,
           activeColor: Colors.red,
           inactiveColor: Colors.white30,
-          onChanged: (value) {
+          onChanged: (final double value) {
             setState(() => _volume = value);
             _controller!.setVolume(value.toInt());
           },

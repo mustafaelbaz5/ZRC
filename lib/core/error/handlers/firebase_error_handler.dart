@@ -1,9 +1,10 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 
 // import '../models/app_error.dart';
 // import '../types/error_type.dart';
 
-// class FirebaseErrorHandler {
-//   static AppError handle(dynamic error) {
+// // class FirebaseErrorHandler {
+//   static AppError handle(final dynamic error) {
 //     if (error is FirebaseAuthException) {
 //       return _handleAuthException(error);
 //     }
@@ -16,12 +17,12 @@
 //   }
 
 //   // Handle Firebase Auth Errors
-//   static AppError _handleAuthException(FirebaseAuthException error) {
+//   static AppError _handleAuthException(final FirebaseAuthException error) {
 //     switch (error.code) {
 //       // Email/Password errors
 //       case 'invalid-email':
 //         return AppError(
-//           message: 'Invalid email address format.',
+//           message: 'errors.invalid_email',
 //           type: ErrorType.invalidEmail,
 //           code: ErrorCode.badRequest,
 //           technicalMessage: error.message,
@@ -30,7 +31,7 @@
 
 //       case 'user-disabled':
 //         return AppError(
-//           message: 'This account has been disabled.',
+//           message: 'errors.user_disabled', // Need to add this key
 //           type: ErrorType.firebaseAuth,
 //           code: ErrorCode.forbidden,
 //           technicalMessage: error.message,
@@ -39,7 +40,7 @@
 
 //       case 'user-not-found':
 //         return AppError(
-//           message: 'No account found with this email.',
+//           message: 'errors.user_not_found',
 //           type: ErrorType.userNotFound,
 //           code: ErrorCode.notFound,
 //           technicalMessage: error.message,
@@ -49,7 +50,7 @@
 //       case 'wrong-password':
 //       case 'invalid-credential':
 //         return AppError(
-//           message: 'Invalid email or password.',
+//           message: 'errors.invalid_credentials',
 //           type: ErrorType.invalidCredentials,
 //           code: ErrorCode.unauthorized,
 //           technicalMessage: error.message,
@@ -58,7 +59,7 @@
 
 //       case 'email-already-in-use':
 //         return AppError(
-//           message: 'An account with this email already exists.',
+//           message: 'errors.email_already_exists',
 //           type: ErrorType.emailAlreadyExists,
 //           code: ErrorCode.conflict,
 //           technicalMessage: error.message,
@@ -67,7 +68,7 @@
 
 //       case 'weak-password':
 //         return AppError(
-//           message: 'Password is too weak. Please use a stronger password.',
+//           message: 'errors.weak_password',
 //           type: ErrorType.weakPassword,
 //           code: ErrorCode.badRequest,
 //           technicalMessage: error.message,
@@ -76,7 +77,7 @@
 
 //       case 'operation-not-allowed':
 //         return AppError(
-//           message: 'This operation is not allowed.',
+//           message: 'errors.operation_not_allowed', // Need to add this key
 //           type: ErrorType.firebaseAuth,
 //           code: ErrorCode.forbidden,
 //           technicalMessage: error.message,
@@ -86,7 +87,7 @@
 //       // Session errors
 //       case 'requires-recent-login':
 //         return AppError(
-//           message: 'Please login again to complete this action.',
+//           message: 'errors.session_expired',
 //           type: ErrorType.sessionExpired,
 //           code: ErrorCode.unauthorized,
 //           technicalMessage: error.message,
@@ -96,7 +97,7 @@
 //       case 'user-token-expired':
 //       case 'invalid-user-token':
 //         return AppError(
-//           message: 'Your session has expired. Please login again.',
+//           message: 'errors.session_expired',
 //           type: ErrorType.sessionExpired,
 //           code: ErrorCode.unauthorized,
 //           technicalMessage: error.message,
@@ -109,7 +110,7 @@
 
 //       case 'too-many-requests':
 //         return AppError(
-//           message: 'Too many attempts. Please try again later.',
+//           message: 'errors.too_many_requests',
 //           type: ErrorType.firebaseAuth,
 //           code: 429,
 //           technicalMessage: error.message,
@@ -122,7 +123,7 @@
 
 //       default:
 //         return AppError(
-//           message: error.message ?? 'Authentication error occurred.',
+//           message: 'errors.unknown',
 //           type: ErrorType.firebaseAuth,
 //           code: ErrorCode.unknown,
 //           technicalMessage: error.message,
@@ -132,7 +133,7 @@
 //   }
 
 //   // Handle Firestore and Storage Errors
-//   static AppError _handleFirebaseException(FirebaseException error) {
+//   static AppError _handleFirebaseException(final FirebaseException error) {
 //     // Check if it's a Firestore error
 //     if (error.plugin == 'cloud_firestore') {
 //       return _handleFirestoreError(error);
@@ -147,7 +148,7 @@
 //     switch (error.code) {
 //       case 'permission-denied':
 //         return AppError(
-//           message: 'You don\'t have permission to perform this action.',
+//           message: 'errors.permission_denied',
 //           type: ErrorType.forbidden,
 //           code: ErrorCode.forbidden,
 //           technicalMessage: error.message,
@@ -156,7 +157,7 @@
 
 //       case 'unavailable':
 //         return AppError(
-//           message: 'Service temporarily unavailable. Please try again.',
+//           message: 'errors.service_unavailable',
 //           type: ErrorType.internalServer,
 //           code: ErrorCode.internalServer,
 //           technicalMessage: error.message,
@@ -165,7 +166,7 @@
 
 //       case 'cancelled':
 //         return AppError(
-//           message: 'Operation was cancelled.',
+//           message: 'errors.cancelled',
 //           type: ErrorType.cancel,
 //           code: ErrorCode.cancel,
 //           technicalMessage: error.message,
@@ -177,7 +178,7 @@
 
 //       default:
 //         return AppError(
-//           message: error.message ?? 'An error occurred.',
+//           message: 'errors.unknown',
 //           type: ErrorType.unknown,
 //           code: ErrorCode.unknown,
 //           technicalMessage: error.message,
@@ -186,11 +187,11 @@
 //     }
 //   }
 
-//   static AppError _handleFirestoreError(FirebaseException error) {
+//   static AppError _handleFirestoreError(final FirebaseException error) {
 //     switch (error.code) {
 //       case 'not-found':
 //         return AppError(
-//           message: 'Document not found.',
+//           message: 'errors.not_found',
 //           type: ErrorType.notFound,
 //           code: ErrorCode.notFound,
 //           technicalMessage: error.message,
@@ -199,7 +200,7 @@
 
 //       case 'already-exists':
 //         return AppError(
-//           message: 'Document already exists.',
+//           message: 'errors.conflict',
 //           type: ErrorType.conflict,
 //           code: ErrorCode.conflict,
 //           technicalMessage: error.message,
@@ -208,7 +209,7 @@
 
 //       case 'failed-precondition':
 //         return AppError(
-//           message: 'Operation failed. Please ensure all conditions are met.',
+//           message: 'errors.bad_request',
 //           type: ErrorType.firebaseFirestore,
 //           code: ErrorCode.badRequest,
 //           technicalMessage: error.message,
@@ -217,7 +218,7 @@
 
 //       case 'aborted':
 //         return AppError(
-//           message: 'Operation aborted due to conflict. Please try again.',
+//           message: 'errors.conflict',
 //           type: ErrorType.firebaseFirestore,
 //           code: ErrorCode.conflict,
 //           technicalMessage: error.message,
@@ -226,7 +227,7 @@
 
 //       case 'out-of-range':
 //         return AppError(
-//           message: 'Invalid input range.',
+//           message: 'errors.validation',
 //           type: ErrorType.validation,
 //           code: ErrorCode.badRequest,
 //           technicalMessage: error.message,
@@ -235,7 +236,7 @@
 
 //       case 'data-loss':
 //         return AppError(
-//           message: 'Unrecoverable data loss occurred.',
+//           message: 'errors.server_error',
 //           type: ErrorType.firebaseFirestore,
 //           code: ErrorCode.internalServer,
 //           technicalMessage: error.message,
@@ -244,7 +245,7 @@
 
 //       default:
 //         return AppError(
-//           message: error.message ?? 'Database error occurred.',
+//           message: 'errors.unknown',
 //           type: ErrorType.firebaseFirestore,
 //           code: ErrorCode.unknown,
 //           technicalMessage: error.message,
@@ -253,12 +254,12 @@
 //     }
 //   }
 
-//   static AppError _handleStorageError(FirebaseException error) {
+//   static AppError _handleStorageError(final FirebaseException error) {
 //     switch (error.code) {
 //       case 'object-not-found':
 //       case 'bucket-not-found':
 //         return AppError(
-//           message: 'File not found.',
+//           message: 'errors.not_found',
 //           type: ErrorType.notFound,
 //           code: ErrorCode.notFound,
 //           technicalMessage: error.message,
@@ -267,7 +268,7 @@
 
 //       case 'unauthorized':
 //         return AppError(
-//           message: 'You don\'t have permission to access this file.',
+//           message: 'errors.forbidden',
 //           type: ErrorType.forbidden,
 //           code: ErrorCode.forbidden,
 //           technicalMessage: error.message,
@@ -276,7 +277,7 @@
 
 //       case 'quota-exceeded':
 //         return AppError(
-//           message: 'Storage quota exceeded.',
+//           message: 'errors.server_error',
 //           type: ErrorType.firebaseStorage,
 //           code: 507,
 //           technicalMessage: error.message,
@@ -285,7 +286,7 @@
 
 //       case 'unauthenticated':
 //         return AppError(
-//           message: 'Please login to access this file.',
+//           message: 'errors.unauthorized',
 //           type: ErrorType.unauthorized,
 //           code: ErrorCode.unauthorized,
 //           technicalMessage: error.message,
@@ -294,7 +295,7 @@
 
 //       case 'retry-limit-exceeded':
 //         return AppError(
-//           message: 'Upload failed. Please try again.',
+//           message: 'errors.unknown',
 //           type: ErrorType.firebaseStorage,
 //           code: ErrorCode.unknown,
 //           technicalMessage: error.message,
@@ -303,7 +304,7 @@
 
 //       case 'invalid-checksum':
 //         return AppError(
-//           message: 'File upload failed. Please try again.',
+//           message: 'errors.bad_request',
 //           type: ErrorType.firebaseStorage,
 //           code: ErrorCode.badRequest,
 //           technicalMessage: error.message,
@@ -312,7 +313,7 @@
 
 //       default:
 //         return AppError(
-//           message: error.message ?? 'Storage error occurred.',
+//           message: 'errors.unknown',
 //           type: ErrorType.firebaseStorage,
 //           code: ErrorCode.unknown,
 //           technicalMessage: error.message,

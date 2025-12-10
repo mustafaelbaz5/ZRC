@@ -18,10 +18,10 @@ class QuizResultScreen extends StatelessWidget {
   const QuizResultScreen({super.key, required this.quiz, required this.score});
 
   @override
-  Widget build(BuildContext context) {
-    final percentage = (score / quiz.totalMarks * 100).round();
-    final isPassed = percentage >= quiz.passingMarks;
-    final canRetake = quiz.attemptsUsed < quiz.attemptsAllowed;
+  Widget build(final BuildContext context) {
+    final int percentage = (score / quiz.totalMarks * 100).round();
+    final bool isPassed = percentage >= quiz.passingMarks;
+    final bool canRetake = quiz.attemptsUsed < quiz.attemptsAllowed;
 
     return PopScope(
       canPop: false,
@@ -29,11 +29,11 @@ class QuizResultScreen extends StatelessWidget {
         backgroundColor: Colors.grey[50],
         body: SafeArea(
           child: Column(
-            children: [
+            children: <Widget>[
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       // Result Header
                       QResultResultHeader(
                         isPassed: isPassed,

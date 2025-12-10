@@ -16,10 +16,10 @@ class QResultsAnalysisRow extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
+      children: <Widget>[
         Text(label, style: AppTextStyles.font13greyRegular()),
         Text(
           value,

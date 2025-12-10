@@ -14,12 +14,12 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           AnimatedContainer(
             duration: const Duration(milliseconds: 250),
             curve: Curves.easeOut,
@@ -35,14 +35,14 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
               color: isSelected ? Colors.white : Colors.grey.shade200,
               borderRadius: BorderRadius.circular(50),
               boxShadow: isSelected
-                  ? [
+                  ? <BoxShadow>[
                       BoxShadow(
                         color: AppColors.lightBlue.withAlpha(20),
                         blurRadius: 8,
                         offset: const Offset(0, 3),
                       ),
                     ]
-                  : [],
+                  : <BoxShadow>[],
             ),
             child: Text(
               title,

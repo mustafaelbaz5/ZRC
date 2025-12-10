@@ -7,9 +7,9 @@ class BackgroundShapes extends StatelessWidget {
   const BackgroundShapes({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Stack(
-      children: [
+      children: <Widget>[
         Positioned(
           top: -100,
           left: -100,

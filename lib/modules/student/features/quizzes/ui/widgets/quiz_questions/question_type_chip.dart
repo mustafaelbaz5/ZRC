@@ -11,7 +11,7 @@ class QuestionTypeChip extends StatelessWidget {
   const QuestionTypeChip({super.key, required this.type});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     String label;
     IconData icon;
     Color color;
@@ -44,7 +44,7 @@ class QuestionTypeChip extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(icon, size: 14.sp, color: color),
           horizontalSpacing(12),
           Text(

@@ -15,18 +15,18 @@ class QuizDetailedScreen extends StatelessWidget {
   const QuizDetailedScreen({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: CustomScrollView(
-        slivers: [
+        slivers: <Widget>[
           // Custom App Bar with Gradient
           QuizDetailedAppBar(quiz: quiz),
 
           // body
           SliverToBoxAdapter(
             child: Column(
-              children: [
+              children: <Widget>[
                 // Status Card
                 StatusCard(quiz: quiz),
 

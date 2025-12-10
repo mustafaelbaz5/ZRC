@@ -6,15 +6,15 @@ class LearningPointsList extends StatelessWidget {
   final List<String> points;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       children: points
           .map(
-            (point) => Padding(
+            (final String point) => Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Container(
                     margin: const EdgeInsets.only(top: 4),
                     padding: const EdgeInsets.all(2),

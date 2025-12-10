@@ -15,11 +15,11 @@ class MCQOptions extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
       children: options
           .map(
-            (option) => OptionCard(
+            (final String option) => OptionCard(
               option: option,
               isSelected: selectedAnswer == option,
               onTap: () => onSelect(option),

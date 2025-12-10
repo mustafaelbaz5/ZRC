@@ -10,9 +10,9 @@ class StatusCard extends StatelessWidget {
   const StatusCard({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
-    final isCompleted = quiz.attemptStatus == QuizAttemptStatus.completed;
-    final canRetake = quiz.attemptsUsed < quiz.attemptsAllowed;
+  Widget build(final BuildContext context) {
+    final bool isCompleted = quiz.attemptStatus == QuizAttemptStatus.completed;
+    final bool canRetake = quiz.attemptsUsed < quiz.attemptsAllowed;
 
     return Container(
       margin: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0),
@@ -22,11 +22,11 @@ class StatusCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isCompleted
-              ? [Colors.green[400]!, Colors.green[600]!]
-              : [Colors.orange[400]!, Colors.orange[600]!],
+              ? <Color>[Colors.green[400]!, Colors.green[600]!]
+              : <Color>[Colors.orange[400]!, Colors.orange[600]!],
         ),
         borderRadius: BorderRadius.circular(20.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
             color: (isCompleted ? Colors.green : Colors.orange).withAlpha(
               (0.04 * 255).toInt(),
@@ -37,7 +37,7 @@ class StatusCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(
             isCompleted
                 ? Icons.check_circle_rounded
@@ -67,7 +67,9 @@ class StatusCard extends StatelessWidget {
               child: Text(
                 tr(
                   'student_quizzes.quiz_detailed.your_score',
-                  namedArgs: {'score': quiz.userScore.toString()},
+                  namedArgs: <String, String>{
+                    'score': quiz.userScore.toString(),
+                  },
                 ),
                 style: TextStyle(
                   fontSize: 16.sp,

@@ -19,7 +19,7 @@ class TrueFalseCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -33,7 +33,7 @@ class TrueFalseCard extends StatelessWidget {
             color: isSelected ? color : Colors.grey[300]!,
             width: isSelected ? 2 : 1,
           ),
-          boxShadow: [
+          boxShadow: <BoxShadow>[
             if (isSelected)
               BoxShadow(
                 color: color.withAlpha((0.2 * 255).toInt()),
@@ -43,7 +43,7 @@ class TrueFalseCard extends StatelessWidget {
           ],
         ),
         child: Column(
-          children: [
+          children: <Widget>[
             Icon(
               icon,
               size: 48.sp,

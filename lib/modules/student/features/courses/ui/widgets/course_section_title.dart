@@ -6,7 +6,7 @@ class CourseSectionTitle extends StatelessWidget {
   final String title;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Text(
       title,
       style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

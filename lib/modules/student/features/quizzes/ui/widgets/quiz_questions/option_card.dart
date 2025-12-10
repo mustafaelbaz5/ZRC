@@ -15,7 +15,7 @@ class OptionCard extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -28,7 +28,7 @@ class OptionCard extends StatelessWidget {
             color: isSelected ? Colors.blue[700]! : Colors.grey[300]!,
             width: isSelected ? 2 : 1,
           ),
-          boxShadow: [
+          boxShadow: <BoxShadow>[
             if (isSelected)
               BoxShadow(
                 color: Colors.blue.withAlpha((0.04 * 255).toInt()),
@@ -38,7 +38,7 @@ class OptionCard extends StatelessWidget {
           ],
         ),
         child: Row(
-          children: [
+          children: <Widget>[
             Container(
               width: 24.w,
               height: 24.w,

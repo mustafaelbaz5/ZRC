@@ -12,11 +12,11 @@ class QuickStatsGrid extends StatelessWidget {
   const QuickStatsGrid({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Row(
-        children: [
+        children: <Widget>[
           Expanded(
             child: StatCard(
               icon: Icons.help_outline_rounded,

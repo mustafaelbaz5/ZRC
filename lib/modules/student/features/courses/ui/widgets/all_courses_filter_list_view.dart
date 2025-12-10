@@ -14,9 +14,9 @@ class AllCoursesFilterListView extends StatefulWidget {
 
 class _AllCoursesFilterListViewState extends State<AllCoursesFilterListView> {
   int selectedIndex = 0;
-  final categories = CategoryModel.categories;
+  final List<CategoryModel> categories = CategoryModel.categories;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       height: 60.h,
       child: ListView.builder(
@@ -25,7 +25,7 @@ class _AllCoursesFilterListViewState extends State<AllCoursesFilterListView> {
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemBuilder: (context, index) {
+        itemBuilder: (final BuildContext context, final int index) {
           return AllCoursesFilterListViewItem(
             isSelected: selectedIndex == index,
             onTap: () {

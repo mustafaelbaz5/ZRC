@@ -8,20 +8,20 @@ import '../../../storage/user_storage.dart';
 import '../model/user_model.dart';
 
 class AuthService {
-  final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase = Supabase.instance.client;
   final UserStorage _userStorage;
 
-  AuthService({UserStorage? userStorage})
+  AuthService({final UserStorage? userStorage})
     : _userStorage = userStorage ?? UserStorage();
 
   /// Login user using email & password and return the full UserModel
   Future<UserModel> loginUser({
-    required String email,
-    required String password,
+    required final String email,
+    required final String password,
   }) async {
     try {
       // Fetch user from Supabase
-      final response = await _supabase
+      final PostgrestMap? response = await _supabase
           .from('students')
           .select(
             'id, student_code, name, email, password, college, national_id, phone_number, role',
@@ -36,7 +36,7 @@ class AuthService {
         );
       }
 
-      final storedPassword = response['password'] as String?;
+      final String? storedPassword = response['password'] as String?;
       if (storedPassword != password) {
         throw const AppError(
           message: 'Incorrect password',
@@ -45,7 +45,7 @@ class AuthService {
       }
 
       // Build UserModel
-      final user = UserModel.fromJson(response);
+      final UserModel user = UserModel.fromJson(response);
 
       // Save full user data in secure storage via UserStorage
       await _userStorage.saveUser(user);
@@ -56,7 +56,7 @@ class AuthService {
 
       return user;
     } catch (e) {
-      final appError = ErrorHandler.handle(e);
+      final AppError appError = ErrorHandler.handle(e);
       debugPrint('❌ Login failed: ${appError.message}');
       throw AppError(
         message: appError.message,

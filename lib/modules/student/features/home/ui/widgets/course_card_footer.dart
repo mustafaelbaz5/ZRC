@@ -11,13 +11,13 @@ class CourseCardFooter extends StatelessWidget {
   final CoursesCardModel coursesCardModel;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         // Instructor with icon
         Expanded(
           child: Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.person_outline_rounded,
                 size: 14.sp,
@@ -38,7 +38,7 @@ class CourseCardFooter extends StatelessWidget {
         horizontalSpacing(8),
         // Date with icon
         Row(
-          children: [
+          children: <Widget>[
             Icon(
               Icons.calendar_today_outlined,
               size: 12.sp,

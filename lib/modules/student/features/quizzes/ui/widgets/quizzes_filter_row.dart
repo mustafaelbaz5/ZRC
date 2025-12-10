@@ -15,11 +15,11 @@ class QuizzesFilterRow extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       child: Row(
-        children: [
+        children: <Widget>[
           QuizzesFilterChip(
             label: tr('student_quizzes.filters.all'),
             isSelected: selectedFilter == tr('student_quizzes.filters.all'),

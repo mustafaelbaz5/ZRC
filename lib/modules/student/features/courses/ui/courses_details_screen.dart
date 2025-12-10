@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import '../../../../../core/utils/functions/app_language.dart';
 
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/spacing.dart';
@@ -16,17 +16,17 @@ class CoursesDetailsScreen extends StatelessWidget {
   const CoursesDetailsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(
           crossAxisAlignment: isAppLanguageArabic(context)
               ? CrossAxisAlignment.end
               : CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             // Header
             Row(
-              children: [
+              children: <Widget>[
                 IconButton(
                   onPressed: () => Navigator.pop(context),
                   icon: const Icon(Icons.arrow_back_ios_new_rounded),
@@ -46,7 +46,7 @@ class CoursesDetailsScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     verticalSpacing(16),
 
                     // Video Player
@@ -113,7 +113,7 @@ class CoursesDetailsScreen extends StatelessWidget {
                     ),
                     verticalSpacing(12),
                     const LearningPointsList(
-                      points: [
+                      points: <String>[
                         'Build beautiful mobile apps with Flutter',
                         'Master Dart programming language',
                         'Implement advanced state management',
@@ -150,7 +150,7 @@ class CoursesDetailsScreen extends StatelessWidget {
                     ),
                     verticalSpacing(12),
                     const RequirementsList(
-                      requirements: [
+                      requirements: <String>[
                         'Basic programming knowledge',
                         'Computer with Windows/Mac/Linux',
                         'Internet connection',

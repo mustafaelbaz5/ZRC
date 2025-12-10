@@ -7,28 +7,29 @@ class DueDateInfo extends StatelessWidget {
   final DateTime dueDate;
 
   String _formatDueDate() {
-    final now = DateTime.now();
-    final difference = dueDate.difference(now).inDays;
+    final DateTime now = DateTime.now();
+    final int difference = dueDate.difference(now).inDays;
 
     if (difference == 0) return tr('student_quizzes.due_date.due_today');
     if (difference == 1) return tr('student_quizzes.due_date.due_tomorrow');
-    if (difference < 7)
+    if (difference < 7) {
       return tr(
         'student_quizzes.due_date.due_in_days',
-        namedArgs: {'days': difference.toString()},
+        namedArgs: <String, String>{'days': difference.toString()},
       );
+    }
     return "${dueDate.day}/${dueDate.month}/${dueDate.year}";
   }
 
   Color _getColor() {
-    final difference = dueDate.difference(DateTime.now()).inDays;
+    final int difference = dueDate.difference(DateTime.now()).inDays;
     if (difference <= 1) return Colors.red;
     if (difference <= 3) return Colors.orange;
     return Colors.grey;
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
@@ -37,7 +38,7 @@ class DueDateInfo extends StatelessWidget {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           Icon(Icons.calendar_today_outlined, size: 14.sp, color: _getColor()),
           SizedBox(width: 6.w),
           Text(

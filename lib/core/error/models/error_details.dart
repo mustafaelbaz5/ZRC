@@ -3,13 +3,9 @@ class ErrorDetails {
   final String? constraint;
   final Map<String, dynamic>? metadata;
 
-  const ErrorDetails({
-    this.field,
-    this.constraint,
-    this.metadata,
-  });
+  const ErrorDetails({this.field, this.constraint, this.metadata});
 
-  factory ErrorDetails.fromJson(Map<String, dynamic> json) {
+  factory ErrorDetails.fromJson(final Map<String, dynamic> json) {
     return ErrorDetails(
       field: json['field'] as String?,
       constraint: json['constraint'] as String?,
@@ -18,7 +14,7 @@ class ErrorDetails {
   }
 
   Map<String, dynamic> toJson() {
-    return {
+    return <String, dynamic>{
       if (field != null) 'field': field,
       if (constraint != null) 'constraint': constraint,
       if (metadata != null) 'metadata': metadata,

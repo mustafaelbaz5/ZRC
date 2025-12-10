@@ -13,18 +13,18 @@ class CategoriesListView extends StatefulWidget {
 
 class _CategoriesListViewState extends State<CategoriesListView> {
   int selectedIndex = 0;
-  final categories = CategoryModel.categories;
+  final List<CategoryModel> categories = CategoryModel.categories;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       height: 100.h,
       child: ListView.builder(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: categories.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemBuilder: (context, index) {
+        itemBuilder: (final BuildContext context, final int index) {
           return CategoriesListViewItem(
             isSelected: selectedIndex == index,
             onTap: () {

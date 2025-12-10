@@ -26,11 +26,11 @@ class OnBoardingBottomSection extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
-        children: [
+        children: <Widget>[
           PageIndicator(currentPage: currentPage, pageCount: pageCount),
           verticalSpacing(32.h),
           _buildActionButtons(),
@@ -42,7 +42,7 @@ class OnBoardingBottomSection extends StatelessWidget {
 
   Widget _buildActionButtons() {
     return Row(
-      children: [
+      children: <Widget>[
         if (canGoBack)
           OnBoardingBackButton(onPressed: onBack)
         else

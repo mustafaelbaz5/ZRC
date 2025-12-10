@@ -16,9 +16,13 @@ class OnBoardingTextContent extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Column(
-      children: [_buildTitle(), verticalSpacing(16.h), _buildSubtitle()],
+      children: <Widget>[
+        _buildTitle(),
+        verticalSpacing(16.h),
+        _buildSubtitle(),
+      ],
     );
   }
 

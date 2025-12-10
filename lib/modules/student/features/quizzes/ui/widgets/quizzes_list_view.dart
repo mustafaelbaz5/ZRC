@@ -11,10 +11,10 @@ class QuizzesListView extends StatelessWidget {
   const QuizzesListView({super.key, required this.filter});
 
   @override
-  Widget build(BuildContext context) {
-    final allQuizzes = List.generate(
+  Widget build(final BuildContext context) {
+    final List<QuizModel> allQuizzes = List.generate(
       10,
-      (index) => QuizModel(
+      (final int index) => QuizModel(
         id: 'quiz_$index',
         title: "Quiz ${index + 1}: Chapter ${index + 1}",
         subject: index % 2 == 0 ? "Mathematics" : "Physics",
@@ -45,7 +45,9 @@ class QuizzesListView extends StatelessWidget {
     );
 
     // Filter quizzes
-    final filteredQuizzes = allQuizzes.where((quiz) {
+    final List<QuizModel> filteredQuizzes = allQuizzes.where((
+      final QuizModel quiz,
+    ) {
       if (filter == tr('student_quizzes.filters.pending')) {
         return quiz.attemptStatus != QuizAttemptStatus.completed;
       } else if (filter == tr('student_quizzes.filters.completed')) {
@@ -58,7 +60,7 @@ class QuizzesListView extends StatelessWidget {
       return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Icon(Icons.quiz_outlined, size: 64.sp, color: Colors.grey[400]),
             SizedBox(height: 16.h),
             Text(
@@ -84,8 +86,9 @@ class QuizzesListView extends StatelessWidget {
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       itemCount: filteredQuizzes.length,
       physics: const BouncingScrollPhysics(),
-      separatorBuilder: (context, index) => SizedBox(height: 16.h),
-      itemBuilder: (context, index) {
+      separatorBuilder: (final BuildContext context, final int index) =>
+          SizedBox(height: 16.h),
+      itemBuilder: (final BuildContext context, final int index) {
         return QuizCard(quiz: filteredQuizzes[index]);
       },
     );
