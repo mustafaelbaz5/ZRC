@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/functions/names_functions.dart';
 
 import '../utils/app_assets.dart';
 
@@ -14,7 +15,7 @@ class HomeAppBar extends StatelessWidget {
   Widget build(final BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      color: Colors.white,
+
       child: Row(
         children: <Widget>[
           Column(
@@ -22,13 +23,12 @@ class HomeAppBar extends StatelessWidget {
             children: [
               Text(
                 tr('student_home.welcome'),
-                style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.normal,
-                ),
+                style: AppTextStyles.font16GreyRegular(),
               ),
-              Text(userName, style: AppTextStyles.font20BlackBold()),
+              Text(
+                getFirstNWords(userName, wordCount: 2),
+                style: AppTextStyles.font20BlackBold(),
+              ),
             ],
           ),
           const Spacer(),
