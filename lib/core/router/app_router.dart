@@ -3,19 +3,19 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/modules/instructor/core/widgets/instructor_scaffold.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_details_screen.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
+import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_detailed_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_questions_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_result_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
 import '../../modules/student/core/widgets/student_scaffold.dart';
-import '../../modules/student/features/courses/ui/courses_details_screen.dart';
-import '../../modules/student/features/courses/ui/courses_screen.dart';
 import '../../modules/student/features/home/ui/student_home_screen.dart';
-import '../../modules/student/features/profile/ui/profile_screen.dart';
 import '../../modules/student/features/quizzes/data/model/quiz_model.dart';
-import '../../modules/student/features/quizzes/ui/quiz_detailed_screen.dart';
-import '../../modules/student/features/quizzes/ui/quiz_questions_screen.dart';
-import '../../modules/student/features/quizzes/ui/quiz_result_screen.dart';
-import '../../modules/student/features/quizzes/ui/quizzes_screen.dart';
 import '../auth/logic/cubit/auth_cubit.dart';
 import '../auth/ui/login_screen.dart';
 import '../auth/ui/widgets/initial_screen.dart';
@@ -67,34 +67,38 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const StudentHomeScreen());
 
       case Routes.studentCoursesScreen:
-        return MaterialPageRoute(builder: (_) => const CoursesScreen());
+        return MaterialPageRoute(builder: (_) => const StudentCoursesScreen());
 
       case Routes.studentCoursesDetailsScreen:
-        return MaterialPageRoute(builder: (_) => const CoursesDetailsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const StudentCoursesDetailsScreen(),
+        );
 
       case Routes.studentQuizzesScreen:
-        return MaterialPageRoute(builder: (_) => const QuizzesScreen());
+        return MaterialPageRoute(builder: (_) => const StudentQuizzesScreen());
 
       case Routes.studentQuizDetailedScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizDetailedScreen(quiz: args['quiz'] as QuizModel),
+          builder: (_) =>
+              StudentQuizDetailedScreen(quiz: args['quiz'] as QuizModel),
         );
 
       case Routes.studentQuizQuestionScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizQuestionsScreen(quiz: args['quiz'] as QuizModel),
+          builder: (_) =>
+              StudentQuizQuestionsScreen(quiz: args['quiz'] as QuizModel),
         );
 
       case Routes.studentQuizResultScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizResultScreen(
+          builder: (_) => StudentQuizResultScreen(
             quiz: args['quiz'] as QuizModel,
             score: args['score'] as int,
           ),
         );
 
       case Routes.studentProfileScreen:
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(builder: (_) => const StudentProfileScreen());
 
       // ----------------- INSTRUCTOR -----------------
       case Routes.instructorScaffold:

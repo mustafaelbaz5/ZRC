@@ -1,19 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/functions/app_language.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/functions/app_language.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/course_info.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/course_section_title.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/course_stats_row.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/instructor_card.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/learning_point_list.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/requirements_list.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/youtube_player_card.dart';
 
-import '../../../../../core/themes/app_text_styles.dart';
-import '../../../../../core/utils/spacing.dart';
-import 'widgets/course_info.dart';
-import 'widgets/course_section_title.dart';
-import 'widgets/course_stats_row.dart';
-import 'widgets/instructor_card.dart';
-import 'widgets/learning_point_list.dart';
-import 'widgets/requirements_list.dart';
-import 'widgets/youtube_card/youtube_player_card.dart';
-
-class CoursesDetailsScreen extends StatelessWidget {
-  const CoursesDetailsScreen({super.key});
+class StudentCoursesDetailsScreen extends StatelessWidget {
+  const StudentCoursesDetailsScreen({super.key});
 
   @override
   Widget build(final BuildContext context) {

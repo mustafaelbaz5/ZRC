@@ -2,13 +2,14 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
 import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
+import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
-import '../../features/courses/ui/courses_screen.dart';
-import '../../features/profile/ui/profile_screen.dart';
-import '../../features/quizzes/ui/quizzes_screen.dart';
+
 
 class StudentScaffold extends StatefulWidget {
   const StudentScaffold({super.key, required this.navigationKey});
@@ -62,9 +63,9 @@ class _StudentScaffoldState extends State<StudentScaffold> {
         ),
         body: <Widget>[
           const StudentHomeScreen(),
-          const CoursesScreen(),
-          const QuizzesScreen(),
-          const ProfileScreen(),
+          const StudentCoursesScreen(),
+          const StudentQuizzesScreen(),
+          const StudentProfileScreen(),
         ][bottomNavIndex],
       ),
     );

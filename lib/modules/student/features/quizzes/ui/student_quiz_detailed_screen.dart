@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/spacing.dart';
-import '../data/model/quiz_model.dart';
-import 'widgets/quiz_detailed/description_card.dart';
-import 'widgets/quiz_detailed/instructor_card.dart';
-import 'widgets/quiz_detailed/quick_stats_grid.dart';
-import 'widgets/quiz_detailed/quiz_detailed_app_bar.dart';
-import 'widgets/quiz_detailed/quizzes_details_filter_chip.dart';
-import 'widgets/quiz_detailed/start_quiz_button.dart';
-import 'widgets/quiz_detailed/status_card.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/description_card.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/instructor_card.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quick_stats_grid.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_app_bar.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quizzes_details_filter_chip.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/start_quiz_button.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/status_card.dart';
 
-class QuizDetailedScreen extends StatelessWidget {
+class StudentQuizDetailedScreen extends StatelessWidget {
   final QuizModel quiz;
 
-  const QuizDetailedScreen({super.key, required this.quiz});
+  const StudentQuizDetailedScreen({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
