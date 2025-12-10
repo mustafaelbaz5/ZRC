@@ -1,18 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_filter_row.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_list_view.dart';
 
-import '../../../core/widgets/custom_app_bar.dart';
-import 'widgets/quizzes_filter_row.dart';
-import 'widgets/quizzes_list_view.dart';
-
-class QuizzesScreen extends StatefulWidget {
-  const QuizzesScreen({super.key});
+class StudentQuizzesScreen extends StatefulWidget {
+  const StudentQuizzesScreen({super.key});
 
   @override
-  State<QuizzesScreen> createState() => _QuizzesScreenState();
+  State<StudentQuizzesScreen> createState() => _StudentQuizzesScreenState();
 }
 
-class _QuizzesScreenState extends State<QuizzesScreen> {
+class _StudentQuizzesScreenState extends State<StudentQuizzesScreen> {
   late String selectedFilter;
 
   @override
@@ -32,7 +31,7 @@ class _QuizzesScreenState extends State<QuizzesScreen> {
     return SafeArea(
       child: Column(
         children: <Widget>[
-          CustomAppBar(title: tr('student_quizzes.screen_title')),
+          StudentAppBar(title: tr('student_quizzes.screen_title')),
 
           // Filter Tabs
           QuizzesFilterRow(

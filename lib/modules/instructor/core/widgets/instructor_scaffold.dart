@@ -2,30 +2,39 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
-import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
-import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
+import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
+import 'package:zrc/modules/instructor/features/profile/ui/instructor_profile_screen.dart';
+import 'package:zrc/modules/instructor/features/quizzes/ui/instructor_quizzes_screen.dart';
 
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 
-
-class StudentScaffold extends StatefulWidget {
-  const StudentScaffold({super.key, required this.navigationKey});
+class InstructorScaffold extends StatefulWidget {
+  const InstructorScaffold({super.key, required this.navigationKey});
   final GlobalKey<CurvedNavigationBarState> navigationKey;
+
   @override
-  State<StudentScaffold> createState() => _StudentScaffoldState();
+  State<InstructorScaffold> createState() => _InstructorScaffoldState();
 }
 
-class _StudentScaffoldState extends State<StudentScaffold> {
+class _InstructorScaffoldState extends State<InstructorScaffold> {
   int bottomNavIndex = 0;
 
+  // Instructor-specific navigation icons
   late final List<String> icons = <String>[
-    AppAssets.homeIcon,
-    AppAssets.computerIcon,
-    AppAssets.bookIcon,
-    AppAssets.profileIcon,
+    AppAssets.homeIcon, // Home/Dashboard
+    AppAssets.computerIcon, // Courses Management
+    AppAssets.bookIcon, // Quizzes/Content
+    AppAssets.profileIcon, // Profile/Settings
+  ];
+
+  // Instructor screens corresponding to each nav item
+  late final List<Widget> screens = <Widget>[
+    const InstructorHomeScreen(), // Home Dashboard
+    const InstructorCoursesScreen(), // Courses Management
+    const InstructorQuizzesScreen(), // Quizzes & Content
+    const InstructorProfileScreen(), // Profile & Settings
   ];
 
   @override
@@ -61,12 +70,7 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           items: items,
           onTap: (final int index) => setState(() => bottomNavIndex = index),
         ),
-        body: <Widget>[
-          const StudentHomeScreen(),
-          const StudentCoursesScreen(),
-          const StudentQuizzesScreen(),
-          const StudentProfileScreen(),
-        ][bottomNavIndex],
+        body: screens[bottomNavIndex],
       ),
     );
   }

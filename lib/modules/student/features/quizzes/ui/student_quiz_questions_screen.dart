@@ -17,16 +17,18 @@ import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/q
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/quiz_header.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/submit_dialog.dart';
 
-class QuizQuestionsScreen extends StatefulWidget {
+class StudentQuizQuestionsScreen extends StatefulWidget {
   final QuizModel quiz;
 
-  const QuizQuestionsScreen({super.key, required this.quiz});
+  const StudentQuizQuestionsScreen({super.key, required this.quiz});
 
   @override
-  State<QuizQuestionsScreen> createState() => _QuizQuestionsScreenState();
+  State<StudentQuizQuestionsScreen> createState() =>
+      _StudentQuizQuestionsScreenState();
 }
 
-class _QuizQuestionsScreenState extends State<QuizQuestionsScreen> {
+class _StudentQuizQuestionsScreenState
+    extends State<StudentQuizQuestionsScreen> {
   int currentQuestionIndex = 0;
   Map<int, dynamic> answers = <int, dynamic>{};
   late Timer _timer;

@@ -355,5 +355,20 @@
       "id_label": "ID"
     },
     "copy_to_clipboard": "Copied to clipboard"
+  },
+  "instructor_home": {
+    "statistics": {
+      "title": "Statistics",
+      "courses": "Courses",
+      "quizzes": "Quizzes",
+      "avg_score": "Avg Score"
+    },
+    "quick_actions": {
+      "title": "Quick Actions",
+      "create_course": "Create Course",
+      "create_quiz": "Create Quiz",
+      "create_video": "Create Video",
+      "create_assignment": "Create Assignment"
+    }
   }
 }

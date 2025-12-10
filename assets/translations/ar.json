@@ -1,6 +1,4 @@
 {
-
-  
   "errors": {
     "no_internet": "لا يوجد اتصال بالإنترنت. يرجى التحقق من الشبكة.",
     "timeout": "انتهت مهلة الطلب. يرجى المحاولة مرة أخرى.",
@@ -357,5 +355,20 @@
       "id_label": "الرقم التعريفي"
     },
     "copy_to_clipboard": "تم النسخ إلى الحافظة"
+  },
+  "instructor_home": {
+    "statistics": {
+      "title": "الإحصائيات",
+      "courses": "الدورات",
+      "quizzes": "الاختبارات",
+      "avg_score": "متوسط الدرجات"
+    },
+    "quick_actions": {
+      "title": "الإجراءات السريعة",
+      "create_course": "إنشاء دورة",
+      "create_quiz": "إنشاء اختبار",
+      "create_video": "إنشاء فيديو",
+      "create_assignment": "إنشاء تعيين"
+    }
   }
 }

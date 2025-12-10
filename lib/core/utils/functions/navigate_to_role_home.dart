@@ -8,7 +8,7 @@ void navigateToRoleHome(final BuildContext context, final String role) {
       Navigator.pushReplacementNamed(context, Routes.studentScaffold);
       break;
     case 'instructor':
-      Navigator.pushReplacementNamed(context, Routes.instructorHomeScreen);
+      Navigator.pushReplacementNamed(context, Routes.instructorScaffold);
       break;
     case 'admin':
       Navigator.pushReplacementNamed(context, Routes.adminHomeScreen);

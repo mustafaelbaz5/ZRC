@@ -8,7 +8,7 @@ import 'package:zrc/core/utils/functions/app_language.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/categories_list_view.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/courses_list_view.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_app_bar.dart';
+import 'package:zrc/core/widgets/home_app_bar.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/home_header.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/instructors_list_view.dart';
 
@@ -33,7 +33,6 @@ class StudentHomeScreen extends StatelessWidget {
             final String userName = userData != null
                 ? changeNameToEn(context, userData.name)
                 : tr('student_home.guest');
-            final String userId = userData?.studentCode.toString() ?? "-";
 
             return Scaffold(
               body: SafeArea(
@@ -43,7 +42,7 @@ class StudentHomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       verticalSpacing(20),
-                      HomeAppBar(userName: userName, userId: userId),
+                      HomeAppBar(userName: userName),
                       verticalSpacing(20),
                       const HomeHeader(),
                       verticalSpacing(24),
