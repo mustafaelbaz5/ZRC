@@ -1,16 +1,22 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../../core/utils/functions/app_language.dart';
-import 'language_option.dart';
 import '../profile_menu_item.dart';
 import '../profile_section_body.dart';
+import 'language_option.dart';
 import 'theme_option.dart';
 
 class ProfileSettings extends StatelessWidget {
-  const ProfileSettings({super.key, this.onSwitchLanguageTap});
+  const ProfileSettings({
+    super.key,
+    this.onSwitchLanguageTap,
+    this.onSwitchThemeTap,
+  });
 
   final VoidCallback? onSwitchLanguageTap;
+  final VoidCallback? onSwitchThemeTap;
 
   @override
   Widget build(final BuildContext context) {
@@ -84,6 +90,7 @@ class ProfileSettings extends StatelessWidget {
   }
 
   void _showThemeDialog(final BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     showDialog(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
@@ -100,15 +107,23 @@ class ProfileSettings extends StatelessWidget {
             ThemeOption(
               title: 'student_profile.settings.light'.tr(),
               icon: Icons.light_mode,
-              isSelected: true,
-              onTap: () => Navigator.pop(context),
+              isSelected: !isDark,
+              onTap: () {
+                Navigator.pop(context);
+                // Tap callback switches the theme
+                if (onSwitchThemeTap != null) onSwitchThemeTap!();
+              },
             ),
             SizedBox(height: 8.h),
             ThemeOption(
               title: 'student_profile.settings.dark'.tr(),
               icon: Icons.dark_mode,
-              isSelected: false,
-              onTap: () => Navigator.pop(context),
+              isSelected: isDark,
+              onTap: () {
+                Navigator.pop(context);
+                // Tap callback switches the theme
+                if (onSwitchThemeTap != null) onSwitchThemeTap!();
+              },
             ),
           ],
         ),

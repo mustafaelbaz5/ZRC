@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
 import 'package:zrc/core/storage/user_storage.dart';
+import 'package:zrc/core/themes/logic/theme_cubit.dart';
 import 'package:zrc/core/utils/functions/app_language.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
@@ -32,6 +34,10 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
   void _onChangeLanguage() {
     switchLanguage(context);
     setState(() {});
+  }
+
+  void _onChangeTheme() {
+    context.read<ThemeCubit>().toggleTheme();
   }
 
   Future<void> _loadUserData() async {
@@ -91,7 +97,10 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
                   verticalSpacing(24),
                   ProfilePersonalInfoSection(user: _user!, isArabic: isArabic),
                   verticalSpacing(16),
-                  ProfileSettings(onSwitchLanguageTap: _onChangeLanguage),
+                  ProfileSettings(
+                    onSwitchLanguageTap: _onChangeLanguage,
+                    onSwitchThemeTap: _onChangeTheme,
+                  ),
                   verticalSpacing(16),
                   const LogoutButton(),
                   verticalSpacing(24),
