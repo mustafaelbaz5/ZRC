@@ -1,113 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import 'app_colors.dart';
 import 'app_font_weight.dart';
 
 class AppTextStyles {
-  // Black
-  static TextStyle font32BlackBold() => GoogleFonts.tajawal(
-    fontSize: 32.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  const AppTextStyles._();
+
+  static const TextStyle font32Bold = TextStyle(
+    fontSize: 32,
+    fontWeight: AppFontWeight.bold,
   );
 
-  static TextStyle font20BlackBold() => GoogleFonts.tajawal(
-    fontSize: 20.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  static const TextStyle font24Bold = TextStyle(
+    fontSize: 24,
+    fontWeight: AppFontWeight.bold,
   );
 
-  static TextStyle font16BlackBold() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  static const TextStyle font20Bold = TextStyle(
+    fontSize: 20,
+    fontWeight: AppFontWeight.bold,
   );
 
-  static TextStyle font18BlackBold() => GoogleFonts.tajawal(
-    fontSize: 18.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  static const TextStyle font18Bold = TextStyle(
+    fontSize: 18,
+    fontWeight: AppFontWeight.bold,
   );
 
-  static TextStyle font16BlackRegular() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: Colors.black,
+  static const TextStyle font16Bold = TextStyle(
+    fontSize: 16,
+    fontWeight: AppFontWeight.bold,
   );
 
-  static TextStyle font14BlackRegular() => GoogleFonts.tajawal(
-    fontSize: 14.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: Colors.black,
+  static const TextStyle font14Bold = TextStyle(
+    fontSize: 14,
+    fontWeight: AppFontWeight.bold,
   );
-  static TextStyle font14BlackBold() => GoogleFonts.tajawal(
-    fontSize: 14.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  static const TextStyle font13Bold = TextStyle(
+    fontSize: 13,
+    fontWeight: AppFontWeight.bold,
   );
 
-  // Blue
-  static TextStyle font13BlueBold() => GoogleFonts.tajawal(
-    fontSize: 13.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: AppColors.lightBlue,
+  // -----------------------------
+  // REGULAR TEXT
+  // -----------------------------
+  static const TextStyle font24Regular = TextStyle(
+    fontSize: 24,
+    fontWeight: AppFontWeight.regular,
   );
 
-  static TextStyle font16BlueBold() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: AppColors.lightBlue,
+  static const TextStyle font18Regular = TextStyle(
+    fontSize: 18,
+    fontWeight: AppFontWeight.regular,
   );
 
-  // Grey
-  static TextStyle font13greyRegular() => GoogleFonts.tajawal(
-    fontSize: 13.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColors.grey,
+  static const TextStyle font16Regular = TextStyle(
+    fontSize: 16,
+    fontWeight: AppFontWeight.regular,
   );
 
-  static TextStyle font16GreyRegular() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColors.grey,
+  static const TextStyle font14Regular = TextStyle(
+    fontSize: 14,
+    fontWeight: AppFontWeight.regular,
   );
 
-  static TextStyle font18GreyRegular() => GoogleFonts.tajawal(
-    fontSize: 18.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColors.grey,
-  );
-
-  static TextStyle font16GreyRegularAlt() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: AppColors.grey,
-  );
-
-  // White
-  static TextStyle font24WhiteBold() => GoogleFonts.tajawal(
-    fontSize: 24.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.white,
-  );
-
-  static TextStyle font24WhiteRegular() => GoogleFonts.tajawal(
-    fontSize: 24.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: Colors.white,
-  );
-
-  static TextStyle font18WhiteRegular() => GoogleFonts.tajawal(
-    fontSize: 18.sp,
-    fontWeight: FontWeightHelper.semiBold,
-    color: Colors.white,
-  );
-
-  static TextStyle font16WhiteRegular() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.regular,
-    color: Colors.white,
+  static const TextStyle font13Regular = TextStyle(
+    fontSize: 13,
+    fontWeight: AppFontWeight.regular,
   );
 }

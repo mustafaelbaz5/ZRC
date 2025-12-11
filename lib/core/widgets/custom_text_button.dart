@@ -42,7 +42,7 @@ class CustomTextButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
             (final Set<WidgetState> states) =>
-                backgroundColor ?? AppColors.lightBlue,
+                backgroundColor ?? AppColors.primary300,
           ),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
@@ -76,7 +76,11 @@ class CustomTextButton extends StatelessWidget {
                   Flexible(
                     child: Text(
                       buttonText,
-                      style: textStyle ?? AppTextStyles.font18WhiteRegular(),
+                      style:
+                          textStyle ??
+                          AppTextStyles.font18Regular.copyWith(
+                            color: AppColors.grey0,
+                          ),
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                     ),

@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../../core/extensions/navigation.dart';
-import '../../../../../../../core/router/routes.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/router/routes.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../data/model/quiz_model.dart';
 
 class StartQuizButton extends StatelessWidget {
@@ -44,7 +46,7 @@ class StartQuizButton extends StatelessWidget {
               }
             : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: canStart ? Colors.blue[700] : Colors.grey[400],
+          backgroundColor: canStart ? AppColors.primary200 : Colors.grey[400],
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(vertical: 18.h),
           shape: RoundedRectangleBorder(

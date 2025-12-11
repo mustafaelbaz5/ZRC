@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -36,9 +38,14 @@ class StatCard extends StatelessWidget {
         children: <Widget>[
           Icon(icon, size: 28.sp, color: color),
           verticalSpacing(8),
-          Text(value, style: AppTextStyles.font20BlackBold()),
+          Text(value, style: AppTextStyles.font20Bold),
           verticalSpacing(4),
-          Text(label, style: AppTextStyles.font13greyRegular()),
+          Text(
+            label,
+            style: AppTextStyles.font13Regular.copyWith(
+              color: AppColors.grey300,
+            ),
+          ),
         ],
       ),
     );

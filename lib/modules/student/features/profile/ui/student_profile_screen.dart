@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
 import 'package:zrc/core/storage/user_storage.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import 'package:zrc/core/utils/functions/app_setting_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
 import 'package:zrc/modules/student/features/profile/ui/widgets/logout_button.dart';
@@ -29,11 +29,6 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
     _loadUserData();
   }
 
-  void _onChangeLanguage() {
-    switchLanguage(context);
-    setState(() {});
-  }
-
   Future<void> _loadUserData() async {
     try {
       final UserStorage userStorage = UserStorage();
@@ -50,7 +45,6 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
 
   @override
   Widget build(final BuildContext context) {
-    final bool isArabic = isAppLanguageArabic(context);
     if (_isLoading) {
       return const SafeArea(child: Center(child: CircularProgressIndicator()));
     }
@@ -85,13 +79,16 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
               child: Column(
                 children: <Widget>[
                   verticalSpacing(20),
-                  ProfileHeader(user: _user!, isArabic: isArabic),
+                  ProfileHeader(user: _user!),
                   verticalSpacing(24),
                   ProfileStatsCards(user: _user!),
                   verticalSpacing(24),
-                  ProfilePersonalInfoSection(user: _user!, isArabic: isArabic),
+                  ProfilePersonalInfoSection(user: _user!),
                   verticalSpacing(16),
-                  ProfileSettings(onSwitchLanguageTap: _onChangeLanguage),
+                  ProfileSettings(
+                    onSwitchLanguageTap: () => switchLanguage(context),
+                    onSwitchThemeTap: () => switchTheme(context),
+                  ),
                   verticalSpacing(16),
                   const LogoutButton(),
                   verticalSpacing(24),

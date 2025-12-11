@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../core/utils/functions/app_language.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 class CourseInfo extends StatelessWidget {
   const CourseInfo({
@@ -51,7 +51,7 @@ class _MetaChip extends StatelessWidget {
         border: Border.all(color: Colors.grey[300]!),
       ),
       child: Row(
-        mainAxisAlignment: isAppLanguageArabic(context)
+        mainAxisAlignment: context.isArabic
             ? MainAxisAlignment.end
             : MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

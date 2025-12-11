@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
@@ -27,7 +28,9 @@ class CourseCardFooter extends StatelessWidget {
               Expanded(
                 child: Text(
                   coursesCardModel.instructor,
-                  style: AppTextStyles.font13BlueBold(),
+                  style: AppTextStyles.font13Bold.copyWith(
+                    color: AppColors.primary300,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -47,7 +50,9 @@ class CourseCardFooter extends StatelessWidget {
             SizedBox(width: 4.w),
             Text(
               coursesCardModel.data,
-              style: AppTextStyles.font13greyRegular(),
+              style: AppTextStyles.font13Regular.copyWith(
+                color: AppColors.grey300,
+              ),
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
@@ -47,7 +48,7 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
               horizontalSpacing(8),
               Text(
                 tr('student_quizzes.quiz_result.performance.title'),
-                style: AppTextStyles.font16BlackBold(),
+                style: AppTextStyles.font16Bold,
               ),
             ],
           ),
@@ -95,7 +96,9 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                         : tr(
                             'student_quizzes.quiz_result.performance.review_material',
                           ),
-                    style: AppTextStyles.font13greyRegular(),
+                    style: AppTextStyles.font13Regular.copyWith(
+                      color: AppColors.grey300,
+                    ),
                   ),
                 ),
               ],

@@ -33,13 +33,13 @@ class InstructorsListViewItem extends StatelessWidget {
               color: isSelected ? Colors.white : Colors.grey.shade200,
               borderRadius: BorderRadius.circular(50.r),
               border: Border.all(
-                color: isSelected ? AppColors.lightBlue : Colors.grey.shade300,
+                color: isSelected ? AppColors.primary300 : Colors.grey.shade300,
                 width: 1.5,
               ),
               boxShadow: isSelected
                   ? <BoxShadow>[
                       BoxShadow(
-                        color: AppColors.lightBlue.withAlpha(20),
+                        color: AppColors.primary300.withAlpha(20),
                         blurRadius: 8.r,
                         offset: const Offset(0, 3),
                       ),
@@ -69,7 +69,7 @@ class InstructorsListViewItem extends StatelessWidget {
               style: TextStyle(
                 fontSize: 10.sp,
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-                color: isSelected ? AppColors.lightBlue : Colors.grey,
+                color: isSelected ? AppColors.primary300 : Colors.grey,
               ),
             ),
           ),

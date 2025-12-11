@@ -51,10 +51,7 @@ class _LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Email
-            Text(
-              'login.email_label'.tr(),
-              style: AppTextStyles.font16BlackBold(),
-            ),
+            Text('login.email_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _emailController,
@@ -72,10 +69,7 @@ class _LoginFormState extends State<LoginForm> {
             verticalSpacing(24),
 
             // Password
-            Text(
-              'login.password_label'.tr(),
-              style: AppTextStyles.font16BlackBold().copyWith(fontSize: 16.sp),
-            ),
+            Text('login.password_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _passwordController,
@@ -95,8 +89,8 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: () {},
                 child: Text(
                   'login.forgot_password'.tr(),
-                  style: AppTextStyles.font16BlackRegular().copyWith(
-                    color: AppColors.lightBlue,
+                  style: AppTextStyles.font16Regular.copyWith(
+                    color: AppColors.primary300,
                   ),
                 ),
               ),

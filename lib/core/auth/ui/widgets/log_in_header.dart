@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/app_text_styles.dart';
 import '../../../utils/spacing.dart';
@@ -15,13 +14,13 @@ class LogInHeader extends StatelessWidget {
         Text(
           'login.title'.tr(),
           textAlign: TextAlign.center,
-          style: AppTextStyles.font32BlackBold().copyWith(fontSize: 32.sp),
+          style: AppTextStyles.font20Bold,
         ),
         verticalSpacing(8),
         Text(
           'login.subtitle'.tr(),
           textAlign: TextAlign.center,
-          style: AppTextStyles.font16GreyRegular(),
+          style: AppTextStyles.font16Regular,
         ),
       ],
     );

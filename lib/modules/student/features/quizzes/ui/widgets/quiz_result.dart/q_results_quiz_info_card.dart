@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../data/model/quiz_model.dart';
@@ -36,7 +37,7 @@ class QResultsQuizInfoCard extends StatelessWidget {
               SizedBox(width: 8.w),
               Text(
                 tr('student_quizzes.quiz_result.quiz_info.title'),
-                style: AppTextStyles.font16BlackBold(),
+                style: AppTextStyles.font16Bold,
               ),
             ],
           ),

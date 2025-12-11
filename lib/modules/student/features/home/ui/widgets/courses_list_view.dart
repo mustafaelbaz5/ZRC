@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
-import '../../../../../../core/extensions/navigation.dart';
 import '../../../../../../core/router/routes.dart';
 import '../../../../../../core/utils/app_assets.dart';
 import '../../../../core/models/courses_card_model.dart';

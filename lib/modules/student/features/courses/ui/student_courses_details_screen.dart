@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/courses/ui/widgets/course_info.dart';
 import 'package:zrc/modules/student/features/courses/ui/widgets/course_section_title.dart';
@@ -19,7 +19,7 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: isAppLanguageArabic(context)
+          crossAxisAlignment: context.isArabic
               ? CrossAxisAlignment.end
               : CrossAxisAlignment.start,
           children: <Widget>[
@@ -33,7 +33,7 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
                 horizontalSpacing(10),
                 Text(
                   tr('student_courses.course_details'),
-                  style: AppTextStyles.font16BlackBold(),
+                  style: AppTextStyles.font16Bold,
                 ),
                 const Spacer(),
               ],
@@ -57,9 +57,9 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
                     verticalSpacing(20),
 
                     // Course Title
-                    Text(
+                    const Text(
                       'Flutter Complete Course 2024',
-                      style: AppTextStyles.font20BlackBold(),
+                      style: AppTextStyles.font20Bold,
                     ),
 
                     verticalSpacing(12),

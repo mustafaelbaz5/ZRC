@@ -11,7 +11,7 @@ class HomeHeadLineText extends StatelessWidget {
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       sliver: SliverToBoxAdapter(
-        child: Text(title, style: AppTextStyles.font20BlackBold()),
+        child: Text(title, style: AppTextStyles.font20Bold),
       ),
     );
   }

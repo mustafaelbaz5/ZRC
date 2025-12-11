@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/utils/functions/app_language.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
@@ -35,24 +36,28 @@ class AllCoursesListViewCard extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(16.w),
               child: Column(
-                crossAxisAlignment: isAppLanguageArabic(context)
+                crossAxisAlignment: context.isArabic
                     ? CrossAxisAlignment.end
                     : CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Text(
                     coursesCardModel.title,
-                    style: AppTextStyles.font16BlackBold(),
+                    style: AppTextStyles.font16Bold,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   verticalSpacing(8),
                   Text(
                     coursesCardModel.description,
-                    style: AppTextStyles.font13greyRegular(),
+                    style: AppTextStyles.font13Regular.copyWith(
+                      color: AppColors.grey300,
+                    ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.start,
+                    textAlign: context.isArabic
+                        ? TextAlign.end
+                        : TextAlign.start,
                   ),
                   const Spacer(),
                   Row(
@@ -69,7 +74,9 @@ class AllCoursesListViewCard extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 coursesCardModel.instructor,
-                                style: AppTextStyles.font13BlueBold(),
+                                style: AppTextStyles.font13Bold.copyWith(
+                                  color: AppColors.primary300,
+                                ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -89,7 +96,9 @@ class AllCoursesListViewCard extends StatelessWidget {
                           horizontalSpacing(6),
                           Text(
                             coursesCardModel.data,
-                            style: AppTextStyles.font13greyRegular(),
+                            style: AppTextStyles.font13Regular.copyWith(
+                              color: AppColors.grey300,
+                            ),
                           ),
                         ],
                       ),

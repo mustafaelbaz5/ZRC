@@ -1,23 +1,19 @@
 import 'package:arabic_roman_conv/arabic_roman_conv.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
-void switchLanguage(final BuildContext context) {
-  final Locale current = context.locale;
-
-  // Switch locale
-  if (current.languageCode == 'en') {
-    context.setLocale(const Locale('ar'));
-  } else {
-    context.setLocale(const Locale('en'));
-  }
-  (context as Element).markNeedsBuild();
+/// Get first {wordCount} words from a string
+String getFirstNWords(final String fullName, {final int wordCount = 3}) {
+  if (fullName.isEmpty) return '';
+  final List<String> words = fullName.split(' ');
+  if (words.length <= wordCount) return fullName;
+  return words.sublist(0, wordCount).join(' ');
 }
 
 /// Converts Arabic name to English
-String changeNameToEn(final BuildContext context, final String nameAr) {
-  if (context.locale.languageCode == 'en') {
+String convertNamesToEn(final BuildContext context, final String nameAr) {
+  if (!context.isArabic) {
     // Create an instance of ArabicRomanConv
     final ArabicRomanConv converter = ArabicRomanConv();
     final String nameEn = converter.romanized(nameAr);
@@ -26,11 +22,6 @@ String changeNameToEn(final BuildContext context, final String nameAr) {
     // Keep Arabic
     return nameAr;
   }
-}
-
-/// Checks if the app language is Arabic
-bool isAppLanguageArabic(final BuildContext context) {
-  return Localizations.localeOf(context).languageCode == 'ar';
 }
 
 /// Translates text to Arabic

@@ -29,7 +29,7 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
                 : const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
               border: Border.all(
-                color: isSelected ? AppColors.lightBlue : Colors.grey.shade300,
+                color: isSelected ? AppColors.primary300 : Colors.grey.shade300,
                 width: 1.5,
               ),
               color: isSelected ? Colors.white : Colors.grey.shade200,
@@ -37,7 +37,7 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
               boxShadow: isSelected
                   ? <BoxShadow>[
                       BoxShadow(
-                        color: AppColors.lightBlue.withAlpha(20),
+                        color: AppColors.primary300.withAlpha(20),
                         blurRadius: 8,
                         offset: const Offset(0, 3),
                       ),
@@ -47,7 +47,7 @@ class AllCoursesFilterListViewItem extends StatelessWidget {
             child: Text(
               title,
               textAlign: TextAlign.center, // center below the icon
-              style: AppTextStyles.font14BlackRegular(),
+              style: AppTextStyles.font14Regular,
             ),
           ),
         ],

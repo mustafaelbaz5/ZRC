@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 
@@ -29,10 +30,9 @@ class QuizDetailItem extends StatelessWidget {
           SizedBox(width: 6.w),
           Text(
             label,
-            style: AppTextStyles.font13BlueBold().copyWith(
-              color: color,
-              fontSize: 12.sp,
-            ),
+            style: AppTextStyles.font13Bold
+                .copyWith(color: AppColors.primary300)
+                .copyWith(color: color, fontSize: 12.sp),
           ),
         ],
       ),

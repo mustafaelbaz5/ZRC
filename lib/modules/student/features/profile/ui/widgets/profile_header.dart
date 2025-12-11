@@ -1,18 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+
 import '../../../../../../core/auth/data/model/user_model.dart';
-import '../../../../../../core/utils/functions/app_language.dart';
-import '../../../../../../core/utils/functions/names_functions.dart';
+import '../../../../../../core/utils/functions/string_fun.dart';
 
 class ProfileHeader extends StatelessWidget {
   final UserModel user;
-  final bool isArabic;
-  const ProfileHeader({super.key, required this.user, required this.isArabic});
+  const ProfileHeader({super.key, required this.user});
 
   @override
   Widget build(final BuildContext context) {
-    final bool isArabic = isAppLanguageArabic(context);
+    final bool isArabic = context.isArabic;
 
     return Container(
       width: double.infinity,
@@ -103,7 +103,7 @@ class ProfileHeader extends StatelessWidget {
           Text(
             isArabic
                 ? getFirstNWords(user.name)
-                : changeNameToEn(context, getFirstNWords(user.name)),
+                : convertNamesToEn(context, getFirstNWords(user.name)),
             style: TextStyle(
               fontSize: 24.sp,
               fontWeight: FontWeight.w800,

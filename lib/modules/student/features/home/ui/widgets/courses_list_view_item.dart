@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
@@ -46,14 +47,16 @@ class CoursesListViewCard extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       coursesCardModel.title,
-                      style: AppTextStyles.font16BlackBold(),
+                      style: AppTextStyles.font16Bold,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     verticalSpacing(6),
                     Text(
                       coursesCardModel.description,
-                      style: AppTextStyles.font13greyRegular(),
+                      style: AppTextStyles.font13Regular.copyWith(
+                        color: AppColors.grey300,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.start,

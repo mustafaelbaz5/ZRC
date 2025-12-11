@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../themes/app_text_styles.dart';
 import '../../../utils/spacing.dart';
@@ -29,11 +30,7 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildTitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font32BlackBold().copyWith(
-        fontSize: 28.sp,
-        height: 1.3,
-        letterSpacing: -0.5,
-      ),
+      style: AppTextStyles.font32Bold,
       child: Text(
         title.tr(),
         textAlign: TextAlign.center,
@@ -46,7 +43,7 @@ class OnBoardingTextContent extends StatelessWidget {
   Widget _buildSubtitle() {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
-      style: AppTextStyles.font18GreyRegular(),
+      style: AppTextStyles.font16Regular.copyWith(color: AppColors.grey300),
       child: Text(
         subtitle.tr(),
         textAlign: TextAlign.center,

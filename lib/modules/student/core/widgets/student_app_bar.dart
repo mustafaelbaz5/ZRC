@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:zrc/core/extensions/navigation.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/app_assets.dart';
 import 'package:zrc/core/utils/spacing.dart';
@@ -74,7 +74,7 @@ class StudentAppBar extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppTextStyles.font18BlackBold(),
+              style: AppTextStyles.font18Bold,
               textAlign: showBackButton ? TextAlign.left : TextAlign.center,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
