@@ -10,43 +10,28 @@ class AppTextStyles {
   static TextStyle font32BlackBold() => GoogleFonts.tajawal(
     fontSize: 32.sp,
     fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
   );
 
-  static TextStyle font20BlackBold() => GoogleFonts.tajawal(
-    fontSize: 20.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
-  );
+  static TextStyle font20BlackBold() =>
+      GoogleFonts.tajawal(fontSize: 20.sp, fontWeight: FontWeightHelper.bold);
 
-  static TextStyle font16BlackBold() => GoogleFonts.tajawal(
-    fontSize: 16.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
-  );
+  static TextStyle font16BlackBold() =>
+      GoogleFonts.tajawal(fontSize: 16.sp, fontWeight: FontWeightHelper.bold);
 
-  static TextStyle font18BlackBold() => GoogleFonts.tajawal(
-    fontSize: 18.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
-  );
+  static TextStyle font18BlackBold() =>
+      GoogleFonts.tajawal(fontSize: 18.sp, fontWeight: FontWeightHelper.bold);
 
   static TextStyle font16BlackRegular() => GoogleFonts.tajawal(
     fontSize: 16.sp,
     fontWeight: FontWeightHelper.regular,
-    color: Colors.black,
   );
 
   static TextStyle font14BlackRegular() => GoogleFonts.tajawal(
     fontSize: 14.sp,
     fontWeight: FontWeightHelper.regular,
-    color: Colors.black,
   );
-  static TextStyle font14BlackBold() => GoogleFonts.tajawal(
-    fontSize: 14.sp,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
-  );
+  static TextStyle font14BlackBold() =>
+      GoogleFonts.tajawal(fontSize: 14.sp, fontWeight: FontWeightHelper.bold);
 
   // Blue
   static TextStyle font13BlueBold() => GoogleFonts.tajawal(
