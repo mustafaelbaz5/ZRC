@@ -34,7 +34,7 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
         children: <Widget>[
           Text(
             tr('student_quizzes.quiz_detailed.quiz_information'),
-            style: AppTextStyles.font16BlackBold(),
+            style: AppTextStyles.font16Bold,
           ),
           verticalSpacing(16),
           DetailRow(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/model/user_model.dart';
 
 import '../../../router/routes.dart';
 import '../../../themes/app_colors.dart';
 import '../../../utils/functions/navigate_to_role_home.dart';
 import '../../../widgets/show_error_dialog.dart';
+import '../../data/model/user_model.dart';
 import '../../logic/cubit/auth_cubit.dart';
 
 class InitialScreen extends StatelessWidget {
@@ -34,7 +34,7 @@ class InitialScreen extends StatelessWidget {
       builder: (final BuildContext context, final AuthState state) {
         return const Scaffold(
           body: Center(
-            child: CircularProgressIndicator(color: AppColors.darkBlue),
+            child: CircularProgressIndicator(color: AppColors.primary300),
           ),
         );
       },

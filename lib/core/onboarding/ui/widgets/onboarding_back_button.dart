@@ -23,7 +23,7 @@ class OnBoardingBackButton extends StatelessWidget {
         ),
         child: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: AppColors.lightBlue,
+          color: AppColors.primary300,
           size: 20.sp,
         ),
       ),

@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -96,7 +98,9 @@ class QuizHeader extends StatelessWidget {
                         'total': totalQuestions.toString(),
                       },
                     ),
-                    style: AppTextStyles.font16GreyRegular(),
+                    style: AppTextStyles.font16Regular.copyWith(
+                      color: AppColors.grey300,
+                    ),
                   ),
                   Text(
                     tr(
@@ -105,7 +109,9 @@ class QuizHeader extends StatelessWidget {
                         'percent': (progress * 100).toInt().toString(),
                       },
                     ),
-                    style: AppTextStyles.font16BlueBold(),
+                    style: AppTextStyles.font16Bold.copyWith(
+                      color: AppColors.primary300,
+                    ),
                   ),
                 ],
               ),

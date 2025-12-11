@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
 import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import 'package:zrc/core/utils/functions/string_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/core/widgets/home_app_bar.dart';
 import 'package:zrc/modules/instructor/features/home/ui/widgets/active_quiz_card.dart';
@@ -29,7 +29,7 @@ class InstructorHomeScreen extends StatelessWidget {
             : null;
 
         final userName = userData != null
-            ? changeNameToEn(context, userData.name)
+            ? convertNamesToEn(context, userData.name)
             : tr('student_home.guest');
 
         return Scaffold(

@@ -34,6 +34,10 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: AppFontWeight.bold,
   );
+  static const TextStyle font13Bold = TextStyle(
+    fontSize: 13,
+    fontWeight: AppFontWeight.bold,
+  );
 
   // -----------------------------
   // REGULAR TEXT

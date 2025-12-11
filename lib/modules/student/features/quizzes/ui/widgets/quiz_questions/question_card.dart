@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
@@ -39,7 +40,9 @@ class QuestionCard extends StatelessWidget {
                 ),
                 child: Text(
                   '${question.marks} ${tr('student_quizzes.quiz_questions.question.marks')}',
-                  style: AppTextStyles.font13BlueBold(),
+                  style: AppTextStyles.font13Bold.copyWith(
+                    color: AppColors.primary300,
+                  ),
                 ),
               ),
               const Spacer(),
@@ -47,7 +50,7 @@ class QuestionCard extends StatelessWidget {
             ],
           ),
           verticalSpacing(16),
-          Text(question.text, style: AppTextStyles.font16BlackBold()),
+          Text(question.text, style: AppTextStyles.font16Bold),
         ],
       ),
     );

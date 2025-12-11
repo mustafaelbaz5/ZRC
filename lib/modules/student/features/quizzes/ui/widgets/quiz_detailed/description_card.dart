@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../data/model/quiz_model.dart';
@@ -39,12 +41,17 @@ class DescriptionCard extends StatelessWidget {
               horizontalSpacing(8),
               Text(
                 tr('student_quizzes.quiz_detailed.description'),
-                style: AppTextStyles.font16BlackBold(),
+                style: AppTextStyles.font16Bold,
               ),
             ],
           ),
           verticalSpacing(12),
-          Text(quiz.description, style: AppTextStyles.font13greyRegular()),
+          Text(
+            quiz.description,
+            style: AppTextStyles.font13Regular.copyWith(
+              color: AppColors.grey300,
+            ),
+          ),
         ],
       ),
     );

@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:easy_localization/easy_localization.dart';
-import '../../../../../../core/router/app_router.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/router/routes.dart';
 
 import '../../../../../../core/themes/app_colors.dart';
 import '../../../../../../core/themes/app_text_styles.dart';
@@ -35,7 +36,7 @@ class HomeHeader extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: <Color>[AppColors.lightBlue, AppColors.darkBlue],
+                    colors: <Color>[AppColors.primary300, AppColors.primary200],
                   ),
                 ),
               ),
@@ -58,7 +59,9 @@ class HomeHeader extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             tr('student_home.header_title'),
-                            style: AppTextStyles.font16WhiteRegular(),
+                            style: AppTextStyles.font16Regular.copyWith(
+                              color: AppColors.grey0,
+                            ),
                           ),
                           verticalSpacing(16),
                           SizedBox(
@@ -67,10 +70,10 @@ class HomeHeader extends StatelessWidget {
                             child: CustomTextButton(
                               buttonText: tr('student_home.header_button'),
                               onPressed: () {
-                                navigationKey.currentState?.setPage(2);
+                                context.pushNamed(Routes.studentCoursesScreen);
                               },
-                              backgroundColor: Colors.white,
-                              textStyle: AppTextStyles.font16BlackBold(),
+                              backgroundColor: AppColors.grey0,
+                              textStyle: AppTextStyles.font16Bold,
                               borderRadius: 12,
                             ),
                           ),

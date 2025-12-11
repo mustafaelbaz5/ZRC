@@ -4,11 +4,11 @@ import 'package:zrc/core/auth/data/model/user_model.dart';
 import 'package:zrc/core/storage/secure_storage.dart';
 import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
+import 'package:zrc/core/utils/functions/string_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/core/widgets/home_app_bar.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/categories_list_view.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/courses_list_view.dart';
-import 'package:zrc/core/widgets/home_app_bar.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/home_header.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/instructors_list_view.dart';
 
@@ -31,7 +31,7 @@ class StudentHomeScreen extends StatelessWidget {
                 : null;
 
             final String userName = userData != null
-                ? changeNameToEn(context, userData.name)
+                ? convertNamesToEn(context, userData.name)
                 : tr('student_home.guest');
 
             return Scaffold(
@@ -48,7 +48,7 @@ class StudentHomeScreen extends StatelessWidget {
                       verticalSpacing(24),
                       Text(
                         tr('student_home.categories_title'),
-                        style: AppTextStyles.font16BlackBold(),
+                        style: AppTextStyles.font16Bold,
                       ),
                       verticalSpacing(12),
                       const CategoriesListView(),
@@ -57,7 +57,7 @@ class StudentHomeScreen extends StatelessWidget {
                         children: <Widget>[
                           Text(
                             tr('student_home.courses_title'),
-                            style: AppTextStyles.font16BlackBold(),
+                            style: AppTextStyles.font16Bold,
                           ),
                           const Spacer(),
                           GestureDetector(
@@ -66,12 +66,14 @@ class StudentHomeScreen extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   tr('student_home.see_all'),
-                                  style: AppTextStyles.font13BlueBold(),
+                                  style: AppTextStyles.font13Bold.copyWith(
+                                    color: AppColors.primary300,
+                                  ),
                                 ),
                                 horizontalSpacing(4),
                                 const Icon(
                                   Icons.arrow_forward_ios,
-                                  color: AppColors.lightBlue,
+                                  color: AppColors.primary300,
                                   size: 16,
                                 ),
                               ],
@@ -84,7 +86,7 @@ class StudentHomeScreen extends StatelessWidget {
                       verticalSpacing(24),
                       Text(
                         tr('student_home.instructors_title'),
-                        style: AppTextStyles.font16BlackBold(),
+                        style: AppTextStyles.font16Bold,
                       ),
                       verticalSpacing(12),
                       const InstructorsListView(),

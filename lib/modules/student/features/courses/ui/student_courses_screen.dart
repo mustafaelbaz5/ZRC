@@ -20,7 +20,7 @@ class StudentCoursesScreen extends StatelessWidget {
             verticalSpacing(18),
             Text(
               tr('student_courses.categories'),
-              style: AppTextStyles.font20BlackBold(),
+              style: AppTextStyles.font20Bold,
             ),
             verticalSpacing(8),
             const AllCoursesFilterListView(),

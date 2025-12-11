@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/names_functions.dart';
+import 'package:zrc/core/utils/functions/string_fun.dart';
 
 import '../utils/app_assets.dart';
 
@@ -23,11 +24,13 @@ class HomeAppBar extends StatelessWidget {
             children: [
               Text(
                 tr('student_home.welcome'),
-                style: AppTextStyles.font16GreyRegular(),
+                style: AppTextStyles.font16Regular.copyWith(
+                  color: AppColors.grey300,
+                ),
               ),
               Text(
                 getFirstNWords(userName, wordCount: 2),
-                style: AppTextStyles.font20BlackBold(),
+                style: AppTextStyles.font20Bold,
               ),
             ],
           ),

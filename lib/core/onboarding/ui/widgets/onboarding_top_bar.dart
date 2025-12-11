@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../themes/app_text_styles.dart';
 
@@ -41,7 +42,7 @@ class OnBoardingTopBar extends StatelessWidget {
       icon: Icon(Icons.language, size: 20.sp, color: Colors.grey[600]),
       label: Text(
         context.locale.languageCode.toUpperCase(),
-        style: AppTextStyles.font16BlackBold(),
+        style: AppTextStyles.font16Bold,
       ),
     );
   }
@@ -56,7 +57,7 @@ class OnBoardingTopBar extends StatelessWidget {
       ),
       child: Text(
         'onboarding.button_skip'.tr(),
-        style: AppTextStyles.font16BlueBold(),
+        style: AppTextStyles.font16Bold.copyWith(color: AppColors.primary300),
       ),
     );
   }

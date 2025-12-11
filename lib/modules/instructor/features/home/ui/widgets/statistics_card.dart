@@ -37,7 +37,7 @@ class StatisticsCard extends StatelessWidget {
           // Icon Circle
           Text(
             title,
-            style: AppTextStyles.font16BlackRegular(),
+            style: AppTextStyles.font16Regular,
             overflow: TextOverflow.ellipsis,
           ),
 
@@ -65,7 +65,7 @@ class StatisticsCard extends StatelessWidget {
                 horizontalSpacing(12),
                 Text(
                   value,
-                  style: AppTextStyles.font20BlackBold(),
+                  style: AppTextStyles.font20Bold,
                   textAlign: TextAlign.center,
                 ),
               ],

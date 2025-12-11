@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -47,7 +49,7 @@ class NavigationButtons extends StatelessWidget {
                 icon: Icon(Icons.arrow_back, size: 18.sp, color: Colors.grey),
                 label: Text(
                   tr('student_quizzes.quiz_questions.navigation.previous'),
-                  style: AppTextStyles.font14BlackRegular(),
+                  style: AppTextStyles.font14Regular,
                 ),
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.grey[80],
@@ -76,7 +78,9 @@ class NavigationButtons extends StatelessWidget {
                         'student_quizzes.quiz_questions.navigation.submit_quiz',
                       )
                     : tr('student_quizzes.quiz_questions.navigation.next'),
-                style: AppTextStyles.font18WhiteRegular(),
+                style: AppTextStyles.font18Regular.copyWith(
+                  color: AppColors.grey0,
+                ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion

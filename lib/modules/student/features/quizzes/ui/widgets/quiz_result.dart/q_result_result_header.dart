@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
@@ -52,14 +53,14 @@ class QResultResultHeader extends StatelessWidget {
             isPassed
                 ? tr('student_quizzes.quiz_result.header.congratulations')
                 : tr('student_quizzes.quiz_result.header.keep_trying'),
-            style: AppTextStyles.font24WhiteBold(),
+            style: AppTextStyles.font24Bold.copyWith(color: AppColors.grey0),
           ),
           verticalSpacing(8),
           Text(
             isPassed
                 ? tr('student_quizzes.quiz_result.header.passed_message')
                 : tr('student_quizzes.quiz_result.header.improve_message'),
-            style: AppTextStyles.font16WhiteRegular(),
+            style: AppTextStyles.font16Regular.copyWith(color: AppColors.grey0),
           ),
         ],
       ),

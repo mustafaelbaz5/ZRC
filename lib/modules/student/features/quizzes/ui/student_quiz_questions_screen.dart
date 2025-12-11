@@ -1,11 +1,9 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/navigation.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/router/routes.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';

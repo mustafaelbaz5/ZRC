@@ -39,12 +39,12 @@ class _PageIndicatorDot extends StatelessWidget {
       width: isActive ? 32.w : 8.w,
       height: 8.h,
       decoration: BoxDecoration(
-        color: isActive ? AppColors.lightBlue : Colors.grey[300],
+        color: isActive ? AppColors.primary300 : Colors.grey[300],
         borderRadius: BorderRadius.circular(4.r),
         boxShadow: isActive
             ? <BoxShadow>[
                 BoxShadow(
-                  color: AppColors.lightBlue.withAlpha(20),
+                  color: AppColors.primary300.withAlpha(20),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),

@@ -1,11 +1,13 @@
+import 'dart:ui' as ui; // Add this import
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_localization/easy_localization.dart';
-import '../utils/regex.dart';
+import 'package:zrc/core/utils/functions/string_fun.dart';
+
 import '../themes/app_colors.dart';
 import '../themes/app_text_styles.dart';
-import '../utils/functions/app_language.dart';
-import 'dart:ui' as ui; // Add this import
+import '../utils/regex.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -92,7 +94,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       obscureText: _obscureText,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
-      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular(),
+      style: widget.inputTextStyle ?? AppTextStyles.font16Regular,
       validator: widget.validator,
       textDirection: _direction,
       onChanged: (final String value) {
@@ -101,7 +103,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
         // Automatically romanize if locale is English
         if (context.locale.languageCode == 'en' && AppRegex().isArabic(value)) {
-          final String converted = changeNameToEn(context, value);
+          final String converted = convertNamesToEn(context, value);
           widget.controller?.value = TextEditingValue(
             text: converted,
             selection: TextSelection.collapsed(offset: converted.length),
@@ -120,7 +122,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
-            AppTextStyles.font16BlackRegular().copyWith(
+            AppTextStyles.font16Regular.copyWith(
               color: const Color(0xFFC1C1C1),
             ),
         prefixIcon: widget.prefixIcon,
@@ -138,7 +140,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             widget.focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: AppColors.lightBlue,
+                color: AppColors.primary300,
                 width: 1.3,
               ),
               borderRadius: radius,

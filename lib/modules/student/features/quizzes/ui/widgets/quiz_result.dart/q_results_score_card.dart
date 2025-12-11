@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -38,7 +40,9 @@ class QResultsScoreCard extends StatelessWidget {
         children: <Widget>[
           Text(
             tr('student_quizzes.quiz_result.score.your_score'),
-            style: AppTextStyles.font16GreyRegular(),
+            style: AppTextStyles.font16Regular.copyWith(
+              color: AppColors.grey300,
+            ),
           ),
           verticalSpacing(16),
           // Circular Progress
@@ -75,7 +79,9 @@ class QResultsScoreCard extends StatelessWidget {
                     ),
                     Text(
                       '$score / $totalMarks',
-                      style: AppTextStyles.font16GreyRegular(),
+                      style: AppTextStyles.font16Regular.copyWith(
+                        color: AppColors.grey300,
+                      ),
                     ),
                   ],
                 ),
@@ -102,7 +108,9 @@ class QResultsScoreCard extends StatelessWidget {
                   isPassed
                       ? tr('student_quizzes.quiz_result.score.passed')
                       : tr('student_quizzes.quiz_result.score.not_passed'),
-                  style: AppTextStyles.font16GreyRegular(),
+                  style: AppTextStyles.font16Regular.copyWith(
+                    color: AppColors.grey300,
+                  ),
                 ),
               ],
             ),

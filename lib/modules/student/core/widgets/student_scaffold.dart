@@ -10,7 +10,6 @@ import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.d
 import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 
-
 class StudentScaffold extends StatefulWidget {
   const StudentScaffold({super.key, required this.navigationKey});
   final GlobalKey<CurvedNavigationBarState> navigationKey;
@@ -31,7 +30,7 @@ class _StudentScaffoldState extends State<StudentScaffold> {
   @override
   Widget build(final BuildContext context) {
     const Color activeColor = Colors.white;
-    const Color inactiveColor = AppColors.lightBlue;
+    const Color inactiveColor = AppColors.primary300;
 
     final List<ColorFiltered> items = icons.map((final String icon) {
       final int i = icons.indexOf(icon);
@@ -55,7 +54,7 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           animationDuration: const Duration(milliseconds: 600),
           backgroundColor: Colors.transparent,
           color: const Color.fromARGB(255, 242, 242, 242),
-          buttonBackgroundColor: AppColors.darkBlue,
+          buttonBackgroundColor: AppColors.primary300,
           height: 50.h,
           index: bottomNavIndex,
           items: items,

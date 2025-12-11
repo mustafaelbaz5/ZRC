@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../data/model/user_model.dart';
 
 import '../../themes/app_text_styles.dart';
 import '../../utils/functions/navigate_to_role_home.dart';
 import '../../widgets/show_error_dialog.dart';
+import '../data/model/user_model.dart';
 import '../logic/cubit/auth_cubit.dart';
 import 'widgets/background_shapes.dart';
 import 'widgets/login_body.dart';
@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
           child: Center(
             child: Text(
               'login.welcome_user'.tr(args: <String>[state.userModel.name]),
-              style: AppTextStyles.font20BlackBold(),
+              style: AppTextStyles.font20Bold,
             ),
           ),
         ),
