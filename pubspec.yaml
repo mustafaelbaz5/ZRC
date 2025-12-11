@@ -33,6 +33,9 @@ dependencies:
   # State management using BLoC pattern
   flutter_bloc: ^9.1.1
 
+  # Hydration for BLoC
+  hydrated_bloc: ^10.1.1
+
   # Responsive layout for different screen sizes
   flutter_screenutil: ^5.9.3
 
