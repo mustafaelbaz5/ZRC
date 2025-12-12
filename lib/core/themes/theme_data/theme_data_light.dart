@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 
-
 import '../app_colors.dart';
 import '../app_text_styles.dart';
 
 ThemeData getLightTheme({required final BuildContext context}) {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.grey0,
+    fontFamily: context.currentFont,
     brightness: Brightness.light,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary300,
@@ -22,12 +22,12 @@ ThemeData getLightTheme({required final BuildContext context}) {
     // Changed By the App General Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary300,
+        backgroundColor: AppColors.primary400,
         foregroundColor: AppColors.grey0,
         disabledBackgroundColor: AppColors.grey100,
         disabledForegroundColor: AppColors.grey0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.font32Bold,
+        textStyle: AppTextStyles.font20Bold,
       ),
     ),
 

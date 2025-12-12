@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../themes/app_colors.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 class BackgroundShapes extends StatelessWidget {
   const BackgroundShapes({super.key});
@@ -17,31 +16,31 @@ class BackgroundShapes extends StatelessWidget {
             width: 200.w,
             height: 200.w,
             decoration: BoxDecoration(
-              color: AppColors.primary300.withValues(alpha: 50),
+              color: context.customColors.containerColor.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
         ),
         Positioned(
           bottom: -120,
-          right: -80,
+          right: -100,
           child: Container(
-            width: 250.w,
-            height: 250.w,
+            width: 200.w,
+            height: 200.w,
             decoration: BoxDecoration(
-              color: AppColors.primary300.withValues(alpha: 50),
+              color: context.customColors.containerColor.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
         ),
         Positioned(
           top: 150,
-          right: -60,
+          right: -100,
           child: Container(
             width: 150.w,
             height: 150.w,
             decoration: BoxDecoration(
-              color: AppColors.primary300.withValues(alpha: 30),
+              color: context.customColors.containerColor.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),

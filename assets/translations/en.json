@@ -46,7 +46,7 @@
   },
 
   "login": {
-    "title": "Welcome Back",
+    "title": "Welcome",
     "subtitle": "Login with your university email and password",
 
     "email_label": "Email",
@@ -62,7 +62,8 @@
     "button_login": "Login",
 
     "title_login_failed": "Login Failed",
-    "welcome_user": "Welcome, {name}"
+    "welcome_user": "Welcome, {name}",
+    "text_account_missing": "If Your Account Missing Please Contact With The University Union or Student Union To Get Your University Email "
   },
 
   "student_home": {

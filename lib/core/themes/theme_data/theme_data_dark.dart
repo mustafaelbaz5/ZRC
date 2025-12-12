@@ -7,6 +7,7 @@ import '../app_text_styles.dart';
 ThemeData getDarkTheme({required final BuildContext context}) {
   return ThemeData(
     scaffoldBackgroundColor: AppColors.grey900,
+    fontFamily: context.currentFont,
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primary300,
@@ -21,12 +22,12 @@ ThemeData getDarkTheme({required final BuildContext context}) {
     // Changed By the App General Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary300,
+        backgroundColor: AppColors.primary400,
         foregroundColor: AppColors.grey0,
         disabledBackgroundColor: AppColors.grey800,
         disabledForegroundColor: AppColors.grey400,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        textStyle: AppTextStyles.font32Bold,
+        textStyle: AppTextStyles.font20Bold,
       ),
     ),
 

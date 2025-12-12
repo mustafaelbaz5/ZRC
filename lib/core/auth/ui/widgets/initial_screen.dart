@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/functions/navigate_to_role_home.dart';
+import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
 
 import '../../../router/routes.dart';
-import '../../../themes/app_colors.dart';
-import '../../../utils/functions/navigate_to_role_home.dart';
-import '../../../widgets/show_error_dialog.dart';
 import '../../data/model/user_model.dart';
 import '../../logic/cubit/auth_cubit.dart';
 
@@ -19,22 +20,22 @@ class InitialScreen extends StatelessWidget {
           final UserModel user = state.userModel;
           navigateToRoleHome(context, user.role);
         } else if (state is AuthError) {
-          showErrorDialog(
+          AppDialogs.showError(
             context: context,
-            title: 'Login Error',
+            title: 'login.title_login_failed'.tr(),
             message: state.errorMessage,
           );
-          //  LoginScreen
-          Navigator.pushReplacementNamed(context, Routes.loginScreen);
+          context.pushReplacementNamed(Routes.loginScreen);
         } else if (state is AuthInitial) {
-          //  → OnBoarding
-          Navigator.pushReplacementNamed(context, Routes.onBoardingScreen);
+          context.pushReplacementNamed(Routes.onBoardingScreen);
         }
       },
       builder: (final BuildContext context, final AuthState state) {
-        return const Scaffold(
+        return Scaffold(
           body: Center(
-            child: CircularProgressIndicator(color: AppColors.primary300),
+            child: CircularProgressIndicator(
+              color: context.customColors.onContainerPrimary,
+            ),
           ),
         );
       },

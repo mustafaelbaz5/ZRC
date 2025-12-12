@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
 
 import '../../themes/app_text_styles.dart';
 import '../../utils/functions/navigate_to_role_home.dart';
-import '../../widgets/show_error_dialog.dart';
 import '../data/model/user_model.dart';
 import '../logic/cubit/auth_cubit.dart';
 import 'widgets/background_shapes.dart';
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
               final UserModel user = state.userModel;
               navigateToRoleHome(context, user.role);
             } else if (state is AuthError) {
-              showErrorDialog(
+              AppDialogs.showError(
                 context: context,
                 title: 'login.title_login_failed'.tr(),
                 message: state.errorMessage,
@@ -54,14 +55,27 @@ class LoginScreen extends StatelessWidget {
     if (state is AuthSuccess) {
       return Center(
         key: const ValueKey('success_view'),
-        child: Dialog(
-          backgroundColor: Colors.transparent,
-          child: Center(
-            child: Text(
-              'login.welcome_user'.tr(args: <String>[state.userModel.name]),
-              style: AppTextStyles.font20Bold,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Icon(
+              Icons.check_circle_outline,
+              color: Colors.green,
+              size: 80,
             ),
-          ),
+            const SizedBox(height: 16),
+            Text(
+              'login.title_login_success'.tr(),
+              style: AppTextStyles.font20Bold,
+              textAlign: TextAlign.center,
+            ),
+            verticalSpacing(16),
+            Text(
+              'login.message_login_success'.tr(),
+              style: AppTextStyles.font16Regular,
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       );
     }
