@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../themes/app_colors.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 class PageIndicator extends StatelessWidget {
   final int currentPage;
@@ -39,17 +38,10 @@ class _PageIndicatorDot extends StatelessWidget {
       width: isActive ? 32.w : 8.w,
       height: 8.h,
       decoration: BoxDecoration(
-        color: isActive ? AppColors.primary300 : Colors.grey[300],
+        color: isActive
+            ? context.customColors.onContainerPrimary
+            : context.customColors.borderColor,
         borderRadius: BorderRadius.circular(4.r),
-        boxShadow: isActive
-            ? <BoxShadow>[
-                BoxShadow(
-                  color: AppColors.primary300.withAlpha(20),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ]
-            : null,
       ),
     );
   }
