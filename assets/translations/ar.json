@@ -38,14 +38,13 @@
 
     "title4": "ابدأ رحلتك في SkillUp اليوم",
     "subtitle4": "افتح بابًا لعالم من الفرص",
-
     "button_next": "التالي",
-    "button_get_started": "ابداء",
+    "button_get_started": "ابدأ",
 
     "button_skip": "تخطي"
   },
   "login": {
-    "title": "مرحباً بعودتك",
+    "title": "مرحباً بك",
     "subtitle": "سجّل الدخول باستخدام بريدك الجامعي وكلمة المرور",
 
     "email_label": "البريد الإلكتروني",
@@ -61,7 +60,8 @@
     "button_login": "تسجيل الدخول",
 
     "title_login_failed": "فشل تسجيل الدخول",
-    "welcome_user": "مرحباً، {name}"
+    "welcome_user": "مرحباً، {name}",
+    "text_account_missing": "إذا كان حسابك مفقودًا يرجى التواصل باتحاد الطلاب او إدارة الجامعة للحصول على بريدك الجامعي"
   },
 
   "student_home": {
