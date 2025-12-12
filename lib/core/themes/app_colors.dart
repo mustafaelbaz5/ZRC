@@ -10,6 +10,7 @@ class AppColors {
   static const Color primary100 = Color(0xFF5B638F); // mid-light
   static const Color primary200 = Color(0xFF2C366E); // mid-dark
   static const Color primary300 = Color(0xFF1B1F3A); // original dark blue
+  static const Color primary400 = Color(0xFF0C0592);
 
   // grey scale
   static const Color grey900 = Color(0xff0d0d12);
