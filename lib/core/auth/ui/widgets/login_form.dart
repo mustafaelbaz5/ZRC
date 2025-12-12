@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../themes/app_colors.dart';
 import '../../../themes/app_text_styles.dart';
 import '../../../utils/regex.dart';
 import '../../../utils/spacing.dart';
@@ -83,22 +82,11 @@ class _LoginFormState extends State<LoginForm> {
               },
             ),
 
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'login.forgot_password'.tr(),
-                  style: AppTextStyles.font16Regular.copyWith(
-                    color: AppColors.primary300,
-                  ),
-                ),
-              ),
-            ),
-            verticalSpacing(24),
+            verticalSpacing(40),
 
             // Login button
             CustomTextButton(
+              textStyle: AppTextStyles.font20Bold,
               buttonText: 'login.button_login'.tr(),
               onPressed: isLoading ? null : _onLoginPressed,
               isLoading: isLoading,
