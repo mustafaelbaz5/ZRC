@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/models/courses_card_model.dart';
 
 class CourseCardImage extends StatelessWidget {
@@ -16,7 +18,7 @@ class CourseCardImage extends StatelessWidget {
         children: <Widget>[
           Image.asset(
             coursesCardModel.image,
-            height: 120.h,
+            height: responsiveHeight(120),
             width: double.infinity,
             fit: BoxFit.cover,
           ),
@@ -27,8 +29,8 @@ class CourseCardImage extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: <Color>[
-                    Colors.transparent,
-                    Colors.black.withAlpha(20),
+                    context.customColors.containerColor.withAlpha(100),
+                    context.customColors.onContainerPrimary.withAlpha(100),
                   ],
                 ),
               ),
