@@ -1,12 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/functions/string_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
-
-import '../utils/app_assets.dart';
+import 'package:zrc/core/widgets/notification_button.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key, required this.userName});
@@ -63,33 +61,6 @@ class HomeAppBar extends StatelessWidget {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class NotificationButton extends StatelessWidget {
-  const NotificationButton({super.key});
-
-  @override
-  Widget build(final BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(999),
-        onTap: () {},
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: context.customColors.borderColor,
-            shape: BoxShape.circle,
-          ),
-          child: SvgPicture.asset(
-            AppAssets.notificationIcon,
-            width: responsiveHeight(20),
-            height: responsiveHeight(20),
-          ),
-        ),
       ),
     );
   }
