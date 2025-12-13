@@ -85,9 +85,6 @@ extension ThemeExt on BuildContext {
   /// Access text theme quickly
   TextTheme get textTheme => Theme.of(this).textTheme;
 
-  /// Access color scheme quickly
-  ColorScheme get colors => Theme.of(this).colorScheme;
-
   /// Access custom colors quickly
   CustomColors get customColors => Theme.of(this).customColors;
 }
