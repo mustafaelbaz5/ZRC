@@ -1,117 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/app_assets.dart';
 import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/core/widgets/notification_button.dart';
 
 class StudentAppBar extends StatelessWidget {
   const StudentAppBar({
     super.key,
     required this.title,
-    this.showNotificationIcon = true,
+    this.showNotificationIcon = false,
     this.showBackButton = false,
-    this.route,
     this.onNotificationTap,
   });
 
   final String title;
   final bool showNotificationIcon;
   final bool showBackButton;
-  final String? route;
   final VoidCallback? onNotificationTap;
 
   @override
   Widget build(final BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsiveWidth(16),
+        vertical: responsiveHeight(14),
+      ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: Colors.white,
-        boxShadow: <BoxShadow>[
+        color: context.customColors.backgroundColor,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(18),
+          bottomRight: Radius.circular(18),
+        ),
+        boxShadow: [
           BoxShadow(
-            color: Colors.black.withAlpha(25),
-            blurRadius: 8,
-            offset: const Offset(0, 2),
+            color: context.customColors.borderColor,
+            blurRadius: 4,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Row(
-        children: <Widget>[
-          // BACK BUTTON
+        children: [
           if (showBackButton)
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: () {
-                  if (route != null) {
-                    context.pushNamed(route!);
-                  } else {
-                    Navigator.of(context).pop();
-                  }
-                },
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    color: Colors.grey[800],
-                    size: 20,
-                  ),
-                ),
-              ),
+            _AppBarIconButton(
+              icon: Icons.arrow_back_ios_new_rounded,
+              onTap: () {
+                Navigator.of(context).pop();
+              },
             )
           else
-            const SizedBox(width: 8),
+            const SizedBox.shrink(),
 
-          if (showBackButton) horizontalSpacing(12),
+          horizontalSpacing(12),
 
-          // TITLE
           Expanded(
             child: Text(
               title,
-              style: AppTextStyles.font18Bold,
-              textAlign: showBackButton ? TextAlign.left : TextAlign.center,
-              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
               maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.font18Bold.copyWith(
+                color: context.customColors.onContainerPrimary,
+              ),
             ),
           ),
 
-          if (showBackButton) horizontalSpacing(12),
+          horizontalSpacing(12),
 
-          // NOTIFICATION ICON
           if (showNotificationIcon)
-            Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap:
-                    onNotificationTap ??
-                    () {
-                      // Default notification action
-                    },
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.grey[200]!, width: 1),
-                  ),
-                  child: SvgPicture.asset(
-                    AppAssets.notificationIcon,
-                    width: 20,
-                    height: 20,
-                  ),
-                ),
-              ),
-            )
+            const NotificationButton()
           else
-            const SizedBox(width: 8),
+            const SizedBox.shrink(),
         ],
+      ),
+    );
+  }
+}
+
+class _AppBarIconButton extends StatelessWidget {
+  const _AppBarIconButton({required this.icon, required this.onTap});
+
+  final IconData icon;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(final BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(14),
+        child: Container(
+          width: responsiveWidth(44),
+          height: responsiveHeight(44),
+          decoration: BoxDecoration(
+            color: context.customColors.borderColor,
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: Icon(icon, size: 20, color: context.customColors.borderColor),
+        ),
       ),
     );
   }
