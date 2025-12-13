@@ -8,6 +8,8 @@ class CustomColors {
   final Color onContainerSecondary;
   final Color borderColor;
   final Color backgroundColor;
+  final Color blueContainer;
+  final Color greenContainer;
 
   const CustomColors._({
     required this.secondaryColor,
@@ -16,6 +18,8 @@ class CustomColors {
     required this.onContainerSecondary,
     required this.borderColor,
     required this.backgroundColor,
+    required this.blueContainer,
+    required this.greenContainer,
   });
 
   factory CustomColors({
@@ -25,6 +29,8 @@ class CustomColors {
     required final Color onContainerSecondary,
     required final Color borderColor,
     required final Color backgroundColor,
+    required final Color blueContainer,
+    required final Color greenContainer,
   }) {
     return CustomColors._(
       secondaryColor: secondaryColor,
@@ -33,6 +39,8 @@ class CustomColors {
       onContainerSecondary: onContainerSecondary,
       borderColor: borderColor,
       backgroundColor: backgroundColor,
+      blueContainer: blueContainer,
+      greenContainer: greenContainer,
     );
   }
   factory CustomColors._light() {
@@ -43,6 +51,8 @@ class CustomColors {
       onContainerSecondary: AppColors.grey600,
       borderColor: AppColors.grey300,
       backgroundColor: AppColors.grey50,
+      blueContainer: AppColors.lightBlue,
+      greenContainer: AppColors.lightGreen,
     );
   }
   factory CustomColors._dark() {
@@ -53,6 +63,8 @@ class CustomColors {
       onContainerSecondary: AppColors.grey400,
       borderColor: AppColors.grey600,
       backgroundColor: AppColors.grey900,
+      blueContainer: AppColors.darkBlue,
+      greenContainer: AppColors.darkGreen,
     );
   }
 }

@@ -10,7 +10,7 @@ class AppColors {
   static const Color primary100 = Color(0xFF5B638F); // mid-light
   static const Color primary200 = Color(0xFF2C366E); // mid-dark
   static const Color primary300 = Color(0xFF1B1F3A); // original dark blue
-  static const Color primary400 = Color(0xFF0C0592);
+  static const Color primary400 = Color(0xFF132078);
 
   // grey scale
   static const Color grey900 = Color(0xff0d0d12);
@@ -50,6 +50,11 @@ class AppColors {
   static const Color success25 = Color(0xffddf3ef);
   static const Color success0 = Color(0xffeffefa);
 
-  // shadow
+  // Extra Colors
   static const Color shadow1Color = Color(0xff1A13A1);
+  static const Color darkBlue = Color(0x142196F3);
+  static const Color lightBlue = Color(0x0A2196F3);
+
+  static const Color darkGreen = Color(0x144CAF50);
+  static const Color lightGreen = Color(0x054CAF50);
 }
