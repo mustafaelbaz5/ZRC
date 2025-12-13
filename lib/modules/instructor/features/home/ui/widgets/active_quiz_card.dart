@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class ActiveQuizCard extends StatelessWidget {
   final String title;
@@ -23,11 +26,13 @@ class ActiveQuizCard extends StatelessWidget {
         margin: const EdgeInsets.only(right: 12),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black12.withOpacity(0.05),
+              color: context.isDarkMode
+                  ? Colors.transparent
+                  : AppColors.grey900.withOpacity(0.05),
               offset: const Offset(0, 3),
               blurRadius: 6,
             ),
@@ -36,21 +41,22 @@ class ActiveQuizCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.quiz, size: 40, color: Colors.blue),
+            Icon(Icons.quiz, size: 40, color: context.colors.primary),
             const SizedBox(height: 12),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
+            Text(title, style: AppTextStyles.font16Bold),
             const SizedBox(height: 6),
             Text(
               "$questionsCount Questions",
-              style: const TextStyle(fontSize: 14, color: Colors.black54),
+              style: AppTextStyles.font14Regular.copyWith(
+                color: AppColors.grey500,
+              ),
             ),
             const SizedBox(height: 4),
             Text(
               "Deadline: $deadline",
-              style: const TextStyle(fontSize: 14, color: Colors.red),
+              style: AppTextStyles.font14Regular.copyWith(
+                color: AppColors.error300,
+              ),
             ),
           ],
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/spacing.dart';
 
@@ -25,7 +27,9 @@ class StatisticsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withAlpha((.09 * 255).toInt()),
+            color: context.isDarkMode
+                ? Colors.transparent
+                : AppColors.grey900.withOpacity(0.09),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -52,15 +56,15 @@ class StatisticsCard extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: color,
                     shape: BoxShape.circle,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
-                        color: Colors.white,
+                        color: AppColors.grey0.withOpacity(0.5),
                         blurRadius: 4,
-                        offset: Offset(0, 2),
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
-                  child: Icon(icon, color: Colors.white, size: 28),
+                  child: Icon(icon, color: AppColors.grey0, size: 28),
                 ),
                 horizontalSpacing(12),
                 Text(
