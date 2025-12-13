@@ -39,7 +39,11 @@ class QuickActionButton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 28, color: context.colors.primary),
+              Icon(
+                icon,
+                size: 28,
+                color: context.customColors.onContainerPrimary,
+              ),
               const SizedBox(height: 8),
               Text(
                 title,
