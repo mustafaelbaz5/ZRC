@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/modules/student/core/widgets/course_card_image.dart';
 
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/spacing.dart';
 import '../../../../core/models/courses_card_model.dart';
-import '../../../home/ui/widgets/course_card_image.dart';
 
 class AllCoursesListViewCard extends StatelessWidget {
   const AllCoursesListViewCard({super.key, required this.coursesCardModel});
@@ -16,14 +15,16 @@ class AllCoursesListViewCard extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Container(
-      height: 280.h,
+      height: responsiveHeight(250),
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(vertical: responsiveHeight(8)),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.r),
-        color: Colors.white,
+        color: context.customColors.containerColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha(50),
-            blurRadius: 16,
+            color: context.customColors.borderColor,
+            blurRadius: 10,
             offset: const Offset(0, 4),
             spreadRadius: 0,
           ),
@@ -51,7 +52,7 @@ class AllCoursesListViewCard extends StatelessWidget {
                   Text(
                     coursesCardModel.description,
                     style: AppTextStyles.font13Regular.copyWith(
-                      color: AppColors.grey300,
+                      color: context.customColors.onContainerPrimary,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -68,14 +69,15 @@ class AllCoursesListViewCard extends StatelessWidget {
                             Icon(
                               Icons.person_outline_rounded,
                               size: 16.sp,
-                              color: Colors.blue,
+                              color: context.customColors.onContainerPrimary,
                             ),
                             horizontalSpacing(6),
                             Expanded(
                               child: Text(
                                 coursesCardModel.instructor,
                                 style: AppTextStyles.font13Bold.copyWith(
-                                  color: AppColors.primary300,
+                                  color:
+                                      context.customColors.onContainerPrimary,
                                 ),
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
@@ -91,13 +93,13 @@ class AllCoursesListViewCard extends StatelessWidget {
                           Icon(
                             Icons.calendar_today_outlined,
                             size: 14.sp,
-                            color: Colors.grey[600],
+                            color: context.customColors.onContainerPrimary,
                           ),
                           horizontalSpacing(6),
                           Text(
                             coursesCardModel.data,
                             style: AppTextStyles.font13Regular.copyWith(
-                              color: AppColors.grey300,
+                              color: context.customColors.onContainerPrimary,
                             ),
                           ),
                         ],
