@@ -2,12 +2,13 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
 import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
 import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
-import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
 
 class StudentScaffold extends StatefulWidget {
@@ -29,8 +30,8 @@ class _StudentScaffoldState extends State<StudentScaffold> {
 
   @override
   Widget build(final BuildContext context) {
-    const Color activeColor = Colors.white;
-    const Color inactiveColor = AppColors.primary300;
+    final Color activeColor = context.customColors.backgroundColor;
+    final Color inactiveColor = context.customColors.onContainerSecondary;
 
     final List<ColorFiltered> items = icons.map((final String icon) {
       final int i = icons.indexOf(icon);
@@ -53,9 +54,9 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           animationCurve: Curves.easeInOut,
           animationDuration: const Duration(milliseconds: 600),
           backgroundColor: Colors.transparent,
-          color: const Color.fromARGB(255, 242, 242, 242),
-          buttonBackgroundColor: AppColors.primary300,
-          height: 50.h,
+          color: context.customColors.blueContainer,
+          buttonBackgroundColor: context.customColors.onContainerPrimary,
+          height: responsiveHeight(50),
           index: bottomNavIndex,
           items: items,
           onTap: (final int index) => setState(() => bottomNavIndex = index),
