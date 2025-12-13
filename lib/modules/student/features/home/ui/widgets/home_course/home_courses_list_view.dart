@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/router/routes.dart';
 import 'package:zrc/core/utils/app_assets.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/models/courses_card_model.dart';
 import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_courses_list_view_card.dart';
 
@@ -13,15 +14,14 @@ class HomeCoursesListView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      height: 260.h,
+      height: responsiveHeight(260),
       child: ListView.separated(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
         physics: const BouncingScrollPhysics(),
         itemCount: _getDummyCourses().length,
 
-        // Item Builder
         itemBuilder: (final BuildContext context, final int index) {
           return SizedBox(
             width: 230.w,
@@ -36,9 +36,8 @@ class HomeCoursesListView extends StatelessWidget {
           );
         },
 
-        // Separator Builder → space between items
         separatorBuilder: (final BuildContext context, final int index) =>
-            SizedBox(width: 16.w),
+            horizontalSpacing(16),
       ),
     );
   }

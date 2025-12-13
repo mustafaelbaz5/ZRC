@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../../data/model/instructor_item_model.dart';
 import 'instructors_list_view_item.dart';
@@ -10,7 +10,7 @@ class InstructorsListView extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: responsiveHeight(100),
       child: ListView.builder(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: instructors.length,

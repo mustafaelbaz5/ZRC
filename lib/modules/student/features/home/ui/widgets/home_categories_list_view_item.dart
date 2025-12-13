@@ -30,10 +30,10 @@ class HomeCategoriesListViewItem extends StatelessWidget {
           AnimatedContainer(
             duration: const Duration(milliseconds: 250),
             curve: Curves.easeOut,
-            margin: const EdgeInsets.symmetric(horizontal: 14),
+            margin: EdgeInsets.symmetric(horizontal: responsiveWidth(14)),
             padding: isSelected
-                ? const EdgeInsets.all(18)
-                : const EdgeInsets.all(14),
+                ? EdgeInsets.all(responsiveWidth(18))
+                : EdgeInsets.all(responsiveWidth(14)),
             decoration: BoxDecoration(
               border: Border.all(
                 color: isSelected

@@ -14,7 +14,7 @@ class HomeHeaderCard extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(6)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Stack(
