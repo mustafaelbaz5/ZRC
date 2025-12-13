@@ -2,14 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/router/routes.dart';
+import 'package:zrc/core/utils/app_assets.dart';
+import 'package:zrc/modules/student/core/models/courses_card_model.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_courses_list_view_card.dart';
 
-import '../../../../../../core/router/routes.dart';
-import '../../../../../../core/utils/app_assets.dart';
-import '../../../../core/models/courses_card_model.dart';
-import 'courses_list_view_item.dart';
-
-class CoursesListView extends StatelessWidget {
-  const CoursesListView({super.key});
+class HomeCoursesListView extends StatelessWidget {
+  const HomeCoursesListView({super.key});
 
   @override
   Widget build(final BuildContext context) {
@@ -27,7 +26,7 @@ class CoursesListView extends StatelessWidget {
           return SizedBox(
             width: 230.w,
             child: GestureDetector(
-              child: CoursesListViewCard(
+              child: HomeCoursesListViewCard(
                 coursesCardModel: _getDummyCourses()[index],
                 onTap: () {
                   context.pushNamed(Routes.studentCoursesDetailsScreen);
@@ -45,7 +44,6 @@ class CoursesListView extends StatelessWidget {
   }
 }
 
-// ==================== Dummy Data ====================
 List<CoursesCardModel> _getDummyCourses() {
   return <CoursesCardModel>[
     CoursesCardModel(

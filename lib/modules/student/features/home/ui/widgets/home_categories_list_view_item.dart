@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
-import '../../../../../../core/themes/app_colors.dart';
-import '../../../../../../core/utils/spacing.dart';
-
-class CategoriesListViewItem extends StatelessWidget {
+class HomeCategoriesListViewItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback onTap;
   final String icon;
   final String title;
 
-  const CategoriesListViewItem({
+  const HomeCategoriesListViewItem({
     super.key,
     required this.isSelected,
     required this.onTap,
@@ -32,14 +32,18 @@ class CategoriesListViewItem extends StatelessWidget {
             curve: Curves.easeOut,
             margin: const EdgeInsets.symmetric(horizontal: 14),
             padding: isSelected
-                ? const EdgeInsets.all(16)
-                : const EdgeInsets.all(12),
+                ? const EdgeInsets.all(18)
+                : const EdgeInsets.all(14),
             decoration: BoxDecoration(
               border: Border.all(
-                color: isSelected ? AppColors.primary300 : Colors.grey.shade300,
+                color: isSelected
+                    ? context.customColors.onContainerPrimary
+                    : context.customColors.secondaryColor,
                 width: 1.5,
               ),
-              color: isSelected ? Colors.white : Colors.grey.shade200,
+              color: isSelected
+                  ? context.customColors.containerColor
+                  : context.customColors.secondaryColor,
               borderRadius: BorderRadius.circular(50),
               boxShadow: isSelected
                   ? <BoxShadow>[
@@ -51,20 +55,28 @@ class CategoriesListViewItem extends StatelessWidget {
                     ]
                   : <BoxShadow>[],
             ),
-            child: SvgPicture.asset(icon, width: 30, height: 30),
+            child: SvgPicture.asset(
+              icon,
+              width: responsiveWidth(24),
+              height: responsiveHeight(24),
+            ),
           ),
 
           verticalSpacing(8),
 
-          Text(
-            title,
-            maxLines: 2, // allow up to 2 lines
-            softWrap: true, // wrap text if too long
-            textAlign: TextAlign.center, // center below the icon
-            style: TextStyle(
-              fontSize: 10.sp,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-              color: isSelected ? AppColors.primary300 : Colors.grey,
+          SizedBox(
+            width: responsiveWidth(100),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: isSelected
+                  ? AppTextStyles.font14Bold.copyWith(
+                      color: context.customColors.onContainerPrimary,
+                    )
+                  : AppTextStyles.font13Bold.copyWith(
+                      fontSize: 12,
+                      color: context.customColors.onContainerSecondary,
+                    ),
             ),
           ),
         ],

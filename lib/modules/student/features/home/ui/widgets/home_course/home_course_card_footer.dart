@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/core/models/courses_card_model.dart';
 
-import '../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../core/utils/spacing.dart';
-import '../../../../core/models/courses_card_model.dart';
-
-class CourseCardFooter extends StatelessWidget {
-  const CourseCardFooter({super.key, required this.coursesCardModel});
+class HomeCourseCardFooter extends StatelessWidget {
+  const HomeCourseCardFooter({super.key, required this.coursesCardModel});
 
   final CoursesCardModel coursesCardModel;
 
@@ -15,7 +15,6 @@ class CourseCardFooter extends StatelessWidget {
   Widget build(final BuildContext context) {
     return Row(
       children: <Widget>[
-        // Instructor with icon
         Expanded(
           child: Row(
             children: <Widget>[
@@ -29,7 +28,7 @@ class CourseCardFooter extends StatelessWidget {
                 child: Text(
                   coursesCardModel.instructor,
                   style: AppTextStyles.font13Bold.copyWith(
-                    color: AppColors.primary300,
+                    color: context.customColors.onContainerPrimary,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

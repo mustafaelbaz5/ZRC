@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/core/models/courses_card_model.dart';
+import 'package:zrc/modules/student/core/widgets/course_card_image.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_course_card_footer.dart';
 
-import '../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../core/utils/spacing.dart';
-import '../../../../core/models/courses_card_model.dart';
-import 'course_card_footer.dart';
-import 'course_card_image.dart';
-
-class CoursesListViewCard extends StatelessWidget {
+class HomeCoursesListViewCard extends StatelessWidget {
   final CoursesCardModel coursesCardModel;
   final VoidCallback? onTap;
 
-  const CoursesListViewCard({
+  const HomeCoursesListViewCard({
     super.key,
     required this.coursesCardModel,
     this.onTap,
@@ -25,11 +25,13 @@ class CoursesListViewCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(bottom: 16.h),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: context.theme.cardColor,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: Colors.black.withAlpha(50),
+              color: context.isDarkMode
+                  ? Colors.transparent
+                  : Colors.black.withAlpha(20),
               blurRadius: 12,
               offset: const Offset(0, 4),
             ),
@@ -62,7 +64,7 @@ class CoursesListViewCard extends StatelessWidget {
                       textAlign: TextAlign.start,
                     ),
                     const Spacer(),
-                    CourseCardFooter(coursesCardModel: coursesCardModel),
+                    HomeCourseCardFooter(coursesCardModel: coursesCardModel),
                   ],
                 ),
               ),

@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/home/data/model/category_model.dart';
+import 'package:zrc/modules/student/features/home/ui/widgets/home_categories_list_view_item.dart';
 
-import '../../data/model/category_model.dart';
-import 'categories_list_view_item.dart';
-
-class CategoriesListView extends StatefulWidget {
-  const CategoriesListView({super.key});
+class HomeCategoriesListView extends StatefulWidget {
+  const HomeCategoriesListView({super.key});
 
   @override
-  State<CategoriesListView> createState() => _CategoriesListViewState();
+  State<HomeCategoriesListView> createState() => _HomeCategoriesListViewState();
 }
 
-class _CategoriesListViewState extends State<CategoriesListView> {
+class _HomeCategoriesListViewState extends State<HomeCategoriesListView> {
   int selectedIndex = 0;
   final List<CategoryModel> categories = CategoryModel.categories;
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: responsiveHeight(120),
       child: ListView.builder(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: categories.length,
@@ -25,7 +24,7 @@ class _CategoriesListViewState extends State<CategoriesListView> {
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemBuilder: (final BuildContext context, final int index) {
-          return CategoriesListViewItem(
+          return HomeCategoriesListViewItem(
             isSelected: selectedIndex == index,
             onTap: () {
               setState(() => selectedIndex = index);
