@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/modules/student/features/home/data/model/header_item_model.dart';
-
 import 'package:zrc/modules/student/features/home/ui/widgets/home_header_card.dart';
 
 class HomeHeaderCarousel extends StatefulWidget {
@@ -63,7 +63,7 @@ class _HomeHeaderCarouselState extends State<HomeHeaderCarousel> {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      height: 160,
+      height: 180,
       child: PageView.builder(
         onPageChanged: (final index) {
           _currentIndex = index;
@@ -72,7 +72,12 @@ class _HomeHeaderCarouselState extends State<HomeHeaderCarousel> {
         itemCount: headerItems.length,
         itemBuilder: (final context, final index) {
           final item = headerItems[index];
-          return HomeHeaderCard(item: item);
+          return HomeHeaderCard(
+            item: item,
+            color: index % 2 == 0
+                ? context.customColors.blueContainer
+                : context.customColors.greenContainer,
+          );
         },
       ),
     );
