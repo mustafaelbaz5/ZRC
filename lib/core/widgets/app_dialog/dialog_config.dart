@@ -45,8 +45,8 @@ class DialogConfig {
       case DialogType.confirmation:
         return const DialogConfig(
           icon: Icons.help_outline_rounded,
-          iconColor: AppColors.grey500,
-          primaryButtonColor: AppColors.grey500,
+          iconColor: AppColors.success100,
+          primaryButtonColor: AppColors.success100,
           secondaryButtonColor: AppColors.grey500,
         );
     }

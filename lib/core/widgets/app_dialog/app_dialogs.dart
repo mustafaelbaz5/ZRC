@@ -22,27 +22,47 @@ class AppDialogs {
     final config = customConfig ?? DialogConfig.fromType(type);
     final hasSecondaryButton = secondaryButtonText != null;
 
-    return showDialog<bool>(
+    return showGeneralDialog<bool>(
       context: context,
       barrierDismissible: barrierDismissible,
-      builder: (final ctx) => AppDialogWidget(
-        title: title,
-        message: message,
-        config: config,
-        primaryButtonText: primaryButtonText ?? _getDefaultButtonText(type),
-        secondaryButtonText: secondaryButtonText,
-        onPrimaryPressed: () {
-          onPrimaryPressed?.call();
-          Navigator.of(ctx).pop(true);
-        },
-        onSecondaryPressed: hasSecondaryButton
-            ? () {
-                onSecondaryPressed?.call();
-                Navigator.of(ctx).pop(false);
-              }
-            : null,
-        customContent: customContent,
-      ),
+      barrierLabel: 'Dismiss',
+      barrierColor: Colors.black.withOpacity(0.5),
+      transitionDuration: const Duration(milliseconds: 400),
+      pageBuilder: (final ctx, final anim, final secondaryAnim) =>
+          AppDialogWidget(
+            title: title,
+            message: message,
+            config: config,
+            primaryButtonText: primaryButtonText ?? _getDefaultButtonText(type),
+            secondaryButtonText: secondaryButtonText,
+            onPrimaryPressed: () {
+              onPrimaryPressed?.call();
+              Navigator.of(ctx).pop(true);
+            },
+            onSecondaryPressed: hasSecondaryButton
+                ? () {
+                    onSecondaryPressed?.call();
+                    Navigator.of(ctx).pop(false);
+                  }
+                : null,
+            customContent: customContent,
+          ),
+      transitionBuilder:
+          (final ctx, final anim, final secondaryAnim, final child) {
+            return Transform.scale(
+              scale: CurvedAnimation(
+                parent: anim,
+                curve: const Interval(0.0, 1.0, curve: Curves.easeOutBack),
+              ).value,
+              child: FadeTransition(
+                opacity: CurvedAnimation(
+                  parent: anim,
+                  curve: const Interval(0.0, 0.65, curve: Curves.easeOut),
+                ),
+                child: child,
+              ),
+            );
+          },
     );
   }
 
