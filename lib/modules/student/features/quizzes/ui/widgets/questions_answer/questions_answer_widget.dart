@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../data/model/quiz_questions_model.dart';
-import 'fill_in_blank_input.dart';
-import 'm_c_q_options.dart';
-import 'true_false_options.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/questions_answer/fill_in_blank_input.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/questions_answer/m_c_q_options.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/questions_answer/true_false_options.dart';
 
-class AnswerWidget extends StatelessWidget {
+class QuestionsAnswerWidget extends StatelessWidget {
   final QuizQuestionsModel question;
   final dynamic selectedAnswer;
   final Function(dynamic) onSelect;
 
-  const AnswerWidget({
+  const QuestionsAnswerWidget({
     super.key,
     required this.question,
     required this.selectedAnswer,

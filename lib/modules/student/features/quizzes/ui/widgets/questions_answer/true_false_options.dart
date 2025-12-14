@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/utils/spacing.dart';
 import 'true_false_card.dart';
 
@@ -21,7 +23,7 @@ class TrueFalseOptions extends StatelessWidget {
           child: TrueFalseCard(
             label: tr('student_quizzes.quiz_questions.true_false.true'),
             icon: Icons.check_circle,
-            color: Colors.green,
+            color: AppColors.success100,
             isSelected: selectedAnswer == 'True',
             onTap: () => onSelect('True'),
           ),
@@ -31,7 +33,7 @@ class TrueFalseOptions extends StatelessWidget {
           child: TrueFalseCard(
             label: tr('student_quizzes.quiz_questions.true_false.false'),
             icon: Icons.cancel,
-            color: Colors.red,
+            color: AppColors.error100,
             isSelected: selectedAnswer == 'False',
             onTap: () => onSelect('False'),
           ),

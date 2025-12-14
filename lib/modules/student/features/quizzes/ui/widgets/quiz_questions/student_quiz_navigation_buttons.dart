@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
-import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/utils/spacing.dart';
-
-class NavigationButtons extends StatelessWidget {
+class StudentQuizNavigationButtons extends StatelessWidget {
   final int currentIndex;
   final int totalQuestions;
   final VoidCallback onPrevious;
@@ -14,7 +14,7 @@ class NavigationButtons extends StatelessWidget {
   final VoidCallback onSubmit;
   final bool hasAnswer;
 
-  const NavigationButtons({
+  const StudentQuizNavigationButtons({
     super.key,
     required this.currentIndex,
     required this.totalQuestions,
@@ -29,12 +29,12 @@ class NavigationButtons extends StatelessWidget {
     final bool isLastQuestion = currentIndex == totalQuestions - 1;
 
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(responsiveHeight(16)),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
+            color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, -2),
           ),
@@ -46,18 +46,24 @@ class NavigationButtons extends StatelessWidget {
             Expanded(
               child: OutlinedButton.icon(
                 onPressed: onPrevious,
-                icon: Icon(Icons.arrow_back, size: 18.sp, color: Colors.grey),
+                icon: Icon(
+                  Icons.arrow_back,
+                  size: 18.sp,
+                  color: AppColors.grey500,
+                ),
                 label: Text(
                   tr('student_quizzes.quiz_questions.navigation.previous'),
-                  style: AppTextStyles.font14Regular,
+                  style: AppTextStyles.font14Regular.copyWith(
+                    color: context.customColors.onContainerSecondary,
+                  ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: Colors.grey[80],
-                  padding: EdgeInsets.symmetric(vertical: 14.h),
+                  backgroundColor: context.customColors.containerColor,
+                  padding: EdgeInsets.symmetric(vertical: responsiveHeight(14)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
                   ),
-                  side: BorderSide(color: Colors.grey[300]!),
+                  side: BorderSide(color: context.customColors.borderColor),
                 ),
               ),
             ),
@@ -84,10 +90,10 @@ class NavigationButtons extends StatelessWidget {
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion
-                    ? Colors.green[600]
-                    : Colors.blue[700],
+                    ? AppColors.success200
+                    : AppColors.primary400,
                 foregroundColor: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 14.h),
+                padding: EdgeInsets.symmetric(vertical: responsiveHeight(14)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),

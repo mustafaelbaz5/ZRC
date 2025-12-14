@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+
 import '../../../../../../../core/utils/spacing.dart';
 
 class TrueFalseCard extends StatelessWidget {
@@ -27,10 +31,10 @@ class TrueFalseCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected
               ? color.withAlpha((0.04 * 255).toInt())
-              : Colors.white,
+              : context.theme.cardColor,
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
-            color: isSelected ? color : Colors.grey[300]!,
+            color: isSelected ? color : AppColors.grey300,
             width: isSelected ? 2 : 1,
           ),
           boxShadow: <BoxShadow>[
@@ -47,15 +51,13 @@ class TrueFalseCard extends StatelessWidget {
             Icon(
               icon,
               size: 48.sp,
-              color: isSelected ? color : Colors.grey[400],
+              color: isSelected ? color : AppColors.grey400,
             ),
             verticalSpacing(16),
             Text(
               label,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w700,
-                color: isSelected ? color : Colors.grey[600],
+              style: AppTextStyles.font16Bold.copyWith(
+                color: isSelected ? color : AppColors.grey600,
               ),
             ),
           ],
