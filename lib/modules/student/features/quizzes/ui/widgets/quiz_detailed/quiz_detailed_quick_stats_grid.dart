@@ -1,20 +1,19 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/stat_card.dart';
 
-import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/model/quiz_model.dart';
-import 'stat_card.dart';
-
-class QuickStatsGrid extends StatelessWidget {
+class QuizDetailedQuickStatsGrid extends StatelessWidget {
   final QuizModel quiz;
 
-  const QuickStatsGrid({super.key, required this.quiz});
+  const QuizDetailedQuickStatsGrid({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -22,7 +21,7 @@ class QuickStatsGrid extends StatelessWidget {
               icon: Icons.help_outline_rounded,
               value: '${quiz.questionsCount}',
               label: tr('student_quizzes.quiz_detailed.questions'),
-              color: Colors.purple,
+              color: AppColors.primary200,
             ),
           ),
           horizontalSpacing(12),
@@ -31,7 +30,7 @@ class QuickStatsGrid extends StatelessWidget {
               icon: Icons.timer_outlined,
               value: '${quiz.duration}',
               label: tr('student_quizzes.quiz_detailed.minutes'),
-              color: Colors.orange,
+              color: AppColors.warning200,
             ),
           ),
           horizontalSpacing(12),
@@ -40,7 +39,7 @@ class QuickStatsGrid extends StatelessWidget {
               icon: Icons.grade_outlined,
               value: '${quiz.totalMarks}',
               label: tr('student_quizzes.quiz_detailed.marks'),
-              color: Colors.teal,
+              color: AppColors.success200,
             ),
           ),
         ],

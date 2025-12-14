@@ -1,29 +1,32 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/functions/date_formate.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/detail_row.dart';
 
-import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/utils/functions/date_formate.dart';
-import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/model/quiz_model.dart';
-import 'detail_row.dart';
-
-class QuizzesDetailsFilterChip extends StatelessWidget {
+class QuizzesDetailsInfo extends StatelessWidget {
   final QuizModel quiz;
 
-  const QuizzesDetailsFilterChip({super.key, required this.quiz});
+  const QuizzesDetailsInfo({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
-      padding: EdgeInsets.all(20.w),
+      margin: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
+      padding: EdgeInsets.all(responsiveWidth(20)),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
+            color: context.customColors.borderColor.withAlpha(
+              (0.04 * 255).toInt(),
+            ),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -43,12 +46,12 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
             value: formatFull(quiz.dueDate),
             color: _getDueDateColor(quiz.dueDate),
           ),
-          SizedBox(height: 12.h),
+          verticalSpacing(12),
           DetailRow(
             icon: Icons.published_with_changes_outlined,
             label: tr('student_quizzes.quiz_detailed.published'),
             value: formatFull(quiz.publishedDate),
-            color: Colors.grey,
+            color: AppColors.grey500,
           ),
           verticalSpacing(12),
           DetailRow(
@@ -62,14 +65,14 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
             icon: Icons.replay_outlined,
             label: tr('student_quizzes.quiz_detailed.attempts'),
             value: '${quiz.attemptsUsed}/${quiz.attemptsAllowed}',
-            color: Colors.indigo,
+            color: AppColors.primary400,
           ),
           verticalSpacing(12),
           DetailRow(
             icon: Icons.check_circle_outline,
             label: tr('student_quizzes.quiz_detailed.passing_score'),
             value: '${quiz.passingMarks}%',
-            color: Colors.green,
+            color: AppColors.success200,
           ),
         ],
       ),
@@ -78,19 +81,19 @@ class QuizzesDetailsFilterChip extends StatelessWidget {
 
   Color _getDueDateColor(final DateTime dueDate) {
     final int difference = dueDate.difference(DateTime.now()).inDays;
-    if (difference <= 1) return Colors.red;
-    if (difference <= 3) return Colors.orange;
-    return Colors.grey;
+    if (difference <= 1) return AppColors.error200;
+    if (difference <= 3) return AppColors.warning200;
+    return AppColors.grey500;
   }
 
   Color _getDifficultyColor(final QuizDifficulty difficulty) {
     switch (difficulty) {
       case QuizDifficulty.easy:
-        return Colors.green;
+        return AppColors.success200;
       case QuizDifficulty.medium:
-        return Colors.orange;
+        return AppColors.warning200;
       case QuizDifficulty.hard:
-        return Colors.red;
+        return AppColors.error200;
     }
   }
 }

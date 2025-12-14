@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
@@ -35,7 +35,9 @@ class DetailRow extends StatelessWidget {
         Expanded(child: Text(label, style: AppTextStyles.font16Regular)),
         Text(
           value,
-          style: AppTextStyles.font13Regular.copyWith(color: AppColors.grey300),
+          style: AppTextStyles.font13Regular.copyWith(
+            color: context.customColors.onContainerSecondary,
+          ),
         ),
       ],
     );

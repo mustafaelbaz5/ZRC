@@ -1,28 +1,28 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 
-import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/model/quiz_model.dart';
-
-class InstructorCard extends StatelessWidget {
+class QuizDetailedInstructorCard extends StatelessWidget {
   final QuizModel quiz;
 
-  const InstructorCard({super.key, required this.quiz});
+  const QuizDetailedInstructorCard({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
-      padding: EdgeInsets.all(20.w),
+      margin: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
+      padding: EdgeInsets.all(responsiveWidth(20)),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
+            color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -32,12 +32,12 @@ class InstructorCard extends StatelessWidget {
         children: <Widget>[
           CircleAvatar(
             radius: 28.r,
-            backgroundColor: Colors.blue[100],
+            backgroundColor: AppColors.primary50,
             child: quiz.instructorAvatar != null
                 ? null
-                : Icon(Icons.person, size: 28.sp, color: Colors.blue[700]),
+                : Icon(Icons.person, size: 28.sp, color: AppColors.primary400),
           ),
-          horizontalSpacing(16),
+          horizontalSpacing(responsiveWidth(16)),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class InstructorCard extends StatelessWidget {
                 Text(
                   tr('student_quizzes.quiz_detailed.instructor'),
                   style: AppTextStyles.font13Regular.copyWith(
-                    color: AppColors.grey300,
+                    color: context.customColors.onContainerSecondary,
                   ),
                 ),
                 verticalSpacing(4),

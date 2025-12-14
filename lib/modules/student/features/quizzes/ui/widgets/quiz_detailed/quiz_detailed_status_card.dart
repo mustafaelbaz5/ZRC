@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 
-import '../../../data/model/quiz_model.dart';
-
-class StatusCard extends StatelessWidget {
+class QuizDetailedStatusCard extends StatelessWidget {
   final QuizModel quiz;
 
-  const StatusCard({super.key, required this.quiz});
+  const QuizDetailedStatusCard({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
@@ -22,15 +24,14 @@ class StatusCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isCompleted
-              ? <Color>[Colors.green[400]!, Colors.green[600]!]
-              : <Color>[Colors.orange[400]!, Colors.orange[600]!],
+              ? <Color>[AppColors.success200, AppColors.success300]
+              : <Color>[AppColors.warning200, AppColors.warning300],
         ),
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: (isCompleted ? Colors.green : Colors.orange).withAlpha(
-              (0.04 * 255).toInt(),
-            ),
+            color: (isCompleted ? AppColors.success200 : AppColors.warning200)
+                .withAlpha((0.04 * 255).toInt()),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -43,25 +44,24 @@ class StatusCard extends StatelessWidget {
                 ? Icons.check_circle_rounded
                 : Icons.access_time_rounded,
             size: 48.sp,
-            color: Colors.white,
+            color: AppColors.grey0,
           ),
-          SizedBox(height: 12.h),
+          verticalSpacing(24),
           Text(
             isCompleted
                 ? tr('student_quizzes.quiz_detailed.quiz_completed')
                 : tr('student_quizzes.quiz_detailed.quiz_pending'),
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w700,
-              color: Colors.white,
-            ),
+            style: AppTextStyles.font20Bold.copyWith(color: AppColors.grey0),
           ),
-          SizedBox(height: 8.h),
+          verticalSpacing(8),
           if (isCompleted && quiz.userScore != null)
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(
+                horizontal: responsiveWidth(20),
+                vertical: responsiveHeight(8),
+              ),
               decoration: BoxDecoration(
-                color: Colors.white.withAlpha((0.04 * 255).toInt()),
+                color: AppColors.grey0.withAlpha((0.04 * 255).toInt()),
                 borderRadius: BorderRadius.circular(20.r),
               ),
               child: Text(
@@ -71,10 +71,8 @@ class StatusCard extends StatelessWidget {
                     'score': quiz.userScore.toString(),
                   },
                 ),
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                style: AppTextStyles.font16Bold.copyWith(
+                  color: AppColors.grey0,
                 ),
               ),
             ),
@@ -83,9 +81,8 @@ class StatusCard extends StatelessWidget {
               padding: EdgeInsets.only(top: 8.h),
               child: Text(
                 tr('student_quizzes.quiz_detailed.can_retake'),
-                style: TextStyle(
-                  fontSize: 13.sp,
-                  color: Colors.white.withAlpha((0.04 * 255).toInt()),
+                style: AppTextStyles.font13Regular.copyWith(
+                  color: AppColors.grey0.withAlpha((0.7 * 255).toInt()),
                 ),
               ),
             ),
