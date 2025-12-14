@@ -1,14 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/student_quiz_card.dart';
 
-import '../../data/model/quiz_model.dart';
-import 'quiz_card/quiz_card.dart';
-
-class QuizzesListView extends StatelessWidget {
+class StudentQuizzesListView extends StatelessWidget {
   final String filter;
 
-  const QuizzesListView({super.key, required this.filter});
+  const StudentQuizzesListView({super.key, required this.filter});
 
   @override
   Widget build(final BuildContext context) {
@@ -61,20 +63,24 @@ class QuizzesListView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(Icons.quiz_outlined, size: 64.sp, color: Colors.grey[400]),
-            SizedBox(height: 16.h),
+            Icon(
+              Icons.quiz_outlined,
+              size: 64.sp,
+              color: context.customColors.onContainerSecondary,
+            ),
+            verticalSpacing(16),
             Text(
               tr('student_quizzes.empty_state.title'),
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.grey[600],
+              style: AppTextStyles.font16Bold.copyWith(
+                color: context.customColors.onContainerSecondary,
               ),
             ),
-            SizedBox(height: 8.h),
+            verticalSpacing(8),
             Text(
               tr('student_quizzes.empty_state.subtitle'),
-              style: TextStyle(fontSize: 14.sp, color: Colors.grey[500]),
+              style: AppTextStyles.font14Regular.copyWith(
+                color: context.customColors.onContainerSecondary,
+              ),
             ),
           ],
         ),
@@ -82,14 +88,17 @@ class QuizzesListView extends StatelessWidget {
     }
 
     return ListView.separated(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsiveWidth(16),
+        vertical: responsiveHeight(8),
+      ),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
       itemCount: filteredQuizzes.length,
       physics: const BouncingScrollPhysics(),
       separatorBuilder: (final BuildContext context, final int index) =>
-          SizedBox(height: 16.h),
+          verticalSpacing(16),
       itemBuilder: (final BuildContext context, final int index) {
-        return QuizCard(quiz: filteredQuizzes[index]);
+        return StudentQuizCard(quiz: filteredQuizzes[index]);
       },
     );
   }

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/router/routes.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
@@ -177,31 +179,33 @@ class _StudentQuizQuestionsScreenState
             ),
             title: Text(
               tr('student_quizzes.quiz_questions.exit_dialog.title'),
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
+              style: AppTextStyles.font18Bold,
             ),
             content: Text(
               tr('student_quizzes.quiz_questions.exit_dialog.message'),
-              style: TextStyle(fontSize: 14.sp),
+              style: AppTextStyles.font14Regular,
             ),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
                 child: Text(
                   tr('student_quizzes.quiz_questions.exit_dialog.cancel'),
-                  style: TextStyle(fontSize: 14.sp),
+                  style: AppTextStyles.font14Regular,
                 ),
               ),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                  backgroundColor: AppColors.error100,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                 ),
                 child: Text(
                   tr('student_quizzes.quiz_questions.exit_dialog.exit'),
-                  style: TextStyle(fontSize: 14.sp),
+                  style: AppTextStyles.font14Regular.copyWith(
+                    color: AppColors.grey0,
+                  ),
                 ),
               ),
             ],
@@ -213,7 +217,6 @@ class _StudentQuizQuestionsScreenState
         }
       },
       child: Scaffold(
-        backgroundColor: Colors.grey[50],
         body: SafeArea(
           child: Column(
             children: <Widget>[

@@ -2,22 +2,21 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/router/routes.dart';
 import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/attempts_info.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/difficulty_badge.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/due_date_info.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/quiz_detail_item.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_card/status_badge.dart';
 
-import '../../../../../../../core/router/routes.dart';
-import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/model/quiz_model.dart';
-import 'attempts_info.dart';
-import 'difficulty_badge.dart';
-import 'due_date_info.dart';
-import 'quiz_detail_item.dart';
-import 'status_badge.dart';
-
-class QuizCard extends StatelessWidget {
+class StudentQuizCard extends StatelessWidget {
   final QuizModel quiz;
 
-  const QuizCard({super.key, required this.quiz});
+  const StudentQuizCard({super.key, required this.quiz});
 
   @override
   Widget build(final BuildContext context) {
@@ -38,28 +37,28 @@ class QuizCard extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: <Color>[
-                Colors.white,
+                context.customColors.secondaryColor,
                 quiz.attemptStatus == QuizAttemptStatus.completed
-                    ? Colors.green.withAlpha(5)
-                    : Colors.blue.withAlpha(5),
+                    ? context.customColors.greenContainer
+                    : context.customColors.blueContainer,
               ],
             ),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: Colors.black.withAlpha(10),
+                color: context.customColors.containerColor.withAlpha(20),
                 blurRadius: 12,
                 offset: const Offset(0, 4),
               ),
             ],
             border: Border.all(
               color: quiz.attemptStatus == QuizAttemptStatus.completed
-                  ? Colors.green.withAlpha(20)
-                  : Colors.blue.withAlpha(20),
+                  ? context.customColors.greenContainer.withAlpha(20)
+                  : context.customColors.blueContainer.withAlpha(20),
               width: 1.5,
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: EdgeInsets.all(responsiveWidth(16)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -77,21 +76,24 @@ class QuizCard extends StatelessWidget {
                             children: <Widget>[
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 8.w,
-                                  vertical: 4.h,
+                                  horizontal: responsiveWidth(8),
+                                  vertical: responsiveHeight(4),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.blue.withAlpha(10),
+                                  color: context.customColors.containerColor
+                                      .withAlpha(10),
                                   borderRadius: BorderRadius.circular(6.r),
                                 ),
                                 child: Text(
                                   quiz.subject,
                                   style: AppTextStyles.font13Bold.copyWith(
-                                    color: AppColors.primary300,
+                                    color: context
+                                        .customColors
+                                        .onContainerSecondary,
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 8.w),
+                              horizontalSpacing(8),
                               DifficultyBadge(difficulty: quiz.difficulty),
                             ],
                           ),
@@ -111,11 +113,11 @@ class QuizCard extends StatelessWidget {
                 // Description
                 if (quiz.description.isNotEmpty)
                   Padding(
-                    padding: EdgeInsets.only(bottom: 12.h),
+                    padding: EdgeInsets.only(bottom: responsiveHeight(12)),
                     child: Text(
                       quiz.description,
                       style: AppTextStyles.font13Regular.copyWith(
-                        color: AppColors.grey300,
+                        color: context.customColors.onContainerSecondary,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -127,23 +129,21 @@ class QuizCard extends StatelessWidget {
                   children: <Widget>[
                     CircleAvatar(
                       radius: 14.r,
-                      backgroundColor: Colors.blue[100],
+                      backgroundColor: AppColors.primary50,
                       child: quiz.instructorAvatar != null
                           ? null
                           : Icon(
                               Icons.person,
                               size: 16.sp,
-                              color: Colors.blue[700],
+                              color: AppColors.primary300,
                             ),
                     ),
                     horizontalSpacing(8),
                     Expanded(
                       child: Text(
                         quiz.instructorName,
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey[700],
+                        style: AppTextStyles.font13Regular.copyWith(
+                          color: context.customColors.onContainerPrimary,
                         ),
                       ),
                     ),
@@ -152,7 +152,10 @@ class QuizCard extends StatelessWidget {
 
                 verticalSpacing(14),
                 // Divider
-                const Divider(color: Colors.white, height: 2),
+                Divider(
+                  color: context.customColors.onContainerSecondary,
+                  height: 2,
+                ),
 
                 verticalSpacing(14),
 
@@ -170,7 +173,7 @@ class QuizCard extends StatelessWidget {
                       icon: Icons.timer_outlined,
                       label:
                           '${quiz.duration} ${tr('student_quizzes.quiz_card.minutes')}',
-                      color: Colors.orange,
+                      color: AppColors.warning50,
                     ),
                     QuizDetailItem(
                       icon: Icons.grade_outlined,
@@ -181,13 +184,14 @@ class QuizCard extends StatelessWidget {
                   ],
                 ),
 
-                SizedBox(height: 14.h),
+                verticalSpacing(14),
 
                 // Footer: Due Date & Attempts
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     DueDateInfo(dueDate: quiz.dueDate),
+                    verticalSpacing(14),
                     if (quiz.attemptsAllowed > 1)
                       AttemptsInfo(
                         attemptsUsed: quiz.attemptsUsed,

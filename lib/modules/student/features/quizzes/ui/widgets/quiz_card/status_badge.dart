@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../../../data/model/quiz_model.dart';
 
@@ -17,29 +20,32 @@ class StatusBadge extends StatelessWidget {
 
     switch (status) {
       case QuizAttemptStatus.completed:
-        bgColor = Colors.green.withOpacity(0.12);
-        textColor = Colors.green[700]!;
+        bgColor = context.customColors.greenContainer;
+        textColor = context.customColors.onContainerPrimary;
         label = score != null
             ? '$score%'
             : tr('student_quizzes.status.completed');
         icon = Icons.check_circle;
         break;
       case QuizAttemptStatus.inProgress:
-        bgColor = Colors.orange.withOpacity(0.12);
-        textColor = Colors.orange[700]!;
+        bgColor = context.customColors.blueContainer;
+        textColor = context.customColors.onContainerPrimary;
         label = tr('student_quizzes.status.in_progress');
         icon = Icons.access_time;
         break;
       case QuizAttemptStatus.notStarted:
-        bgColor = Colors.blue.withOpacity(0.12);
-        textColor = Colors.blue[700]!;
+        bgColor = context.customColors.blueContainer;
+        textColor = context.customColors.onContainerPrimary;
         label = tr('student_quizzes.status.not_started');
         icon = Icons.play_circle_outline;
         break;
     }
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsiveWidth(12),
+        vertical: responsiveHeight(6),
+      ),
       decoration: BoxDecoration(
         color: bgColor,
         borderRadius: BorderRadius.circular(20.r),
@@ -48,13 +54,11 @@ class StatusBadge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(icon, size: 16.sp, color: textColor),
-          SizedBox(width: 4.w),
+          horizontalSpacing(14),
           Text(
             label,
-            style: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w700,
-              color: textColor,
+            style: AppTextStyles.font13Bold.copyWith(
+              color: context.customColors.onContainerPrimary,
             ),
           ),
         ],
