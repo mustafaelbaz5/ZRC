@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../profile_menu_item.dart';
 import '../profile_section_body.dart';
@@ -37,7 +39,9 @@ class ProfileSettings extends StatelessWidget {
         ProfileMenuItem(
           icon: Icons.palette_outlined,
           title: 'student_profile.settings.theme'.tr(),
-          subtitle: 'student_profile.settings.light_mode'.tr(),
+          subtitle: context.isDarkMode
+              ? 'student_profile.settings.dark_mode'.tr()
+              : 'student_profile.settings.light_mode'.tr(),
           onTap: () => _showThemeDialog(context),
         ),
       ],
@@ -50,12 +54,15 @@ class ProfileSettings extends StatelessWidget {
     showDialog(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
+        backgroundColor: context.customColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
           'student_profile.settings.select_language'.tr(),
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
+          style: AppTextStyles.font18Bold.copyWith(
+            color: context.customColors.textPrimary,
+          ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -71,7 +78,7 @@ class ProfileSettings extends StatelessWidget {
               },
             ),
 
-            SizedBox(height: 8.h),
+            verticalSpacing(6),
 
             // Arabic option
             LanguageOption(
@@ -94,12 +101,15 @@ class ProfileSettings extends StatelessWidget {
     showDialog(
       context: context,
       builder: (final BuildContext context) => AlertDialog(
+        backgroundColor: context.customColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
           'student_profile.settings.select_theme'.tr(),
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
+          style: AppTextStyles.font18Bold.copyWith(
+            color: context.customColors.textPrimary,
+          ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -114,7 +124,9 @@ class ProfileSettings extends StatelessWidget {
                 if (onSwitchThemeTap != null) onSwitchThemeTap!();
               },
             ),
-            SizedBox(height: 8.h),
+
+            verticalSpacing(8),
+
             ThemeOption(
               title: 'student_profile.settings.dark'.tr(),
               icon: Icons.dark_mode,

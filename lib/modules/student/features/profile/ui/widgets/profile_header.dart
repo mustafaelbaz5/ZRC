@@ -2,6 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../../../../../../core/auth/data/model/user_model.dart';
 import '../../../../../../core/utils/functions/string_fun.dart';
@@ -16,19 +19,27 @@ class ProfileHeader extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 24.h),
+      padding: EdgeInsets.symmetric(
+        horizontal: responsiveWidth(20),
+        vertical: responsiveHeight(24),
+      ),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: <Color>[Color(0xff1E3C72), Color(0xff2A5298)],
+        gradient: LinearGradient(
+          colors: <Color>[
+            context.customColors.background,
+            AppColors.primary200,
+            AppColors.primary400,
+            context.customColors.background,
+          ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(26.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.blue.shade900.withAlpha((0.25 * 255).toInt()),
-            blurRadius: 18,
-            offset: const Offset(0, 8),
+            color: AppColors.primary400.withAlpha((0.25 * 255).toInt()),
+            blurRadius: 4,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -40,47 +51,49 @@ class ProfileHeader extends StatelessWidget {
             children: <Widget>[
               AnimatedContainer(
                 duration: const Duration(milliseconds: 350),
-                padding: EdgeInsets.all(6.w),
+                padding: EdgeInsets.all(responsiveWidth(6)),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Colors.white.withAlpha((0.8 * 255).toInt()),
+                    color: AppColors.grey0.withAlpha((0.8 * 255).toInt()),
                     width: 3,
                   ),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: Colors.black.withAlpha((0.25 * 255).toInt()),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
+                      color: AppColors.grey900.withAlpha((0.25 * 255).toInt()),
+                      blurRadius: 2,
+                      offset: const Offset(0, 2),
                     ),
                   ],
                 ),
                 child: CircleAvatar(
                   radius: 48.r,
-                  backgroundColor: Colors.white,
+                  backgroundColor: AppColors.grey0,
                   child: Icon(
                     Icons.person,
                     size: 45.sp,
-                    color: Colors.blue.shade700,
+                    color: AppColors.primary200,
                   ),
                 ),
               ),
 
               Positioned(
-                bottom: 4.h,
-                right: 4.w,
+                bottom: responsiveHeight(4),
+                right: responsiveWidth(4),
                 child: GestureDetector(
                   onTap: () {
                     /// TODO: Open image picker
                   },
                   child: Container(
-                    padding: EdgeInsets.all(8.w),
+                    padding: EdgeInsets.all(responsiveWidth(8)),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.grey0,
                       shape: BoxShape.circle,
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: Colors.black.withAlpha((0.22 * 255).toInt()),
+                          color: AppColors.grey900.withAlpha(
+                            (0.22 * 255).toInt(),
+                          ),
                           blurRadius: 6,
                           offset: const Offset(0, 2),
                         ),
@@ -89,7 +102,7 @@ class ProfileHeader extends StatelessWidget {
                     child: Icon(
                       Icons.camera_alt,
                       size: 18.sp,
-                      color: Colors.blue.shade800,
+                      color: AppColors.primary300,
                     ),
                   ),
                 ),
@@ -97,17 +110,15 @@ class ProfileHeader extends StatelessWidget {
             ],
           ),
 
-          SizedBox(height: 20.h),
+          verticalSpacing(20),
 
           // -------------------- User Name --------------------
           Text(
             isArabic
                 ? getFirstNWords(user.name)
                 : convertNamesToEn(context, getFirstNWords(user.name)),
-            style: TextStyle(
-              fontSize: 24.sp,
-              fontWeight: FontWeight.w800,
-              color: Colors.white,
+            style: AppTextStyles.font24Bold.copyWith(
+              color: AppColors.grey0,
               height: 1.3,
             ),
             textAlign: TextAlign.center,
@@ -118,36 +129,35 @@ class ProfileHeader extends StatelessWidget {
           // -------------------- Email --------------------
           Text(
             user.email,
-            style: TextStyle(
-              fontSize: 15.sp,
-              color: Colors.white.withAlpha((0.9 * 255).toInt()),
+            style: AppTextStyles.font14Regular.copyWith(
+              color: AppColors.grey0.withAlpha((0.9 * 255).toInt()),
               fontWeight: FontWeight.w500,
             ),
           ),
 
-          SizedBox(height: 16.h),
+          verticalSpacing(16),
 
-          // -------------------- ID Badge --------------------
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 8.h),
+            padding: EdgeInsets.symmetric(
+              horizontal: responsiveWidth(18),
+              vertical: responsiveHeight(8),
+            ),
             decoration: BoxDecoration(
-              color: Colors.white.withAlpha((0.18 * 255).toInt()),
+              color: AppColors.grey0.withAlpha((0.18 * 255).toInt()),
               borderRadius: BorderRadius.circular(22.r),
               border: Border.all(
-                color: Colors.white.withAlpha((0.25 * 255).toInt()),
+                color: AppColors.grey0.withAlpha((0.25 * 255).toInt()),
               ),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Icon(Icons.badge_rounded, size: 18.sp, color: Colors.white),
-                SizedBox(width: 8.w),
+                Icon(Icons.badge_rounded, size: 18.sp, color: AppColors.grey0),
+                horizontalSpacing(8),
                 Text(
                   '${'student_profile.header.id_label'.tr()}: ${user.studentCode}',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                  style: AppTextStyles.font14Bold.copyWith(
+                    color: AppColors.grey0,
                   ),
                 ),
               ],

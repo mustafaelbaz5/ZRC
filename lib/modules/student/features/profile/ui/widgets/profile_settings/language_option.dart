@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class LanguageOption extends StatelessWidget {
   final String title;
@@ -17,16 +20,21 @@ class LanguageOption extends StatelessWidget {
   Widget build(final BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12.r),
+      borderRadius: BorderRadius.circular(responsiveWidth(12)),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(
+          horizontal: responsiveWidth(16),
+          vertical: responsiveHeight(12),
+        ),
         decoration: BoxDecoration(
           color: isSelected
-              ? Colors.blue.withAlpha((0.1 * 255).toInt())
+              ? context.customColors.accentBlue.withAlpha((0.1 * 255).toInt())
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(responsiveWidth(12)),
           border: Border.all(
-            color: isSelected ? Colors.blue : Colors.grey[300]!,
+            color: isSelected
+                ? context.customColors.accentBlue
+                : context.customColors.border,
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -34,15 +42,21 @@ class LanguageOption extends StatelessWidget {
           children: <Widget>[
             Text(
               title,
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                color: isSelected ? Colors.blue[700] : Colors.grey[700],
-              ),
+              style: isSelected
+                  ? AppTextStyles.font14Bold.copyWith(
+                      color: context.customColors.accentBlue,
+                    )
+                  : AppTextStyles.font14Regular.copyWith(
+                      color: context.customColors.textSecondary,
+                    ),
             ),
             const Spacer(),
             if (isSelected)
-              Icon(Icons.check_circle, color: Colors.blue[700], size: 20.sp),
+              Icon(
+                Icons.check_circle,
+                color: context.customColors.accentBlue,
+                size: 20.sp,
+              ),
           ],
         ),
       ),
