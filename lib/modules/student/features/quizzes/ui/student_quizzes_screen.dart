@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_filter_row.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quizzes_list_view.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/student_quizzes_list_view.dart';
 
 class StudentQuizzesScreen extends StatefulWidget {
   const StudentQuizzesScreen({super.key});
@@ -32,7 +33,7 @@ class _StudentQuizzesScreenState extends State<StudentQuizzesScreen> {
       child: Column(
         children: <Widget>[
           StudentAppBar(title: tr('student_quizzes.screen_title')),
-
+          verticalSpacing(16),
           // Filter Tabs
           QuizzesFilterRow(
             selectedFilter: selectedFilter,
@@ -40,7 +41,7 @@ class _StudentQuizzesScreenState extends State<StudentQuizzesScreen> {
           ),
 
           // Quizzes List
-          Expanded(child: QuizzesListView(filter: selectedFilter)),
+          Expanded(child: StudentQuizzesListView(filter: selectedFilter)),
         ],
       ),
     );

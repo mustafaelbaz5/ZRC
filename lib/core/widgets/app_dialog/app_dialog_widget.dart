@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_shadows.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/spacing.dart';
 
@@ -36,14 +35,13 @@ class AppDialogWidget extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       elevation: 8,
-      backgroundColor: Colors.transparent,
+      backgroundColor: context.customColors.surface,
       child: Container(
         constraints: BoxConstraints(maxWidth: 400.w),
         padding: EdgeInsets.all(24.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
-          color: context.customColors.containerColor,
-          boxShadow: const [AppShadows.shadow1],
+          color: context.customColors.surface,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -65,22 +63,32 @@ class AppDialogWidget extends StatelessWidget {
   Widget _buildIcon() {
     return TweenAnimationBuilder<double>(
       tween: Tween(begin: 0.0, end: 1.0),
-      duration: const Duration(milliseconds: 400),
+      duration: const Duration(milliseconds: 600),
       curve: Curves.elasticOut,
       builder: (final context, final value, final child) {
         return Transform.scale(scale: value, child: child);
       },
       child: Container(
-        padding: EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(20.w),
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: config.iconColor.withValues(alpha: 0.15),
-          border: Border.all(
-            color: config.iconColor.withValues(alpha: 0.3),
-            width: 2,
-          ),
+          color: config.iconColor.withValues(alpha: 0.1),
+          boxShadow: [
+            BoxShadow(
+              color: config.iconColor.withValues(alpha: 0.2),
+              blurRadius: 20,
+              spreadRadius: 5,
+            ),
+          ],
         ),
-        child: Icon(config.icon, color: config.iconColor, size: 48.sp),
+        child: Container(
+          padding: EdgeInsets.all(16.w),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: config.iconColor.withValues(alpha: 0.2),
+          ),
+          child: Icon(config.icon, color: config.iconColor, size: 42.sp),
+        ),
       ),
     );
   }
@@ -90,7 +98,7 @@ class AppDialogWidget extends StatelessWidget {
       title,
       textAlign: TextAlign.center,
       style: AppTextStyles.font20Bold.copyWith(
-        color: context.customColors.onContainerPrimary,
+        color: context.customColors.textPrimary,
       ),
     );
   }
@@ -100,7 +108,7 @@ class AppDialogWidget extends StatelessWidget {
       message,
       textAlign: TextAlign.center,
       style: AppTextStyles.font16Regular.copyWith(
-        color: context.customColors.onContainerSecondary,
+        color: context.customColors.textSecondary,
         height: 1.5,
       ),
     );

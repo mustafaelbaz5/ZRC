@@ -26,25 +26,24 @@ class QResultResultHeader extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: isPassed
-              ? <Color>[Colors.green[600]!, Colors.green[400]!]
-              : <Color>[Colors.orange[600]!, Colors.orange[400]!],
+              ? <Color>[AppColors.success300, AppColors.success200]
+              : <Color>[AppColors.error300, AppColors.error200],
         ),
       ),
       child: Column(
         children: <Widget>[
-          // Icon with animation effect
           Container(
-            width: 100.w,
-            height: 100.w,
+            width: responsiveWidth(100),
+            height: responsiveHeight(100),
             decoration: BoxDecoration(
-              color: Colors.white.withAlpha((0.2 * 255).toInt()),
+              color: AppColors.grey0.withAlpha((0.2 * 255).toInt()),
               shape: BoxShape.circle,
             ),
             child: Center(
               child: Icon(
                 isPassed ? Icons.emoji_events : Icons.pending_actions,
-                size: 60.sp,
-                color: Colors.white,
+                size: responsiveWidth(60),
+                color: AppColors.grey0,
               ),
             ),
           ),

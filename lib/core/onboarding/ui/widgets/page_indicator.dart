@@ -39,8 +39,8 @@ class _PageIndicatorDot extends StatelessWidget {
       height: 8.h,
       decoration: BoxDecoration(
         color: isActive
-            ? context.customColors.onContainerPrimary
-            : context.customColors.borderColor,
+            ? context.customColors.textPrimary
+            : context.customColors.border,
         borderRadius: BorderRadius.circular(4.r),
       ),
     );

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/description_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/instructor_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quick_stats_grid.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_app_bar.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quizzes_details_filter_chip.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_description_card.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_instructor_card.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_quick_stats_grid.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_status_card.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quizzes_details_info.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/start_quiz_button.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/status_card.dart';
 
 class StudentQuizDetailedScreen extends StatelessWidget {
   final QuizModel quiz;
@@ -17,7 +18,7 @@ class StudentQuizDetailedScreen extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: context.theme.scaffoldBackgroundColor,
       body: CustomScrollView(
         slivers: <Widget>[
           // Custom App Bar with Gradient
@@ -28,27 +29,28 @@ class StudentQuizDetailedScreen extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 // Status Card
-                StatusCard(quiz: quiz),
+                QuizDetailedStatusCard(quiz: quiz),
 
                 verticalSpacing(16),
 
                 // Quick Stats
-                QuickStatsGrid(quiz: quiz),
+                QuizDetailedQuickStatsGrid(quiz: quiz),
 
                 verticalSpacing(16),
 
                 // Description Card
-                if (quiz.description.isNotEmpty) DescriptionCard(quiz: quiz),
+                if (quiz.description.isNotEmpty)
+                  QuizDetailedDescriptionCard(quiz: quiz),
 
                 verticalSpacing(16),
 
                 // Instructor Info Card
-                InstructorCard(quiz: quiz),
+                QuizDetailedInstructorCard(quiz: quiz),
 
                 verticalSpacing(16),
 
                 // Quiz Details Card
-                QuizzesDetailsFilterChip(quiz: quiz),
+                QuizzesDetailsInfo(quiz: quiz),
 
                 verticalSpacing(120),
               ],

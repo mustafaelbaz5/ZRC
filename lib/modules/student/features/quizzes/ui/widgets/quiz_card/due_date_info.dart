@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class DueDateInfo extends StatelessWidget {
   const DueDateInfo({super.key, required this.dueDate});
@@ -23,9 +25,9 @@ class DueDateInfo extends StatelessWidget {
 
   Color _getColor() {
     final int difference = dueDate.difference(DateTime.now()).inDays;
-    if (difference <= 1) return Colors.red;
-    if (difference <= 3) return Colors.orange;
-    return Colors.grey;
+    if (difference <= 1) return AppColors.error200;
+    if (difference <= 3) return AppColors.warning200;
+    return AppColors.grey500;
   }
 
   @override
@@ -43,7 +45,7 @@ class DueDateInfo extends StatelessWidget {
           SizedBox(width: 6.w),
           Text(
             _formatDueDate(),
-            style: TextStyle(
+            style: AppTextStyles.font13Regular.copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w600,
               color: _getColor(),

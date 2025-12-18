@@ -67,6 +67,8 @@ dependencies:
   translator: ^1.0.4+1
   path_provider: ^2.1.5
 
+  image_picker: ^1.2.1
+
 # ------------------------------
 #        DEV DEPENDENCIES
 # ------------------------------

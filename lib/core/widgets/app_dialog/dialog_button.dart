@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 
 class DialogButton extends StatelessWidget {
@@ -41,16 +40,18 @@ class DialogButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: color,
         foregroundColor: Colors.white,
-        elevation: 0,
+        elevation: 8,
+        shadowColor: color.withValues(alpha: 0.4),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(16.r),
         ),
-        padding: EdgeInsets.symmetric(vertical: 14.h),
+        padding: EdgeInsets.symmetric(vertical: 16.h),
       ),
       child: Text(
         text,
-        style: AppTextStyles.font16Regular.copyWith(
-          color: context.customColors.onContainerPrimary,
+        style: AppTextStyles.font16Bold.copyWith(
+          color: Colors.white,
+          letterSpacing: 0.5,
         ),
       ),
     );

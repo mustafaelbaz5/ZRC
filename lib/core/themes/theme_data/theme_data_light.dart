@@ -13,6 +13,7 @@ ThemeData getLightTheme({required final BuildContext context}) {
       seedColor: AppColors.primary300,
       brightness: Brightness.light,
     ),
+    cardColor: AppColors.grey0,
     textTheme: ThemeData.light().textTheme.apply(
       bodyColor: AppColors.grey900,
       displayColor: AppColors.grey900,

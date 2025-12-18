@@ -31,7 +31,7 @@ class OnBoardingTextContent extends StatelessWidget {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
       style: AppTextStyles.font32Bold.copyWith(
-        color: context.customColors.onContainerPrimary,
+        color: context.customColors.textPrimary,
       ),
       child: Text(
         title.tr(),
@@ -46,7 +46,7 @@ class OnBoardingTextContent extends StatelessWidget {
     return AnimatedDefaultTextStyle(
       duration: const Duration(milliseconds: 300),
       style: AppTextStyles.font16Regular.copyWith(
-        color: context.customColors.onContainerSecondary,
+        color: context.customColors.textSecondary,
       ),
       child: Text(
         subtitle.tr(),

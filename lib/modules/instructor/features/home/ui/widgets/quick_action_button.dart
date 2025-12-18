@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class QuickActionButton extends StatelessWidget {
   final String title;
@@ -21,11 +24,13 @@ class QuickActionButton extends StatelessWidget {
           height: 90,
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: context.theme.cardColor,
             borderRadius: BorderRadius.circular(14),
             boxShadow: [
               BoxShadow(
-                color: Colors.black12.withOpacity(0.05),
+                color: context.isDarkMode
+                    ? Colors.transparent
+                    : AppColors.grey900.withOpacity(0.05),
                 blurRadius: 6,
                 offset: const Offset(0, 3),
               ),
@@ -34,15 +39,11 @@ class QuickActionButton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(icon, size: 28, color: Colors.blue),
+              Icon(icon, size: 28, color: context.customColors.textPrimary),
               const SizedBox(height: 8),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
-                ),
+                style: AppTextStyles.font14Bold,
                 textAlign: TextAlign.center,
               ),
             ],

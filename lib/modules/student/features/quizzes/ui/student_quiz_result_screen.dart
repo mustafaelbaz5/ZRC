@@ -28,7 +28,6 @@ class StudentQuizResultScreen extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: Colors.grey[50],
         body: SafeArea(
           child: Column(
             children: <Widget>[

@@ -32,8 +32,8 @@ class LoginBody extends StatelessWidget {
               Text(
                 "login.text_account_missing".tr(),
                 textAlign: TextAlign.center,
-                style: AppTextStyles.font16Regular.copyWith(
-                  color: context.customColors.onContainerPrimary.withAlpha(128),
+                style: AppTextStyles.font14Regular.copyWith(
+                  color: context.customColors.textPrimary.withAlpha(128),
                 ),
               ),
             ],

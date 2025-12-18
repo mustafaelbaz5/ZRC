@@ -22,7 +22,7 @@ class TopBarIconButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final button = Material(
-      color: context.customColors.containerColor,
+      color: context.customColors.surface,
       borderRadius: BorderRadius.circular(12.r),
       elevation: 0,
       child: InkWell(
@@ -39,14 +39,14 @@ class TopBarIconButton extends StatelessWidget {
               Icon(
                 icon,
                 size: 20.sp,
-                color: context.customColors.onContainerSecondary,
+                color: context.customColors.textSecondary,
               ),
               if (label != null) ...[
                 horizontalSpacing(6.w),
                 Text(
                   label!,
                   style: AppTextStyles.font16Bold.copyWith(
-                    color: context.customColors.onContainerPrimary,
+                    color: context.customColors.textPrimary,
                     fontSize: 14.sp,
                   ),
                 ),

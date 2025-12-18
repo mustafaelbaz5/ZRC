@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/fullscreen_player.dart';
+import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/youtube_player_controls.dart';
 
-import '../../../../../../../core/utils/spacing.dart';
 import 'youtube_player_error.dart';
 import 'youtube_player_loading.dart';
 
@@ -30,13 +34,11 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
   @override
   void initState() {
     super.initState();
-    _lockPortrait();
     _initializeController();
   }
 
   void _initializeController() {
-    final String? videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
-
+    final videoId = YoutubePlayer.convertUrlToId(widget.videoUrl);
     if (videoId == null) {
       setState(() => _errorMessage = "Invalid YouTube URL");
       return;
@@ -44,88 +46,62 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
 
     _controller = YoutubePlayerController(
       initialVideoId: videoId,
-      flags: YoutubePlayerFlags(autoPlay: widget.autoPlay, mute: false),
+      flags: YoutubePlayerFlags(
+        autoPlay: widget.autoPlay,
+        mute: false,
+        enableCaption: true,
+        hideControls: false,
+      ),
     );
   }
 
-  Future<void> _lockPortrait() async {}
+  Future<void> _enterFullscreen() async {
+    if (_controller == null) return;
 
-  Future<void> _lockLandscape() async {
-    await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    await SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
     ]);
-  }
-
-  Future<void> _hideSystemUI() async {
     await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  }
 
-  Future<void> _showSystemUI() async {
-    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-  }
+    if (!mounted) return;
 
-  Future<void> _enterLandscapeFullscreen() async {
-    if (_controller == null) return;
-
-    await _lockLandscape();
-    await _hideSystemUI();
-
-    // ignore: use_build_context_synchronously
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => Scaffold(
-          backgroundColor: Colors.black,
-          body: Stack(
-            children: <Widget>[
-              /// Fullscreen player
-              Positioned.fill(
-                child: YoutubePlayer(
-                  controller: _controller!,
-                  aspectRatio: 16 / 9,
-                ),
-              ),
-
-              /// X BUTTON (top-left)
-              SafeArea(
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.close,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                ),
-              ),
-            ],
-          ),
+        builder: (_) => FullscreenPlayer(
+          controller: _controller!,
+          onClose: _exitFullscreen,
         ),
       ),
     );
 
-    _exitLandscapeFullscreen();
+    _exitFullscreen();
   }
 
-  Future<void> _exitLandscapeFullscreen() async {
-    await _lockPortrait();
-    await _showSystemUI();
+  Future<void> _exitFullscreen() async {
+    await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   }
 
-  void _skip(final int seconds) {
-    if (_controller == null) return;
+  void _seek(final int seconds) {
+    if (_controller == null || !_controller!.value.isReady) return;
 
-    final int current = _controller!.value.position.inSeconds;
-    final int target = (current + seconds).clamp(0, 99999);
+    final current = _controller!.value.position.inSeconds;
+    final duration = _controller!.metadata.duration.inSeconds;
+    final target = (current + seconds).clamp(0, duration);
+
     _controller!.seekTo(Duration(seconds: target));
+  }
+
+  void _togglePlayPause() {
+    if (_controller == null) return;
+    _controller!.value.isPlaying ? _controller!.pause() : _controller!.play();
   }
 
   @override
   void dispose() {
     _controller?.dispose();
-    _showSystemUI();
+    _exitFullscreen();
     super.dispose();
   }
 
@@ -148,58 +124,43 @@ class _YoutubePlayerCardState extends State<YoutubePlayerCard> {
       return YoutubePlayerLoading(aspectRatio: widget.aspectRatio);
     }
 
-    return YoutubePlayer(
-      controller: _controller!,
-      aspectRatio: widget.aspectRatio,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.red,
-      bottomActions: _buildBottomActions(),
-    );
-  }
-
-  /// ------------------------------
-  /// BOTTOM ACTION BAR
-  /// ------------------------------
-  List<Widget> _buildBottomActions() {
-    return <Widget>[
-      const CurrentPosition(),
-      const ProgressBar(isExpanded: true),
-      horizontalSpacing(10),
-      const RemainingDuration(),
-
-      /// REWIND
-      IconButton(
-        icon: const Icon(Icons.replay_10, color: Colors.white),
-        onPressed: () => _skip(-10),
-      ),
-
-      /// FORWARD
-      IconButton(
-        icon: const Icon(Icons.forward_10, color: Colors.white),
-        onPressed: () => _skip(10),
-      ),
-
-      /// VOLUME SLIDER
-      SizedBox(
-        width: 100,
-        child: Slider(
-          value: _volume,
-          min: 0,
-          max: 100,
-          activeColor: Colors.red,
-          inactiveColor: Colors.white30,
-          onChanged: (final double value) {
-            setState(() => _volume = value);
-            _controller!.setVolume(value.toInt());
-          },
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: YoutubePlayer(
+        controller: _controller!,
+        aspectRatio: widget.aspectRatio,
+        showVideoProgressIndicator: true,
+        progressIndicatorColor: AppColors.error100,
+        progressColors: const ProgressBarColors(
+          playedColor: AppColors.error100,
+          handleColor: AppColors.error100,
+          bufferedColor: AppColors.grey300,
+          backgroundColor: AppColors.grey200,
         ),
+        topActions: [
+          horizontalSpacing(8),
+          Expanded(
+            child: Text(
+              _controller!.metadata.title,
+              style: AppTextStyles.font14Regular.copyWith(
+                color: AppColors.grey0,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+        bottomActions: [
+          YoutubePlayerControls(
+            controller: _controller!,
+            volume: _volume,
+            onVolumeChanged: (final value) => setState(() => _volume = value),
+            onTogglePlayPause: _togglePlayPause,
+            onSeek: _seek,
+            onEnterFullscreen: _enterFullscreen,
+          ),
+        ],
       ),
-
-      /// FULLSCREEN BUTTON
-      IconButton(
-        icon: const Icon(Icons.fullscreen, color: Colors.white),
-        onPressed: _enterLandscapeFullscreen,
-      ),
-    ];
+    );
   }
 }

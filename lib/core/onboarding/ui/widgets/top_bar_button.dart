@@ -19,9 +19,7 @@ class TopBarButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Material(
-      color: isOutlined
-          ? Colors.transparent
-          : context.customColors.containerColor,
+      color: isOutlined ? Colors.transparent : context.customColors.surface,
       borderRadius: BorderRadius.circular(12.r),
       child: InkWell(
         onTap: onPressed,
@@ -34,7 +32,7 @@ class TopBarButton extends StatelessWidget {
           child: Text(
             label,
             style: AppTextStyles.font16Bold.copyWith(
-              color: context.customColors.onContainerPrimary,
+              color: context.customColors.textPrimary,
             ),
           ),
         ),

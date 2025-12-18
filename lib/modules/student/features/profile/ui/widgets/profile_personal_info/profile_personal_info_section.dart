@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/utils/functions/string_fun.dart';
 
@@ -28,22 +27,13 @@ class ProfilePersonalInfoSection extends StatelessWidget {
           icon: Icons.email_outlined,
           title: 'student_profile.personal_information.email'.tr(),
           value: user.email,
+          copyToClipboard: true,
         ),
         ProfileInfoDisplayItem(
           icon: Icons.badge_outlined,
           title: 'student_profile.personal_information.student_code'.tr(),
           value: user.studentCode.toString(),
-          actionIcon: Icons.copy,
-          onActionTap: () {
-            Clipboard.setData(ClipboardData(text: user.studentCode.toString()));
-
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text("student_profile.copy_to_clipboard".tr()),
-                duration: const Duration(seconds: 1),
-              ),
-            );
-          },
+          copyToClipboard: true,
         ),
 
         if (user.college != null)
@@ -63,18 +53,7 @@ class ProfilePersonalInfoSection extends StatelessWidget {
             icon: Icons.credit_card_outlined,
             title: 'student_profile.personal_information.national_id'.tr(),
             value: user.nationalId.toString(),
-            actionIcon: Icons.copy,
-            onActionTap: () {
-              Clipboard.setData(
-                ClipboardData(text: user.studentCode.toString()),
-              );
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text("student_profile.copy_to_clipboard".tr()),
-                  duration: const Duration(seconds: 1),
-                ),
-              );
-            },
+            copyToClipboard: true,
           ),
       ],
     );

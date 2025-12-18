@@ -97,8 +97,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       validator: widget.validator,
       style:
           widget.inputTextStyle ??
-          AppTextStyles.font18Regular.copyWith(
-            color: context.customColors.onContainerPrimary,
+          AppTextStyles.font16Regular.copyWith(
+            color: context.customColors.textPrimary,
           ),
       onChanged: (final value) {
         _updateDirection(value);
@@ -122,13 +122,13 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         filled: true,
         fillColor:
             widget.innerBackgroundColor ??
-            context.customColors.secondaryColor.withAlpha(88),
+            context.customColors.surfaceVariant.withAlpha(88),
 
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
             AppTextStyles.font16Regular.copyWith(
-              color: context.customColors.onContainerSecondary.withAlpha(128),
+              color: context.customColors.textSecondary.withAlpha(128),
             ),
 
         prefixIcon: widget.prefixIcon,
@@ -139,8 +139,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 child: Icon(
                   _obscureText ? Icons.visibility_off : Icons.visibility,
                   color: _obscureText
-                      ? context.customColors.onContainerSecondary
-                      : context.customColors.onContainerPrimary,
+                      ? context.customColors.textSecondary
+                      : context.customColors.textPrimary,
                   size: 22.sp,
                 ),
               )
@@ -148,11 +148,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 
         focusedBorder:
             widget.focusedBorder ??
-            _buildBorder(context.customColors.onContainerPrimary, width: 1.3),
+            _buildBorder(context.customColors.textPrimary, width: 1.3),
 
         enabledBorder:
             widget.enabledBorder ??
-            _buildBorder(context.customColors.borderColor, width: 0.8),
+            _buildBorder(context.customColors.border, width: 0.8),
 
         errorBorder: _buildBorder(AppColors.error100, width: 1.4),
 
