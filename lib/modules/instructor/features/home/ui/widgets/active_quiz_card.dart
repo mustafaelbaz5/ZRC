@@ -41,7 +41,7 @@ class ActiveQuizCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.quiz, size: 40, color: context.colors.primary),
+            Icon(Icons.quiz, size: 40, color: context.customColors.textPrimary),
             const SizedBox(height: 12),
             Text(title, style: AppTextStyles.font16Bold),
             const SizedBox(height: 6),
