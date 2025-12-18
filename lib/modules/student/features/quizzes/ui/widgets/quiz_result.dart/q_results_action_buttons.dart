@@ -3,9 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../../../../../../../core/router/routes.dart';
-import '../../../../../../../core/themes/app_colors.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../data/model/quiz_model.dart';
 
@@ -26,10 +26,10 @@ class QResultsActionButtons extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
+            color: context.customColors.divider.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, -2),
           ),
@@ -49,19 +49,23 @@ class QResultsActionButtons extends StatelessWidget {
                     arguments: <String, QuizModel>{'quiz': quiz},
                   );
                 },
-                icon: Icon(Icons.replay, size: 20.sp),
+                icon: Icon(
+                  Icons.replay,
+                  size: 20.sp,
+                  color: context.customColors.background,
+                ),
                 label: Text(
                   tr(
                     'student_quizzes.quiz_result.actions.finished',
                   ).toUpperCase(),
                   style: AppTextStyles.font16Regular.copyWith(
-                    color: AppColors.grey0,
+                    color: context.customColors.background,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary300,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
+                  backgroundColor: context.customColors.accentBlue,
+                  foregroundColor: context.customColors.background,
+                  padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.r),
                   ),
@@ -69,7 +73,7 @@ class QResultsActionButtons extends StatelessWidget {
                 ),
               ),
             ),
-          if (canRetake) SizedBox(height: 12.h),
+          if (canRetake) verticalSpacing(12),
           SizedBox(
             width: double.infinity,
             child: OutlinedButton.icon(
@@ -86,15 +90,18 @@ class QResultsActionButtons extends StatelessWidget {
               icon: Icon(Icons.home_outlined, size: 20.sp),
               label: Text(
                 tr('student_quizzes.quiz_result.actions.back_to_home'),
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700),
+                style: AppTextStyles.font16Bold,
               ),
               style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.grey[700],
-                padding: EdgeInsets.symmetric(vertical: 16.h),
+                foregroundColor: context.customColors.textSecondary,
+                padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16.r),
                 ),
-                side: BorderSide(color: Colors.grey[300]!, width: 1.5),
+                side: BorderSide(
+                  color: context.customColors.divider,
+                  width: 1.5,
+                ),
               ),
             ),
           ),

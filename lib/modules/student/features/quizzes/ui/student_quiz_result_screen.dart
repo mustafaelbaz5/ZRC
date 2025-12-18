@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
 import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_result.dart/q_result_result_header.dart';
@@ -29,7 +28,6 @@ class StudentQuizResultScreen extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: context.theme.scaffoldBackgroundColor,
         body: SafeArea(
           child: Column(
             children: <Widget>[

@@ -85,7 +85,7 @@ class StudentQuizNavigationButtons extends StatelessWidget {
                       )
                     : tr('student_quizzes.quiz_questions.navigation.next'),
                 style: AppTextStyles.font18Regular.copyWith(
-                  color: context.customColors.textPrimary,
+                  color: context.customColors.background,
                 ),
               ),
               style: ElevatedButton.styleFrom(
