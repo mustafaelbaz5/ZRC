@@ -35,13 +35,13 @@ class AppDialogWidget extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       elevation: 8,
-      backgroundColor: context.customColors.containerColor,
+      backgroundColor: context.customColors.surface,
       child: Container(
         constraints: BoxConstraints(maxWidth: 400.w),
         padding: EdgeInsets.all(24.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
-          color: context.customColors.containerColor,
+          color: context.customColors.surface,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -98,7 +98,7 @@ class AppDialogWidget extends StatelessWidget {
       title,
       textAlign: TextAlign.center,
       style: AppTextStyles.font20Bold.copyWith(
-        color: context.customColors.onContainerPrimary,
+        color: context.customColors.textPrimary,
       ),
     );
   }
@@ -108,7 +108,7 @@ class AppDialogWidget extends StatelessWidget {
       message,
       textAlign: TextAlign.center,
       style: AppTextStyles.font16Regular.copyWith(
-        color: context.customColors.onContainerSecondary,
+        color: context.customColors.textSecondary,
         height: 1.5,
       ),
     );
