@@ -20,22 +20,22 @@ class StatusBadge extends StatelessWidget {
 
     switch (status) {
       case QuizAttemptStatus.completed:
-        bgColor = context.customColors.greenContainer;
-        textColor = context.customColors.onContainerPrimary;
+        bgColor = context.customColors.successContainer;
+        textColor = context.customColors.textPrimary;
         label = score != null
             ? '$score%'
             : tr('student_quizzes.status.completed');
         icon = Icons.check_circle;
         break;
       case QuizAttemptStatus.inProgress:
-        bgColor = context.customColors.blueContainer;
-        textColor = context.customColors.onContainerPrimary;
+        bgColor = context.customColors.infoContainer;
+        textColor = context.customColors.textPrimary;
         label = tr('student_quizzes.status.in_progress');
         icon = Icons.access_time;
         break;
       case QuizAttemptStatus.notStarted:
-        bgColor = context.customColors.blueContainer;
-        textColor = context.customColors.onContainerPrimary;
+        bgColor = context.customColors.infoContainer;
+        textColor = context.customColors.textPrimary;
         label = tr('student_quizzes.status.not_started');
         icon = Icons.play_circle_outline;
         break;
@@ -58,7 +58,7 @@ class StatusBadge extends StatelessWidget {
           Text(
             label,
             style: AppTextStyles.font13Bold.copyWith(
-              color: context.customColors.onContainerPrimary,
+              color: context.customColors.textPrimary,
             ),
           ),
         ],

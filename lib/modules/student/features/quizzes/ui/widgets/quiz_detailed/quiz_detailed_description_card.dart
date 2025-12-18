@@ -22,9 +22,7 @@ class QuizDetailedDescriptionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: context.customColors.borderColor.withAlpha(
-              (0.04 * 255).toInt(),
-            ),
+            color: context.customColors.border.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -51,7 +49,7 @@ class QuizDetailedDescriptionCard extends StatelessWidget {
           Text(
             quiz.description,
             style: AppTextStyles.font13Regular.copyWith(
-              color: context.customColors.onContainerSecondary,
+              color: context.customColors.textSecondary,
             ),
           ),
         ],

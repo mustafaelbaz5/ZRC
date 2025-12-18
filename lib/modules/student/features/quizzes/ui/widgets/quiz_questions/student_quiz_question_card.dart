@@ -38,7 +38,7 @@ class StudentQuizQuestionCard extends StatelessWidget {
                   vertical: responsiveHeight(6),
                 ),
                 decoration: BoxDecoration(
-                  color: context.customColors.onContainerPrimary.withAlpha(
+                  color: context.customColors.textPrimary.withAlpha(
                     (0.01 * 255).toInt(),
                   ),
                   borderRadius: BorderRadius.circular(8.r),
@@ -46,7 +46,7 @@ class StudentQuizQuestionCard extends StatelessWidget {
                 child: Text(
                   '${question.marks} ${tr('student_quizzes.quiz_questions.question.marks')}',
                   style: AppTextStyles.font14Bold.copyWith(
-                    color: context.customColors.onContainerPrimary,
+                    color: context.customColors.textPrimary,
                   ),
                 ),
               ),

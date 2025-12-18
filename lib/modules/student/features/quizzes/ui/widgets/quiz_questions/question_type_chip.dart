@@ -23,7 +23,7 @@ class QuestionTypeChip extends StatelessWidget {
       case QuestionType.mcq:
         label = tr('student_quizzes.quiz_questions.question_types.mcq');
         icon = Icons.list_alt;
-        color = context.customColors.onContainerSecondary;
+        color = context.customColors.textSecondary;
         break;
       case QuestionType.trueFalse:
         label = tr('student_quizzes.quiz_questions.question_types.true_false');

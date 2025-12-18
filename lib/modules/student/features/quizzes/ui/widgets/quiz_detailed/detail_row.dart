@@ -36,7 +36,7 @@ class DetailRow extends StatelessWidget {
         Text(
           value,
           style: AppTextStyles.font13Regular.copyWith(
-            color: context.customColors.onContainerSecondary,
+            color: context.customColors.textSecondary,
           ),
         ),
       ],

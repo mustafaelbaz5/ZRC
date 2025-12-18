@@ -37,23 +37,23 @@ class StudentQuizCard extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: <Color>[
-                context.customColors.secondaryColor,
+                context.customColors.surfaceVariant,
                 quiz.attemptStatus == QuizAttemptStatus.completed
-                    ? context.customColors.greenContainer
-                    : context.customColors.blueContainer,
+                    ? context.customColors.successContainer
+                    : context.customColors.infoContainer,
               ],
             ),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                color: context.customColors.containerColor.withAlpha(20),
+                color: context.customColors.surface.withAlpha(20),
                 blurRadius: 12,
                 offset: const Offset(0, 4),
               ),
             ],
             border: Border.all(
               color: quiz.attemptStatus == QuizAttemptStatus.completed
-                  ? context.customColors.greenContainer.withAlpha(20)
-                  : context.customColors.blueContainer.withAlpha(20),
+                  ? context.customColors.successContainer.withAlpha(20)
+                  : context.customColors.infoContainer.withAlpha(20),
               width: 1.5,
             ),
           ),
@@ -80,16 +80,15 @@ class StudentQuizCard extends StatelessWidget {
                                   vertical: responsiveHeight(4),
                                 ),
                                 decoration: BoxDecoration(
-                                  color: context.customColors.containerColor
-                                      .withAlpha(10),
+                                  color: context.customColors.surface.withAlpha(
+                                    10,
+                                  ),
                                   borderRadius: BorderRadius.circular(6.r),
                                 ),
                                 child: Text(
                                   quiz.subject,
                                   style: AppTextStyles.font13Bold.copyWith(
-                                    color: context
-                                        .customColors
-                                        .onContainerSecondary,
+                                    color: context.customColors.textSecondary,
                                   ),
                                 ),
                               ),
@@ -117,7 +116,7 @@ class StudentQuizCard extends StatelessWidget {
                     child: Text(
                       quiz.description,
                       style: AppTextStyles.font13Regular.copyWith(
-                        color: context.customColors.onContainerSecondary,
+                        color: context.customColors.textSecondary,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -143,7 +142,7 @@ class StudentQuizCard extends StatelessWidget {
                       child: Text(
                         quiz.instructorName,
                         style: AppTextStyles.font13Regular.copyWith(
-                          color: context.customColors.onContainerPrimary,
+                          color: context.customColors.textPrimary,
                         ),
                       ),
                     ),
@@ -152,10 +151,7 @@ class StudentQuizCard extends StatelessWidget {
 
                 verticalSpacing(14),
                 // Divider
-                Divider(
-                  color: context.customColors.onContainerSecondary,
-                  height: 2,
-                ),
+                Divider(color: context.customColors.textSecondary, height: 2),
 
                 verticalSpacing(14),
 

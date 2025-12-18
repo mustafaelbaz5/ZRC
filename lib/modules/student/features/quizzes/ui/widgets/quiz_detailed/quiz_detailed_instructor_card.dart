@@ -22,7 +22,7 @@ class QuizDetailedInstructorCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
+            color: context.customColors.divider.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -45,7 +45,7 @@ class QuizDetailedInstructorCard extends StatelessWidget {
                 Text(
                   tr('student_quizzes.quiz_detailed.instructor'),
                   style: AppTextStyles.font13Regular.copyWith(
-                    color: context.customColors.onContainerSecondary,
+                    color: context.customColors.textSecondary,
                   ),
                 ),
                 verticalSpacing(4),

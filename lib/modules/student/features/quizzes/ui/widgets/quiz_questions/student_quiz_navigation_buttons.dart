@@ -34,7 +34,7 @@ class StudentQuizNavigationButtons extends StatelessWidget {
         color: context.theme.cardColor,
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
+            color: context.customColors.divider.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, -2),
           ),
@@ -49,21 +49,21 @@ class StudentQuizNavigationButtons extends StatelessWidget {
                 icon: Icon(
                   Icons.arrow_back,
                   size: 18.sp,
-                  color: AppColors.grey500,
+                  color: context.customColors.textSecondary,
                 ),
                 label: Text(
                   tr('student_quizzes.quiz_questions.navigation.previous'),
                   style: AppTextStyles.font14Regular.copyWith(
-                    color: context.customColors.onContainerSecondary,
+                    color: context.customColors.textSecondary,
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  backgroundColor: context.customColors.containerColor,
+                  backgroundColor: context.customColors.surface,
                   padding: EdgeInsets.symmetric(vertical: responsiveHeight(14)),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
                   ),
-                  side: BorderSide(color: context.customColors.borderColor),
+                  side: BorderSide(color: context.customColors.border),
                 ),
               ),
             ),
@@ -85,13 +85,13 @@ class StudentQuizNavigationButtons extends StatelessWidget {
                       )
                     : tr('student_quizzes.quiz_questions.navigation.next'),
                 style: AppTextStyles.font18Regular.copyWith(
-                  color: AppColors.grey0,
+                  color: context.customColors.textPrimary,
                 ),
               ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: isLastQuestion
                     ? AppColors.success200
-                    : AppColors.primary400,
+                    : AppColors.openBlue700,
                 foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: responsiveHeight(14)),
                 shape: RoundedRectangleBorder(

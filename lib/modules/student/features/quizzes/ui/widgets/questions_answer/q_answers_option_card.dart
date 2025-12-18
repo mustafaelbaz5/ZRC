@@ -26,13 +26,13 @@ class QAnswersOptionCard extends StatelessWidget {
         padding: EdgeInsets.all(responsiveWidth(16)),
         decoration: BoxDecoration(
           color: isSelected
-              ? context.customColors.onContainerSecondary
-              : context.customColors.containerColor,
+              ? context.customColors.textSecondary
+              : context.customColors.surface,
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: isSelected
-                ? context.customColors.onContainerPrimary
-                : context.customColors.borderColor,
+                ? context.customColors.textPrimary
+                : context.customColors.border,
             width: isSelected ? 2 : 1,
           ),
           boxShadow: <BoxShadow>[
@@ -53,19 +53,19 @@ class QAnswersOptionCard extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(
                   color: isSelected
-                      ? context.customColors.secondaryColor
-                      : context.customColors.borderColor,
+                      ? context.customColors.surfaceVariant
+                      : context.customColors.border,
                   width: 2,
                 ),
                 color: isSelected
-                    ? context.customColors.onContainerPrimary
-                    : context.customColors.containerColor,
+                    ? context.customColors.textPrimary
+                    : context.customColors.surface,
               ),
               child: isSelected
                   ? Icon(
                       Icons.check,
                       size: 16.sp,
-                      color: context.customColors.secondaryColor,
+                      color: context.customColors.surfaceVariant,
                     )
                   : null,
             ),
@@ -76,7 +76,7 @@ class QAnswersOptionCard extends StatelessWidget {
                 style: AppTextStyles.font16Bold.copyWith(
                   color: isSelected
                       ? AppColors.grey0
-                      : context.customColors.onContainerSecondary,
+                      : context.customColors.textSecondary,
                 ),
               ),
             ),

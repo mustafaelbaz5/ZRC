@@ -38,7 +38,7 @@ class FillInBlankInput extends StatelessWidget {
           Text(
             tr('student_quizzes.quiz_questions.question.your_answer'),
             style: AppTextStyles.font14Bold.copyWith(
-              color: context.customColors.onContainerPrimary,
+              color: context.customColors.textPrimary,
             ),
           ),
           verticalSpacing(14),
@@ -50,25 +50,25 @@ class FillInBlankInput extends StatelessWidget {
                 'student_quizzes.quiz_questions.question.answer_hint',
               ),
               filled: true,
-              fillColor: context.customColors.containerColor,
+              fillColor: context.customColors.surface,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
-                borderSide: BorderSide(color: context.customColors.borderColor),
+                borderSide: BorderSide(color: context.customColors.border),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
-                borderSide: BorderSide(color: context.customColors.borderColor),
+                borderSide: BorderSide(color: context.customColors.border),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),
                 borderSide: BorderSide(
-                  color: context.customColors.onContainerPrimary,
+                  color: context.customColors.textPrimary,
                   width: 2,
                 ),
               ),
             ),
             style: AppTextStyles.font16Regular.copyWith(
-              color: context.customColors.onContainerPrimary,
+              color: context.customColors.textPrimary,
             ),
           ),
         ],

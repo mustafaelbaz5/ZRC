@@ -47,7 +47,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                 onPressed: onExit,
                 icon: Icon(
                   Icons.close,
-                  color: context.customColors.onContainerPrimary,
+                  color: context.customColors.textPrimary,
                 ),
               ),
               const Spacer(),
@@ -60,14 +60,14 @@ class QuizQuestionsHeader extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isLowTime
                       ? AppColors.error200.withAlpha((0.01 * 255).toInt())
-                      : context.customColors.onContainerPrimary.withAlpha(
+                      : context.customColors.textPrimary.withAlpha(
                           (0.01 * 255).toInt(),
                         ),
                   borderRadius: BorderRadius.circular(20.r),
                   border: Border.all(
                     color: isLowTime
                         ? AppColors.error200
-                        : context.customColors.onContainerPrimary,
+                        : context.customColors.textPrimary,
                     width: 1.5,
                   ),
                 ),
@@ -78,7 +78,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                       size: 20.sp,
                       color: isLowTime
                           ? AppColors.error300
-                          : context.customColors.onContainerPrimary,
+                          : context.customColors.textPrimary,
                     ),
                     horizontalSpacing(8),
                     Text(
@@ -86,7 +86,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                       style: AppTextStyles.font16Bold.copyWith(
                         color: isLowTime
                             ? AppColors.error300
-                            : context.customColors.onContainerPrimary,
+                            : context.customColors.textPrimary,
                       ),
                     ),
                   ],
@@ -111,7 +111,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                       },
                     ),
                     style: AppTextStyles.font16Regular.copyWith(
-                      color: context.customColors.onContainerPrimary,
+                      color: context.customColors.textPrimary,
                     ),
                   ),
                   Text(
@@ -122,7 +122,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                       },
                     ),
                     style: AppTextStyles.font16Bold.copyWith(
-                      color: context.customColors.onContainerPrimary,
+                      color: context.customColors.textPrimary,
                     ),
                   ),
                 ],
@@ -133,7 +133,7 @@ class QuizQuestionsHeader extends StatelessWidget {
                 child: LinearProgressIndicator(
                   value: progress,
                   minHeight: responsiveHeight(8),
-                  backgroundColor: context.customColors.onContainerSecondary,
+                  backgroundColor: context.customColors.textSecondary,
                   valueColor: const AlwaysStoppedAnimation<Color>(
                     AppColors.success100,
                   ),

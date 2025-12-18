@@ -66,20 +66,20 @@ class StudentQuizzesListView extends StatelessWidget {
             Icon(
               Icons.quiz_outlined,
               size: 64.sp,
-              color: context.customColors.onContainerSecondary,
+              color: context.customColors.textSecondary,
             ),
             verticalSpacing(16),
             Text(
               tr('student_quizzes.empty_state.title'),
               style: AppTextStyles.font16Bold.copyWith(
-                color: context.customColors.onContainerSecondary,
+                color: context.customColors.textSecondary,
               ),
             ),
             verticalSpacing(8),
             Text(
               tr('student_quizzes.empty_state.subtitle'),
               style: AppTextStyles.font14Regular.copyWith(
-                color: context.customColors.onContainerSecondary,
+                color: context.customColors.textSecondary,
               ),
             ),
           ],

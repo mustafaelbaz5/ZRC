@@ -14,7 +14,7 @@ class StartCourseButton extends StatelessWidget {
       child: Material(
         elevation: 8,
         borderRadius: BorderRadius.circular(16),
-        shadowColor: context.customColors.borderColor,
+        shadowColor: context.customColors.border,
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(16),

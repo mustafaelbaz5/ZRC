@@ -24,9 +24,7 @@ class QuizzesDetailsInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color: context.customColors.borderColor.withAlpha(
-              (0.04 * 255).toInt(),
-            ),
+            color: context.customColors.border.withAlpha((0.04 * 255).toInt()),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
