@@ -31,13 +31,13 @@ class FilterChipItem extends StatelessWidget {
       height: height ?? responsiveHeight(40),
       decoration: BoxDecoration(
         color: isSelected
-            ? context.customColors.containerColor
-            : context.customColors.secondaryColor,
+            ? context.customColors.surface
+            : context.customColors.surfaceVariant,
         borderRadius: BorderRadius.circular(24.r),
         border: Border.all(
           color: isSelected
-              ? context.customColors.onContainerPrimary
-              : context.customColors.secondaryColor,
+              ? context.customColors.textPrimary
+              : context.customColors.surfaceVariant,
         ),
       ),
       child: Material(
@@ -51,11 +51,11 @@ class FilterChipItem extends StatelessWidget {
               textAlign: TextAlign.center,
               style: isSelected
                   ? AppTextStyles.font14Bold.copyWith(
-                      color: context.customColors.onContainerPrimary,
+                      color: context.customColors.textPrimary,
                     )
                   : AppTextStyles.font13Bold.copyWith(
                       fontSize: 12,
-                      color: context.customColors.onContainerSecondary,
+                      color: context.customColors.textSecondary,
                     ),
             ),
           ),

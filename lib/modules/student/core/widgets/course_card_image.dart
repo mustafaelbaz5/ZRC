@@ -29,8 +29,8 @@ class CourseCardImage extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: <Color>[
-                    context.customColors.containerColor.withAlpha(100),
-                    context.customColors.onContainerPrimary.withAlpha(100),
+                    context.customColors.surface.withAlpha(100),
+                    context.customColors.textPrimary.withAlpha(100),
                   ],
                 ),
               ),

@@ -14,7 +14,7 @@ class CourseTitleSection extends StatelessWidget {
         Text(
           'Flutter Complete Course 2024',
           style: AppTextStyles.font24Bold.copyWith(
-            color: context.customColors.onContainerPrimary,
+            color: context.customColors.textPrimary,
           ),
         ),
         verticalSpacing(16),
@@ -30,7 +30,7 @@ class CourseTitleSection extends StatelessWidget {
             Text(
               'Dr. Ahmed Mohamed',
               style: AppTextStyles.font14Bold.copyWith(
-                color: context.customColors.onContainerSecondary,
+                color: context.customColors.textSecondary,
               ),
             ),
           ],

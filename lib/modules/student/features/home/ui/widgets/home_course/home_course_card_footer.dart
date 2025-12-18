@@ -28,7 +28,7 @@ class HomeCourseCardFooter extends StatelessWidget {
                 child: Text(
                   coursesCardModel.instructor,
                   style: AppTextStyles.font13Bold.copyWith(
-                    color: context.customColors.onContainerPrimary,
+                    color: context.customColors.textPrimary,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

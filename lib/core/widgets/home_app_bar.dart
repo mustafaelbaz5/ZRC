@@ -25,12 +25,12 @@ class HomeAppBar extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: modesColors.secondaryColor,
-            blurRadius: 4,
-            offset: const Offset(0, 4),
+            color: modesColors.divider,
+            blurRadius: 2,
+            offset: const Offset(0, 2),
           ),
         ],
-        color: modesColors.backgroundColor,
+        color: modesColors.background,
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
       ),
       child: Column(
@@ -45,14 +45,14 @@ class HomeAppBar extends StatelessWidget {
                   Text(
                     tr('student_home.welcome'),
                     style: AppTextStyles.font14Bold.copyWith(
-                      color: modesColors.onContainerPrimary,
+                      color: modesColors.textSecondary,
                     ),
                   ),
                   verticalSpacing(6),
                   Text(
                     "\t${getFirstNWords(userName, wordCount: 2)}",
                     style: AppTextStyles.font20Bold.copyWith(
-                      color: modesColors.onContainerPrimary,
+                      color: modesColors.textPrimary,
                     ),
                   ),
                 ],

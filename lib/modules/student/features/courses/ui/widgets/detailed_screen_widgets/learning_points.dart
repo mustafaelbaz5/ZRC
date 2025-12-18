@@ -23,7 +23,7 @@ class LearningPoints extends StatelessWidget {
         Text(
           tr('student_courses.sections.what_you_learn'),
           style: AppTextStyles.font20Bold.copyWith(
-            color: customColors.onContainerPrimary,
+            color: customColors.textPrimary,
           ),
         ),
         verticalSpacing(12),
@@ -52,7 +52,7 @@ class LearningPoints extends StatelessWidget {
                   child: Text(
                     point,
                     style: AppTextStyles.font14Regular.copyWith(
-                      color: customColors.onContainerSecondary,
+                      color: customColors.textSecondary,
                     ),
                   ),
                 ),

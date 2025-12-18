@@ -16,7 +16,7 @@ class BackgroundShapes extends StatelessWidget {
             width: 200.w,
             height: 200.w,
             decoration: BoxDecoration(
-              color: context.customColors.containerColor.withAlpha(128),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
@@ -28,7 +28,7 @@ class BackgroundShapes extends StatelessWidget {
             width: 200.w,
             height: 200.w,
             decoration: BoxDecoration(
-              color: context.customColors.containerColor.withAlpha(128),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
@@ -40,7 +40,7 @@ class BackgroundShapes extends StatelessWidget {
             width: 150.w,
             height: 150.w,
             decoration: BoxDecoration(
-              color: context.customColors.containerColor.withAlpha(128),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),

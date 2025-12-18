@@ -58,9 +58,9 @@ class _StatChip extends StatelessWidget {
         vertical: responsiveHeight(8),
       ),
       decoration: BoxDecoration(
-        color: customColors.containerColor,
+        color: customColors.surface,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: customColors.borderColor.withAlpha(128)),
+        border: Border.all(color: customColors.border.withAlpha(128)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

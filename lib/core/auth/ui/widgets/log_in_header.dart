@@ -11,7 +11,7 @@ class LogInHeader extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(20)),
       child: Column(
         children: <Widget>[
           Text(
@@ -23,8 +23,8 @@ class LogInHeader extends StatelessWidget {
           Text(
             'login.subtitle'.tr(),
             textAlign: TextAlign.center,
-            style: AppTextStyles.font18Regular.copyWith(
-              color: context.customColors.onContainerPrimary.withAlpha(128),
+            style: AppTextStyles.font16Regular.copyWith(
+              color: context.customColors.textPrimary.withAlpha(128),
             ),
           ),
         ],

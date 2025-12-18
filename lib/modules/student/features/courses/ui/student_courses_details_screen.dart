@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/custom_colors.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/course_description.dart';
 import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/course_stats.dart';
@@ -27,16 +26,14 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final customColors = context.customColors;
-
     return Scaffold(
-      backgroundColor: customColors.backgroundColor,
+      backgroundColor: context.customColors.background,
       body: SafeArea(
         child: Stack(
           children: [
             CustomScrollView(
               slivers: [
-                _buildSliverAppBar(customColors, context),
+                _buildSliverAppBar(context),
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.all(20),
@@ -49,12 +46,12 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
                         verticalSpacing(24),
                         const CourseTitleSection(),
                         verticalSpacing(20),
-                        CourseStats(customColors: customColors),
+                        CourseStats(customColors: context.customColors),
                         verticalSpacing(28),
-                        CourseDescription(customColors: customColors),
+                        CourseDescription(customColors: context.customColors),
                         verticalSpacing(28),
-                        LearningPoints(customColors: customColors),
-                        verticalSpacing(100), // For FAB
+                        LearningPoints(customColors: context.customColors),
+                        verticalSpacing(100),
                       ],
                     ),
                   ),
@@ -73,19 +70,16 @@ class StudentCoursesDetailsScreen extends StatelessWidget {
     );
   }
 
-  SliverAppBar _buildSliverAppBar(
-    final CustomColors customColors,
-    final BuildContext context,
-  ) {
+  SliverAppBar _buildSliverAppBar(final BuildContext context) {
     return SliverAppBar(
       floating: true,
-      backgroundColor: customColors.backgroundColor,
+      backgroundColor: context.customColors.background,
       elevation: 0,
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
         icon: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: customColors.onContainerPrimary,
+          color: context.customColors.textPrimary,
         ),
       ),
     );

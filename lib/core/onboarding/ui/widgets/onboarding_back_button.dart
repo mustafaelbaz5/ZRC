@@ -16,13 +16,13 @@ class OnBoardingBackButton extends StatelessWidget {
         width: 56.w,
         height: 56.h,
         decoration: BoxDecoration(
-          color: context.customColors.containerColor,
+          color: context.customColors.surface,
           borderRadius: BorderRadius.circular(12.r),
-          border: Border.all(color: context.customColors.borderColor, width: 1),
+          border: Border.all(color: context.customColors.border, width: 1),
         ),
         child: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: context.customColors.onContainerPrimary,
+          color: context.customColors.textPrimary,
           size: 20.sp,
         ),
       ),

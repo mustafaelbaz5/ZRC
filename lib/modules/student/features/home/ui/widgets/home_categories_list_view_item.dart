@@ -37,13 +37,13 @@ class HomeCategoriesListViewItem extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.all(
                 color: isSelected
-                    ? context.customColors.onContainerPrimary
-                    : context.customColors.secondaryColor,
+                    ? context.customColors.textPrimary
+                    : context.customColors.surfaceVariant,
                 width: 1.5,
               ),
               color: isSelected
-                  ? context.customColors.containerColor
-                  : context.customColors.secondaryColor,
+                  ? context.customColors.surface
+                  : context.customColors.surfaceVariant,
               borderRadius: BorderRadius.circular(50),
               boxShadow: isSelected
                   ? <BoxShadow>[
@@ -71,11 +71,11 @@ class HomeCategoriesListViewItem extends StatelessWidget {
               textAlign: TextAlign.center,
               style: isSelected
                   ? AppTextStyles.font14Bold.copyWith(
-                      color: context.customColors.onContainerPrimary,
+                      color: context.customColors.textPrimary,
                     )
                   : AppTextStyles.font13Bold.copyWith(
                       fontSize: 12,
-                      color: context.customColors.onContainerSecondary,
+                      color: context.customColors.textSecondary,
                     ),
             ),
           ),

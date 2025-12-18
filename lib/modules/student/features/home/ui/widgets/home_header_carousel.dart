@@ -75,8 +75,8 @@ class _HomeHeaderCarouselState extends State<HomeHeaderCarousel> {
           return HomeHeaderCard(
             item: item,
             color: index % 2 == 0
-                ? context.customColors.blueContainer
-                : context.customColors.greenContainer,
+                ? context.customColors.infoContainer
+                : context.customColors.successContainer,
           );
         },
       ),

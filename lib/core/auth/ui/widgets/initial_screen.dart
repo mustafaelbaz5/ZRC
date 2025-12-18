@@ -34,7 +34,7 @@ class InitialScreen extends StatelessWidget {
         return Scaffold(
           body: Center(
             child: CircularProgressIndicator(
-              color: context.customColors.onContainerPrimary,
+              color: context.customColors.textPrimary,
             ),
           ),
         );

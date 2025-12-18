@@ -28,7 +28,7 @@ class StudentCoursesScreen extends StatelessWidget {
                     Text(
                       tr('student_courses.categories'),
                       style: AppTextStyles.font20Bold.copyWith(
-                        color: context.customColors.onContainerPrimary,
+                        color: context.customColors.textPrimary,
                       ),
                     ),
                     verticalSpacing(16),

@@ -16,14 +16,14 @@ class CourseDescription extends StatelessWidget {
         Text(
           tr('student_courses.sections.about'),
           style: AppTextStyles.font20Bold.copyWith(
-            color: customColors.onContainerPrimary,
+            color: customColors.textPrimary,
           ),
         ),
         verticalSpacing(12),
         Text(
           'Master Flutter development from scratch with hands-on projects. Learn widgets, state management, API integration, and build production-ready applications.',
           style: AppTextStyles.font14Regular.copyWith(
-            color: customColors.onContainerSecondary,
+            color: customColors.textSecondary,
           ),
         ),
       ],

@@ -26,16 +26,16 @@ class StudentAppBar extends StatelessWidget {
         vertical: responsiveHeight(14),
       ),
       decoration: BoxDecoration(
-        color: context.customColors.backgroundColor,
+        color: context.customColors.background,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(18),
           bottomRight: Radius.circular(18),
         ),
         boxShadow: [
           BoxShadow(
-            color: context.customColors.borderColor,
-            blurRadius: 4,
-            offset: const Offset(0, 4),
+            color: context.customColors.divider,
+            blurRadius: 2,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -60,7 +60,7 @@ class StudentAppBar extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyles.font18Bold.copyWith(
-                color: context.customColors.onContainerPrimary,
+                color: context.customColors.textPrimary,
               ),
             ),
           ),
@@ -94,10 +94,10 @@ class _AppBarIconButton extends StatelessWidget {
           width: responsiveWidth(44),
           height: responsiveHeight(44),
           decoration: BoxDecoration(
-            color: context.customColors.borderColor,
+            color: context.customColors.divider,
             borderRadius: BorderRadius.circular(14),
           ),
-          child: Icon(icon, size: 20, color: context.customColors.borderColor),
+          child: Icon(icon, size: 20, color: context.customColors.border),
         ),
       ),
     );

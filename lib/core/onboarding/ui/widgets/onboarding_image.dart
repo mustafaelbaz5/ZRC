@@ -17,7 +17,7 @@ class OnBoardingImage extends StatelessWidget {
         padding: EdgeInsets.all(20.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
-          color: context.customColors.containerColor,
+          color: context.customColors.surface,
         ),
         child: Image.asset(imagePath, fit: BoxFit.cover),
       ),

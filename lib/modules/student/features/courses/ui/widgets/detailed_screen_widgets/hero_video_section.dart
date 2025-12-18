@@ -29,8 +29,8 @@ class HeroVideoSection extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                context.customColors.containerColor.withAlpha(200),
-                context.customColors.containerColor.withAlpha(100),
+                context.customColors.surface.withAlpha(200),
+                context.customColors.surface.withAlpha(100),
               ],
             ),
           ),
@@ -39,13 +39,11 @@ class HeroVideoSection extends StatelessWidget {
               width: responsiveWidth(64),
               height: responsiveHeight(64),
               decoration: BoxDecoration(
-                color: context.customColors.secondaryColor,
+                color: context.customColors.surfaceVariant,
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: context.customColors.onContainerPrimary.withAlpha(
-                      100,
-                    ),
+                    color: context.customColors.textPrimary.withAlpha(100),
                     blurRadius: 12,
                   ),
                 ],
@@ -53,7 +51,7 @@ class HeroVideoSection extends StatelessWidget {
               child: Icon(
                 Icons.play_arrow_rounded,
                 size: 36,
-                color: context.customColors.onContainerPrimary,
+                color: context.customColors.textPrimary,
               ),
             ),
           ),

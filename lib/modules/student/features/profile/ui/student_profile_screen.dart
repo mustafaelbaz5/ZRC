@@ -2,7 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/auth/data/model/user_model.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/storage/user_storage.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/functions/app_setting_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
@@ -55,11 +57,17 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(Icons.error_outline, size: 64.sp, color: Colors.grey[400]),
+              Icon(
+                Icons.error_outline,
+                size: 64.sp,
+                color: context.customColors.textSecondary,
+              ),
               verticalSpacing(16),
               Text(
                 'student_profile.unable_to_load'.tr(),
-                style: TextStyle(fontSize: 16.sp, color: Colors.grey[600]),
+                style: AppTextStyles.font16Regular.copyWith(
+                  color: context.customColors.textSecondary,
+                ),
               ),
             ],
           ),

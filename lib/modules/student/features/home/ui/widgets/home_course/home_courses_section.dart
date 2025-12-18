@@ -4,7 +4,6 @@ import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/router/routes.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/spacing.dart';
-
 import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_courses_list_view.dart';
 
 class HomeCoursesSection extends StatelessWidget {
@@ -30,14 +29,14 @@ class HomeCoursesSection extends StatelessWidget {
                   Text(
                     tr('student_home.see_all'),
                     style: AppTextStyles.font13Bold.copyWith(
-                      color: context.customColors.onContainerPrimary,
+                      color: context.customColors.textPrimary,
                     ),
                   ),
                   horizontalSpacing(4),
                   Icon(
                     Icons.arrow_forward_ios,
                     size: 16,
-                    color: context.customColors.onContainerPrimary,
+                    color: context.customColors.textPrimary,
                   ),
                 ],
               ),
