@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/stat_card.dart';
+import 'package:zrc/modules/student/core/widgets/stat_card.dart';
 
 class QuizDetailedQuickStatsGrid extends StatelessWidget {
   final QuizModel quiz;

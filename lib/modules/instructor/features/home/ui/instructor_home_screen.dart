@@ -7,7 +7,7 @@ import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/core/widgets/home_app_bar.dart';
 import 'package:zrc/modules/instructor/features/home/ui/widgets/active_quiz_card.dart';
 import 'package:zrc/modules/instructor/features/home/ui/widgets/home_head_line_text.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/logout_button.dart';
+import 'package:zrc/core/widgets/logout_button.dart';
 
 import 'widgets/quick_action_button.dart';
 import 'widgets/statistics_card.dart';

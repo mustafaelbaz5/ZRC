@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
 import 'package:zrc/core/themes/app_colors.dart';
 
-import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/utils/spacing.dart';
+import '../../../../core/themes/app_text_styles.dart';
+import '../../../../core/utils/spacing.dart';
 
 class StatCard extends StatelessWidget {
   final IconData icon;
@@ -23,21 +22,21 @@ class StatCard extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 16.h),
+      padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),
       decoration: BoxDecoration(
         color: context.theme.cardColor,
-        borderRadius: BorderRadius.circular(16.r),
+        borderRadius: BorderRadius.circular(responsiveWidth(16)),
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
-            blurRadius: 8,
+            blurRadius: 4,
             offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Column(
         children: <Widget>[
-          Icon(icon, size: 28.sp, color: color),
+          Icon(icon, size: responsiveWidth(28), color: color),
           verticalSpacing(8),
           Text(value, style: AppTextStyles.font20Bold),
           verticalSpacing(4),
