@@ -1,20 +1,44 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:zrc/core/router/app_router.dart';
 import 'package:zrc/zrc_app.dart';
+import 'dart:io';
 
-void main() {
-  testWidgets('Counter increments smoke test', (
-    final WidgetTester tester,
-  ) async {
-    // Build our app and trigger a frame.
+class TestPathProviderPlatform extends PathProviderPlatform {
+  @override
+  Future<String?> getTemporaryPath() async {
+    final tempDir = Directory.systemTemp.createTempSync();
+    return tempDir.path;
+  }
+
+  @override
+  Future<String?> getApplicationDocumentsPath() async {
+    final tempDir = Directory.systemTemp.createTempSync();
+    return tempDir.path;
+  }
+}
+
+void main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  // استخدم path provider وهمي للاختبارات
+  PathProviderPlatform.instance = TestPathProviderPlatform();
+
+  // HydratedBloc storage وهمي مؤقت
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: HydratedStorageDirectory(
+      (await getTemporaryDirectory()).path,
+    ),
+  );
+
+  // لو مش محتاجين Firebase أو Supabase حقيقية في الاختبارات، نقدر نتجاوزها أو نعمل Mock
+  // await Firebase.initializeApp();
+  // await Supabase.initialize(url: 'dummy', anonKey: 'dummy');
+
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     await tester.pumpWidget(ZrcApp(appRouter: AppRouter()));
 
     // Verify that our counter starts at 0.
