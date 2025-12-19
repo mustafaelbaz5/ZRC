@@ -52,6 +52,16 @@ jobs:
           ruby-version: "3.2.9"
           bundler-cache: true
           working-directory: android
+      
+      - name: Install Shorebird
+        run: |
+          curl -sSL https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh | bash
+          echo "$HOME/.shorebird/bin" >> $GITHUB_PATH
+
+      - name: Shorebird Login
+        env:
+          SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
+        run: shorebird login --api-token $SHOREBIRD_TOKEN
 
       - name: Build and Distribute App to Firebase
         env:
