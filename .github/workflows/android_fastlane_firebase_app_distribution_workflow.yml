@@ -9,17 +9,32 @@ jobs:
   distribute_to_firebase:
     runs-on: ubuntu-latest
 
+    # Use a matrix for caching multiple tools efficiently
+    strategy:
+      matrix:
+        cache-key: [pub, gradle]
+
     steps:
+      # 1️⃣ Checkout repo
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Cache Flutter dependencies
+      # 2️⃣ Setup Flutter
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      # 3️⃣ Cache Flutter dependencies
+      - name: Cache Flutter Pub
         uses: actions/cache@v4
         with:
           path: ~/.pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: ${{ runner.os }}-pub-
+          restore-keys: |
+            ${{ runner.os }}-pub-
 
+      # 4️⃣ Cache Gradle
       - name: Cache Gradle
         uses: actions/cache@v4
         with:
@@ -27,45 +42,52 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: ${{ runner.os }}-gradle-
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
+      # 5️⃣ Set up JDK
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
-          java-version: "17"
-          distribution: "temurin"
+          java-version: 17
+          distribution: temurin
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-
-      - name: Flutter pub get
-        run: flutter pub get
-
+      # 6️⃣ Install Ruby & Fastlane
       - name: Setup Ruby & Fastlane
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: "3.2.9"
+          ruby-version: 3.2.9
           bundler-cache: true
           working-directory: android
 
+      # 7️⃣ Install Shorebird once
       - name: Install Shorebird
         run: |
           curl -sSL https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh | bash
           echo "$HOME/.shorebird/bin" >> $GITHUB_PATH
 
+      # 8️⃣ Verify Shorebird
+      - name: Verify Shorebird
+        run: shorebird --version
+
+      # 9️⃣ Shorebird login
       - name: Shorebird Login
         env:
           SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
         run: shorebird login --api-token $SHOREBIRD_TOKEN
 
+      # 🔟 Get Flutter dependencies
+      - name: Flutter Pub Get
+        run: flutter pub get
+
+      # 1️⃣1️⃣ Build & distribute app via Fastlane
       - name: Build & Distribute to Firebase
         env:
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
         run: bundle exec fastlane android release_to_firebase
         working-directory: android
 
+      # 1️⃣2️⃣ Upload APK artifact
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
