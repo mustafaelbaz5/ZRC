@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -5,7 +7,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:zrc/core/router/app_router.dart';
 import 'package:zrc/zrc_app.dart';
-import 'dart:io';
 
 class TestPathProviderPlatform extends PathProviderPlatform {
   @override
@@ -38,7 +39,9 @@ void main() async {
   // await Firebase.initializeApp();
   // await Supabase.initialize(url: 'dummy', anonKey: 'dummy');
 
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (
+    final WidgetTester tester,
+  ) async {
     await tester.pumpWidget(ZrcApp(appRouter: AppRouter()));
 
     // Verify that our counter starts at 0.
