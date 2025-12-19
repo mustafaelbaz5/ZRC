@@ -89,9 +89,10 @@ flutter:
 
   # Asset folders included in the build
   assets:
-    - assets/images/ # Image assets
-    - assets/svgs/ # SVG assets
-    - assets/translations/ # Localization assets
+    - assets/images/
+    - assets/svgs/
+    - assets/translations/
+    - shorebird.yaml # Localization assets
 
   #        CUSTOM FONTS
   fonts:
