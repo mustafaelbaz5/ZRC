@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 import '../../data/model/instructor_item_model.dart';
 import 'instructors_list_view_item.dart';
@@ -8,16 +8,16 @@ class InstructorsListView extends StatelessWidget {
   const InstructorsListView({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: responsiveHeight(100),
       child: ListView.builder(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         itemCount: instructors.length,
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
-        itemBuilder: (context, index) {
+        itemBuilder: (final BuildContext context, final int index) {
           return InstructorsListViewItem(
             isSelected: false,
             onTap: () {},
@@ -29,7 +29,7 @@ class InstructorsListView extends StatelessWidget {
   }
 }
 
-final List<InstructorItemModel> instructors = [
+final List<InstructorItemModel> instructors = <InstructorItemModel>[
   InstructorItemModel(
     id: 1,
     name: "Mustafa",

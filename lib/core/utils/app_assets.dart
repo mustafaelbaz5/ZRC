@@ -10,8 +10,7 @@ class AppAssets {
       'assets/images/onboarding_banner4.png';
 
   // svg
-  static const String onBoardingBackground =
-      'assets/svgs/background_complete.svg';
+
   static const String notificationIcon = 'assets/svgs/notification_icon.svg';
   static const String homeHeaderBackground = 'assets/svgs/home_header_back.svg';
 

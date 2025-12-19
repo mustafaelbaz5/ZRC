@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 import '../../../utils/spacing.dart';
 import '../../../widgets/custom_text_button.dart';
@@ -26,11 +27,11 @@ class OnBoardingBottomSection extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Column(
-        children: [
+        children: <Widget>[
           PageIndicator(currentPage: currentPage, pageCount: pageCount),
           verticalSpacing(32.h),
           _buildActionButtons(),
@@ -42,14 +43,15 @@ class OnBoardingBottomSection extends StatelessWidget {
 
   Widget _buildActionButtons() {
     return Row(
-      children: [
+      children: <Widget>[
         if (canGoBack)
           OnBoardingBackButton(onPressed: onBack)
         else
-          SizedBox(width: 56.w),
+          const SizedBox.shrink(),
         horizontalSpacing(12.w),
         Expanded(
           child: CustomTextButton(
+            textStyle: AppTextStyles.font20Bold,
             buttonText: isLastPage
                 ? 'onboarding.button_get_started'.tr()
                 : 'onboarding.button_next'.tr(),

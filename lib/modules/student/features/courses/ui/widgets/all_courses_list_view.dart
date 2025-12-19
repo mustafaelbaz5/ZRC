@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../../core/extensions/navigation.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/spacing.dart';
+
 import '../../../../../../core/router/routes.dart';
 import '../../../../core/models/courses_card_model.dart';
-
 import 'all_courses_list_view_card.dart';
 
 class AllCoursesSliverList extends StatelessWidget {
   const AllCoursesSliverList({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     // Generate dummy course data
     final List<CoursesCardModel> courses = List.generate(
       10,
-      (index) => CoursesCardModel(
+      (final int index) => CoursesCardModel(
         image: 'assets/images/test.jpg',
         title: 'Mathematics ${index + 1}',
         description: 'Learn the basics of algebra, geometry, and calculus.',
@@ -24,19 +24,22 @@ class AllCoursesSliverList extends StatelessWidget {
     );
 
     return CustomScrollView(
-      slivers: [
+      slivers: <Widget>[
         SliverPadding(
-          padding: EdgeInsets.all(16.w),
+          padding: EdgeInsets.all(responsiveWidth(16)),
           sliver: SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              final course = courses[index];
+            delegate: SliverChildBuilderDelegate((
+              final BuildContext context,
+              final int index,
+            ) {
+              final CoursesCardModel course = courses[index];
               return Padding(
-                padding: EdgeInsets.only(bottom: 16.h),
+                padding: EdgeInsets.only(bottom: responsiveHeight(16)),
                 child: GestureDetector(
                   onTap: () {
                     context.pushNamed(
                       Routes.studentCoursesDetailsScreen,
-                      arguments: {'course': course},
+                      arguments: <String, CoursesCardModel>{'course': course},
                     );
                   },
                   child: AllCoursesListViewCard(coursesCardModel: course),

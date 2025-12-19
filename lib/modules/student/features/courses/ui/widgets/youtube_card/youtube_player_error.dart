@@ -13,13 +13,13 @@ class YoutubePlayerError extends StatelessWidget {
   final double aspectRatio;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AspectRatio(
       aspectRatio: aspectRatio,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             const Icon(Icons.error_outline, color: Colors.red, size: 48),
             const SizedBox(height: 12),
             Text(message, style: const TextStyle(color: Colors.white)),

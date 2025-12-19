@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../themes/app_colors.dart';
-import '../themes/app_text_styles.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -33,38 +31,32 @@ class CustomTextButton extends StatelessWidget {
   final Icon? icon;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SizedBox(
       width: buttonWidth ?? double.infinity,
       height: buttonHeight?.h ?? 52.h,
-      child: TextButton(
+      child: ElevatedButton(
         onPressed: isLoading ? null : onPressed,
-        style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.resolveWith<Color?>(
-            (states) => backgroundColor ?? AppColors.lightBlue,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor ?? AppColors.primary400,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
           ),
-          shape: WidgetStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
-            ),
+          padding: EdgeInsets.symmetric(
+            vertical: verticalPadding?.h ?? 12.h,
+            horizontal: horizontalPadding?.w ?? 16.w,
           ),
-          padding: WidgetStateProperty.all(
-            EdgeInsets.symmetric(
-              vertical: verticalPadding?.h ?? 12.h,
-              horizontal: horizontalPadding?.w ?? 16.w,
-            ),
-          ),
-          overlayColor: WidgetStateProperty.resolveWith<Color?>(
-            (states) => Colors.white.withAlpha(20),
-          ),
+          elevation: 0,
         ),
         child: isLoading
             ? SizedBox(
                 width: 24.w,
                 height: 24.h,
-                child: const CircularProgressIndicator(
+                child: CircularProgressIndicator(
                   strokeWidth: 2.5,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme.of(context).colorScheme.onPrimary,
+                  ),
                 ),
               )
             : Row(
@@ -75,7 +67,11 @@ class CustomTextButton extends StatelessWidget {
                   Flexible(
                     child: Text(
                       buttonText,
-                      style: textStyle ?? AppTextStyles.font18WhiteRegular(),
+                      style:
+                          textStyle ??
+                          Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: Theme.of(context).colorScheme.onPrimary,
+                          ),
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                     ),

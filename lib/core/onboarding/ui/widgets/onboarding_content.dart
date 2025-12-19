@@ -12,12 +12,12 @@ class OnBoardingContent extends StatelessWidget {
   const OnBoardingContent({super.key, required this.page});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 32.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           OnBoardingImage(imagePath: page.image),
           verticalSpacing(48.h),
           OnBoardingTextContent(title: page.title, subtitle: page.subtitle),

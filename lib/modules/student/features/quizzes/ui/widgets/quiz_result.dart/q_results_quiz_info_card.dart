@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../data/model/quiz_model.dart';
@@ -12,31 +14,37 @@ class QResultsQuizInfoCard extends StatelessWidget {
   const QResultsQuizInfoCard({super.key, required this.quiz});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.w),
-      padding: EdgeInsets.all(20.w),
+      margin: EdgeInsets.all(responsiveWidth(16)),
+      padding: EdgeInsets.all(responsiveWidth(20)),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
-            blurRadius: 8,
+            color: context.customColors.background.withAlpha(
+              (0.04 * 255).toInt(),
+            ),
+            blurRadius: 4,
             offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
-              Icon(Icons.quiz_outlined, size: 20.sp, color: Colors.blue[700]),
-              SizedBox(width: 8.w),
+            children: <Widget>[
+              Icon(
+                Icons.quiz_outlined,
+                size: 20.sp,
+                color: context.customColors.textPrimary,
+              ),
+              horizontalSpacing(8),
               Text(
                 tr('student_quizzes.quiz_result.quiz_info.title'),
-                style: AppTextStyles.font16BlackBold(),
+                style: AppTextStyles.font16Bold,
               ),
             ],
           ),

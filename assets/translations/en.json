@@ -1,4 +1,31 @@
 {
+  "errors": {
+    "no_internet": "No internet connection. Please check your network.",
+    "timeout": "Request timeout. Please try again.",
+    "connection_error": "Connection error. Please check your internet connection.",
+    "bad_request": "Invalid request. Please check your input.",
+    "unauthorized": "Unauthorized access. Please login again.",
+    "forbidden": "Access forbidden. You don't have permission.",
+    "not_found": "Resource not found.",
+    "conflict": "Conflict error. Data already exists.",
+    "server_error": "Server error occurred. Please try again later.",
+    "invalid_credentials": "Invalid email or password.",
+    "user_not_found": "No account found with this email.",
+    "email_already_exists": "An account with this email already exists.",
+    "weak_password": "Password is too weak. Please use a stronger password.",
+    "invalid_email": "Invalid email address format.",
+    "session_expired": "Your session has expired. Please login again.",
+    "email_not_verified": "Please verify your email address.",
+    "validation": "Validation error. Please check your input.",
+    "cancelled": "Operation was cancelled.",
+    "unknown": "An unexpected error occurred.",
+    "too_many_requests": "Too many attempts. Please try again later.",
+    "permission_denied": "You don't have permission to perform this action.",
+    "service_unavailable": "Service temporarily unavailable. Please try again.",
+    "file_too_large": "File is too large.",
+    "user_disabled": "This account has been disabled.",
+    "operation_not_allowed": "This operation is not allowed."
+  },
   "onboarding": {
     "title1": "Welcome to ZRC",
     "subtitle1": "ZNU Robotics Community",
@@ -19,7 +46,7 @@
   },
 
   "login": {
-    "title": "Welcome Back",
+    "title": "Welcome",
     "subtitle": "Login with your university email and password",
 
     "email_label": "Email",
@@ -35,7 +62,8 @@
     "button_login": "Login",
 
     "title_login_failed": "Login Failed",
-    "welcome_user": "Welcome, {name}"
+    "welcome_user": "Welcome, {name}",
+    "text_account_missing": "If Your Account Missing Please Contact With The University Union or Student Union To Get Your University Email "
   },
 
   "student_home": {
@@ -328,5 +356,20 @@
       "id_label": "ID"
     },
     "copy_to_clipboard": "Copied to clipboard"
+  },
+  "instructor_home": {
+    "statistics": {
+      "title": "Statistics",
+      "courses": "Courses",
+      "quizzes": "Quizzes",
+      "avg_score": "Avg Score"
+    },
+    "quick_actions": {
+      "title": "Quick Actions",
+      "create_course": "Create Course",
+      "create_quiz": "Create Quiz",
+      "create_video": "Create Video",
+      "create_assignment": "Create Assignment"
+    }
   }
 }

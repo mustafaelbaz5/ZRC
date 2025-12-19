@@ -1,24 +1,32 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/utils/functions/app_language.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/language_option.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_menu_item.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_section_body.dart';
-import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/theme_option.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
+
+import '../profile_menu_item.dart';
+import '../profile_section_body.dart';
+import 'language_option.dart';
+import 'theme_option.dart';
 
 class ProfileSettings extends StatelessWidget {
-  const ProfileSettings({super.key, this.onSwitchLanguageTap});
+  const ProfileSettings({
+    super.key,
+    this.onSwitchLanguageTap,
+    this.onSwitchThemeTap,
+  });
 
   final VoidCallback? onSwitchLanguageTap;
+  final VoidCallback? onSwitchThemeTap;
 
   @override
-  Widget build(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  Widget build(final BuildContext context) {
+    final bool isArabic = context.isArabic;
 
     return ProfileSectionBody(
       title: 'student_profile.settings.title'.tr(),
-      items: [
+      items: <Widget>[
         ProfileMenuItem(
           icon: Icons.language_outlined,
           title: 'student_profile.settings.language'.tr(),
@@ -31,29 +39,34 @@ class ProfileSettings extends StatelessWidget {
         ProfileMenuItem(
           icon: Icons.palette_outlined,
           title: 'student_profile.settings.theme'.tr(),
-          subtitle: 'student_profile.settings.light_mode'.tr(),
+          subtitle: context.isDarkMode
+              ? 'student_profile.settings.dark_mode'.tr()
+              : 'student_profile.settings.light_mode'.tr(),
           onTap: () => _showThemeDialog(context),
         ),
       ],
     );
   }
 
-  void _showLanguageDialog(BuildContext context) {
-    final isArabic = isAppLanguageArabic(context);
+  void _showLanguageDialog(final BuildContext context) {
+    final bool isArabic = context.isArabic;
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (final BuildContext context) => AlertDialog(
+        backgroundColor: context.customColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
           'student_profile.settings.select_language'.tr(),
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
+          style: AppTextStyles.font18Bold.copyWith(
+            color: context.customColors.textPrimary,
+          ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             // English option
             LanguageOption(
               title: 'student_profile.settings.english'.tr(),
@@ -65,7 +78,7 @@ class ProfileSettings extends StatelessWidget {
               },
             ),
 
-            SizedBox(height: 8.h),
+            verticalSpacing(6),
 
             // Arabic option
             LanguageOption(
@@ -83,32 +96,46 @@ class ProfileSettings extends StatelessWidget {
     );
   }
 
-  void _showThemeDialog(BuildContext context) {
+  void _showThemeDialog(final BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (final BuildContext context) => AlertDialog(
+        backgroundColor: context.customColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
           'student_profile.settings.select_theme'.tr(),
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700),
+          style: AppTextStyles.font18Bold.copyWith(
+            color: context.customColors.textPrimary,
+          ),
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: [
+          children: <Widget>[
             ThemeOption(
               title: 'student_profile.settings.light'.tr(),
               icon: Icons.light_mode,
-              isSelected: true,
-              onTap: () => Navigator.pop(context),
+              isSelected: !isDark,
+              onTap: () {
+                Navigator.pop(context);
+                // Tap callback switches the theme
+                if (onSwitchThemeTap != null) onSwitchThemeTap!();
+              },
             ),
-            SizedBox(height: 8.h),
+
+            verticalSpacing(8),
+
             ThemeOption(
               title: 'student_profile.settings.dark'.tr(),
               icon: Icons.dark_mode,
-              isSelected: false,
-              onTap: () => Navigator.pop(context),
+              isSelected: isDark,
+              onTap: () {
+                Navigator.pop(context);
+                // Tap callback switches the theme
+                if (onSwitchThemeTap != null) onSwitchThemeTap!();
+              },
             ),
           ],
         ),

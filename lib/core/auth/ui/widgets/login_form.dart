@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../themes/app_colors.dart';
 import '../../../themes/app_text_styles.dart';
 import '../../../utils/regex.dart';
 import '../../../utils/spacing.dart';
@@ -19,9 +18,9 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void dispose() {
@@ -40,8 +39,8 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final isLoading = context.watch<AuthCubit>().state is AuthLoading;
+  Widget build(final BuildContext context) {
+    final bool isLoading = context.watch<AuthCubit>().state is AuthLoading;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -49,18 +48,15 @@ class _LoginFormState extends State<LoginForm> {
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             // Email
-            Text(
-              'login.email_label'.tr(),
-              style: AppTextStyles.font16BlackBold(),
-            ),
+            Text('login.email_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _emailController,
               hintText: 'login.email_hint'.tr(),
               keyboardType: TextInputType.emailAddress,
-              validator: (value) {
+              validator: (final String? value) {
                 if (value == null || value.isEmpty) {
                   return 'login.email_error_empty'.tr();
                 } else if (!AppRegex.isEmailValid(value.trim())) {
@@ -72,16 +68,13 @@ class _LoginFormState extends State<LoginForm> {
             verticalSpacing(24),
 
             // Password
-            Text(
-              'login.password_label'.tr(),
-              style: AppTextStyles.font16BlackBold().copyWith(fontSize: 16.sp),
-            ),
+            Text('login.password_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
               controller: _passwordController,
               hintText: 'login.password_hint'.tr(),
               isObscureText: true,
-              validator: (value) {
+              validator: (final String? value) {
                 if (value == null || value.isEmpty) {
                   return 'login.password_error_empty'.tr();
                 }
@@ -89,26 +82,15 @@ class _LoginFormState extends State<LoginForm> {
               },
             ),
 
-            Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'login.forgot_password'.tr(),
-                  style: AppTextStyles.font16BlackRegular().copyWith(
-                    color: AppColors.lightBlue,
-                  ),
-                ),
-              ),
-            ),
-            verticalSpacing(24),
+            verticalSpacing(40),
 
             // Login button
             CustomTextButton(
+              textStyle: AppTextStyles.font20Bold,
               buttonText: 'login.button_login'.tr(),
               onPressed: isLoading ? null : _onLoginPressed,
               isLoading: isLoading,
-              buttonHeight: 56.h,
+              buttonHeight: responsiveHeight(56),
               buttonWidth: double.infinity,
               borderRadius: 12.r,
             ),

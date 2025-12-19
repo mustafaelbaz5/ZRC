@@ -9,7 +9,7 @@ class CategoryModel {
 
   String get title => tr(titleKey);
 
-  static List<CategoryModel> categories = [
+  static List<CategoryModel> categories = <CategoryModel>[
     CategoryModel(
       titleKey: 'student_home.categories.programming',
       icon: AppAssets.softWareIcon,

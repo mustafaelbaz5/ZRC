@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -18,27 +21,30 @@ class QResultsStatItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 16.h),
+      padding: EdgeInsets.symmetric(vertical: responsiveHeight(16)),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        color: context.theme.cardColor,
+        borderRadius: BorderRadius.circular(responsiveWidth(16)),
+        boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
-            blurRadius: 8,
+            color: AppColors.shadow1Color.withAlpha((0.04 * 255).toInt()),
+            blurRadius: 4,
             offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Column(
-        children: [
+        children: <Widget>[
           Icon(icon, size: 24.sp, color: color),
           verticalSpacing(8),
-          Text(value, style: AppTextStyles.font16BlackBold()),
-          SizedBox(height: 4.h),
-          Text(label, style: AppTextStyles.font13greyRegular()),
+          Text(value, style: AppTextStyles.font16Bold),
+          verticalSpacing(4),
+          Text(
+            label,
+            style: AppTextStyles.font13Regular.copyWith(color: AppColors.grey0),
+          ),
         ],
       ),
     );

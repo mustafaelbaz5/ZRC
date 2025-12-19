@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 class AttemptsInfo extends StatelessWidget {
   const AttemptsInfo({
@@ -11,24 +13,24 @@ class AttemptsInfo extends StatelessWidget {
   final int attemptsUsed;
   final int attemptsAllowed;
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
       decoration: BoxDecoration(
-        color: Colors.indigo.withAlpha(25),
+        color: AppColors.primary200.withAlpha(25),
         borderRadius: BorderRadius.circular(8.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(Icons.replay_outlined, size: 14.sp, color: Colors.indigo[700]),
+        children: <Widget>[
+          Icon(Icons.replay_outlined, size: 14.sp, color: AppColors.primary200),
           SizedBox(width: 6.w),
           Text(
             '$attemptsUsed/$attemptsAllowed ${tr('student_quizzes.quiz_card.attempts')}',
-            style: TextStyle(
+            style: AppTextStyles.font13Regular.copyWith(
               fontSize: 12.sp,
               fontWeight: FontWeight.w600,
-              color: Colors.indigo[800],
+              color: AppColors.primary300,
             ),
           ),
         ],

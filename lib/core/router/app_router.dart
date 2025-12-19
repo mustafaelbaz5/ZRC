@@ -1,30 +1,34 @@
+// ignore_for_file: always_specify_types
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/modules/instructor/core/widgets/instructor_scaffold.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_details_screen.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
+import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_detailed_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_questions_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_result_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
 import '../../modules/student/core/widgets/student_scaffold.dart';
-import '../../modules/student/features/courses/ui/courses_details_screen.dart';
-import '../../modules/student/features/courses/ui/courses_screen.dart';
-import '../../modules/student/features/home/ui/home_screen.dart';
-import '../../modules/student/features/profile/ui/profile_screen.dart';
+import '../../modules/student/features/home/ui/student_home_screen.dart';
 import '../../modules/student/features/quizzes/data/model/quiz_model.dart';
-import '../../modules/student/features/quizzes/ui/quiz_detailed_screen.dart';
-import '../../modules/student/features/quizzes/ui/quiz_questions_screen.dart';
-import '../../modules/student/features/quizzes/ui/quiz_result_screen.dart';
-import '../../modules/student/features/quizzes/ui/quizzes_screen.dart';
 import '../auth/logic/cubit/auth_cubit.dart';
 import '../auth/ui/login_screen.dart';
 import '../auth/ui/widgets/initial_screen.dart';
 import '../onboarding/ui/on_boarding_screen.dart';
 import 'routes.dart';
 
-final navigationKey = GlobalKey<CurvedNavigationBarState>();
+final GlobalKey<CurvedNavigationBarState> navigationKey =
+    GlobalKey<CurvedNavigationBarState>();
 
 class AppRouter {
-  Route<dynamic>? generateRoute(RouteSettings settings) {
-    final args = (settings.arguments as Map<String, dynamic>?) ?? {};
+  Route<dynamic>? generateRoute(final RouteSettings settings) {
+    final Map<String, dynamic> args =
+        (settings.arguments as Map<String, dynamic>?) ?? <String, dynamic>{};
 
     switch (settings.name) {
       // ----------------- ONBOARDING -----------------
@@ -50,7 +54,7 @@ class AppRouter {
 
       // ----------------- STUDENT APP -----------------
       case Routes.studentScaffold:
-        final key =
+        final GlobalKey<CurvedNavigationBarState> key =
             (settings.arguments as Map<String, dynamic>?)?['navigationKey']
                 as GlobalKey<CurvedNavigationBarState>? ??
             GlobalKey<CurvedNavigationBarState>();
@@ -60,39 +64,52 @@ class AppRouter {
         );
 
       case Routes.studentHomeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => const StudentHomeScreen());
 
       case Routes.studentCoursesScreen:
-        return MaterialPageRoute(builder: (_) => const CoursesScreen());
+        return MaterialPageRoute(builder: (_) => const StudentCoursesScreen());
 
       case Routes.studentCoursesDetailsScreen:
-        return MaterialPageRoute(builder: (_) => const CoursesDetailsScreen());
+        return MaterialPageRoute(
+          builder: (_) => const StudentCoursesDetailsScreen(),
+        );
 
       case Routes.studentQuizzesScreen:
-        return MaterialPageRoute(builder: (_) => const QuizzesScreen());
+        return MaterialPageRoute(builder: (_) => const StudentQuizzesScreen());
 
       case Routes.studentQuizDetailedScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizDetailedScreen(quiz: args['quiz'] as QuizModel),
+          builder: (_) =>
+              StudentQuizDetailedScreen(quiz: args['quiz'] as QuizModel),
         );
 
       case Routes.studentQuizQuestionScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizQuestionsScreen(quiz: args['quiz'] as QuizModel),
+          builder: (_) =>
+              StudentQuizQuestionsScreen(quiz: args['quiz'] as QuizModel),
         );
 
       case Routes.studentQuizResultScreen:
         return MaterialPageRoute(
-          builder: (_) => QuizResultScreen(
+          builder: (_) => StudentQuizResultScreen(
             quiz: args['quiz'] as QuizModel,
             score: args['score'] as int,
           ),
         );
 
       case Routes.studentProfileScreen:
-        return MaterialPageRoute(builder: (_) => const ProfileScreen());
+        return MaterialPageRoute(builder: (_) => const StudentProfileScreen());
 
       // ----------------- INSTRUCTOR -----------------
+      case Routes.instructorScaffold:
+        final GlobalKey<CurvedNavigationBarState> instructorKey =
+            args['navigationKey'] as GlobalKey<CurvedNavigationBarState>? ??
+            GlobalKey<CurvedNavigationBarState>();
+
+        return MaterialPageRoute(
+          builder: (_) => InstructorScaffold(navigationKey: instructorKey),
+        );
+
       case Routes.instructorHomeScreen:
         return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
 

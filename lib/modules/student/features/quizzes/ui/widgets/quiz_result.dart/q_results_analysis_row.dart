@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 import '../../../../../../../core/themes/app_text_styles.dart';
 
@@ -16,19 +16,17 @@ class QResultsAnalysisRow extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(label, style: AppTextStyles.font13greyRegular()),
+      children: <Widget>[
         Text(
-          value,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w700,
-            color: color,
+          label,
+          style: AppTextStyles.font13Regular.copyWith(
+            color: context.customColors.textPrimary,
           ),
         ),
+        Text(value, style: AppTextStyles.font16Bold.copyWith(color: color)),
       ],
     );
   }

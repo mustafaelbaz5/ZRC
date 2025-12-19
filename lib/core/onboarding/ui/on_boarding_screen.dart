@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/functions/app_setting_fun.dart';
 
-import '../../extensions/navigation.dart';
 import '../../router/routes.dart';
-import '../../utils/functions/app_language.dart';
 import '../data/models/on_boarding_page_model.dart';
 import 'widgets/onboarding_bottom_section.dart';
 import 'widgets/onboarding_content.dart';
@@ -28,7 +28,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
-  void _onPageChanged(int index) {
+  void _onPageChanged(final int index) {
     setState(() => _currentPage = index);
   }
 
@@ -51,28 +51,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  void _navigateToLogin() {
-    context.pushReplacementNamed(Routes.loginScreen);
-  }
-
   void _handleNextAction() {
     if (_isLastPage) {
-      _navigateToLogin();
+      context.pushReplacementNamed(Routes.loginScreen);
     } else {
       _goToNextPage();
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
-          children: [
+          children: <Widget>[
             OnBoardingTopBar(
               showSkip: !_isLastPage,
-              onSkip: _navigateToLogin,
+              onSkip: () => context.pushReplacementNamed(Routes.loginScreen),
               onChangeLanguage: _onChangeLanguage,
             ),
             Expanded(
@@ -80,7 +75,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 controller: _pageController,
                 itemCount: onboardingPages.length,
                 onPageChanged: _onPageChanged,
-                itemBuilder: (context, index) {
+                itemBuilder: (final BuildContext context, final int index) {
                   return OnBoardingContent(page: onboardingPages[index]);
                 },
               ),

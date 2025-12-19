@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import 'q_results_analysis_row.dart';
@@ -18,16 +20,18 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Container(
       margin: EdgeInsets.all(16.w),
       padding: EdgeInsets.all(20.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.cardColor,
         borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
+        boxShadow: <BoxShadow>[
           BoxShadow(
-            color: Colors.black.withAlpha((0.04 * 255).toInt()),
+            color: context.customColors.background.withAlpha(
+              (0.04 * 255).toInt(),
+            ),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -35,18 +39,18 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Row(
-            children: [
+            children: <Widget>[
               Icon(
                 Icons.analytics_outlined,
                 size: 20.sp,
-                color: Colors.blue[700],
+                color: context.customColors.textPrimary,
               ),
               horizontalSpacing(8),
               Text(
                 tr('student_quizzes.quiz_result.performance.title'),
-                style: AppTextStyles.font16BlackBold(),
+                style: AppTextStyles.font16Bold,
               ),
             ],
           ),
@@ -54,35 +58,43 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
           QResultsAnalysisRow(
             label: tr('student_quizzes.quiz_result.performance.your_score'),
             value: '$percentage%',
-            color: isPassed ? Colors.green : Colors.orange,
+            color: isPassed
+                ? context.customColors.successContainer
+                : context.customColors.warningContainer,
           ),
           verticalSpacing(12),
           QResultsAnalysisRow(
             label: tr('student_quizzes.quiz_result.performance.passing_score'),
             value: '$passingMarks%',
-            color: Colors.blue,
+            color: context.customColors.accentBlueSoft,
           ),
           verticalSpacing(12),
           QResultsAnalysisRow(
             label: tr('student_quizzes.quiz_result.performance.difference'),
             value: '${(percentage - passingMarks).abs()}%',
-            color: Colors.grey,
+            color: context.customColors.textSecondary,
           ),
           verticalSpacing(12),
           Container(
             padding: EdgeInsets.all(12.w),
             decoration: BoxDecoration(
               color: isPassed
-                  ? Colors.green.withAlpha((0.09 * 255).toInt())
-                  : Colors.blue.withAlpha((0.09 * 255).toInt()),
+                  ? context.customColors.successContainer.withAlpha(
+                      (0.09 * 255).toInt(),
+                    )
+                  : context.customColors.warningContainer.withAlpha(
+                      (0.09 * 255).toInt(),
+                    ),
               borderRadius: BorderRadius.circular(12.r),
             ),
             child: Row(
-              children: [
+              children: <Widget>[
                 Icon(
                   isPassed ? Icons.lightbulb_outline : Icons.info_outline,
                   size: 18.sp,
-                  color: isPassed ? Colors.green[700] : Colors.blue[700],
+                  color: isPassed
+                      ? context.customColors.successContainer
+                      : context.customColors.warningContainer,
                 ),
                 horizontalSpacing(10),
                 Expanded(
@@ -94,7 +106,9 @@ class QResultsPerformanceAnalysis extends StatelessWidget {
                         : tr(
                             'student_quizzes.quiz_result.performance.review_material',
                           ),
-                    style: AppTextStyles.font13greyRegular(),
+                    style: AppTextStyles.font13Regular.copyWith(
+                      color: context.customColors.textSecondary,
+                    ),
                   ),
                 ),
               ],

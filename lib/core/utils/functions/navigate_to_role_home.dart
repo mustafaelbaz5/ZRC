@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 import '../../router/routes.dart';
 
-void navigateToRoleHome(BuildContext context, String role) {
+void navigateToRoleHome(final BuildContext context, final String role) {
   switch (role) {
     case 'student':
-      Navigator.pushReplacementNamed(context, Routes.studentScaffold);
+      context.pushNamedAndRemoveAll(Routes.studentScaffold);
       break;
     case 'instructor':
-      Navigator.pushReplacementNamed(context, Routes.instructorHomeScreen);
+      context.pushNamedAndRemoveAll(Routes.instructorScaffold);
       break;
     case 'admin':
-      Navigator.pushReplacementNamed(context, Routes.adminHomeScreen);
+      context.pushNamedAndRemoveAll(Routes.adminHomeScreen);
       break;
     default:
-      Navigator.pushReplacementNamed(context, Routes.onBoardingScreen);
+      context.pushNamedAndRemoveAll(Routes.onBoardingScreen);
   }
 }

@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
 
 import '../../../utils/spacing.dart';
 import 'log_in_header.dart';
@@ -8,7 +11,7 @@ class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return SingleChildScrollView(
       physics: const NeverScrollableScrollPhysics(),
       keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
@@ -20,12 +23,19 @@ class LoginBody extends StatelessWidget {
         child: IntrinsicHeight(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               verticalSpacing(80),
               const LogInHeader(),
               verticalSpacing(60),
               const LoginForm(),
-              const Spacer(),
+              verticalSpacing(60),
+              Text(
+                "login.text_account_missing".tr(),
+                textAlign: TextAlign.center,
+                style: AppTextStyles.font14Regular.copyWith(
+                  color: context.customColors.textPrimary.withAlpha(128),
+                ),
+              ),
             ],
           ),
         ),

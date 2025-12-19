@@ -1,11 +1,13 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:zrc/core/utils/regex.dart';
-import '../themes/app_colors.dart';
-import '../themes/app_text_styles.dart';
-import '../utils/functions/app_language.dart';
-import 'dart:ui' as ui; // Add this import
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/functions/string_fun.dart';
+
+import '../utils/regex.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -51,28 +53,24 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _obscureText;
-  ui.TextDirection? _direction = ui.TextDirection.ltr;
+  ui.TextDirection _direction = ui.TextDirection.ltr;
 
   @override
   void initState() {
     super.initState();
     _obscureText = widget.isObscureText;
 
-    // Initialize direction based on initial text
-    if (widget.controller != null && widget.controller!.text.isNotEmpty) {
-      _direction = AppRegex().isArabic(widget.controller!.text)
+    final text = widget.controller?.text;
+    if (text != null && text.isNotEmpty) {
+      _direction = AppRegex().isArabic(text)
           ? ui.TextDirection.rtl
           : ui.TextDirection.ltr;
     }
   }
 
-  void _toggleObscure() {
-    setState(() {
-      _obscureText = !_obscureText;
-    });
-  }
+  void _toggleObscure() => setState(() => _obscureText = !_obscureText);
 
-  void _updateDirection(String value) {
+  void _updateDirection(final String value) {
     setState(() {
       _direction = AppRegex().isArabic(value)
           ? ui.TextDirection.rtl
@@ -80,81 +78,85 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     });
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final radius = BorderRadius.circular(widget.borderRadius ?? 16.0);
+  OutlineInputBorder _buildBorder(final Color color, {final double width = 1}) {
+    return OutlineInputBorder(
+      borderSide: BorderSide(color: color, width: width),
+      borderRadius: BorderRadius.circular(widget.borderRadius ?? 16.r),
+    );
+  }
 
+  @override
+  Widget build(final BuildContext context) {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: _obscureText,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
-      style: widget.inputTextStyle ?? AppTextStyles.font16BlackRegular(),
-      validator: widget.validator,
       textDirection: _direction,
-      onChanged: (value) {
-        // Update text direction
+      validator: widget.validator,
+      style:
+          widget.inputTextStyle ??
+          AppTextStyles.font16Regular.copyWith(
+            color: context.customColors.textPrimary,
+          ),
+      onChanged: (final value) {
         _updateDirection(value);
 
-        // Automatically romanize if locale is English
-        if (context.locale.languageCode == 'en' && AppRegex().isArabic(value)) {
-          final converted = changeNameToEn(context, value);
+        if (context.isArabic && AppRegex().isArabic(value)) {
+          final converted = convertNamesToEn(context, value);
           widget.controller?.value = TextEditingValue(
             text: converted,
             selection: TextSelection.collapsed(offset: converted.length),
           );
         }
 
-        if (widget.onChanged != null) widget.onChanged!(value);
+        widget.onChanged?.call(value);
       },
       decoration: InputDecoration(
         isDense: true,
         contentPadding:
             widget.contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+
         filled: true,
-        fillColor: widget.innerBackgroundColor ?? Colors.transparent,
+        fillColor:
+            widget.innerBackgroundColor ??
+            context.customColors.surfaceVariant.withAlpha(88),
+
         hintText: widget.hintText,
         hintStyle:
             widget.hintStyle ??
-            AppTextStyles.font16BlackRegular().copyWith(
-              color: const Color(0xFFC1C1C1),
+            AppTextStyles.font16Regular.copyWith(
+              color: context.customColors.textSecondary.withAlpha(128),
             ),
+
         prefixIcon: widget.prefixIcon,
+
         suffixIcon: widget.isObscureText
             ? GestureDetector(
                 onTap: _toggleObscure,
                 child: Icon(
                   _obscureText ? Icons.visibility_off : Icons.visibility,
-                  color: Colors.grey,
+                  color: _obscureText
+                      ? context.customColors.textSecondary
+                      : context.customColors.textPrimary,
                   size: 22.sp,
                 ),
               )
             : null,
+
         focusedBorder:
             widget.focusedBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(
-                color: AppColors.lightBlue,
-                width: 1.3,
-              ),
-              borderRadius: radius,
-            ),
+            _buildBorder(context.customColors.textPrimary, width: 1.3),
+
         enabledBorder:
             widget.enabledBorder ??
-            OutlineInputBorder(
-              borderSide: const BorderSide(color: Color(0xFFAFAFAF), width: .7),
-              borderRadius: radius,
-            ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.4),
-          borderRadius: radius,
-        ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.red, width: 1.4),
-          borderRadius: radius,
-        ),
+            _buildBorder(context.customColors.border, width: 0.8),
+
+        errorBorder: _buildBorder(AppColors.error100, width: 1.4),
+
+        focusedErrorBorder: _buildBorder(AppColors.error100, width: 1.4),
       ),
     );
   }

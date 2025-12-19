@@ -1,14 +1,14 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
+import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
+import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
+import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
-import '../../../../core/themes/app_colors.dart';
 import '../../../../core/utils/app_assets.dart';
-import '../../features/courses/ui/courses_screen.dart';
-import '../../features/home/ui/home_screen.dart';
-import '../../features/profile/ui/profile_screen.dart';
-import '../../features/quizzes/ui/quizzes_screen.dart';
 
 class StudentScaffold extends StatefulWidget {
   const StudentScaffold({super.key, required this.navigationKey});
@@ -20,7 +20,7 @@ class StudentScaffold extends StatefulWidget {
 class _StudentScaffoldState extends State<StudentScaffold> {
   int bottomNavIndex = 0;
 
-  late final List<String> icons = [
+  late final List<String> icons = <String>[
     AppAssets.homeIcon,
     AppAssets.computerIcon,
     AppAssets.bookIcon,
@@ -28,19 +28,23 @@ class _StudentScaffoldState extends State<StudentScaffold> {
   ];
 
   @override
-  Widget build(BuildContext context) {
-    const activeColor = Colors.white;
-    const inactiveColor = AppColors.lightBlue;
+  Widget build(final BuildContext context) {
+    final Color activeColor = context.customColors.background;
+    final Color inactiveColor = context.customColors.accentBlue;
 
-    final items = icons.map((icon) {
-      int i = icons.indexOf(icon);
+    final List<ColorFiltered> items = icons.map((final String icon) {
+      final int i = icons.indexOf(icon);
 
       return ColorFiltered(
         colorFilter: ColorFilter.mode(
           i == bottomNavIndex ? activeColor : inactiveColor,
           BlendMode.srcIn,
         ),
-        child: SvgPicture.asset(icon, height: 24.h, width: 24.w),
+        child: SvgPicture.asset(
+          icon,
+          height: responsiveHeight(24),
+          width: responsiveWidth(24),
+        ),
       );
     }).toList();
 
@@ -52,19 +56,19 @@ class _StudentScaffoldState extends State<StudentScaffold> {
           key: widget.navigationKey,
           animationCurve: Curves.easeInOut,
           animationDuration: const Duration(milliseconds: 600),
-          backgroundColor: Colors.transparent,
-          color: const Color.fromARGB(255, 242, 242, 242),
-          buttonBackgroundColor: AppColors.darkBlue,
-          height: 50.h,
+          backgroundColor: context.customColors.background,
+          color: context.customColors.divider.withAlpha(120),
+          buttonBackgroundColor: context.customColors.accentBlue,
+          height: responsiveHeight(50),
           index: bottomNavIndex,
           items: items,
-          onTap: (index) => setState(() => bottomNavIndex = index),
+          onTap: (final int index) => setState(() => bottomNavIndex = index),
         ),
-        body: [
-          const HomeScreen(),
-          const CoursesScreen(),
-          const QuizzesScreen(),
-          const ProfileScreen(),
+        body: <Widget>[
+          const StudentHomeScreen(),
+          const StudentCoursesScreen(),
+          const StudentQuizzesScreen(),
+          const StudentProfileScreen(),
         ][bottomNavIndex],
       ),
     );

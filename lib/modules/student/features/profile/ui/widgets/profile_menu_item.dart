@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_text_styles.dart';
+import 'package:zrc/core/utils/spacing.dart';
 
 class ProfileMenuItem extends StatelessWidget {
   final IconData icon;
@@ -18,42 +20,47 @@ class ProfileMenuItem extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: responsiveWidth(20),
+            vertical: responsiveHeight(16),
+          ),
           child: Row(
-            children: [
+            children: <Widget>[
               Container(
-                padding: EdgeInsets.all(10.w),
+                padding: EdgeInsets.all(responsiveWidth(10)),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
-                  borderRadius: BorderRadius.circular(12.r),
+                  color: context.customColors.surfaceVariant,
+                  borderRadius: BorderRadius.circular(responsiveWidth(12)),
                 ),
-                child: Icon(icon, size: 22.sp, color: Colors.grey[700]),
+                child: Icon(
+                  icon,
+                  size: responsiveWidth(22),
+                  color: context.customColors.textSecondary,
+                ),
               ),
-              SizedBox(width: 16.w),
+              horizontalSpacing(16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Text(
                       title,
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[900],
+                      style: AppTextStyles.font14Bold.copyWith(
+                        color: context.customColors.textPrimary,
                       ),
                     ),
-                    SizedBox(height: 4.h),
+                    verticalSpacing(4),
                     Text(
                       subtitle,
-                      style: TextStyle(
-                        fontSize: 12.sp,
-                        color: Colors.grey[600],
+                      style: AppTextStyles.font13Regular.copyWith(
+                        fontSize: responsiveWidth(12),
+                        color: context.customColors.textSecondary,
                       ),
                     ),
                   ],
@@ -64,8 +71,11 @@ class ProfileMenuItem extends StatelessWidget {
               else
                 Icon(
                   Icons.arrow_forward_ios,
-                  size: 16.sp,
-                  color: Colors.grey[400],
+                  size: responsiveWidth(16),
+                  color: context.customColors.textSecondary.withAlpha(
+                    100,
+                  ), // Adjust alpha as needed
+                  // Or use AppColors.grey400 if available
                 ),
             ],
           ),

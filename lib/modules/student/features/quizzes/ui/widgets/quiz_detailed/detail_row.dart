@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 
@@ -18,9 +20,9 @@ class DetailRow extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
-      children: [
+      children: <Widget>[
         Container(
           padding: EdgeInsets.all(8.w),
           decoration: BoxDecoration(
@@ -30,8 +32,13 @@ class DetailRow extends StatelessWidget {
           child: Icon(icon, size: 20.sp, color: color),
         ),
         horizontalSpacing(12),
-        Expanded(child: Text(label, style: AppTextStyles.font16BlackRegular())),
-        Text(value, style: AppTextStyles.font13greyRegular()),
+        Expanded(child: Text(label, style: AppTextStyles.font16Regular)),
+        Text(
+          value,
+          style: AppTextStyles.font13Regular.copyWith(
+            color: context.customColors.textSecondary,
+          ),
+        ),
       ],
     );
   }

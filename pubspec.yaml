@@ -33,6 +33,9 @@ dependencies:
   # State management using BLoC pattern
   flutter_bloc: ^9.1.1
 
+  # Hydration for BLoC
+  hydrated_bloc: ^10.1.1
+
   # Responsive layout for different screen sizes
   flutter_screenutil: ^5.9.3
 
@@ -57,14 +60,16 @@ dependencies:
   # Localization
   easy_localization: ^3.0.8
 
-  # Google fonts
-  google_fonts: ^6.3.3
-
   # Arabic to Roman converter
   arabic_roman_conv: ^0.1.0-dev.2
 
   # Translation
   translator: ^1.0.4+1
+  path_provider: ^2.1.5
+
+  image_picker: ^1.2.1
+  path: ^1.9.1
+  path_provider_platform_interface: ^2.1.2
 
 # ------------------------------
 #        DEV DEPENDENCIES
@@ -86,23 +91,43 @@ flutter:
 
   # Asset folders included in the build
   assets:
-    - assets/images/ # Image assets
-    - assets/svgs/ # SVG assets
-    - assets/translations/ # Localization assets
+    - assets/images/
+    - assets/svgs/
+    - assets/translations/
+    - shorebird.yaml # Localization assets
 
-
-  # ------------------------------
   #        CUSTOM FONTS
-  # ------------------------------
-  # fonts:
-  #   - family: Poppins        # Font family name you will use in the app
-  #     fonts:
-  #       - asset: assets/fonts/Poppins-Regular.ttf
-  #         weight: 400        # Normal
-  #       - asset: assets/fonts/Poppins-Bold.ttf
-  #         weight: 700        # Bold
+  fonts:
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/manrope/Manrope-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/manrope/Manrope-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/manrope/Manrope-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/manrope/Manrope-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/manrope/Manrope-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/manrope/Manrope-Light.ttf
+          weight: 300
+        - asset: assets/fonts/manrope/Manrope-ExtraLight.ttf
+          weight: 200
 
-  #   - family: Roboto         # Another font family
-  #     fonts:
-  #       - asset: assets/fonts/Roboto-Light.ttf
-  #         weight: 300        # Light
+    - family: Tajawal
+      fonts:
+        - asset: assets/fonts/tajawal/Tajawal-Black.ttf
+          weight: 900
+        - asset: assets/fonts/tajawal/Tajawal-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/tajawal/Tajawal-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/tajawal/Tajawal-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/tajawal/Tajawal-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/tajawal/Tajawal-Light.ttf
+          weight: 300
+        - asset: assets/fonts/tajawal/Tajawal-ExtraLight.ttf
+          weight: 200

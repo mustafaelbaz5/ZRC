@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../themes/app_colors.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 class BackgroundShapes extends StatelessWidget {
   const BackgroundShapes({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Stack(
-      children: [
+      children: <Widget>[
         Positioned(
           top: -100,
           left: -100,
@@ -17,31 +16,31 @@ class BackgroundShapes extends StatelessWidget {
             width: 200.w,
             height: 200.w,
             decoration: BoxDecoration(
-              color: AppColors.lightBlue.withAlpha(50),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
         ),
         Positioned(
           bottom: -120,
-          right: -80,
+          right: -100,
           child: Container(
-            width: 250.w,
-            height: 250.w,
+            width: 200.w,
+            height: 200.w,
             decoration: BoxDecoration(
-              color: AppColors.lightBlue.withAlpha(50),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),
         ),
         Positioned(
           top: 150,
-          right: -60,
+          right: -100,
           child: Container(
             width: 150.w,
             height: 150.w,
             decoration: BoxDecoration(
-              color: AppColors.lightBlue.withAlpha(30),
+              color: context.customColors.surface.withAlpha(128),
               shape: BoxShape.circle,
             ),
           ),

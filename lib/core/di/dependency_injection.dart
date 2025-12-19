@@ -1,7 +1,6 @@
-
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.instance;
+final GetIt getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   /// Create a Dio instance using DioFactory
   // Dio dio = DioFactory.getDio();

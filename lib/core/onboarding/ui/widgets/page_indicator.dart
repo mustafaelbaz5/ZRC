@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../themes/app_colors.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
 
 class PageIndicator extends StatelessWidget {
   final int currentPage;
@@ -14,12 +13,12 @@ class PageIndicator extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(
         pageCount,
-        (index) => _PageIndicatorDot(isActive: currentPage == index),
+        (final int index) => _PageIndicatorDot(isActive: currentPage == index),
       ),
     );
   }
@@ -31,7 +30,7 @@ class _PageIndicatorDot extends StatelessWidget {
   const _PageIndicatorDot({required this.isActive});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOutCubic,
@@ -39,17 +38,10 @@ class _PageIndicatorDot extends StatelessWidget {
       width: isActive ? 32.w : 8.w,
       height: 8.h,
       decoration: BoxDecoration(
-        color: isActive ? AppColors.lightBlue : Colors.grey[300],
+        color: isActive
+            ? context.customColors.textPrimary
+            : context.customColors.border,
         borderRadius: BorderRadius.circular(4.r),
-        boxShadow: isActive
-            ? [
-                BoxShadow(
-                  color: AppColors.lightBlue.withAlpha(20),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ]
-            : null,
       ),
     );
   }
