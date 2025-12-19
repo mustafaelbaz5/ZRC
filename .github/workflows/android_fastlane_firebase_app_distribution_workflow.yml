@@ -1,4 +1,4 @@
-name: Android Fastlane with Firebase App Distribution Workflow
+name: Android Fastlane with Firebase App Distribution
 
 on:
   push:
@@ -10,17 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Cache Flutter dependencies
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.pub-cache
+          path: ~/.pub-cache
           key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-pub-
+          restore-keys: ${{ runner.os }}-pub-
 
       - name: Cache Gradle
         uses: actions/cache@v4
@@ -29,8 +27,7 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          restore-keys: ${{ runner.os }}-gradle-
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -43,7 +40,7 @@ jobs:
         with:
           channel: stable
 
-      - name: Flutter Pub Get
+      - name: Flutter pub get
         run: flutter pub get
 
       - name: Setup Ruby & Fastlane
@@ -52,7 +49,7 @@ jobs:
           ruby-version: "3.2.9"
           bundler-cache: true
           working-directory: android
-      
+
       - name: Install Shorebird
         run: |
           curl -sSL https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh | bash
@@ -63,14 +60,13 @@ jobs:
           SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
         run: shorebird login --api-token $SHOREBIRD_TOKEN
 
-      - name: Build and Distribute App to Firebase
+      - name: Build & Distribute to Firebase
         env:
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
-        run: |
-          bundle exec fastlane android release_to_firebase
+        run: bundle exec fastlane android release_to_firebase
         working-directory: android
 
-      - name: Upload APK Artifact
+      - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-release
