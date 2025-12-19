@@ -30,7 +30,7 @@ class QuickActionButton extends StatelessWidget {
               BoxShadow(
                 color: context.isDarkMode
                     ? Colors.transparent
-                    : AppColors.grey900.withOpacity(0.05),
+                    : AppColors.grey900.withValues(alpha: 0.5),
                 blurRadius: 6,
                 offset: const Offset(0, 3),
               ),
