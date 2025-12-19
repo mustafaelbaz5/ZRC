@@ -57,13 +57,11 @@ jobs:
           bundler-cache: true
           working-directory: android
 
-      # 8️⃣ Install Shorebird
       - name: Install Shorebird
         run: |
           curl -sSL https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh | bash
-          echo "export PATH=$HOME/.config/shorebird/bin:$PATH" >> $GITHUB_ENV
+          echo "PATH=$HOME/.config/shorebird/bin:$PATH" >> $GITHUB_ENV
 
-      # 9️⃣ Login Shorebird
       - name: Login Shorebird
         env:
           SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
