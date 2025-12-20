@@ -12,3 +12,9 @@ app_id: 12d25148-37fd-4e50-af73-954354605a5c
 # https://pub.dev/packages/shorebird_code_push
 # Uncomment the following line to disable automatic updates.
 # auto_update: false
+
+# Flavors configuration
+# Each flavor maps to its application ID from build.gradle
+flavors:
+  development: com.example.zrc.development
+  production: com.example.zrc.production
