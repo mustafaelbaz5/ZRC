@@ -8,7 +8,7 @@ description: "A new Flutter project."
 publish_to: "none"
 
 # App version: major.minor.patch+build
-version: 1.0.4+1
+version: 1.0.5+1
 
 # Dart/Flutter SDK version required for this project
 environment:
@@ -68,7 +68,10 @@ dependencies:
   path_provider: ^2.1.5
 
   image_picker: ^1.2.1
+
+  flutter_native_splash: ^2.4.7
   path: ^1.9.1
+  flutter_launcher_icons: ^0.14.4
   path_provider_platform_interface: ^2.1.2
 
 # ------------------------------
@@ -131,3 +134,16 @@ flutter:
           weight: 300
         - asset: assets/fonts/tajawal/Tajawal-ExtraLight.ttf
           weight: 200
+
+
+# ------------------------------
+#        LAUNCHER ICONS
+# ------------------------------
+flutter_launcher_icons:
+  android: true
+  ios: true
+  web:
+    generate: true
+
+  # For non-Android platforms (icon with background baked in)
+  image_path: assets/images/logo_dark.png
