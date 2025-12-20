@@ -7,7 +7,7 @@ platform :android do
     
     # Build with Shorebird (no --release-notes flag exists)
     # Use --artifact apk to generate APK instead of default AAB
-    sh "shorebird release android --artifact apk --flavor production --target lib/main_production.dart"
+    sh "shorebird release android --flavor production --target lib/main_production.dart"
 
     # List of testers
     testers_list = [
