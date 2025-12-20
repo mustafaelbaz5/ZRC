@@ -8,7 +8,7 @@ description: "A new Flutter project."
 publish_to: "none"
 
 # App version: major.minor.patch+build
-version: 1.0.4+1
+version: 1.0.5+1
 
 # Dart/Flutter SDK version required for this project
 environment:
