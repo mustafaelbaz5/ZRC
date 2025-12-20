@@ -175,6 +175,7 @@ class _StudentQuizQuestionsScreenState
               onCancel: () {},
             ) ??
             false;
+
         if (shouldExit && mounted) {
           Navigator.of(context).pop();
         }
