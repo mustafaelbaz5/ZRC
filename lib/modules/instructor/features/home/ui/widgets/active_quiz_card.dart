@@ -32,7 +32,7 @@ class ActiveQuizCard extends StatelessWidget {
             BoxShadow(
               color: context.isDarkMode
                   ? Colors.transparent
-                  : AppColors.grey900.withOpacity(0.05),
+                  : AppColors.grey900.withValues(alpha: .5),
               offset: const Offset(0, 3),
               blurRadius: 6,
             ),

@@ -44,5 +44,5 @@ class ZrcApp extends StatelessWidget {
   }
 }
 
-// dart format .  For Formate all Files 
+// dart format .  For Formate all Files
 //dart fix --apply  For apply Fixes

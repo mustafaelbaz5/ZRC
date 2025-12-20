@@ -164,7 +164,7 @@ class _StudentQuizQuestionsScreenState
 
     return PopScope(
       canPop: false,
-      onPopInvoked: (final bool didPop) async {
+      onPopInvokedWithResult: (final bool didPop, final dynamic result) async {
         if (didPop) return;
         final bool shouldExit =
             await AppDialogs.showConfirmation(

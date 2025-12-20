@@ -6,4 +6,3 @@ SizedBox horizontalSpacing(final double width) => SizedBox(width: width.h);
 
 double responsiveHeight(final double height) => height.h;
 double responsiveWidth(final double width) => width.w;
-

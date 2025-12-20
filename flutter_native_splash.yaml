@@ -1,0 +1,30 @@
+flutter_native_splash:
+  # =========================================================
+  # GLOBAL SPLASH SETTINGS (Android <12, iOS, Web)
+  # =========================================================
+  color: "#FFFFFF"           # Light mode background
+  color_dark: "#1B1F3A"      # Dark mode background
+
+  image: assets/images/splash_dark.png      # Light mode splash image
+
+  fullscreen: true
+
+  # =========================================================
+  # ANDROID 12+ SETTINGS
+  # =========================================================
+  android_12:
+    color: "#1B1F3A"             # Light mode background
+
+    image: assets/images/splash_dark.png      # Light mode splash image
+
+    icon_background_color: "#1B1F3A"          # Light mode circle behind image
+
+
+  # To run the command to create the splash screen
+  # dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+
+  # To run the command to update the splash screen
+  # dart run flutter_native_splash:update --path=flutter_native_splash.yaml
+
+  # To run the command to delete the splash screen
+  # dart run flutter_native_splash:delete --path=flutter_native_splash.yaml

@@ -29,7 +29,7 @@ class StatisticsCard extends StatelessWidget {
           BoxShadow(
             color: context.isDarkMode
                 ? Colors.transparent
-                : AppColors.grey900.withOpacity(0.09),
+                : AppColors.grey900.withValues(alpha: .5),
             blurRadius: 8,
             offset: const Offset(0, 3),
           ),
@@ -58,7 +58,7 @@ class StatisticsCard extends StatelessWidget {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.grey0.withOpacity(0.5),
+                        color: AppColors.grey0.withValues(alpha: .5),
                         blurRadius: 4,
                         offset: const Offset(0, 2),
                       ),
