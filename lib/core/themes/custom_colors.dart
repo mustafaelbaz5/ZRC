@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zrc/core/themes/app_colors.dart';
 
 class CustomColors {
-
   // Backgrounds
   final Color background;
   final Color surface;
@@ -42,38 +41,37 @@ class CustomColors {
     required this.accentBlueSoft,
   });
 
-factory CustomColors ({
-  required final Color background,
-  required final Color surface,
-  required final Color surfaceVariant,
-  required final Color textPrimary,
-  required final Color textSecondary,
-  required final Color border,
-  required final Color divider,
-  required final Color successContainer,
-  required final Color infoContainer,
-  required final Color warningContainer,
-  required final Color errorContainer,
-  required final Color accentBlue,
-  required final Color accentBlueSoft,
-}){
-  return CustomColors._(
-    background: background,
-    surface: surface,
-    surfaceVariant: surfaceVariant,
-    textPrimary: textPrimary,
-    textSecondary: textSecondary,
-    border: border,
-    divider: divider,
-    successContainer: successContainer,
-    infoContainer: infoContainer,
-    warningContainer: warningContainer,
-    errorContainer: errorContainer,
-    accentBlue: accentBlue,
-    accentBlueSoft: accentBlueSoft,
-  );
-}
-
+  factory CustomColors({
+    required final Color background,
+    required final Color surface,
+    required final Color surfaceVariant,
+    required final Color textPrimary,
+    required final Color textSecondary,
+    required final Color border,
+    required final Color divider,
+    required final Color successContainer,
+    required final Color infoContainer,
+    required final Color warningContainer,
+    required final Color errorContainer,
+    required final Color accentBlue,
+    required final Color accentBlueSoft,
+  }) {
+    return CustomColors._(
+      background: background,
+      surface: surface,
+      surfaceVariant: surfaceVariant,
+      textPrimary: textPrimary,
+      textSecondary: textSecondary,
+      border: border,
+      divider: divider,
+      successContainer: successContainer,
+      infoContainer: infoContainer,
+      warningContainer: warningContainer,
+      errorContainer: errorContainer,
+      accentBlue: accentBlue,
+      accentBlueSoft: accentBlueSoft,
+    );
+  }
 
   /*──────────────── LIGHT ────────────────*/
   factory CustomColors.light() {
@@ -121,4 +119,3 @@ factory CustomColors ({
     );
   }
 }
-
