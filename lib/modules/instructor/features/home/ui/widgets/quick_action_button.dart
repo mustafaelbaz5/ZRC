@@ -31,6 +31,7 @@ class QuickActionButton extends StatelessWidget {
                 color: context.isDarkMode
                     ? Colors.transparent
                     : AppColors.grey900.withValues(alpha: 0.5),
+
                 blurRadius: 6,
                 offset: const Offset(0, 3),
               ),
