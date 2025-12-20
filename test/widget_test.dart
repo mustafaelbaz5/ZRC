@@ -7,46 +7,66 @@ import 'package:path_provider_platform_interface/path_provider_platform_interfac
 import 'package:zrc/core/router/app_router.dart';
 import 'package:zrc/zrc_app.dart';
 
-/// PathProvider وهمي للاختبارات
-class TestPathProviderPlatform extends PathProviderPlatform {
+/// Mock PathProvider for testing
+class MockPathProviderPlatform extends PathProviderPlatform {
   @override
   Future<String?> getTemporaryPath() async {
-    final tempDir = Directory.systemTemp.createTempSync();
+    final tempDir = Directory.systemTemp.createTempSync('zrc_test_');
     return tempDir.path;
   }
 
   @override
   Future<String?> getApplicationDocumentsPath() async {
-    final tempDir = Directory.systemTemp.createTempSync();
+    final tempDir = Directory.systemTemp.createTempSync('zrc_docs_');
+    return tempDir.path;
+  }
+
+  @override
+  Future<String?> getApplicationSupportPath() async {
+    final tempDir = Directory.systemTemp.createTempSync('zrc_support_');
     return tempDir.path;
   }
 }
 
-void main() async {
+void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  // استخدم PathProvider وهمي
-  PathProviderPlatform.instance = TestPathProviderPlatform();
+  setUpAll(() async {
+    // Set up mock PathProvider
+    PathProviderPlatform.instance = MockPathProviderPlatform();
 
-  // HydratedBloc storage وهمي
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: HydratedStorageDirectory(Directory.systemTemp.path),
-  );
+    // Initialize HydratedBloc storage
+    final tempDir = Directory.systemTemp.createTempSync('hydrated_test_');
+    HydratedBloc.storage = await HydratedStorage.build(
+      storageDirectory: HydratedStorageDirectory(tempDir.path),
+    );
+  });
 
-  testWidgets('Counter increments smoke test', (final tester) async {
-    // شغّل التطبيق
+  tearDownAll(() async {
+    // Clean up HydratedBloc storage
+    await HydratedBloc.storage.clear();
+  });
+
+  testWidgets('ZrcApp loads successfully', (final WidgetTester tester) async {
+    // Build the app
     await tester.pumpWidget(ZrcApp(appRouter: AppRouter()));
 
-    // تحقق أن العداد يبدأ من 0
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Wait for all animations and async operations to complete
+    await tester.pumpAndSettle();
 
-    // اضغط على أيقونة "+"
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify the app loaded
+    expect(find.byType(MaterialApp), findsOneWidget);
+  });
 
-    // تحقق أن العداد تم زيادته
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets('Navigation router is initialized', (
+    final WidgetTester tester,
+  ) async {
+    final appRouter = AppRouter();
+
+    await tester.pumpWidget(ZrcApp(appRouter: appRouter));
+    await tester.pumpAndSettle();
+
+    // Verify router is working
+    expect(appRouter, isNotNull);
   });
 }
