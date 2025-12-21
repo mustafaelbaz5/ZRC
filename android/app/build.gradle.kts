@@ -40,21 +40,21 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    
     flavorDimensions += "default"
-     productFlavors {
+    productFlavors {
         create("development") {
             dimension = "default"
-            resValue("string", "app_name", "ZRC development")
+            resValue("string", "app_name", "ZRC Development")
             applicationIdSuffix = ".development"
-    }
+        }
 
-         create("production") {
+        create("production") {
             dimension = "default"
-            resValue("string", "app_name", "ZRC production")
-            applicationIdSuffix = ".production"
-    }
-} 
-
+            resValue("string", "app_name", "ZRC")
+            // No suffix for production - uses base applicationId: com.example.zrc
+        }
+    } 
 }
 
 flutter {

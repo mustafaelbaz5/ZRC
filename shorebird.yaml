@@ -15,6 +15,7 @@ app_id: 12d25148-37fd-4e50-af73-954354605a5c
 
 # Flavors configuration
 # Each flavor maps to its application ID from build.gradle
+# Note: Only production is registered with Shorebird
+# If you want to use development with Shorebird, run: shorebird init --flavor development
 flavors:
-  development: com.example.zrc.development
-  production: com.example.zrc.production
+  production: com.example.zrc
