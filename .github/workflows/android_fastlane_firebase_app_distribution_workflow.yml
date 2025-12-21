@@ -67,9 +67,7 @@ jobs:
       - name: Verify Shorebird Installation
         env:
           SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
-        run: |
-          shorebird --version
-          # The SHOREBIRD_TOKEN env var is automatically used by shorebird commands
+        run: shorebird --version
 
       # 🔟 Build & Distribute App to Firebase
       - name: Build and Distribute App to Firebase
