@@ -7,66 +7,60 @@ import 'package:path_provider_platform_interface/path_provider_platform_interfac
 import 'package:zrc/core/router/app_router.dart';
 import 'package:zrc/zrc_app.dart';
 
-/// Mock PathProvider for testing
 class MockPathProviderPlatform extends PathProviderPlatform {
   @override
-  Future<String?> getTemporaryPath() async {
-    final tempDir = Directory.systemTemp.createTempSync('zrc_test_');
-    return tempDir.path;
+  Future<String> getTemporaryPath() async {
+    return Directory.systemTemp.createTempSync('zrc_temp_').path;
   }
 
   @override
-  Future<String?> getApplicationDocumentsPath() async {
-    final tempDir = Directory.systemTemp.createTempSync('zrc_docs_');
-    return tempDir.path;
+  Future<String> getApplicationDocumentsPath() async {
+    return Directory.systemTemp.createTempSync('zrc_docs_').path;
   }
 
   @override
-  Future<String?> getApplicationSupportPath() async {
-    final tempDir = Directory.systemTemp.createTempSync('zrc_support_');
-    return tempDir.path;
+  Future<String> getApplicationSupportPath() async {
+    return Directory.systemTemp.createTempSync('zrc_support_').path;
   }
 }
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  late Directory hydratedDir;
+
   setUpAll(() async {
-    // Set up mock PathProvider
     PathProviderPlatform.instance = MockPathProviderPlatform();
 
+    // Create temp directory for HydratedBloc
+    hydratedDir = Directory.systemTemp.createTempSync('hydrated_bloc_test_');
+
     // Initialize HydratedBloc storage
-    final tempDir = Directory.systemTemp.createTempSync('hydrated_test_');
     HydratedBloc.storage = await HydratedStorage.build(
-      storageDirectory: HydratedStorageDirectory(tempDir.path),
+      storageDirectory: HydratedStorageDirectory(hydratedDir.path),
     );
   });
 
   tearDownAll(() async {
-    // Clean up HydratedBloc storage
     await HydratedBloc.storage.clear();
+    await hydratedDir.delete(recursive: true);
   });
 
-  testWidgets('ZrcApp loads successfully', (final WidgetTester tester) async {
-    // Build the app
+  testWidgets('ZrcApp builds successfully', (final tester) async {
     await tester.pumpWidget(ZrcApp(appRouter: AppRouter()));
 
-    // Wait for all animations and async operations to complete
     await tester.pumpAndSettle();
 
-    // Verify the app loaded
     expect(find.byType(MaterialApp), findsOneWidget);
   });
 
-  testWidgets('Navigation router is initialized', (
-    final WidgetTester tester,
-  ) async {
+  testWidgets('AppRouter is initialized correctly', (final tester) async {
     final appRouter = AppRouter();
 
     await tester.pumpWidget(ZrcApp(appRouter: appRouter));
+
     await tester.pumpAndSettle();
 
-    // Verify router is working
     expect(appRouter, isNotNull);
   });
 }

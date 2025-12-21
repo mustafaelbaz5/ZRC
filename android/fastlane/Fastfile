@@ -12,10 +12,10 @@ platform :android do
     # List of testers
     testers_list = [
       "m9stafa05@gmail.com",
-      # "aelbaz0189@gmail.com",
-      # "mohmmedhosni34@gmail.com",
-      # "Amrb3556@gmail.com",
-      # "ahmedghanem442004@gmail.com",
+      "aelbaz0189@gmail.com",
+      "mohmmedhosni34@gmail.com",
+      "Amrb3556@gmail.com",
+      "ahmedghanem442004@gmail.com",
     ]
 
     # Convert array to comma-separated string
@@ -28,7 +28,7 @@ platform :android do
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
       testers: testers_string,
-      release_notes: "ZRC Set Localization For Arabic and English & Set Theming Modes [Dark/Light] (v.1.0.5)",
+      release_notes: "ZRC Set Localization For Arabic and English & Set Theming Modes [Dark/Light] & Add Shorebird Integration (v.1.0.6)",
     )
   end
 end
