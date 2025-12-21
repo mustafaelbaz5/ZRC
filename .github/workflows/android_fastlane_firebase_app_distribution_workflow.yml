@@ -57,20 +57,23 @@ jobs:
           bundler-cache: true
           working-directory: android
 
+      # 8️⃣ Install Shorebird
       - name: Install Shorebird
         run: |
           curl -sSL https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh | bash
-          echo "PATH=$HOME/.config/shorebird/bin:$PATH" >> $GITHUB_ENV
+          echo "$HOME/.config/shorebird/bin" >> $GITHUB_PATH
 
-      - name: Login Shorebird
+      # 9️⃣ Verify Shorebird Installation
+      - name: Verify Shorebird Installation
         env:
           SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
-        run: shorebird login --api-token $SHOREBIRD_TOKEN
+        run: shorebird --version
 
       # 🔟 Build & Distribute App to Firebase
       - name: Build and Distribute App to Firebase
         env:
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+          SHOREBIRD_TOKEN: ${{ secrets.SHOREBIRD_TOKEN }}
         run: bundle exec fastlane android release_to_firebase
         working-directory: android
 

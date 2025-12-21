@@ -23,10 +23,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId = "com.example.zrc"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -40,21 +37,21 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    
     flavorDimensions += "default"
-     productFlavors {
+    productFlavors {
         create("development") {
             dimension = "default"
-            resValue("string", "app_name", "ZRC development")
+            resValue("string", "app_name", "ZRC Development")
             applicationIdSuffix = ".development"
-    }
+        }
 
-         create("production") {
+        create("production") {
             dimension = "default"
-            resValue("string", "app_name", "ZRC production")
+            resValue("string", "app_name", "ZRC")
             applicationIdSuffix = ".production"
-    }
-} 
-
+        }
+    } 
 }
 
 flutter {
