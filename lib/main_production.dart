@@ -42,4 +42,4 @@ void main() async {
   );
 }
 
-// shorebird patch android --artifact apk --flavor production --target lib/main_production.dart
+// shorebird patch android --flavor production --target lib/main_production.dart
