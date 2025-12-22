@@ -16,11 +16,9 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        top: responsiveHeight(20),
-        left: responsiveWidth(20),
-        right: responsiveWidth(20),
-        bottom: responsiveHeight(24),
+      padding: EdgeInsets.symmetric(
+        vertical: responsiveHeight(16),
+        horizontal: responsiveWidth(16),
       ),
       decoration: BoxDecoration(
         color: context.customColors.surfaceVariant2,
@@ -43,7 +41,7 @@ class HomeAppBar extends StatelessWidget {
               },
             ),
           ),
-          horizontalSpacing(16),
+          horizontalSpacing(12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +52,7 @@ class HomeAppBar extends StatelessWidget {
                     color: AppColors.grey200,
                   ),
                 ),
-                verticalSpacing(4),
+                verticalSpacing(2),
                 Text(
                   getFirstNWords(userName, wordCount: 2),
                   style: AppTextStyles.font20Bold.copyWith(

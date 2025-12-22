@@ -26,8 +26,8 @@ class NotificationButton extends StatelessWidget {
           ),
           child: SvgPicture.asset(
             AppAssets.notificationIcon,
-            width: responsiveWidth(20),
-            height: responsiveWidth(20),
+            width: responsiveWidth(16),
+            height: responsiveWidth(16),
             colorFilter: const ColorFilter.mode(
               AppColors.grey0,
               BlendMode.srcIn,
