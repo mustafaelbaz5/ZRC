@@ -371,5 +371,15 @@
       "create_video": "Create Video",
       "create_assignment": "Create Assignment"
     }
+  },
+  "instructor_drawer": {
+    "home": "Home",
+    "courses": "Courses",
+    "quizzes": "Quizzes",
+    "profile": "Profile",
+    "settings": "Settings",
+    "theme": "Change Theme",
+    "language": "Change Language",
+    "logout": "Logout"
   }
 }

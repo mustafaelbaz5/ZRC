@@ -370,5 +370,15 @@
       "create_video": "إنشاء فيديو",
       "create_assignment": "إنشاء تعيين"
     }
+  },
+  "instructor_drawer": {
+    "home": "الرئيسية",
+    "courses": "الدورات",
+    "quizzes": "الاختبارات",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات",
+    "theme": "تغيير المظهر",
+    "language": "تغيير اللغة",
+    "logout": "تسجيل الخروج"
   }
 }
