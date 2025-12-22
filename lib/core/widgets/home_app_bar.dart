@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/config/constants.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/functions/string_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
@@ -13,53 +15,57 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    final modesColors = context.customColors;
     return Container(
-      height: responsiveHeight(100),
-      width: double.infinity,
       padding: EdgeInsets.only(
-        top: responsiveHeight(24),
-        left: responsiveWidth(16),
-        right: responsiveWidth(16),
+        top: responsiveHeight(20),
+        left: responsiveWidth(20),
+        right: responsiveWidth(20),
+        bottom: responsiveHeight(24),
       ),
       decoration: BoxDecoration(
+        color: context.customColors.surfaceVariant2,
+        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
         boxShadow: [
           BoxShadow(
-            color: modesColors.divider,
-            blurRadius: 2,
+            color: context.customColors.divider.withValues(alpha: 128),
+            blurRadius: 4,
             offset: const Offset(0, 2),
           ),
         ],
-        color: modesColors.background,
-        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
       ),
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tr('student_home.welcome'),
-                    style: AppTextStyles.font14Bold.copyWith(
-                      color: modesColors.textSecondary,
-                    ),
-                  ),
-                  verticalSpacing(6),
-                  Text(
-                    "\t${getFirstNWords(userName, wordCount: 2)}",
-                    style: AppTextStyles.font20Bold.copyWith(
-                      color: modesColors.textPrimary,
-                    ),
-                  ),
-                ],
-              ),
-              const NotificationButton(),
-            ],
+          Builder(
+            builder: (final context) => IconButton(
+              icon: const Icon(Icons.menu_rounded, color: AppColors.grey200),
+              onPressed: () {
+                Constants.scaffoldKey.currentState?.openDrawer();
+              },
+            ),
           ),
+          horizontalSpacing(16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tr('student_home.welcome'),
+                  style: AppTextStyles.font14Regular.copyWith(
+                    color: AppColors.grey200,
+                  ),
+                ),
+                verticalSpacing(4),
+                Text(
+                  getFirstNWords(userName, wordCount: 2),
+                  style: AppTextStyles.font20Bold.copyWith(
+                    color: AppColors.grey0,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+          const NotificationButton(),
         ],
       ),
     );

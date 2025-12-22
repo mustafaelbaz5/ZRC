@@ -7,8 +7,9 @@ import 'package:zrc/core/storage/user_storage.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/functions/app_setting_fun.dart';
 import 'package:zrc/core/utils/spacing.dart';
+import 'package:zrc/core/widgets/custom_app_bar.dart';
 import 'package:zrc/core/widgets/logout_button.dart';
-import 'package:zrc/modules/student/core/widgets/student_app_bar.dart';
+
 import 'package:zrc/modules/student/features/profile/ui/widgets/profile_header.dart';
 import 'package:zrc/modules/student/features/profile/ui/widgets/profile_personal_info/profile_personal_info_section.dart';
 import 'package:zrc/modules/student/features/profile/ui/widgets/profile_settings/profile_settings.dart';
@@ -78,7 +79,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
     return SafeArea(
       child: Column(
         children: <Widget>[
-          StudentAppBar(
+          CustomAppBar(
             title: 'student_profile.screen_title'.tr(),
             showNotificationIcon: false,
           ),
