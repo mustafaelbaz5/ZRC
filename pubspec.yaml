@@ -147,4 +147,4 @@ flutter_launcher_icons:
     generate: true
 
   # For non-Android platforms (icon with background baked in)
-  image_path: assets/images/logo_dark.png
+  image_path: assets/images/splash_dark.png
