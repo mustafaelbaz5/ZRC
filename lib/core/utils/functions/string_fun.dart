@@ -30,3 +30,13 @@ Future<String> translateToArabic(final String text) async {
   final Translation translation = await translator.translate(text, to: 'ar');
   return translation.text;
 }
+
+String getYoutubeThumbnail(final String url) {
+  final uri = Uri.parse(url);
+
+  if (uri.host.contains('youtu.be')) {
+    return 'https://img.youtube.com/vi/${uri.pathSegments.first}/hqdefault.jpg';
+  }
+
+  return 'https://img.youtube.com/vi/${uri.queryParameters['v']}/hqdefault.jpg';
+}
