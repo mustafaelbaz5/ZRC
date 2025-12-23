@@ -13,7 +13,7 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const Text("Admin Dashboard", style: AppTextStyles.font24Bold),
+          Text("Admin Dashboard", style: AppTextStyles.font24Bold),
           verticalSpacing(20),
           Center(
             child: ElevatedButton(
