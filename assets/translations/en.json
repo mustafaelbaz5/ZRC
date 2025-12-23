@@ -386,6 +386,7 @@
     "drafts": "Drafts",
     "pending": "Pending",
     "published": "Published",
+    "rejected": "Rejected",
     "new_course": "New Course",
     "empty_state": {
       "title_drafts": "No courses found",

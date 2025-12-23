@@ -385,6 +385,7 @@
     "drafts": "مسودة",
     "pending": "قيد الانتظار",
     "published": "تم النشر",
+    "rejected": "مرفوض",
     "new_course": "إنشاء دورة",
     "empty_state": {
       "title_drafts": "لا توجد دورات",
