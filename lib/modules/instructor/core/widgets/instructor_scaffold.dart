@@ -1,9 +1,9 @@
-// modules/instructor/core/instructor_scaffold.dart
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:zrc/core/config/constants.dart';
 import 'package:zrc/modules/instructor/core/widgets/instructor_drawer.dart';
 import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/widgets/custom_floating_button.dart';
 import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
 import 'package:zrc/modules/instructor/features/profile/ui/instructor_profile_screen.dart';
 import 'package:zrc/modules/instructor/features/quizzes/ui/instructor_quizzes_screen.dart';
@@ -43,6 +43,10 @@ class _InstructorScaffoldState extends State<InstructorScaffold> {
         onItemSelected: _onDrawerItemSelected,
       ),
       body: _screens[_selectedIndex],
+      floatingActionButton: _selectedIndex == 1
+          ? CustomFloatingButton(label: 'instructor_courses.new_course'.tr())
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

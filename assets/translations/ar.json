@@ -380,5 +380,19 @@
     "theme": "تغيير المظهر",
     "language": "تغيير اللغة",
     "logout": "تسجيل الخروج"
+  },
+  "instructor_courses": {
+    "drafts": "مسودة",
+    "pending": "قيد الانتظار",
+    "published": "تم النشر",
+    "new_course": "إنشاء دورة",
+    "empty_state": {
+      "title_drafts": "لا توجد دورات",
+      "subtitle_drafts": "اضغط على زر + لإنشاء أول دورة لك",
+      "title_pending": "لا توجد دورات قيد المراجعة",
+      "subtitle_pending": "اضغط على زر + لإنشاء أول دورة لك",
+      "title_published": "لا توجد دورات منشورة بعد",
+      "subtitle_published": "ستظهر دوراتك هنا بعد نشرها"
+    }
   }
 }

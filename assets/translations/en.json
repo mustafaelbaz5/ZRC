@@ -381,5 +381,19 @@
     "theme": "Change Theme",
     "language": "Change Language",
     "logout": "Logout"
+  },
+  "instructor_courses": {
+    "drafts": "Drafts",
+    "pending": "Pending",
+    "published": "Published",
+    "new_course": "New Course",
+    "empty_state": {
+      "title_drafts": "No courses found",
+      "subtitle_drafts": "Tap the + button to create your first course",
+      "title_pending": "No courses pending review",
+      "subtitle_pending": "Tap the + button to create your first course",
+      "title_published": "No published courses yet",
+      "subtitle_published": "Your courses will appear here once published"
+    }
   }
 }
