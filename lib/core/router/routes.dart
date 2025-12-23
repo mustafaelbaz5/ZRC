@@ -17,6 +17,9 @@ class Routes {
   // Instructor
   static const String instructorScaffold = '/instructorScaffold';
   static const String instructorHomeScreen = '/instructorHomeScreen';
+  static const String instructorCoursesScreen = '/instructorCoursesScreen';
+  static const String addEditCourseScreen = '/addEditCourseScreen';
+  static const String instructorCoursePreviewScreen = '/instructorCoursePreviewScreen';
 
   // Admin
   static const String adminScaffold = '/adminScaffold';

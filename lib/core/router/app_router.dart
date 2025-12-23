@@ -3,6 +3,9 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/modules/instructor/core/widgets/instructor_scaffold.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/add_edit_course_screen.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/instructor_course_preview_screen.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
 import 'package:zrc/modules/student/features/courses/ui/student_courses_details_screen.dart';
 import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
 import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
@@ -102,16 +105,23 @@ class AppRouter {
 
       // ----------------- INSTRUCTOR -----------------
       case Routes.instructorScaffold:
-        final GlobalKey<CurvedNavigationBarState> instructorKey =
-            args['navigationKey'] as GlobalKey<CurvedNavigationBarState>? ??
-            GlobalKey<CurvedNavigationBarState>();
-
-        return MaterialPageRoute(
-          builder: (_) => InstructorScaffold(navigationKey: instructorKey),
-        );
+        return MaterialPageRoute(builder: (_) => const InstructorScaffold());
 
       case Routes.instructorHomeScreen:
         return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
+
+      case Routes.instructorCoursesScreen:
+        return MaterialPageRoute(
+          builder: (_) => const InstructorCoursesScreen(),
+        );
+
+      case Routes.addEditCourseScreen:
+        return MaterialPageRoute(builder: (_) => const AddEditCourseScreen());
+
+      case Routes.instructorCoursePreviewScreen:
+        return MaterialPageRoute(
+          builder: (_) => const InstructorCoursePreviewScreen(),
+        );
 
       // ----------------- ADMIN -----------------
       case Routes.adminHomeScreen:
