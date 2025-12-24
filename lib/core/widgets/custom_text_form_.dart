@@ -2,10 +2,10 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
+import '../extensions/context_extensions.dart';
+import '../themes/app_colors.dart';
+import '../themes/app_text_styles.dart';
+import '../utils/functions/string_fun.dart';
 
 import '../utils/regex.dart';
 

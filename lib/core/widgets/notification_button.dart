@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/utils/app_assets.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../themes/app_colors.dart';
+import '../utils/app_assets.dart';
+import '../utils/spacing.dart';
 
 class NotificationButton extends StatelessWidget {
   const NotificationButton({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/courses_tab_view/courses_empty_state.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/instructor_course_card.dart';
+import '../../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../../core/utils/spacing.dart';
+import '../../data/models/instructor_course_model.dart';
+import 'courses_tab_view/courses_empty_state.dart';
+import 'instructor_course_card.dart';
 
 class InstructorCoursesTabView extends StatelessWidget {
   const InstructorCoursesTabView({super.key, required this.statuses});

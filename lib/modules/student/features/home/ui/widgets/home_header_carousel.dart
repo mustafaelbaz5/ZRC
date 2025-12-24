@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/modules/student/features/home/data/model/header_item_model.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_header_card.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../data/model/header_item_model.dart';
+import 'home_header_card.dart';
 
 class HomeHeaderCarousel extends StatefulWidget {
   const HomeHeaderCarousel({super.key});

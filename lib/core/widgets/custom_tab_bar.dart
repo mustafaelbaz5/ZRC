@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+
+import '../extensions/context_extensions.dart';
+import '../themes/app_colors.dart';
+import '../themes/app_text_styles.dart';
+import '../utils/spacing.dart';
 
 class CustomTabBar extends StatelessWidget {
   const CustomTabBar({super.key, required this.controller, required this.tabs});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/active_quiz_card.dart';
+
+import 'active_quiz_card.dart';
 
 class InstructorActiveQuizzes extends StatelessWidget {
   const InstructorActiveQuizzes({super.key});

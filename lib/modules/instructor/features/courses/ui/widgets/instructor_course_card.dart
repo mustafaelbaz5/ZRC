@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/date_formate.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/courses_tab_view/course_card_footer.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/courses_tab_view/course_card_thumbnail.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/router/routes.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/utils/functions/date_formate.dart';
+import '../../../../../../core/utils/spacing.dart';
+import '../../data/models/instructor_course_model.dart';
+import 'courses_tab_view/course_card_footer.dart';
+import 'courses_tab_view/course_card_thumbnail.dart';
 
 class InstructorCourseCard extends StatelessWidget {
   const InstructorCourseCard({super.key, required this.course});

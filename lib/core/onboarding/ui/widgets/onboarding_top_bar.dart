@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/onboarding/ui/widgets/top_bar_button.dart';
-import 'package:zrc/core/onboarding/ui/widgets/top_bar_icon_button.dart';
-import 'package:zrc/core/utils/functions/app_setting_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import 'top_bar_button.dart';
+import 'top_bar_icon_button.dart';
+import '../../../utils/functions/app_setting_fun.dart';
+import '../../../utils/spacing.dart';
 
 class OnBoardingTopBar extends StatelessWidget {
   final bool showSkip;

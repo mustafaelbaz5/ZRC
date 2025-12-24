@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/widgets/filter_chip_item.dart';
+import '../../../../../../core/utils/spacing.dart';
+import '../../../../core/widgets/filter_chip_item.dart';
 
 class QuizzesFilterRow extends StatelessWidget {
   final String selectedFilter;

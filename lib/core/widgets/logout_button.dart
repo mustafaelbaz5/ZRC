@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
+import '../extensions/context_extensions.dart';
+import '../themes/app_colors.dart';
+import 'app_dialog/app_dialogs.dart';
 
 import '../router/routes.dart';
 import '../storage/user_storage.dart';

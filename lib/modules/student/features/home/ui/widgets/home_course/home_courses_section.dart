@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_courses_list_view.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/router/routes.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'home_courses_list_view.dart';
 
 class HomeCoursesSection extends StatelessWidget {
   const HomeCoursesSection({super.key});

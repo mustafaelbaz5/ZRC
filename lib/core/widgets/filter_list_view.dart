@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/horizontal_filter_chips.dart';
+import '../utils/spacing.dart';
+import 'horizontal_filter_chips.dart';
 
 class FilterListView extends StatefulWidget {
   const FilterListView({super.key, required this.filterList});

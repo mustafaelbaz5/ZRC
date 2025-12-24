@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/functions/app_setting_fun.dart';
+import '../../extensions/context_extensions.dart';
+import '../../utils/functions/app_setting_fun.dart';
 
 import '../../router/routes.dart';
 import '../data/models/on_boarding_page_model.dart';

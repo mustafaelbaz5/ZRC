@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/widgets/filter_chip_item.dart';
+import '../utils/spacing.dart';
+import '../../modules/student/core/widgets/filter_chip_item.dart';
 
 class HorizontalFilterChips extends StatelessWidget {
   const HorizontalFilterChips({

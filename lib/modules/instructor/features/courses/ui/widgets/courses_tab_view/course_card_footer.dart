@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/themes/custom_colors.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
-import 'package:zrc/core/widgets/custom_text_button.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
+
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/router/routes.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/themes/custom_colors.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../../../../../core/widgets/app_dialog/app_dialogs.dart';
+import '../../../../../../../core/widgets/custom_text_button.dart';
+import '../../../data/models/instructor_course_model.dart';
 
 class CourseCardFooter extends StatelessWidget {
   const CourseCardFooter({

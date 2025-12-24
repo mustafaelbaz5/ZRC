@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/models/courses_card_model.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/utils/spacing.dart';
+import '../models/courses_card_model.dart';
 
 class CourseCardImage extends StatelessWidget {
   const CourseCardImage({super.key, required this.coursesCardModel});

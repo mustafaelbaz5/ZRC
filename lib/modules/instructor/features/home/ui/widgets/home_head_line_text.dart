@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/utils/spacing.dart';
 
 class HomeHeadLineText extends StatelessWidget {
   const HomeHeadLineText({super.key, required this.title});

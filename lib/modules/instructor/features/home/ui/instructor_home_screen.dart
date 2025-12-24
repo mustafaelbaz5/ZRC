@@ -1,15 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/home_app_bar.dart';
-import 'package:zrc/core/widgets/logout_button.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/home_head_line_text.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/instructor_active_quizzes.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/instructor_quick_actions_button.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/instructor_statistics_grid.dart';
+import '../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../core/storage/secure_storage.dart';
+import '../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../../../core/widgets/home_app_bar.dart';
+import '../../../../../core/widgets/logout_button.dart';
+import 'widgets/home_head_line_text.dart';
+import 'widgets/instructor_active_quizzes.dart';
+import 'widgets/instructor_quick_actions_button.dart';
+import 'widgets/instructor_statistics_grid.dart';
 
 class InstructorHomeScreen extends StatelessWidget {
   const InstructorHomeScreen({super.key});

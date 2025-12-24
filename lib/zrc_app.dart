@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/cubit/theme_cubit.dart';
-import 'package:zrc/core/themes/theme_data/theme_data_dark.dart';
-import 'package:zrc/core/themes/theme_data/theme_data_light.dart';
+import 'core/themes/cubit/theme_cubit.dart';
+import 'core/themes/theme_data/theme_data_dark.dart';
+import 'core/themes/theme_data/theme_data_light.dart';
 
 import 'core/router/app_router.dart';
 import 'core/router/routes.dart';

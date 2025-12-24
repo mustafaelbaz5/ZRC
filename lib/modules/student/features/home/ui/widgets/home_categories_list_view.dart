@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/home/data/model/category_model.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_categories_list_view_item.dart';
+import '../../../../../../core/utils/spacing.dart';
+import '../../data/model/category_model.dart';
+import 'home_categories_list_view_item.dart';
 
 class HomeCategoriesListView extends StatefulWidget {
   const HomeCategoriesListView({super.key});

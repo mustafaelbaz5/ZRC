@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/config/constants.dart';
-import 'package:zrc/modules/instructor/core/widgets/instructor_drawer.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/custom_floating_button.dart';
-import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
-import 'package:zrc/modules/instructor/features/profile/ui/instructor_profile_screen.dart';
-import 'package:zrc/modules/instructor/features/quizzes/ui/instructor_quizzes_screen.dart';
+import '../../../../core/config/constants.dart';
+import 'instructor_drawer.dart';
+import '../../features/courses/ui/instructor_courses_screen.dart';
+import '../../features/courses/ui/widgets/custom_floating_button.dart';
+import '../../features/home/ui/instructor_home_screen.dart';
+import '../../features/profile/ui/instructor_profile_screen.dart';
+import '../../features/quizzes/ui/instructor_quizzes_screen.dart';
 
 class InstructorScaffold extends StatefulWidget {
   const InstructorScaffold({super.key});

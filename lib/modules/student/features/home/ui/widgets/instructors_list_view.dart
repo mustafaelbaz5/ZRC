@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../core/utils/spacing.dart';
 
 import '../../data/model/instructor_item_model.dart';
 import 'instructors_list_view_item.dart';

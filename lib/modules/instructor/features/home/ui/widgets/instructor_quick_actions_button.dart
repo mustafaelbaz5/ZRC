@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/quick_action_button.dart';
+import '../../../../../../core/utils/spacing.dart';
+import 'quick_action_button.dart';
 
 class InstructorQuickActionsButton extends StatelessWidget {
   const InstructorQuickActionsButton({super.key});

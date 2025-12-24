@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/widgets/custom_app_bar.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
 
 class AddEditCourseScreen extends StatelessWidget {
   const AddEditCourseScreen({super.key});

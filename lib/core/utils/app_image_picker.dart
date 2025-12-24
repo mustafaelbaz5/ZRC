@@ -2,7 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:zrc/core/utils/spacing.dart';
+
+import 'spacing.dart';
 
 class AppImagePicker {
   static Future<File?> showImageSourceActionSheet(

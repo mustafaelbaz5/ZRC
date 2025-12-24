@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/statistics_card.dart';
+
+import 'statistics_card.dart';
 
 class InstructorStatisticsGrid extends StatelessWidget {
   const InstructorStatisticsGrid({super.key});

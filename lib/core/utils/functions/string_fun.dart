@@ -1,7 +1,8 @@
 import 'package:arabic_roman_conv/arabic_roman_conv.dart';
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
+
+import '../../extensions/context_extensions.dart';
 
 /// Get first {wordCount} words from a string
 String getFirstNWords(final String fullName, {final int wordCount = 3}) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/router/routes.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
 
 class CustomFloatingButton extends StatelessWidget {
   const CustomFloatingButton({super.key, required this.label});

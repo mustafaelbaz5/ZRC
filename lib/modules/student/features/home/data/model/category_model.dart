@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+
 import '../../../../../../core/utils/app_assets.dart';
 
 class CategoryModel {

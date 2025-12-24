@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/youtube_player_card.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../youtube_card/youtube_player_card.dart';
 
 class VideoPlayerScreen extends StatelessWidget {
   final String videoUrl;

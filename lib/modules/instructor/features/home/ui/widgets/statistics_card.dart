@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/themes/app_colors.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/utils/spacing.dart';
+
 class StatisticsCard extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -53,7 +54,11 @@ class StatisticsCard extends StatelessWidget {
                 width: responsiveWidth(56),
                 height: responsiveHeight(56),
                 decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-                child: Icon(icon, color: Colors.white, size: responsiveFontSize(26)),
+                child: Icon(
+                  icon,
+                  color: Colors.white,
+                  size: responsiveFontSize(26),
+                ),
               ),
               horizontalSpacing(12),
               Text(value, style: AppTextStyles.font20Bold),

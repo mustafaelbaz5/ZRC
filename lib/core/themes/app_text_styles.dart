@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../utils/spacing.dart';
 
 import 'app_font_weight.dart';
 
