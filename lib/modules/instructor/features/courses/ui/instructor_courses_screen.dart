@@ -1,5 +1,3 @@
-// modules/instructor/features/courses/ui/instructor_courses_screen.dart
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:zrc/core/utils/spacing.dart';
@@ -23,7 +21,7 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this); // ← Now 4 tabs
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
