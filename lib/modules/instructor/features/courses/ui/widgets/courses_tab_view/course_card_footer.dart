@@ -1,9 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/router/routes.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
-import '../../../../../../../core/themes/custom_colors.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../../../../../core/widgets/app_dialog/app_dialogs.dart';
 import '../../../../../../../core/widgets/custom_text_button.dart';
@@ -13,12 +13,10 @@ class CourseCardFooter extends StatelessWidget {
   const CourseCardFooter({
     super.key,
     required this.canEdit,
-    required this.colors,
     required this.course,
   });
 
   final bool canEdit;
-  final CustomColors colors;
   final InstructorCourseModel course;
 
   @override
@@ -30,15 +28,14 @@ class CourseCardFooter extends StatelessWidget {
         if (canEdit)
           SizedBox(
             width: responsiveWidth(100),
-            height: responsiveHeight(30),
+            height: responsiveHeight(40),
             child: CustomTextButton(
+              size: CustomButtonSize.small,
               borderRadius: 10,
-              verticalPadding: 8,
-              horizontalPadding: 16,
               textStyle: AppTextStyles.font14Bold,
-              backgroundColor: colors.surfaceVariant2,
-              icon: const Icon(Icons.edit_rounded, size: 18),
-              buttonText: "Edit",
+              backgroundColor: context.customColors.surfaceVariant2,
+              prefixIcon: const Icon(Icons.edit_rounded, size: 16),
+              text: tr('instructor_courses.course_card.edit'),
               onPressed: () => context.pushNamed(
                 Routes.addEditCourseScreen,
                 arguments: {'course': course},
@@ -48,14 +45,17 @@ class CourseCardFooter extends StatelessWidget {
         if (canEdit) horizontalSpacing(10),
         SizedBox(
           width: canEdit ? responsiveWidth(120) : responsiveWidth(140),
-          height: responsiveHeight(30),
+          height: responsiveHeight(40),
           child: CustomTextButton(
+            size: CustomButtonSize.small,
             borderRadius: 10,
-            verticalPadding: 8,
+
             textStyle: AppTextStyles.font13Bold,
-            backgroundColor: colors.successContainer,
-            icon: const Icon(Icons.visibility_rounded, size: 18),
-            buttonText: canEdit ? 'Preview' : 'View Details',
+            backgroundColor: context.customColors.surfaceVariant2,
+            prefixIcon: const Icon(Icons.visibility_rounded, size: 16),
+            text: canEdit
+                ? tr('instructor_courses.course_card.preview')
+                : tr('instructor_courses.course_card.view_details'),
             onPressed: () => context.pushNamed(
               Routes.instructorCoursePreviewScreen,
               arguments: {'course': course},
@@ -64,12 +64,14 @@ class CourseCardFooter extends StatelessWidget {
         ),
 
         if (course.status == CourseStatus.draft) ...[
-          horizontalSpacing(10),
+          horizontalSpacing(16),
           IconButton(
             onPressed: () => AppDialogs.showConfirmation(
               context: context,
-              title: 'Delete Course?',
-              message: 'This action cannot be undone.',
+              title: tr('instructor_courses.course_card.delete_course'),
+              message: tr(
+                'instructor_courses.course_card.delete_course_message',
+              ),
               onConfirm: () {
                 Navigator.pop(context);
                 ScaffoldMessenger.of(
@@ -89,7 +91,7 @@ class CourseCardFooter extends StatelessWidget {
               ),
             ),
 
-            tooltip: 'Delete course',
+            tooltip: tr('instructor_courses.course_card.delete_course'),
           ),
         ],
       ],

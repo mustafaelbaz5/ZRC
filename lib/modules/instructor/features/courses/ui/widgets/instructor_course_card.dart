@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../core/router/routes.dart';
 import '../../../../../../core/themes/app_text_styles.dart';
@@ -55,7 +56,7 @@ class InstructorCourseCard extends StatelessWidget {
                   Chip(
                     label: Text(course.category),
                     avatar: const Icon(Icons.category_rounded, size: 12),
-                    backgroundColor: colors.border,
+                    backgroundColor: colors.surfaceVariant,
                     labelStyle: AppTextStyles.font13Bold,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 6,
@@ -92,11 +93,7 @@ class InstructorCourseCard extends StatelessWidget {
                   verticalSpacing(18),
 
                   // Action Buttons
-                  CourseCardFooter(
-                    canEdit: canEdit,
-                    colors: colors,
-                    course: course,
-                  ),
+                  CourseCardFooter(canEdit: canEdit, course: course),
                 ],
               ),
             ),
