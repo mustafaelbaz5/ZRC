@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/utils/app_assets.dart';
+
 import '../../../../../core/extensions/context_extensions.dart';
-import '../../../../../core/themes/app_colors.dart';
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/spacing.dart';
 
@@ -12,61 +13,70 @@ class CustomDrawerHeader extends StatelessWidget {
     final colors = context.customColors;
 
     return Container(
-      height: responsiveHeight(260),
-      width: double.infinity,
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [AppColors.primary300, colors.surfaceVariant2],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            colors.accentBlue.withValues(alpha: 0.1),
+            colors.accentBlue.withValues(alpha: 0.05),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: colors.accentBlue.withValues(alpha: 0.2),
+          width: 1,
         ),
       ),
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: responsiveWidth(24),
-            vertical: responsiveHeight(8),
+      child: Row(
+        children: [
+          Container(
+            width: 56,
+            height: 56,
+            decoration: BoxDecoration(
+              color: colors.accentBlue.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: colors.accentBlue.withValues(alpha: 0.3),
+                width: 2,
+              ),
+            ),
+            child: CircleAvatar(
+              radius: responsiveRadius(26),
+              backgroundColor: Colors.transparent,
+              backgroundImage: const AssetImage(AppAssets.onBoardingBanner2),
+              onBackgroundImageError: (_, final _) {},
+              child: Icon(
+                Icons.person_rounded,
+                size: responsiveRadius(12),
+                color: colors.accentBlue,
+              ),
+            ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: responsiveWidth(55),
-                backgroundColor: colors.background,
-                backgroundImage: const AssetImage('assets/images/profile.jpg'),
-                onBackgroundImageError: (_, final _) {},
-                child: Icon(
-                  Icons.person_rounded,
-                  size: responsiveWidth(40),
-                  color: colors.accentBlue,
+          horizontalSpacing(16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Instructor',
+                  style: AppTextStyles.font18Bold.copyWith(
+                    color: colors.textPrimary,
+                  ),
                 ),
-              ),
-              verticalSpacing(8),
-              Text(
-                'Instructor',
-                style: AppTextStyles.font24Bold.copyWith(
-                  color: AppColors.grey0,
-                  shadows: [
-                    const Shadow(
-                      color: Colors.black26,
-                      blurRadius: 4,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
+                verticalSpacing(4),
+                Text(
+                  'Dashboard',
+                  style: AppTextStyles.font14Regular.copyWith(
+                    color: colors.textSecondary,
+                  ),
                 ),
-              ),
-              verticalSpacing(4),
-              Text(
-                'Dashboard',
-                style: AppTextStyles.font16Bold.copyWith(
-                  color: AppColors.grey300,
-                ),
-              ),
-              verticalSpacing(4),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
