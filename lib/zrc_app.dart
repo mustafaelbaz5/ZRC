@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'core/themes/cubit/theme_cubit.dart';
-import 'core/themes/theme_data/theme_data_dark.dart';
-import 'core/themes/theme_data/theme_data_light.dart';
 
 import 'core/router/app_router.dart';
 import 'core/router/routes.dart';
+import 'core/themes/cubit/theme_cubit.dart';
+import 'core/themes/theme_data/theme_data_dark.dart';
+import 'core/themes/theme_data/theme_data_light.dart';
 
 class ZrcApp extends StatelessWidget {
   const ZrcApp({super.key, required this.appRouter});
@@ -24,7 +24,6 @@ class ZrcApp extends StatelessWidget {
           child: BlocBuilder<ThemeCubit, ThemeMode>(
             builder: (final BuildContext context, final ThemeMode themeMode) {
               return MaterialApp(
-                key: ValueKey(context.locale),
                 localizationsDelegates: context.localizationDelegates,
                 supportedLocales: context.supportedLocales,
                 locale: context.locale,
@@ -43,6 +42,3 @@ class ZrcApp extends StatelessWidget {
     );
   }
 }
-
-// dart format .  For Formate all Files
-//dart fix --apply  For apply Fixes
