@@ -1,24 +1,23 @@
-// ignore_for_file: always_specify_types
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/modules/instructor/core/widgets/instructor_scaffold.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/add_edit_course_screen.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/instructor_course_preview_screen.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
-import 'package:zrc/modules/student/features/courses/ui/student_courses_details_screen.dart';
-import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
-import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_detailed_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_questions_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quiz_result_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
+import '../../modules/instructor/core/widgets/instructor_scaffold.dart';
+import '../../modules/instructor/features/courses/ui/add_edit_course_screen.dart';
+import '../../modules/instructor/features/courses/ui/instructor_course_preview_screen.dart';
+import '../../modules/instructor/features/courses/ui/instructor_courses_screen.dart';
 import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
 import '../../modules/student/core/widgets/student_scaffold.dart';
+import '../../modules/student/features/courses/ui/student_courses_details_screen.dart';
+import '../../modules/student/features/courses/ui/student_courses_screen.dart';
 import '../../modules/student/features/home/ui/student_home_screen.dart';
+import '../../modules/student/features/profile/ui/student_profile_screen.dart';
 import '../../modules/student/features/quizzes/data/model/quiz_model.dart';
+import '../../modules/student/features/quizzes/ui/student_quiz_detailed_screen.dart';
+import '../../modules/student/features/quizzes/ui/student_quiz_questions_screen.dart';
+import '../../modules/student/features/quizzes/ui/student_quiz_result_screen.dart';
+import '../../modules/student/features/quizzes/ui/student_quizzes_screen.dart';
 import '../auth/logic/cubit/auth_cubit.dart';
 import '../auth/ui/login_screen.dart';
 import '../auth/ui/widgets/initial_screen.dart';
@@ -116,7 +115,9 @@ class AppRouter {
         );
 
       case Routes.addEditCourseScreen:
-        return MaterialPageRoute(builder: (_) => const AddEditCourseScreen());
+        return MaterialPageRoute(
+          builder: (_) => AddEditCourseScreen(course: args['course']),
+        );
 
       case Routes.instructorCoursePreviewScreen:
         return MaterialPageRoute(
