@@ -64,6 +64,15 @@
     "welcome_user": "مرحباً، {name}",
     "text_account_missing": "إذا كان حسابك مفقودًا يرجى التواصل باتحاد الطلاب او إدارة الجامعة للحصول على بريدك الجامعي"
   },
+  "general": {
+    "logout": {
+      "button": "تسجيل الخروج",
+      "dialog_title": "تسجيل الخروج",
+      "dialog_message": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+      "cancel": "إلغاء",
+      "confirm": "تسجيل الخروج"
+    }
+  },
 
   "student_home": {
     "welcome": "مرحباً،",
@@ -372,7 +381,14 @@
     "quizzes": "الاختبارات",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات",
-    "theme": "تغيير المظهر",
+    "theme": " تغيير المظهر",
+    "navigation": "التنقل",
+    "common": {
+      "english": "English",
+      "arabic": "العربية",
+      "light": "فاتح",
+      "dark": "داكن"
+    },
     "language": "تغيير اللغة",
     "logout": "تسجيل الخروج"
   },
