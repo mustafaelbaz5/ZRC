@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../extensions/context_extensions.dart';
-import '../../utils/functions/app_setting_fun.dart';
 
+import '../../extensions/context_extensions.dart';
 import '../../router/routes.dart';
 import '../data/models/on_boarding_page_model.dart';
 import 'widgets/onboarding_bottom_section.dart';
@@ -39,11 +38,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-  void _onChangeLanguage() {
-    switchLanguage(context);
-    setState(() {});
-  }
-
   void _goToPreviousPage() {
     _pageController.previousPage(
       duration: const Duration(milliseconds: 400),
@@ -65,11 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            OnBoardingTopBar(
-              showSkip: !_isLastPage,
-              onSkip: () => context.pushReplacementNamed(Routes.loginScreen),
-              onChangeLanguage: _onChangeLanguage,
-            ),
+            OnBoardingTopBar(showSkip: !_isLastPage),
             Expanded(
               child: PageView.builder(
                 controller: _pageController,

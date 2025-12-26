@@ -8,3 +8,5 @@ double responsiveHeight(final double height) => height.h;
 double responsiveWidth(final double width) => width.w;
 
 double responsiveFontSize(final double fontSize) => fontSize.sp;
+
+double responsiveRadius(final double radius) => radius.r;
