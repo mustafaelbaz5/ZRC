@@ -121,7 +121,7 @@ class AppRouter {
 
       case Routes.instructorCoursePreviewScreen:
         return MaterialPageRoute(
-          builder: (_) => const InstructorCoursePreviewScreen(),
+          builder: (_) => InstructorCoursePreviewScreen(course: args['course']),
         );
 
       // ----------------- ADMIN -----------------
