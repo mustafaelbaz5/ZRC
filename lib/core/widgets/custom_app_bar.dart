@@ -1,7 +1,7 @@
-// core/widgets/custom_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:zrc/core/config/constants.dart';
 import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/themes/app_colors.dart';
 import 'package:zrc/core/themes/app_text_styles.dart';
 import 'package:zrc/core/utils/spacing.dart';
 import 'package:zrc/core/widgets/notification_button.dart';
@@ -32,9 +32,9 @@ class CustomAppBar extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: context.customColors.divider.withAlpha(128),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
+            color: context.customColors.divider.withAlpha(64),
+            blurRadius: 2,
+            offset: const Offset(0, 1),
           ),
         ],
       ),
@@ -42,13 +42,16 @@ class CustomAppBar extends StatelessWidget {
         children: [
           if (showBackButton)
             IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: AppColors.grey0,
+              ),
+              onPressed: () => context.pop(),
             )
           else
             Builder(
               builder: (final context) => IconButton(
-                icon: const Icon(Icons.menu_rounded),
+                icon: const Icon(Icons.menu_rounded, color: AppColors.grey0),
                 onPressed: () {
                   Constants.scaffoldKey.currentState?.openDrawer();
                 },
@@ -60,9 +63,7 @@ class CustomAppBar extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: AppTextStyles.font18Bold.copyWith(
-                color: context.customColors.textPrimary,
-              ),
+              style: AppTextStyles.font18Bold.copyWith(color: AppColors.grey0),
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
             ),
