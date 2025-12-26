@@ -6,7 +6,7 @@ import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/filter_list_view.dart';
 import 'widgets/all_courses_list_view.dart';
-import '../../home/data/model/category_model.dart';
+import '../../../../../core/models/category_model.dart';
 
 class StudentCoursesScreen extends StatelessWidget {
   const StudentCoursesScreen({super.key});

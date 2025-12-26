@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../../core/utils/spacing.dart';
-import '../../data/model/category_model.dart';
+import '../../../../../../core/models/category_model.dart';
 import 'home_categories_list_view_item.dart';
 
 class HomeCategoriesListView extends StatefulWidget {
