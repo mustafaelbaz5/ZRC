@@ -26,6 +26,7 @@
     "user_disabled": "This account has been disabled.",
     "operation_not_allowed": "This operation is not allowed."
   },
+
   "onboarding": {
     "title1": "Welcome to ZRC",
     "subtitle1": "ZNU Robotics Community",
@@ -80,15 +81,6 @@
 
     "see_all": "See all",
 
-    "categories": {
-      "programming": "Programming",
-      "hardware": "Hardware",
-      "mechanical_design": "Mechanical Design",
-      "3d_design": "3D Design",
-      "graphic_design": "Graphic Design",
-      "others": "Others"
-    },
-
     "sample_courses": {
       "mathematics": {
         "title": "Mathematics",
@@ -116,6 +108,7 @@
       }
     }
   },
+
   "student_courses": {
     "screen_title": "Courses",
     "categories": "Categories",
@@ -183,6 +176,7 @@
       "paid": "Paid"
     }
   },
+
   "student_quizzes": {
     "screen_title": "Quizzes",
     "filters": {
@@ -315,6 +309,7 @@
       }
     }
   },
+
   "student_profile": {
     "screen_title": "Profile",
     "unable_to_load": "Unable to load profile",
@@ -357,6 +352,7 @@
     },
     "copy_to_clipboard": "Copied to clipboard"
   },
+
   "instructor_home": {
     "statistics": {
       "title": "Statistics",
@@ -372,6 +368,7 @@
       "create_assignment": "Create Assignment"
     }
   },
+
   "instructor_drawer": {
     "home": "Home",
     "courses": "Courses",
@@ -382,6 +379,7 @@
     "language": "Change Language",
     "logout": "Logout"
   },
+
   "instructor_courses": {
     "drafts": "Drafts",
     "pending": "Pending",
@@ -395,6 +393,43 @@
       "subtitle_pending": "Tap the + button to create your first course",
       "title_published": "No published courses yet",
       "subtitle_published": "Your courses will appear here once published"
+    },
+    "course_card": {
+      "edit": "Edit",
+      "preview": "Preview",
+      "view_details": "View Details",
+      "delete_course": "Delete Course?",
+      "delete_course_message": "This action cannot be undone."
     }
+  },
+
+  "instructor_course_create": {
+    "title": "Create New Course",
+    "edit_title": "Edit Course",
+    "course_title": "Course Title",
+    "course_title_hint": "Enter course title",
+    "youtube_url": "YouTube Video URL",
+    "description": "Course Description",
+    "description_hint": "Describe what students will learn",
+    "category": "Category",
+    "category_hint": "Enter category",
+    "learning_points": "What Students Will Learn",
+    "learning_points_hint": "• Point one\n• Point two\n• Point three",
+    "learning_points_help": "Separate each point with a new line",
+    "is_optional": "Optional",
+    "save_draft": "Save as Draft",
+    "submit_for_review": "Submit for Review",
+    "saved_as_draft": "Course saved as draft",
+    "submitted_for_review": "Course submitted for review",
+    "validation": {
+      "required": "This field is required",
+      "invalid_youtube_url": "Please enter a valid YouTube URL"
+    }
+  },
+
+  "instructor_course_preview": {
+    "title": "Course Preview",
+    "description": "Preview your course before publishing it",
+    "button": "Publish"
   }
 }

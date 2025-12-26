@@ -26,6 +26,7 @@
     "user_disabled": "تم تعطيل هذا الحساب.",
     "operation_not_allowed": "هذه العملية غير مسموح بها."
   },
+
   "onboarding": {
     "title1": "مرحبًا بك في ZRC",
     "subtitle1": "مجتمع روبوتات جامعة الزقازيق الاهلية  ",
@@ -77,16 +78,6 @@
     "instructors_title": "أفضل المدربين",
 
     "see_all": "عرض الكل",
-
-    "categories": {
-      "programming": "البرمجة",
-      "hardware": "الأجهزة",
-      "mechanical_design": "التصميم الميكانيكي",
-      "3d_design": "التصميم ثلاثي الأبعاد",
-      "graphic_design": "التصميم الجرافيكي",
-      "others": "أخرى"
-    },
-
     "sample_courses": {
       "mathematics": {
         "title": "الرياضيات",
@@ -182,6 +173,7 @@
       "paid": "مدفوع"
     }
   },
+
   "student_quizzes": {
     "screen_title": "الاختبارات",
     "filters": {
@@ -314,6 +306,7 @@
       }
     }
   },
+
   "student_profile": {
     "screen_title": "الملف الشخصي",
     "unable_to_load": "تعذر تحميل الملف الشخصي",
@@ -356,6 +349,7 @@
     },
     "copy_to_clipboard": "تم النسخ إلى الحافظة"
   },
+
   "instructor_home": {
     "statistics": {
       "title": "الإحصائيات",
@@ -371,6 +365,7 @@
       "create_assignment": "إنشاء تعيين"
     }
   },
+
   "instructor_drawer": {
     "home": "الرئيسية",
     "courses": "الدورات",
@@ -381,6 +376,7 @@
     "language": "تغيير اللغة",
     "logout": "تسجيل الخروج"
   },
+
   "instructor_courses": {
     "drafts": "مسودة",
     "pending": "قيد الانتظار",
@@ -394,6 +390,43 @@
       "subtitle_pending": "اضغط على زر + لإنشاء أول دورة لك",
       "title_published": "لا توجد دورات منشورة بعد",
       "subtitle_published": "ستظهر دوراتك هنا بعد نشرها"
+    },
+    "course_card": {
+      "edit": "تعديل",
+      "preview": "معاينة",
+      "view_details": "عرض التفاصيل",
+      "delete_course": "حذف الدورة؟",
+      "delete_course_message": "لا يمكن التراجع عن هذا الخطوة."
     }
+  },
+
+  "instructor_course_create": {
+    "title": "إنشاء دورة جديدة",
+    "edit_title": "تعديل الدورة",
+    "course_title": "عنوان الدورة",
+    "course_title_hint": "أدخل عنوان الدورة",
+    "youtube_url": "رابط فيديو يوتيوب",
+    "description": "وصف الدورة",
+    "description_hint": "صف ما سيتم تعلمه في الدورة",
+    "category": "الفئة",
+    "category_hint": "أدخل الفئة",
+    "learning_points": "ما سيتم تعلمه",
+    "learning_points_hint": "• النقطة الأولى\n• النقطة الثانية\n• النقطة الثالثة",
+    "learning_points_help": "فصل كل نقطة بخط جديد",
+    "is_optional": "اختياري",
+    "save_draft": "حفظ كمسودة",
+    "submit_for_review": "إرسال للمراجعة",
+    "saved_as_draft": "تم حفظ الدورة كمسودة",
+    "submitted_for_review": "تم إرسال الدورة للمراجعة",
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "invalid_youtube_url": "يرجى إدخال رابط يوتيوب صحيح"
+    }
+  },
+
+  "instructor_course_preview": {
+    "title": "معاينة الدورة",
+    "description": "معاينة الدورة قبل النشر",
+    "button": "نشر"
   }
 }
