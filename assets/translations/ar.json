@@ -442,7 +442,7 @@
 
   "instructor_course_preview": {
     "title": "معاينة الدورة",
-    "description": "معاينة الدورة قبل النشر",
-    "button": "نشر"
+    "description": "وصف الدورة",
+    "what_you_learn": "ما سيتم تعلمه"
   }
 }

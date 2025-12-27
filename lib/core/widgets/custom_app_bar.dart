@@ -12,11 +12,13 @@ class CustomAppBar extends StatelessWidget {
     required this.title,
     this.showBackButton = false,
     this.showNotificationIcon = true,
+    this.backgroundColor,
   });
 
   final String title;
   final bool showBackButton;
   final bool showNotificationIcon;
+  final Color? backgroundColor;
 
   @override
   Widget build(final BuildContext context) {
@@ -26,7 +28,7 @@ class CustomAppBar extends StatelessWidget {
         vertical: responsiveHeight(8),
       ),
       decoration: BoxDecoration(
-        color: context.customColors.surfaceVariant2,
+        color: backgroundColor ?? context.customColors.surfaceVariant2,
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(responsiveWidth(20)),
         ),

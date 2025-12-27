@@ -309,6 +309,7 @@
       }
     }
   },
+
   "general": {
     "logout": {
       "button": "LogOut",
@@ -318,6 +319,7 @@
       "confirm": "Logout"
     }
   },
+
   "student_profile": {
     "screen_title": "Profile",
     "unable_to_load": "Unable to load profile",
@@ -436,7 +438,7 @@
 
   "instructor_course_preview": {
     "title": "Course Preview",
-    "description": "Preview your course before publishing it",
-    "button": "Publish"
+    "description": "description",
+    "what_you_learn": "What You'll Learn"
   }
 }
