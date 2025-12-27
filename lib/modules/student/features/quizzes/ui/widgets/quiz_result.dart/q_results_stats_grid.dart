@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/app_colors.dart';
 
+import '../../../../../../../core/themes/app_colors.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../data/model/quiz_model.dart';
 import 'q_results_stat_item.dart';

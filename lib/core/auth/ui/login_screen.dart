@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
+import '../../utils/spacing.dart';
+import '../../widgets/app_dialog/app_dialogs.dart';
 
 import '../../themes/app_text_styles.dart';
 import '../../utils/functions/navigate_to_role_home.dart';

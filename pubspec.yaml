@@ -74,6 +74,7 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   path_provider_platform_interface: ^2.1.2
   shorebird_code_push: ^2.0.5
+  cached_network_image: ^3.4.1
 
 # ------------------------------
 #        DEV DEPENDENCIES
@@ -147,4 +148,4 @@ flutter_launcher_icons:
     generate: true
 
   # For non-Android platforms (icon with background baked in)
-  image_path: assets/images/logo_dark.png
+  image_path: assets/images/splash_dark.png

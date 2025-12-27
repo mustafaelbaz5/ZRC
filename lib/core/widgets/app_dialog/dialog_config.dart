@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/app_colors.dart';
+import '../../themes/app_colors.dart';
 
 enum DialogType { error, success, warning, info, confirmation }
 

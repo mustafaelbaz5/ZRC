@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_app_bar.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_description_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_instructor_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_quick_stats_grid.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quiz_detailed_status_card.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/quizzes_details_info.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_detailed/start_quiz_button.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../data/model/quiz_model.dart';
+import 'widgets/quiz_detailed/quiz_detailed_app_bar.dart';
+import 'widgets/quiz_detailed/quiz_detailed_description_card.dart';
+import 'widgets/quiz_detailed/quiz_detailed_instructor_card.dart';
+import 'widgets/quiz_detailed/quiz_detailed_quick_stats_grid.dart';
+import 'widgets/quiz_detailed/quiz_detailed_status_card.dart';
+import 'widgets/quiz_detailed/quizzes_details_info.dart';
+import 'widgets/quiz_detailed/start_quiz_button.dart';
 
 class StudentQuizDetailedScreen extends StatelessWidget {
   final QuizModel quiz;

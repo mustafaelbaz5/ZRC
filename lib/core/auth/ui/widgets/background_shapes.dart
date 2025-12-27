@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
+import '../../../extensions/context_extensions.dart';
 
 class BackgroundShapes extends StatelessWidget {
   const BackgroundShapes({super.key});

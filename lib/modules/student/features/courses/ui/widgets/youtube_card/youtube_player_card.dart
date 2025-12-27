@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/fullscreen_player.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/youtube_card/youtube_player_controls.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'fullscreen_player.dart';
+import 'youtube_player_controls.dart';
 
 import 'youtube_player_error.dart';
 import 'youtube_player_loading.dart';

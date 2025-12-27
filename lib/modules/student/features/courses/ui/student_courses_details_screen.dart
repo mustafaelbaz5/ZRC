@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/course_description.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/course_stats.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/course_title_section.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/hero_video_section.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/learning_points.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/start_course_button.dart';
-import 'package:zrc/modules/student/features/courses/ui/widgets/detailed_screen_widgets/video_player_screen.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/utils/spacing.dart';
+import 'widgets/detailed_screen_widgets/course_description.dart';
+import 'widgets/detailed_screen_widgets/course_stats.dart';
+import 'widgets/detailed_screen_widgets/course_title_section.dart';
+import 'widgets/detailed_screen_widgets/hero_video_section.dart';
+import 'widgets/detailed_screen_widgets/learning_points.dart';
+import 'widgets/detailed_screen_widgets/start_course_button.dart';
+import 'widgets/detailed_screen_widgets/video_player_screen.dart';
 
 class StudentCoursesDetailsScreen extends StatelessWidget {
   const StudentCoursesDetailsScreen({super.key});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/questions_answer/q_answers_option_card.dart';
+
+import 'q_answers_option_card.dart';
 
 class MCQOptions extends StatelessWidget {
   final List<String> options;

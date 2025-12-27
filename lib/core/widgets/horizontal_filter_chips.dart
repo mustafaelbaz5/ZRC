@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/modules/student/core/widgets/filter_chip_item.dart';
+import '../utils/spacing.dart';
+import '../../modules/student/core/widgets/filter_chip_item.dart';
 
 class HorizontalFilterChips extends StatelessWidget {
   const HorizontalFilterChips({
@@ -19,7 +19,7 @@ class HorizontalFilterChips extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     return SizedBox(
-      height: height ?? 60.h,
+      height: height ?? responsiveHeight(40),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

@@ -1,28 +1,26 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/onboarding/ui/widgets/top_bar_button.dart';
-import 'package:zrc/core/onboarding/ui/widgets/top_bar_icon_button.dart';
-import 'package:zrc/core/utils/functions/app_setting_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../extensions/context_extensions.dart';
+import '../../../router/routes.dart';
+
+import '../../../utils/functions/app_setting_fun.dart';
+import '../../../utils/spacing.dart';
+import 'top_bar_button.dart';
+import 'top_bar_icon_button.dart';
 
 class OnBoardingTopBar extends StatelessWidget {
   final bool showSkip;
-  final VoidCallback onSkip;
-  final VoidCallback onChangeLanguage;
 
-  const OnBoardingTopBar({
-    super.key,
-    required this.showSkip,
-    required this.onSkip,
-    required this.onChangeLanguage,
-  });
+  const OnBoardingTopBar({super.key, required this.showSkip});
 
   @override
   Widget build(final BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(
+          horizontal: responsiveWidth(20),
+          vertical: responsiveHeight(12),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -40,11 +38,11 @@ class OnBoardingTopBar extends StatelessWidget {
       children: [
         TopBarIconButton(
           icon: Icons.language_rounded,
-          onPressed: onChangeLanguage,
+          onPressed: () => switchLanguage(context),
           label: context.locale.languageCode.toUpperCase(),
           tooltip: 'onboarding.change_language'.tr(),
         ),
-        horizontalSpacing(12.w),
+        horizontalSpacing(12),
         TopBarIconButton(
           icon: _getThemeIcon(context),
           onPressed: () => switchTheme(context),
@@ -58,7 +56,7 @@ class OnBoardingTopBar extends StatelessWidget {
       opacity: showSkip ? 1.0 : 0.0,
       duration: const Duration(milliseconds: 300),
       child: TopBarButton(
-        onPressed: onSkip,
+        onPressed: () => context.pushReplacementNamed(Routes.loginScreen),
         label: 'onboarding.button_skip'.tr(),
         isOutlined: true,
       ),

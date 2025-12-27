@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../themes/app_text_styles.dart';
 import '../../../utils/regex.dart';
@@ -43,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
     final bool isLoading = context.watch<AuthCubit>().state is AuthLoading;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: EdgeInsets.symmetric(horizontal: responsiveWidth(24)),
       child: Form(
         key: _formKey,
         child: Column(
@@ -53,6 +52,7 @@ class _LoginFormState extends State<LoginForm> {
             Text('login.email_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
+              inputTextStyle: AppTextStyles.font14Regular,
               controller: _emailController,
               hintText: 'login.email_hint'.tr(),
               keyboardType: TextInputType.emailAddress,
@@ -71,9 +71,10 @@ class _LoginFormState extends State<LoginForm> {
             Text('login.password_label'.tr(), style: AppTextStyles.font16Bold),
             verticalSpacing(8),
             CustomTextFormField(
+              inputTextStyle: AppTextStyles.font14Regular,
               controller: _passwordController,
               hintText: 'login.password_hint'.tr(),
-              isObscureText: true,
+              isPassword: true,
               validator: (final String? value) {
                 if (value == null || value.isEmpty) {
                   return 'login.password_error_empty'.tr();
@@ -86,13 +87,13 @@ class _LoginFormState extends State<LoginForm> {
 
             // Login button
             CustomTextButton(
-              textStyle: AppTextStyles.font20Bold,
-              buttonText: 'login.button_login'.tr(),
+              textStyle: AppTextStyles.font18Bold,
+              text: 'login.button_login'.tr(),
               onPressed: isLoading ? null : _onLoginPressed,
               isLoading: isLoading,
-              buttonHeight: responsiveHeight(56),
-              buttonWidth: double.infinity,
-              borderRadius: 12.r,
+              size: CustomButtonSize.large,
+              style: CustomButtonStyle.filled,
+              borderRadius: responsiveRadius(12),
             ),
           ],
         ),

@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/functions/navigate_to_role_home.dart';
-import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
+import '../../../extensions/context_extensions.dart';
+import '../../../utils/functions/navigate_to_role_home.dart';
+import '../../../widgets/app_dialog/app_dialogs.dart';
 
 import '../../../router/routes.dart';
 import '../../data/model/user_model.dart';
