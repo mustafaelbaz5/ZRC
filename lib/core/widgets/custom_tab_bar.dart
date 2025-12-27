@@ -27,8 +27,8 @@ class CustomTabBar extends StatelessWidget {
         ),
         indicatorSize: TabBarIndicatorSize.tab,
 
-        indicatorPadding: const EdgeInsets.symmetric(horizontal: 6),
-        labelPadding: const EdgeInsets.symmetric(horizontal: 16),
+        indicatorPadding: EdgeInsets.symmetric(horizontal: responsiveWidth(6)),
+        labelPadding: EdgeInsets.symmetric(horizontal: responsiveWidth(16)),
         tabs: tabs
             .asMap()
             .entries
@@ -58,7 +58,7 @@ class _TabItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(tab.icon, size: 16),
+          Icon(tab.icon, size: responsiveWidth(16)),
           horizontalSpacing(4),
           Flexible(child: Text(tab.label, style: AppTextStyles.font14Bold)),
         ],

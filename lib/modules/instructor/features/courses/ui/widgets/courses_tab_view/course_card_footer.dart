@@ -35,7 +35,7 @@ class CourseCardFooter extends StatelessWidget {
               textStyle: AppTextStyles.font14Bold,
               backgroundColor: context.customColors.surfaceVariant2,
               prefixIcon: const Icon(Icons.edit_rounded, size: 16),
-              text: tr('instructor_courses.course_card.edit'),
+              text: tr('instructor_courses.course_card.edit', context: context),
               onPressed: () => context.pushNamed(
                 Routes.addEditCourseScreen,
                 arguments: {'course': course},
@@ -54,8 +54,11 @@ class CourseCardFooter extends StatelessWidget {
             backgroundColor: context.customColors.surfaceVariant2,
             prefixIcon: const Icon(Icons.visibility_rounded, size: 16),
             text: canEdit
-                ? tr('instructor_courses.course_card.preview')
-                : tr('instructor_courses.course_card.view_details'),
+                ? tr('instructor_courses.course_card.preview', context: context)
+                : tr(
+                    'instructor_courses.course_card.view_details',
+                    context: context,
+                  ),
             onPressed: () => context.pushNamed(
               Routes.instructorCoursePreviewScreen,
               arguments: {'course': course},
@@ -68,17 +71,19 @@ class CourseCardFooter extends StatelessWidget {
           IconButton(
             onPressed: () => AppDialogs.showConfirmation(
               context: context,
-              title: tr('instructor_courses.course_card.delete_course'),
+              title: tr(
+                'instructor_courses.course_card.delete_course',
+                context: context,
+              ),
               message: tr(
                 'instructor_courses.course_card.delete_course_message',
+                context: context,
               ),
               onConfirm: () {
-                Navigator.pop(context);
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(const SnackBar(content: Text('Course deleted')));
               },
-              onCancel: () => Navigator.pop(context),
             ),
             icon: const Icon(Icons.delete_rounded, color: Colors.red),
             style: ButtonStyle(
@@ -91,7 +96,10 @@ class CourseCardFooter extends StatelessWidget {
               ),
             ),
 
-            tooltip: tr('instructor_courses.course_card.delete_course'),
+            tooltip: tr(
+              'instructor_courses.course_card.delete_course',
+              context: context,
+            ),
           ),
         ],
       ],

@@ -37,7 +37,7 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
         children: [
           // App Bar
           CustomAppBar(
-            title: tr('instructor_drawer.courses'),
+            title: tr('instructor_drawer.courses', context: context),
             showNotificationIcon: true,
           ),
           verticalSpacing(16),
@@ -47,19 +47,19 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
             controller: _tabController,
             tabs: [
               CustomTabItem(
-                label: 'instructor_courses.drafts'.tr(),
+                label: tr('instructor_courses.drafts', context: context),
                 icon: Icons.edit_note_outlined,
               ),
               CustomTabItem(
-                label: 'instructor_courses.pending'.tr(),
+                label: tr('instructor_courses.pending', context: context),
                 icon: Icons.schedule_outlined,
               ),
               CustomTabItem(
-                label: 'instructor_courses.published'.tr(),
+                label: tr('instructor_courses.published', context: context),
                 icon: Icons.check_circle_outlined,
               ),
               CustomTabItem(
-                label: 'instructor_courses.rejected'.tr(),
+                label: tr('instructor_courses.rejected', context: context),
                 icon: Icons.cancel_outlined,
               ),
             ],
