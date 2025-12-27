@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/custom_app_bar.dart';
-import 'package:zrc/core/widgets/custom_tab_bar.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/instructor_courses_tab_view.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
+import '../../../../../core/widgets/custom_tab_bar.dart';
+import '../data/models/instructor_course_model.dart';
+import 'widgets/instructor_courses_tab_view.dart';
 
 class InstructorCoursesScreen extends StatefulWidget {
   const InstructorCoursesScreen({super.key});

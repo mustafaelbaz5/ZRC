@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/core/widgets/drawer/nav_item.dart';
-import 'package:zrc/modules/instructor/core/widgets/instructor_drawer.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/themes/app_text_styles.dart';
+import '../../../../../core/utils/spacing.dart';
+import 'nav_item.dart';
+import '../instructor_drawer.dart';
 
 class NavigationSection extends StatelessWidget {
   const NavigationSection({

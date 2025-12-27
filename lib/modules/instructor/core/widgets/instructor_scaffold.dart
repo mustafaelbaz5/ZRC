@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/router/routes.dart';
 
 import '../../../../core/config/constants.dart';
 import '../../features/courses/ui/instructor_courses_screen.dart';

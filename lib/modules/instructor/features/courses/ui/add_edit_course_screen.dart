@@ -1,15 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/custom_app_bar.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/category_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/description_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/learning_points_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/title_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/you_tube_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/instructor_course_action_buttons.dart';
+import '../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
+import '../data/models/instructor_course_model.dart';
+import 'widgets/add_edit_course/category_section.dart';
+import 'widgets/add_edit_course/description_section.dart';
+import 'widgets/add_edit_course/learning_points_section.dart';
+import 'widgets/add_edit_course/title_section.dart';
+import 'widgets/add_edit_course/you_tube_section.dart';
+import 'widgets/instructor_course_action_buttons.dart';
 
 class AddEditCourseScreen extends StatefulWidget {
   const AddEditCourseScreen({super.key, this.course});

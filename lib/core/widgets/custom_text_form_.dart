@@ -1,7 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../utils/spacing.dart';
 
 import '../extensions/context_extensions.dart';
 import '../themes/app_colors.dart';

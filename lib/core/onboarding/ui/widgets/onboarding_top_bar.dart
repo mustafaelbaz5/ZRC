@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
+import '../../../extensions/context_extensions.dart';
+import '../../../router/routes.dart';
 
 import '../../../utils/functions/app_setting_fun.dart';
 import '../../../utils/spacing.dart';

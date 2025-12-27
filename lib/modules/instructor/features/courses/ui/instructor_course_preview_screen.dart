@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/custom_app_bar.dart';
-import 'package:zrc/modules/instructor/features/courses/data/models/instructor_course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/thumbnail_preview.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/themes/app_text_styles.dart';
+import '../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
+import '../data/models/instructor_course_model.dart';
+import 'widgets/thumbnail_preview.dart';
 
 class InstructorCoursePreviewScreen extends StatelessWidget {
   const InstructorCoursePreviewScreen({super.key, required this.course});

@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/custom_text_form_.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/section_label.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../../../../../core/widgets/custom_text_form_.dart';
+import 'section_label.dart';
 
 class LearningPointsSection extends StatelessWidget {
   const LearningPointsSection({super.key, required this.controller});

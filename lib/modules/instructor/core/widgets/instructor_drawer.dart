@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/app_assets.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/core/widgets/drawer/custom_drawer_header.dart';
-import 'package:zrc/modules/instructor/core/widgets/drawer/drawer_logout_section.dart';
-import 'package:zrc/modules/instructor/core/widgets/drawer/drawer_navigation_section.dart';
-import 'package:zrc/modules/instructor/core/widgets/drawer/drawer_settings_section.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/spacing.dart';
+import 'drawer/custom_drawer_header.dart';
+import 'drawer/drawer_logout_section.dart';
+import 'drawer/drawer_navigation_section.dart';
+import 'drawer/drawer_settings_section.dart';
 
 class InstructorDrawer extends StatelessWidget {
   const InstructorDrawer({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/app_assets.dart';
+import '../../../../../core/utils/app_assets.dart';
 
 import '../../../../../core/extensions/context_extensions.dart';
 import '../../../../../core/themes/app_text_styles.dart';

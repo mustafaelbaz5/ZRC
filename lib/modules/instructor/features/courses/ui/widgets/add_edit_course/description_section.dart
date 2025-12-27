@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/custom_text_form_.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/section_label.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../../../../../core/widgets/custom_text_form_.dart';
+import 'section_label.dart';
 
 class DescriptionSection extends StatelessWidget {
   const DescriptionSection({super.key, required this.controller});
