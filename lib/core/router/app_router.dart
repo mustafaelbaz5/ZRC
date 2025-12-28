@@ -1,6 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zrc/core/auth/data/repo/auth_repo.dart';
+import 'package:zrc/core/di/dependency_injection.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/core/widgets/instructor_scaffold.dart';
@@ -41,7 +43,7 @@ class AppRouter {
       case Routes.initialScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (_) => AuthCubit()..checkAutoLogin(),
+            create: (_) => AuthCubit(getIt<AuthRepo>())..checkCurrentUser(),
             child: const InitialScreen(),
           ),
         );
@@ -49,7 +51,7 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
-            create: (_) => AuthCubit(),
+            create: (_) => AuthCubit(getIt<AuthRepo>()),
             child: const LoginScreen(),
           ),
         );
