@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../utils/spacing.dart';
-import '../../widgets/app_dialog/app_dialogs.dart';
+import 'package:zrc/core/extensions/context_extensions.dart';
+import 'package:zrc/core/utils/functions/navigate_to_role_home.dart';
 
 import '../../themes/app_text_styles.dart';
-import '../../utils/functions/navigate_to_role_home.dart';
-import '../data/model/user_model.dart';
+import '../../utils/spacing.dart';
+import '../../widgets/app_dialog/app_dialogs.dart';
 import '../logic/cubit/auth_cubit.dart';
 import 'widgets/background_shapes.dart';
 import 'widgets/login_body.dart';
@@ -20,10 +20,9 @@ class LoginScreen extends StatelessWidget {
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: BlocConsumer<AuthCubit, AuthState>(
-          listener: (final BuildContext context, final AuthState state) {
+          listener: (final context, final state) {
             if (state is AuthSuccess) {
-              final UserModel user = state.userModel;
-              navigateToRoleHome(context, user.role);
+              navigateToRoleHome(context, state.userModel.role);
             } else if (state is AuthError) {
               AppDialogs.showError(
                 context: context,
@@ -32,17 +31,41 @@ class LoginScreen extends StatelessWidget {
               );
             }
           },
+          builder: (final context, final state) {
+            final bool isLoading = state is AuthLoading;
 
-          builder: (final BuildContext context, final AuthState state) {
             return Stack(
-              children: <Widget>[
-                AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 350),
-                  transitionBuilder:
-                      (final Widget child, final Animation<double> animation) =>
-                          FadeTransition(opacity: animation, child: child),
-                  child: _buildBodyForState(state),
-                ),
+              children: [
+                const _LoginContent(),
+
+                if (isLoading)
+                  Container(
+                    color: context.customColors.background.withValues(
+                      alpha: 0.4,
+                    ),
+                    child: Center(
+                      child: Card(
+                        elevation: 8,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(responsiveRadius(32)),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const CircularProgressIndicator(),
+                              verticalSpacing(16),
+                              Text(
+                                'login.logging_in'.tr(),
+                                style: AppTextStyles.font18Bold,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             );
           },
@@ -50,47 +73,20 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildBodyForState(final AuthState state) {
-    if (state is AuthSuccess) {
-      return Center(
-        key: const ValueKey('success_view'),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Icon(
-              Icons.check_circle_outline,
-              color: Colors.green,
-              size: 80,
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'login.title_login_success'.tr(),
-              style: AppTextStyles.font20Bold,
-              textAlign: TextAlign.center,
-            ),
-            verticalSpacing(16),
-            Text(
-              'login.message_login_success'.tr(),
-              style: AppTextStyles.font16Regular,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-      );
-    }
+class _LoginContent extends StatelessWidget {
+  const _LoginContent();
 
-    // login view
+  @override
+  Widget build(final BuildContext context) {
     return LayoutBuilder(
-      builder: (final BuildContext context, final BoxConstraints constraints) {
+      builder: (final context, final constraints) {
         return SingleChildScrollView(
-          key: const ValueKey('login_view'),
           child: SizedBox(
             height: constraints.maxHeight,
             width: double.infinity,
-            child: const Stack(
-              children: <Widget>[BackgroundShapes(), LoginBody()],
-            ),
+            child: const Stack(children: [BackgroundShapes(), LoginBody()]),
           ),
         );
       },
