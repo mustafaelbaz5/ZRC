@@ -60,6 +60,7 @@
 
     "forgot_password": "هل نسيت كلمة المرور؟",
     "button_login": "تسجيل الدخول",
+    "logging_in": "تسجيل الدخول...",
 
     "title_login_failed": "فشل تسجيل الدخول",
     "welcome_user": "مرحباً، {name}",

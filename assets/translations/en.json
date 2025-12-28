@@ -62,6 +62,7 @@
 
     "forgot_password": "Forgot Password?",
     "button_login": "Login",
+    "logging_in": "Logging in...",
 
     "title_login_failed": "Login Failed",
     "welcome_user": "Welcome, {name}",
