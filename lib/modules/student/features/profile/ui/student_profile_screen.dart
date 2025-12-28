@@ -1,15 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zrc/core/auth/data/repo/auth_repo.dart';
+import 'package:zrc/core/di/dependency_injection.dart';
+
 import '../../../../../core/auth/data/model/user_model.dart';
 import '../../../../../core/extensions/context_extensions.dart';
-import '../../../../../core/storage/user_storage.dart';
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/functions/app_setting_fun.dart';
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/logout_button.dart';
-
 import 'widgets/profile_header.dart';
 import 'widgets/profile_personal_info/profile_personal_info_section.dart';
 import 'widgets/profile_settings/profile_settings.dart';
@@ -34,13 +35,14 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
 
   Future<void> _loadUserData() async {
     try {
-      final UserStorage userStorage = UserStorage();
-      final UserModel? user = await userStorage.getUser();
+      final UserModel? user = await getIt<AuthRepo>().getCurrentUser();
+      if (!mounted) return;
       setState(() {
         _user = user;
         _isLoading = false;
       });
     } catch (e) {
+      if (!mounted) return;
       setState(() => _isLoading = false);
       debugPrint('Error loading user data: $e');
     }
@@ -82,6 +84,7 @@ class _StudentProfileScreenState extends State<StudentProfileScreen> {
           CustomAppBar(
             title: 'student_profile.screen_title'.tr(),
             showNotificationIcon: false,
+            showMenuIcon: false,
           ),
           Expanded(
             child: SingleChildScrollView(

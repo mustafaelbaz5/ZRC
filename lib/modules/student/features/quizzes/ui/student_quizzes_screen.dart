@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import 'widgets/quizzes_filter_row.dart';
@@ -32,7 +33,10 @@ class _StudentQuizzesScreenState extends State<StudentQuizzesScreen> {
     return SafeArea(
       child: Column(
         children: <Widget>[
-          CustomAppBar(title: tr('student_quizzes.screen_title')),
+          CustomAppBar(
+            title: tr('student_quizzes.screen_title'),
+            showMenuIcon: false,
+          ),
           verticalSpacing(16),
           // Filter Tabs
           QuizzesFilterRow(

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import '../config/constants.dart';
 import '../extensions/context_extensions.dart';
 import '../themes/app_colors.dart';
@@ -9,9 +10,14 @@ import '../utils/spacing.dart';
 import 'notification_button.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key, required this.userName});
+  const HomeAppBar({
+    super.key,
+    required this.userName,
+    this.showMenuIcon = true,
+  });
 
   final String userName;
+  final bool showMenuIcon;
 
   @override
   Widget build(final BuildContext context) {
@@ -33,14 +39,15 @@ class HomeAppBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Builder(
-            builder: (final context) => IconButton(
-              icon: const Icon(Icons.menu_rounded, color: AppColors.grey200),
-              onPressed: () {
-                Constants.scaffoldKey.currentState?.openDrawer();
-              },
+          if (showMenuIcon)
+            Builder(
+              builder: (final context) => IconButton(
+                icon: const Icon(Icons.menu_rounded, color: AppColors.grey200),
+                onPressed: () {
+                  Constants.scaffoldKey.currentState?.openDrawer();
+                },
+              ),
             ),
-          ),
           horizontalSpacing(12),
           Expanded(
             child: Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../config/constants.dart';
 import '../extensions/context_extensions.dart';
 import '../themes/app_colors.dart';
@@ -12,12 +13,14 @@ class CustomAppBar extends StatelessWidget {
     required this.title,
     this.showBackButton = false,
     this.showNotificationIcon = true,
+    this.showMenuIcon = true,
     this.backgroundColor,
   });
 
   final String title;
   final bool showBackButton;
   final bool showNotificationIcon;
+  final bool showMenuIcon;
   final Color? backgroundColor;
 
   @override
@@ -50,7 +53,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               onPressed: () => context.pop(),
             )
-          else
+          else if (showMenuIcon)
             Builder(
               builder: (final context) => IconButton(
                 icon: const Icon(Icons.menu_rounded, color: AppColors.grey0),
