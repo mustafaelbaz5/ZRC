@@ -1,73 +1,60 @@
-import 'package:flutter/material.dart';
+import 'package:bcrypt/bcrypt.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:zrc/core/auth/data/model/user_model.dart';
 
 import '../../../error/models/app_error.dart';
 import '../../../error/types/error_handler.dart';
 import '../../../error/types/error_type.dart';
-import '../../../storage/user_storage.dart';
-import '../model/user_model.dart';
 
 class AuthService {
   final SupabaseClient _supabase = Supabase.instance.client;
-  final UserStorage _userStorage;
 
-  AuthService({final UserStorage? userStorage})
-    : _userStorage = userStorage ?? UserStorage();
-
-  /// Login user using email & password and return the full UserModel
-  Future<UserModel> loginUser({
+  Future<UserModel> loginWithEmailPassword({
     required final String email,
     required final String password,
   }) async {
     try {
-      // Fetch user from Supabase
-      final PostgrestMap? response = await _supabase
+      final response = await _supabase
           .from('students')
           .select(
-            'id, student_code, name, email, password, college, national_id, phone_number, role',
+            'id, student_code, name, email, college, national_id, phone_number, role, password_hash',
           )
           .eq('email', email)
           .maybeSingle();
 
       if (response == null) {
-        throw const AppError(
-          message: 'Email not registered',
+        throw AppError(
+          message: 'errors.user_not_found'.tr(),
+          type: ErrorType.userNotFound,
+        );
+      }
+
+      final String? storedHash = response['password_hash'] as String?;
+
+      if (storedHash == null || storedHash.isEmpty) {
+        throw AppError(
+          message: 'errors.account_not_configured'.tr(),
+          type: ErrorType.unknown,
+        );
+      }
+
+      final bool isValid = BCrypt.checkpw(password, storedHash);
+
+      if (!isValid) {
+        throw AppError(
+          message: 'errors.invalid_credentials'.tr(),
           type: ErrorType.invalidCredentials,
         );
       }
 
-      final String? storedPassword = response['password'] as String?;
-      if (storedPassword != password) {
-        throw const AppError(
-          message: 'Incorrect password',
-          type: ErrorType.invalidCredentials,
-        );
-      }
-
-      // Build UserModel
-      final UserModel user = UserModel.fromJson(response);
-
-      // Save full user data in secure storage via UserStorage
-      await _userStorage.saveUser(user);
-
-      debugPrint(
-        '✅ User logged in successfully: ${user.id}, role: ${user.role}',
-      );
-
-      return user;
-    } catch (e) {
-      final AppError appError = ErrorHandler.handle(e);
-      debugPrint('❌ Login failed: ${appError.message}');
-      throw AppError(
-        message: appError.message,
-        type: appError.type,
-        code: appError.code,
-        originalError: appError.originalError,
-      );
+      final cleanData = Map<String, dynamic>.from(response)
+        ..remove('password_hash');
+      return UserModel.fromJson(cleanData);
+    } on PostgrestException catch (e) {
+      throw ErrorHandler.handle(e);
+    } on Exception catch (e) {
+      throw ErrorHandler.handle(e);
     }
-  }
-
-  Future<void> logout() async {
-    await _userStorage.clearUser();
   }
 }

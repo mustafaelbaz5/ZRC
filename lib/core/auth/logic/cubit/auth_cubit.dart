@@ -1,54 +1,53 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../error/models/app_error.dart';
-import '../../../error/types/error_type.dart';
-import '../../data/model/user_model.dart';
-import '../../data/repo/auth_repo.dart';
+import 'package:zrc/core/auth/data/model/user_model.dart';
+import 'package:zrc/core/auth/data/repo/auth_repo.dart';
+import 'package:zrc/core/error/models/app_error.dart';
+import 'package:zrc/core/error/types/error_type.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo _authRepo;
 
-  AuthCubit({final AuthRepo? authRepo})
-    : _authRepo = authRepo ?? AuthRepo(),
-      super(AuthInitial());
+  AuthCubit(this._authRepo) : super(AuthInitial());
 
-  /// Login method
   Future<void> login({
     required final String email,
     required final String password,
   }) async {
     emit(AuthLoading());
+
     try {
-      final UserModel studentModel = await _authRepo.login(
-        email: email,
-        password: password,
-      );
-      emit(AuthSuccess(userModel: studentModel));
-    } on AppError catch (e) {
-      emit(AuthError(e.message, errorType: e.type));
+      final user = await _authRepo.login(email: email, password: password);
+      emit(AuthSuccess(userModel: user));
+    } on AppError catch (appError) {
+      emit(AuthError(appError.message, errorType: appError.type));
     } catch (_) {
-      emit(AuthError('Something went wrong. Please try again.'));
+      emit(
+        AuthError(
+          'An unexpected error occurred. Please try again.',
+          errorType: ErrorType.unknown,
+        ),
+      );
     }
   }
 
-  /// Check if user is already logged in (from storage)
-  Future<void> checkAutoLogin() async {
+  Future<void> checkCurrentUser() async {
     emit(AuthLoading());
+
     try {
-      final UserModel? studentModel = await _authRepo.getLoggedInStudent();
-      if (studentModel != null) {
-        emit(AuthSuccess(userModel: studentModel));
+      final user = await _authRepo.getCurrentUser();
+
+      if (user != null) {
+        emit(AuthSuccess(userModel: user));
       } else {
         emit(AuthInitial());
       }
-    } catch (_) {
+    } catch (e) {
       emit(AuthInitial());
     }
   }
 
-  /// Logout method
   Future<void> logout() async {
     await _authRepo.logout();
     emit(AuthInitial());
