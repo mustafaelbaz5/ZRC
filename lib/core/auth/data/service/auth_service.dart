@@ -16,7 +16,7 @@ class AuthService {
   }) async {
     try {
       final response = await _supabase
-          .from('students')
+          .from('users')
           .select(
             'id, student_code, name, email, college, national_id, phone_number, role, password_hash',
           )
