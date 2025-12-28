@@ -11,6 +11,7 @@
     "server_error": "Server error occurred. Please try again later.",
     "invalid_credentials": "Invalid email or password.",
     "user_not_found": "No account found with this email.",
+    "account_not_configured": "Account not configured. Please contact the university union or student union to get your university email.",
     "email_already_exists": "An account with this email already exists.",
     "weak_password": "Password is too weak. Please use a stronger password.",
     "invalid_email": "Invalid email address format.",
