@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/core/auth/data/repo/auth_repo.dart';
 import 'package:zrc/core/di/dependency_injection.dart';
+import 'package:zrc/core/models/course_model.dart';
+import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/core/widgets/instructor_scaffold.dart';
 import '../../modules/instructor/features/courses/ui/add_edit_course_screen.dart';
 import '../../modules/instructor/features/courses/ui/instructor_course_preview_screen.dart';
-import '../../modules/instructor/features/courses/ui/instructor_courses_screen.dart';
 import '../../modules/instructor/features/home/ui/instructor_home_screen.dart';
 import '../../modules/student/core/widgets/student_scaffold.dart';
 import '../../modules/student/features/courses/ui/student_courses_details_screen.dart';
@@ -106,19 +107,18 @@ class AppRouter {
 
       // ----------------- INSTRUCTOR -----------------
       case Routes.instructorScaffold:
-        return MaterialPageRoute(builder: (_) => const InstructorScaffold());
+        return MaterialPageRoute(builder: (_) => InstructorScaffold());
 
       case Routes.instructorHomeScreen:
         return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
 
-      case Routes.instructorCoursesScreen:
-        return MaterialPageRoute(
-          builder: (_) => const InstructorCoursesScreen(),
-        );
-
       case Routes.addEditCourseScreen:
+        final course = args['course'] as CourseModel?;
         return MaterialPageRoute(
-          builder: (_) => AddEditCourseScreen(course: args['course']),
+          builder: (_) => BlocProvider.value(
+            value: getIt<InstructorCoursesCubit>(),
+            child: AddEditCourseScreen(course: course),
+          ),
         );
 
       case Routes.instructorCoursePreviewScreen:

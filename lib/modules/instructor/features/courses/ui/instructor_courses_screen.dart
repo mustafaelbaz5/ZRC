@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/core/models/course_model.dart';
+import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
+import 'package:zrc/modules/instructor/features/courses/ui/widgets/courses_tab_view/courses_empty_state.dart';
 
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
@@ -17,12 +20,18 @@ class InstructorCoursesScreen extends StatefulWidget {
 
 class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
     with TickerProviderStateMixin {
-  late TabController _tabController;
+  late final TabController _tabController;
+  final List<CourseStatus> _tabs = const [
+    CourseStatus.draft,
+    CourseStatus.pending,
+    CourseStatus.approved,
+    CourseStatus.rejected,
+  ];
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: _tabs.length, vsync: this);
   }
 
   @override
@@ -36,14 +45,12 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
     return SafeArea(
       child: Column(
         children: [
-          // App Bar
           CustomAppBar(
             title: tr('instructor_drawer.courses', context: context),
             showNotificationIcon: true,
           ),
           verticalSpacing(16),
 
-          // Custom Tab Bar with 4 tabs
           CustomTabBar(
             controller: _tabController,
             tabs: [
@@ -67,16 +74,36 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
           ),
           verticalSpacing(16),
           Expanded(
-            child: TabBarView(
-              controller: _tabController,
-              children: const [
-                InstructorCoursesTabView(statuses: [CourseStatus.draft]),
-                InstructorCoursesTabView(statuses: [CourseStatus.pending]),
-                InstructorCoursesTabView(
-                  statuses: [CourseStatus.approved, CourseStatus.approved],
-                ),
-                InstructorCoursesTabView(statuses: [CourseStatus.rejected]),
-              ],
+            child: BlocBuilder<InstructorCoursesCubit, InstructorCoursesState>(
+              builder: (final context, final state) {
+                final isLoading = state is InstructorCoursesLoading;
+                final courses = state is InstructorCoursesLoaded
+                    ? state.courses
+                    : <CourseModel>[];
+                final hasError = state is InstructorCoursesError;
+
+                return TabBarView(
+                  controller: _tabController,
+                  children: _tabs.map((final status) {
+                    if (isLoading) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    if (hasError || courses.isEmpty) {
+                      return CoursesEmptyState(status: status);
+                    }
+
+                    final filteredCourses = courses
+                        .where((final c) => c.status == status)
+                        .toList();
+
+                    return InstructorCoursesTabView(
+                      statuses: [status],
+                      courses: filteredCourses,
+                    );
+                  }).toList(),
+                );
+              },
             ),
           ),
         ],
