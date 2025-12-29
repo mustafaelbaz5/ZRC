@@ -29,7 +29,7 @@ void main() async {
     url: Constants.supabaseUrl,
     anonKey: Constants.supabaseAnonKey,
   );
-  await setupGetIt();
+  await setUpDependencies();
   await ScreenUtil.ensureScreenSize();
   runApp(
     EasyLocalization(
