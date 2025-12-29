@@ -407,7 +407,9 @@
       "title_pending": "لا توجد دورات قيد المراجعة",
       "subtitle_pending": "اضغط على زر + لإنشاء أول دورة لك",
       "title_published": "لا توجد دورات منشورة بعد",
-      "subtitle_published": "ستظهر دوراتك هنا بعد نشرها"
+      "subtitle_published": "ستظهر دوراتك هنا بعد نشرها",
+      "title_rejected": "لا توجد دورات مرفوضة بعد",
+      "subtitle_rejected": "ستظهر دوراتك هنا بعد نشرها"
     },
     "course_card": {
       "edit": "تعديل",

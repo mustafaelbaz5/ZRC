@@ -403,7 +403,9 @@
       "title_pending": "No courses pending review",
       "subtitle_pending": "Tap the + button to create your first course",
       "title_published": "No published courses yet",
-      "subtitle_published": "Your courses will appear here once published"
+      "subtitle_published": "Your courses will appear here once published",
+      "title_rejected": "No rejected courses yet",
+      "subtitle_rejected": "Your courses will appear here once rejected"
     },
     "course_card": {
       "edit": "Edit",
