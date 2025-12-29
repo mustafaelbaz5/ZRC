@@ -189,6 +189,19 @@ class CourseModel {
     );
   }
 
+  factory CourseModel.newDraft() => CourseModel(
+    id: '',
+    instructorId: '',
+    instructorName: '',
+    title: '',
+    description: '',
+    category: '',
+    youtubeUrl: '',
+    status: CourseStatus.draft,
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+  );
+
   bool get isDraft => status == CourseStatus.draft;
   bool get isPending => status == CourseStatus.pending;
   bool get isApproved => status == CourseStatus.approved;
