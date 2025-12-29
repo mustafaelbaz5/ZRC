@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/models/course_model.dart';
+
 import '../../../../../core/utils/functions/string_fun.dart';
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
-import '../data/models/instructor_course_model.dart';
 import 'widgets/add_edit_course/category_section.dart';
 import 'widgets/add_edit_course/description_section.dart';
 import 'widgets/add_edit_course/learning_points_section.dart';
@@ -14,7 +15,7 @@ import 'widgets/instructor_course_action_buttons.dart';
 class AddEditCourseScreen extends StatefulWidget {
   const AddEditCourseScreen({super.key, this.course});
 
-  final InstructorCourseModel? course;
+  final CourseModel? course;
 
   @override
   State<AddEditCourseScreen> createState() => _AddEditCourseScreenState();
@@ -51,7 +52,7 @@ class _AddEditCourseScreenState extends State<AddEditCourseScreen> {
     );
     _categoryController = TextEditingController(text: course?.category ?? '');
     _learningPointsController = TextEditingController(
-      text: course?.learningPoints?.join('\n') ?? '',
+      text: course?.learningPoints.join('\n') ?? '',
     );
     _updateThumbnail(); // Initial thumbnail
   }

@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/models/course_model.dart';
 
 import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/router/routes.dart';
@@ -7,7 +8,6 @@ import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
 import '../../../../../../../core/widgets/app_dialog/app_dialogs.dart';
 import '../../../../../../../core/widgets/custom_text_button.dart';
-import '../../../data/models/instructor_course_model.dart';
 
 class CourseCardFooter extends StatelessWidget {
   const CourseCardFooter({
@@ -17,7 +17,7 @@ class CourseCardFooter extends StatelessWidget {
   });
 
   final bool canEdit;
-  final InstructorCourseModel course;
+  final CourseModel course;
 
   @override
   Widget build(final BuildContext context) {

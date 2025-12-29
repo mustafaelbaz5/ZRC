@@ -1,17 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:zrc/core/models/course_model.dart';
+
 import '../../../../../core/extensions/context_extensions.dart';
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/functions/string_fun.dart';
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
-import '../data/models/instructor_course_model.dart';
 import 'widgets/thumbnail_preview.dart';
 
 class InstructorCoursePreviewScreen extends StatelessWidget {
   const InstructorCoursePreviewScreen({super.key, required this.course});
 
-  final InstructorCourseModel course;
+  final CourseModel course;
 
   @override
   Widget build(final BuildContext context) {
@@ -115,8 +116,7 @@ class InstructorCoursePreviewScreen extends StatelessWidget {
                       verticalSpacing(32),
 
                       /// What You'll Learn
-                      if (course.learningPoints != null &&
-                          course.learningPoints!.isNotEmpty) ...[
+                      if (course.learningPoints.isNotEmpty) ...[
                         Text(
                           'instructor_course_preview.what_you_learn'.tr(),
                           style: AppTextStyles.font16Bold.copyWith(
@@ -124,7 +124,7 @@ class InstructorCoursePreviewScreen extends StatelessWidget {
                           ),
                         ),
                         verticalSpacing(16),
-                        ...course.learningPoints!.map(
+                        ...course.learningPoints.map(
                           (final point) => Padding(
                             padding: EdgeInsets.symmetric(
                               vertical: responsiveHeight(6),

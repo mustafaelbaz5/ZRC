@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:zrc/core/models/course_model.dart';
 
 import '../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../core/router/routes.dart';
 import '../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../core/utils/functions/date_formate.dart';
 import '../../../../../../core/utils/spacing.dart';
-import '../../data/models/instructor_course_model.dart';
 import 'courses_tab_view/course_card_footer.dart';
 import 'courses_tab_view/course_card_thumbnail.dart';
 
 class InstructorCourseCard extends StatelessWidget {
   const InstructorCourseCard({super.key, required this.course});
 
-  final InstructorCourseModel course;
+  final CourseModel course;
 
   @override
   Widget build(final BuildContext context) {
@@ -71,7 +71,7 @@ class InstructorCourseCard extends StatelessWidget {
                     children: [
                       _Stat(
                         icon: Icons.people_rounded,
-                        value: '${course.studentsEnrolled}',
+                        value: '${course.hasViewed}',
                         color: colors.accentBlue,
                       ),
                       horizontalSpacing(16),
