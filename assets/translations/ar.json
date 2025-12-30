@@ -434,9 +434,9 @@
     "learning_points_hint": "• النقطة الأولى\n• النقطة الثانية\n• النقطة الثالثة",
     "learning_points_help": "فصل كل نقطة بخط جديد",
     "is_optional": "اختياري",
-    "save_draft": "حفظ كمسودة",
+    "save": "حفظ",
     "submit_for_review": "إرسال للمراجعة",
-    "saved_as_draft": "تم حفظ الدورة كمسودة",
+    "saved": "تم حفظ الدورة",
     "submitted_for_review": "تم إرسال الدورة للمراجعة",
     "validation": {
       "required": "هذا الحقل مطلوب",

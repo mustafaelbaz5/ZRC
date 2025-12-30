@@ -430,9 +430,9 @@
     "learning_points_hint": "• Point one\n• Point two\n• Point three",
     "learning_points_help": "Separate each point with a new line",
     "is_optional": "Optional",
-    "save_draft": "Save as Draft",
+    "save": "Save",
     "submit_for_review": "Submit for Review",
-    "saved_as_draft": "Course saved as draft",
+    "saved": "Course saved",
     "submitted_for_review": "Course submitted for review",
     "validation": {
       "required": "This field is required",
