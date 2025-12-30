@@ -107,13 +107,14 @@ class AppRouter {
 
       // ----------------- INSTRUCTOR -----------------
       case Routes.instructorScaffold:
-        return MaterialPageRoute(builder: (_) => InstructorScaffold());
+        return MaterialPageRoute(builder: (_) => const InstructorScaffold());
 
       case Routes.instructorHomeScreen:
         return MaterialPageRoute(builder: (_) => const InstructorHomeScreen());
 
       case Routes.addEditCourseScreen:
-        final course = args['course'] as CourseModel?;
+        final args = settings.arguments as Map<String, dynamic>?;
+        final course = args?['course'] as CourseModel?;
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: getIt<InstructorCoursesCubit>(),
