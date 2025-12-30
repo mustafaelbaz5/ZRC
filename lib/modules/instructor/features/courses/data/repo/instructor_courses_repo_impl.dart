@@ -2,6 +2,7 @@ import 'package:zrc/core/auth/data/repo/auth_repo.dart';
 import 'package:zrc/core/error/models/app_error.dart';
 import 'package:zrc/core/error/types/error_type.dart';
 import 'package:zrc/core/models/course_model.dart';
+import 'package:zrc/core/models/create_course_dto.dart';
 import 'package:zrc/core/service/course_service.dart';
 import 'package:zrc/modules/instructor/features/courses/data/repo/instructor_courses_repo.dart';
 
@@ -15,42 +16,45 @@ class InstructorCoursesRepoImpl implements InstructorCoursesRepo {
   }) : _courseService = courseService,
        _authRepo = authRepo;
 
-  /// Get current instructor ID from the stored user
-  Future<int> _getInstructorId() async {
+  Future<int> _getCurrentInstructorCode() async {
     final user = await _authRepo.getCurrentUser();
     if (user == null) {
       throw const AppError(
-        message: 'User not logged in',
+        message: 'User not authenticated',
         type: ErrorType.unauthorized,
       );
     }
-    return user.id;
+
+    return user.studentCode;
   }
 
   @override
-  Future<CourseModel> addCourse({required final CourseModel course}) async {
-    final instructorId = await _getInstructorId();
-    final courseWithInstructor = course.copyWith(
-      instructorId: instructorId.toString(),
-    );
-    return _courseService.addCourse(course: courseWithInstructor);
+  Future<CourseModel> addCourse({required final CreateCourseDto dto}) async {
+    final instructorCode = await _getCurrentInstructorCode();
+    return _courseService.addCourse(dto: dto, instructorCode: instructorCode);
   }
 
   @override
   Future<List<CourseModel>> getInstructorCourses() async {
-    final instructorId = await _getInstructorId();
-    return _courseService.getInstructorCourses(
-      instructorId: instructorId.toString(),
-    );
+    final instructorCode = await _getCurrentInstructorCode();
+    return _courseService.getInstructorCourses(instructorCode: instructorCode);
   }
 
   @override
   Future<CourseModel> updateCourse({required final CourseModel course}) async {
+    final currentInstructorCode = await _getCurrentInstructorCode();
+    if (course.instructorCode != currentInstructorCode) {
+      throw const AppError(
+        message: 'Cannot update course: not the owner',
+        type: ErrorType.forbidden,
+      );
+    }
+
     return _courseService.updateCourse(course: course);
   }
 
   @override
   Future<void> deleteCourse({required final String courseId}) async {
-    return _courseService.deleteCourse(courseId: courseId);
+    await _courseService.deleteCourse(courseId: courseId);
   }
 }
