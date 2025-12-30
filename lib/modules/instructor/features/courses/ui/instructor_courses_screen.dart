@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/courses_tab_view/courses_empty_state.dart';
 
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/custom_tab_bar.dart';
+import '../logic/cubit/instructor_courses_cubit.dart';
+import 'widgets/courses_tab_view/courses_empty_state.dart';
 import 'widgets/instructor_courses_tab_view.dart';
 
 class InstructorCoursesScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _InstructorCoursesScreenState extends State<InstructorCoursesScreen>
   final List<CourseStatus> _tabs = const [
     CourseStatus.draft,
     CourseStatus.pending,
-    CourseStatus.approved,
+    CourseStatus.published,
     CourseStatus.rejected,
   ];
 
