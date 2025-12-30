@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/models/course_model.dart';
 
 import '../../../../core/config/constants.dart';
 import '../../../../core/di/dependency_injection.dart';
@@ -15,20 +14,32 @@ import '../../features/profile/ui/instructor_profile_screen.dart';
 import '../../features/quizzes/ui/instructor_quizzes_screen.dart';
 import 'instructor_drawer.dart';
 
-// ignore: must_be_immutable
 class InstructorScaffold extends StatefulWidget {
-  InstructorScaffold({super.key, this.selectedIndex = 0});
-  int selectedIndex;
+  const InstructorScaffold({super.key, this.selectedIndex = 0});
+  final int selectedIndex;
 
   @override
   State<InstructorScaffold> createState() => _InstructorScaffoldState();
 }
 
 class _InstructorScaffoldState extends State<InstructorScaffold> {
-  final List<Widget> _screens = [
+  late int _selectedIndex;
+  late final InstructorCoursesCubit _coursesCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex;
+    _coursesCubit = getIt<InstructorCoursesCubit>();
+    if (_selectedIndex == 1) {
+      _coursesCubit.loadInstructorCourses();
+    }
+  }
+
+  List<Widget> get _screens => [
     const InstructorHomeScreen(),
-    BlocProvider(
-      create: (_) => getIt<InstructorCoursesCubit>()..getInstructorCourses(),
+    BlocProvider.value(
+      value: _coursesCubit,
       child: const InstructorCoursesScreen(),
     ),
     const InstructorQuizzesScreen(),
@@ -36,12 +47,23 @@ class _InstructorScaffoldState extends State<InstructorScaffold> {
   ];
 
   void _onDrawerItemSelected(final int index) {
-    if (widget.selectedIndex != index) {
+    if (_selectedIndex != index) {
       setState(() {
-        widget.selectedIndex = index;
+        _selectedIndex = index;
       });
+      if (index == 1) {
+        _coursesCubit.loadInstructorCourses();
+      }
     }
     Constants.scaffoldKey.currentState?.closeDrawer();
+  }
+
+  Future<void> _onAddNewCourse() async {
+    final result = await context.pushNamed(Routes.addEditCourseScreen);
+
+    if (result != null && result is bool && result == true) {
+      _coursesCubit.loadInstructorCourses();
+    }
   }
 
   @override
@@ -49,17 +71,18 @@ class _InstructorScaffoldState extends State<InstructorScaffold> {
     return Scaffold(
       key: Constants.scaffoldKey,
       drawer: InstructorDrawer(
-        selectedIndex: widget.selectedIndex,
+        selectedIndex: _selectedIndex,
         onItemSelected: _onDrawerItemSelected,
       ),
-      body: _screens[widget.selectedIndex],
-      floatingActionButton: widget.selectedIndex == 1
-          ? CustomFloatingButton(
-              label: 'instructor_courses.new_course'.tr(),
-              onTap: () {
-                context.pushNamed(
-                  Routes.addEditCourseScreen,
-                  arguments: {'course': CourseModel.newDraft()},
+      body: _screens[_selectedIndex],
+      floatingActionButton: _selectedIndex == 1
+          ? BlocBuilder<InstructorCoursesCubit, InstructorCoursesState>(
+              bloc: _coursesCubit,
+              builder: (final context, final state) {
+                final isLoading = state is InstructorCoursesLoading;
+                return CustomFloatingButton(
+                  label: 'instructor_courses.new_course'.tr(),
+                  onTap: isLoading ? null : _onAddNewCourse,
                 );
               },
             )
