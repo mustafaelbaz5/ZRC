@@ -71,7 +71,7 @@ class CoursesEmptyState extends StatelessWidget {
         title: 'instructor_courses.empty_state.title_pending'.tr(),
         subtitle: 'instructor_courses.empty_state.subtitle_pending'.tr(),
       ),
-      CourseStatus.approved || CourseStatus.approved => (
+      CourseStatus.published => (
         icon: Icons.rocket_launch_rounded,
         title: 'instructor_courses.empty_state.title_published'.tr(),
         subtitle: 'instructor_courses.empty_state.subtitle_published'.tr(),

@@ -184,7 +184,7 @@ class _StatusBadge extends StatelessWidget {
         'instructor_courses.pending'.tr(),
         Icons.schedule_rounded,
       ),
-      CourseStatus.approved || CourseStatus.approved => (
+      CourseStatus.published => (
         Colors.green,
         'instructor_courses.published'.tr(),
         Icons.check_circle_rounded,
