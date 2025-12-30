@@ -1,26 +1,30 @@
 part of 'instructor_courses_cubit.dart';
 
 @immutable
-abstract class InstructorCoursesState {}
+sealed class InstructorCoursesState {
+  const InstructorCoursesState();
+}
 
-class InstructorCoursesInitial extends InstructorCoursesState {}
+final class InstructorCoursesInitial extends InstructorCoursesState {
+  const InstructorCoursesInitial();
+}
 
-class InstructorCoursesLoading extends InstructorCoursesState {}
+final class InstructorCoursesLoading extends InstructorCoursesState {
+  const InstructorCoursesLoading();
+}
 
-class InstructorCoursesLoaded extends InstructorCoursesState {
+final class InstructorCoursesLoaded extends InstructorCoursesState {
   final List<CourseModel> courses;
-  InstructorCoursesLoaded({required this.courses});
+
+  const InstructorCoursesLoaded({required this.courses});
 }
 
-/// Success state for add/update/delete operations
-class InstructorCourseOperationSuccess extends InstructorCoursesState {
-  final CourseModel? course;
-  final String? deletedCourseId;
-
-  InstructorCourseOperationSuccess({this.course, this.deletedCourseId});
+final class InstructorCoursesOperationSuccess extends InstructorCoursesState {
+  const InstructorCoursesOperationSuccess();
 }
 
-class InstructorCoursesError extends InstructorCoursesState {
+final class InstructorCoursesError extends InstructorCoursesState {
   final String message;
-  InstructorCoursesError({required this.message});
+
+  const InstructorCoursesError({required this.message});
 }
