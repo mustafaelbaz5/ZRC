@@ -22,12 +22,12 @@ class InstructorCourseCard extends StatelessWidget {
         course.status == CourseStatus.rejected;
 
     return Card(
-      elevation: 2,
-      shadowColor: Colors.black,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 3,
+      shadowColor: Colors.black26,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       color: colors.surface,
       child: InkWell(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         onTap: () => context.pushNamed(
           Routes.instructorCoursePreviewScreen,
           arguments: {'course': course},
@@ -35,43 +35,43 @@ class InstructorCourseCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Thumbnail with overlay elements
+            // Thumbnail with overlay
             CourseCardThumbnail(course: course),
 
             // Content
             Padding(
-              padding: const EdgeInsets.all(18),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Title
                   Text(
                     course.title,
                     style: AppTextStyles.font18Bold,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  verticalSpacing(10),
+                  verticalSpacing(6),
 
-                  // Category chip
+                  // Category
                   Chip(
                     label: Text(course.category),
-                    avatar: const Icon(Icons.category_rounded, size: 12),
+                    avatar: const Icon(Icons.category_rounded, size: 14),
                     backgroundColor: colors.surfaceVariant,
-                    labelStyle: AppTextStyles.font13Bold,
+                    labelStyle: AppTextStyles.font13Regular,
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 6,
+                      horizontal: 8,
                       vertical: 2,
                     ),
                   ),
-
-                  verticalSpacing(14),
+                  verticalSpacing(12),
 
                   // Stats
                   Row(
                     children: [
                       _Stat(
                         icon: Icons.people_rounded,
-                        value: '${course.hasViewed}',
+                        value: '${course.learningPoints.length}',
                         color: colors.accentBlue,
                       ),
                       horizontalSpacing(16),
@@ -89,8 +89,7 @@ class InstructorCourseCard extends StatelessWidget {
                       ),
                     ],
                   ),
-
-                  verticalSpacing(18),
+                  verticalSpacing(16),
 
                   // Action Buttons
                   CourseCardFooter(canEdit: canEdit, course: course),
@@ -106,6 +105,7 @@ class InstructorCourseCard extends StatelessWidget {
 
 class _Stat extends StatelessWidget {
   const _Stat({required this.icon, required this.value, required this.color});
+
   final IconData icon;
   final String value;
   final Color color;
@@ -116,7 +116,7 @@ class _Stat extends StatelessWidget {
       children: [
         Icon(icon, size: 18, color: color),
         horizontalSpacing(6),
-        Text(value, style: AppTextStyles.font14Bold),
+        Text(value, style: AppTextStyles.font14Regular),
       ],
     );
   }
