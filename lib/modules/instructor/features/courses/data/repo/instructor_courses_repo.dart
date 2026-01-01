@@ -1,5 +1,5 @@
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/core/models/create_course_dto.dart';
+import '../../../../../../core/models/course_model.dart';
+import '../../../../../../core/models/create_course_dto.dart';
 
 abstract class InstructorCoursesRepo {
   Future<CourseModel> addCourse({required final CreateCourseDto dto});

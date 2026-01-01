@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/auth/data/repo/auth_repo.dart';
-import 'package:zrc/core/error/models/app_error.dart';
-import 'package:zrc/core/error/types/error_type.dart';
+import '../../data/model/user_model.dart';
+import '../../data/repo/auth_repo.dart';
+import '../../../error/models/app_error.dart';
+import '../../../error/types/error_type.dart';
 
 part 'auth_state.dart';
 

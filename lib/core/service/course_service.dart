@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zrc/core/error/models/app_error.dart';
-import 'package:zrc/core/error/types/error_handler.dart';
-import 'package:zrc/core/error/types/error_type.dart';
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/core/models/create_course_dto.dart';
+import '../error/models/app_error.dart';
+import '../error/types/error_handler.dart';
+import '../error/types/error_type.dart';
+import '../models/course_model.dart';
+import '../models/create_course_dto.dart';
 
 class CourseService {
   final SupabaseClient _supabase = Supabase.instance.client;

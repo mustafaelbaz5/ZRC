@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/models/course_model.dart';
+import '../../../../../../core/models/course_model.dart';
 
 import '../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../core/router/routes.dart';

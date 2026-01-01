@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../../../../core/extensions/context_extensions.dart';
-import '../../../../../../../core/utils/spacing.dart';
 
+import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class QResultsInfoRow extends StatelessWidget {
   final String label;

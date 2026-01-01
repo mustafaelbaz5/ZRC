@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
+import '../../../../../../../core/models/course_model.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../logic/cubit/instructor_courses_cubit.dart';
 
 import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/router/routes.dart';

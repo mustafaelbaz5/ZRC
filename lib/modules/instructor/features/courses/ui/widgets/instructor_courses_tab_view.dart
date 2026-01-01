@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/models/course_model.dart';
+import '../../../../../../core/models/course_model.dart';
 
 import '../../../../../../core/utils/spacing.dart';
 import 'courses_tab_view/courses_empty_state.dart';

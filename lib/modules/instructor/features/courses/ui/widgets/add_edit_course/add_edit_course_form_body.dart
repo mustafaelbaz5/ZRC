@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/category_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/description_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/form_controllers.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/learning_points_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/title_section.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/widgets/add_edit_course/you_tube_section.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import 'category_section.dart';
+import 'description_section.dart';
+import 'form_controllers.dart';
+import 'learning_points_section.dart';
+import 'title_section.dart';
+import 'you_tube_section.dart';
 
 class AddEditCourseFormBody extends StatelessWidget {
   const AddEditCourseFormBody({super.key, required this.controllers});

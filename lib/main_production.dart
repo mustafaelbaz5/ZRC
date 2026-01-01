@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zrc/core/config/constants.dart';
+import 'core/config/constants.dart';
 
 import 'core/di/dependency_injection.dart';
 import 'core/router/app_router.dart';

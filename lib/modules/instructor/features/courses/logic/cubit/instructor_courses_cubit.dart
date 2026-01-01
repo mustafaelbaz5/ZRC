@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:zrc/core/error/models/app_error.dart';
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/core/models/create_course_dto.dart';
-import 'package:zrc/modules/instructor/features/courses/data/repo/instructor_courses_repo.dart';
+import '../../../../../../core/error/models/app_error.dart';
+import '../../../../../../core/models/course_model.dart';
+import '../../../../../../core/models/create_course_dto.dart';
+import '../../data/repo/instructor_courses_repo.dart';
 
 part 'instructor_courses_state.dart';
 

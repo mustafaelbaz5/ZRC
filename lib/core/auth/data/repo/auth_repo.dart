@@ -1,4 +1,4 @@
-import 'package:zrc/core/auth/data/model/user_model.dart';
+import '../model/user_model.dart';
 
 abstract class AuthRepo {
   Future<UserModel> login({

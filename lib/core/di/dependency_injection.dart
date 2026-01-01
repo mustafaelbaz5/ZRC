@@ -1,13 +1,13 @@
 import 'package:get_it/get_it.dart';
-import 'package:zrc/core/auth/data/repo/auth_repo.dart';
-import 'package:zrc/core/auth/data/repo/auth_repo_impl.dart';
-import 'package:zrc/core/auth/data/service/auth_service.dart';
-import 'package:zrc/core/auth/logic/cubit/auth_cubit.dart';
-import 'package:zrc/core/service/course_service.dart';
-import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/modules/instructor/features/courses/data/repo/instructor_courses_repo.dart';
-import 'package:zrc/modules/instructor/features/courses/data/repo/instructor_courses_repo_impl.dart';
-import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
+import '../auth/data/repo/auth_repo.dart';
+import '../auth/data/repo/auth_repo_impl.dart';
+import '../auth/data/service/auth_service.dart';
+import '../auth/logic/cubit/auth_cubit.dart';
+import '../service/course_service.dart';
+import '../storage/secure_storage.dart';
+import '../../modules/instructor/features/courses/data/repo/instructor_courses_repo.dart';
+import '../../modules/instructor/features/courses/data/repo/instructor_courses_repo_impl.dart';
+import '../../modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 

@@ -1,10 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/auth/data/repo/auth_repo.dart';
-import 'package:zrc/core/di/dependency_injection.dart';
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
+import '../auth/data/repo/auth_repo.dart';
+import '../di/dependency_injection.dart';
+import '../models/course_model.dart';
+import '../../modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
 
 import '../../modules/admin/features/dashboard/ui/dashboard_screen.dart';
 import '../../modules/instructor/core/widgets/instructor_scaffold.dart';

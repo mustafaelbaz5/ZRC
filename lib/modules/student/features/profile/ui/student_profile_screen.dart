@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/auth/data/repo/auth_repo.dart';
-import 'package:zrc/core/di/dependency_injection.dart';
+import '../../../../../core/auth/data/repo/auth_repo.dart';
+import '../../../../../core/di/dependency_injection.dart';
 
 import '../../../../../core/auth/data/model/user_model.dart';
 import '../../../../../core/extensions/context_extensions.dart';

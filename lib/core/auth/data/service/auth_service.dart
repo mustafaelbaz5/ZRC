@@ -1,7 +1,7 @@
 import 'package:bcrypt/bcrypt.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
+import '../model/user_model.dart';
 
 import '../../../error/models/app_error.dart';
 import '../../../error/types/error_handler.dart';

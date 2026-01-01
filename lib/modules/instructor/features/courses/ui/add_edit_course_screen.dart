@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zrc/core/models/course_model.dart';
-import 'package:zrc/core/models/create_course_dto.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/widgets/custom_action_buttons.dart';
-import 'package:zrc/core/widgets/custom_app_bar.dart';
-import 'package:zrc/modules/instructor/features/courses/logic/cubit/instructor_courses_cubit.dart';
+import '../../../../../core/models/course_model.dart';
+import '../../../../../core/models/create_course_dto.dart';
+import '../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../core/widgets/custom_action_buttons.dart';
+import '../../../../../core/widgets/custom_app_bar.dart';
+import '../logic/cubit/instructor_courses_cubit.dart';
 
 import 'widgets/add_edit_course/add_edit_course_form_body.dart';
 import 'widgets/add_edit_course/form_controllers.dart';
