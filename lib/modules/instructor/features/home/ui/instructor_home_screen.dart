@@ -2,7 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/auth/data/model/user_model.dart';
-import '../../../../../core/storage/secure_storage.dart';
+import '../../../../../core/auth/data/repo/auth_repo.dart';
+import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/utils/functions/string_fun.dart';
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/home_app_bar.dart';
@@ -16,17 +17,14 @@ class InstructorHomeScreen extends StatelessWidget {
 
   @override
   Widget build(final BuildContext context) {
-    return FutureBuilder<String?>(
-      future: SecureStorage().getString(key: 'logged_in_user'),
+    return FutureBuilder<UserModel?>(
+      future: getIt<AuthRepo>().getCurrentUser(),
       builder: (final context, final snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final userJson = snapshot.data;
-        final user = userJson != null
-            ? UserModel.fromJsonString(userJson)
-            : null;
+        final user = snapshot.data;
         final userName = user != null
             ? convertNamesToEn(context, user.name)
             : tr('student_home.guest');

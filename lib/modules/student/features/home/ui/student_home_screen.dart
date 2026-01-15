@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../core/auth/data/repo/auth_repo.dart';
+import '../../../../../core/di/dependency_injection.dart';
 import '../../../../../core/extensions/context_extensions.dart';
 import '../../../../../core/router/routes.dart';
-import '../../../../../core/storage/secure_storage.dart';
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/functions/string_fun.dart';
 import '../../../../../core/utils/spacing.dart';
@@ -17,15 +19,7 @@ class StudentHomeScreen extends StatelessWidget {
   const StudentHomeScreen({super.key});
 
   Future<UserModel?> _getLoggedInUser() async {
-    final String? userDataString = await SecureStorage().getString(
-      key: 'logged_in_user',
-    );
-
-    if (userDataString == null || userDataString.isEmpty) {
-      return null;
-    }
-
-    return UserModel.fromJsonString(userDataString);
+    return getIt<AuthRepo>().getCurrentUser();
   }
 
   @override
@@ -54,7 +48,7 @@ class StudentHomeScreen extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
-                HomeAppBar(userName: userName),
+                HomeAppBar(userName: userName, showMenuIcon: false),
                 Expanded(
                   child: SingleChildScrollView(
                     padding: const EdgeInsets.symmetric(horizontal: 16),

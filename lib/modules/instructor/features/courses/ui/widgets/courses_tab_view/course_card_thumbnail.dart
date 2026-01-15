@@ -1,16 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../../../../../../core/models/course_model.dart';
+
 import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/themes/custom_colors.dart';
 import '../../../../../../../core/utils/functions/string_fun.dart';
 import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/models/instructor_course_model.dart';
 
 class CourseCardThumbnail extends StatelessWidget {
   const CourseCardThumbnail({super.key, required this.course});
-  final InstructorCourseModel course;
+  final CourseModel course;
 
   @override
   Widget build(final BuildContext context) {
@@ -183,7 +184,7 @@ class _StatusBadge extends StatelessWidget {
         'instructor_courses.pending'.tr(),
         Icons.schedule_rounded,
       ),
-      CourseStatus.approved || CourseStatus.published => (
+      CourseStatus.published => (
         Colors.green,
         'instructor_courses.published'.tr(),
         Icons.check_circle_rounded,

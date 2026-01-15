@@ -40,7 +40,6 @@ class OnBoardingTopBar extends StatelessWidget {
           icon: Icons.language_rounded,
           onPressed: () => switchLanguage(context),
           label: context.locale.languageCode.toUpperCase(),
-          tooltip: 'onboarding.change_language'.tr(),
         ),
         horizontalSpacing(12),
         TopBarIconButton(

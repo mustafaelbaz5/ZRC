@@ -1,9 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import '../../../../../../../core/models/course_model.dart';
+
 import '../../../../../../../core/extensions/context_extensions.dart';
 import '../../../../../../../core/themes/app_text_styles.dart';
 import '../../../../../../../core/utils/spacing.dart';
-import '../../../data/models/instructor_course_model.dart';
 
 class CoursesEmptyState extends StatelessWidget {
   const CoursesEmptyState({super.key, required this.status});
@@ -70,7 +71,7 @@ class CoursesEmptyState extends StatelessWidget {
         title: 'instructor_courses.empty_state.title_pending'.tr(),
         subtitle: 'instructor_courses.empty_state.subtitle_pending'.tr(),
       ),
-      CourseStatus.published || CourseStatus.approved => (
+      CourseStatus.published => (
         icon: Icons.rocket_launch_rounded,
         title: 'instructor_courses.empty_state.title_published'.tr(),
         subtitle: 'instructor_courses.empty_state.subtitle_published'.tr(),

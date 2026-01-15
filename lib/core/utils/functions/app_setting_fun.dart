@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../router/routes.dart';
-import '../../storage/user_storage.dart';
-import '../../widgets/app_dialog/app_dialogs.dart';
 
 import '../../extensions/context_extensions.dart';
+import '../../router/routes.dart';
+import '../../storage/user_storage.dart';
 import '../../themes/cubit/theme_cubit.dart';
+import '../../widgets/app_dialog/app_dialogs.dart';
 
 /// Switch Language between Arabic and English
 Future<void> switchLanguage(final BuildContext context) async {

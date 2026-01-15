@@ -1,12 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/models/category_model.dart';
 import '../../../../../core/themes/app_text_styles.dart';
 import '../../../../../core/utils/spacing.dart';
 import '../../../../../core/widgets/custom_app_bar.dart';
 import '../../../../../core/widgets/filter_list_view.dart';
 import 'widgets/all_courses_list_view.dart';
-import '../../../../../core/models/category_model.dart';
 
 class StudentCoursesScreen extends StatelessWidget {
   const StudentCoursesScreen({super.key});
@@ -18,7 +19,10 @@ class StudentCoursesScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(title: tr('student_courses.screen_title')),
+            CustomAppBar(
+              title: tr('student_courses.screen_title'),
+              showMenuIcon: false,
+            ),
 
             Expanded(
               child: Padding(

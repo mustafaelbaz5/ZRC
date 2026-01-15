@@ -11,6 +11,7 @@
     "server_error": "حدث خطأ في الخادم. يرجى المحاولة مرة أخرى لاحقاً.",
     "invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صالحة.",
     "user_not_found": "لا يوجد حساب بهذا البريد الإلكتروني.",
+    "account_not_configured": "الحساب غير مكتمل. يرجى التواصل باتحاد الطلاب أو إدارة الجامعة للحصول على بريدك الجامعي.",
     "email_already_exists": "يوجد حساب بالفعل بهذا البريد الإلكتروني.",
     "weak_password": "كلمة المرور ضعيفة جداً. يرجى استخدام كلمة مرور أقوى.",
     "invalid_email": "تنسيق البريد الإلكتروني غير صالح.",
@@ -59,6 +60,7 @@
 
     "forgot_password": "هل نسيت كلمة المرور؟",
     "button_login": "تسجيل الدخول",
+    "logging_in": "تسجيل الدخول...",
 
     "title_login_failed": "فشل تسجيل الدخول",
     "welcome_user": "مرحباً، {name}",
@@ -405,7 +407,9 @@
       "title_pending": "لا توجد دورات قيد المراجعة",
       "subtitle_pending": "اضغط على زر + لإنشاء أول دورة لك",
       "title_published": "لا توجد دورات منشورة بعد",
-      "subtitle_published": "ستظهر دوراتك هنا بعد نشرها"
+      "subtitle_published": "ستظهر دوراتك هنا بعد نشرها",
+      "title_rejected": "لا توجد دورات مرفوضة بعد",
+      "subtitle_rejected": "ستظهر دوراتك هنا بعد نشرها"
     },
     "course_card": {
       "edit": "تعديل",
@@ -430,9 +434,9 @@
     "learning_points_hint": "• النقطة الأولى\n• النقطة الثانية\n• النقطة الثالثة",
     "learning_points_help": "فصل كل نقطة بخط جديد",
     "is_optional": "اختياري",
-    "save_draft": "حفظ كمسودة",
+    "save": "حفظ",
     "submit_for_review": "إرسال للمراجعة",
-    "saved_as_draft": "تم حفظ الدورة كمسودة",
+    "saved": "تم حفظ الدورة",
     "submitted_for_review": "تم إرسال الدورة للمراجعة",
     "validation": {
       "required": "هذا الحقل مطلوب",
