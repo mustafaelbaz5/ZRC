@@ -1,12 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/courses/ui/student_courses_screen.dart';
-import 'package:zrc/modules/student/features/home/ui/student_home_screen.dart';
-import 'package:zrc/modules/student/features/profile/ui/student_profile_screen.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/student_quizzes_screen.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/utils/spacing.dart';
+import '../../features/courses/ui/student_courses_screen.dart';
+import '../../features/home/ui/student_home_screen.dart';
+import '../../features/profile/ui/student_profile_screen.dart';
+import '../../features/quizzes/ui/student_quizzes_screen.dart';
 
 import '../../../../core/utils/app_assets.dart';
 

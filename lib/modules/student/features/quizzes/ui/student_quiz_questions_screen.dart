@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/widgets/app_dialog/app_dialogs.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_questions_model.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/quiz_questions_header.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/student_quiz_navigation_buttons.dart';
-import 'package:zrc/modules/student/features/quizzes/ui/widgets/quiz_questions/student_quiz_questions_content.dart';
+import '../../../../../core/extensions/context_extensions.dart';
+import '../../../../../core/router/routes.dart';
+import '../../../../../core/widgets/app_dialog/app_dialogs.dart';
+import '../data/model/quiz_model.dart';
+import '../data/model/quiz_questions_model.dart';
+import 'widgets/quiz_questions/quiz_questions_header.dart';
+import 'widgets/quiz_questions/student_quiz_navigation_buttons.dart';
+import 'widgets/quiz_questions/student_quiz_questions_content.dart';
 
 class StudentQuizQuestionsScreen extends StatefulWidget {
   final QuizModel quiz;

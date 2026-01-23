@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/features/quizzes/data/model/quiz_model.dart';
-import 'package:zrc/modules/student/core/widgets/stat_card.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../data/model/quiz_model.dart';
+import '../../../../../core/widgets/stat_card.dart';
 
 class QuizDetailedQuickStatsGrid extends StatelessWidget {
   final QuizModel quiz;

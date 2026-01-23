@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/models/courses_card_model.dart';
-import 'package:zrc/modules/student/core/widgets/course_card_image.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_course_card_footer.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/themes/app_colors.dart';
+import '../../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../../../core/models/courses_card_model.dart';
+import '../../../../../core/widgets/course_card_image.dart';
+import 'home_course_card_footer.dart';
 
 class HomeCoursesListViewCard extends StatelessWidget {
   final CoursesCardModel coursesCardModel;

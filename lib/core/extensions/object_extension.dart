@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/custom_colors.dart';
 
 import '../error/models/app_error.dart';
 import '../error/types/error_handler.dart';
+import '../themes/custom_colors.dart';
 
 extension ErrorHandlerExtension on Object {
   AppError toAppError() {

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:zrc/core/utils/app_image_picker.dart';
+import '../utils/app_image_picker.dart';
 
 import '../../../../core/utils/spacing.dart';
 

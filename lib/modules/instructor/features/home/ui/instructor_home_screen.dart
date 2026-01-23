@@ -1,207 +1,90 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/auth/data/model/user_model.dart';
-import 'package:zrc/core/storage/secure_storage.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/core/widgets/home_app_bar.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/active_quiz_card.dart';
-import 'package:zrc/modules/instructor/features/home/ui/widgets/home_head_line_text.dart';
-import 'package:zrc/core/widgets/logout_button.dart';
 
-import 'widgets/quick_action_button.dart';
-import 'widgets/statistics_card.dart';
+import '../../../../../core/auth/data/model/user_model.dart';
+import '../../../../../core/auth/data/repo/auth_repo.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/utils/functions/string_fun.dart';
+import '../../../../../core/utils/spacing.dart';
+import '../../../../../core/widgets/home_app_bar.dart';
+import 'widgets/home_head_line_text.dart';
+import 'widgets/instructor_active_quizzes.dart';
+import 'widgets/instructor_quick_actions_button.dart';
+import 'widgets/instructor_statistics_grid.dart';
 
 class InstructorHomeScreen extends StatelessWidget {
   const InstructorHomeScreen({super.key});
 
   @override
   Widget build(final BuildContext context) {
-    return FutureBuilder<String?>(
-      future: SecureStorage().getString(key: 'logged_in_user'),
+    return FutureBuilder<UserModel?>(
+      future: getIt<AuthRepo>().getCurrentUser(),
       builder: (final context, final snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final userDataString = snapshot.data;
-        final userData = userDataString != null
-            ? UserModel.fromJsonString(userDataString)
-            : null;
-
-        final userName = userData != null
-            ? convertNamesToEn(context, userData.name)
+        final user = snapshot.data;
+        final userName = user != null
+            ? convertNamesToEn(context, user.name)
             : tr('student_home.guest');
 
-        return Scaffold(
-          body: SafeArea(
-            child: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: [
-                // App Bar
-                SliverPadding(
-                  padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-                  sliver: SliverToBoxAdapter(
-                    child: HomeAppBar(userName: userName),
-                  ),
-                ),
+        return SafeArea(
+          child: Column(
+            children: [
+              HomeAppBar(userName: getFirstNWords(userName, wordCount: 2)),
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  padding: EdgeInsets.only(bottom: responsiveHeight(16)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      verticalSpacing(24),
 
-                SliverToBoxAdapter(child: verticalSpacing(32)),
-
-                // Statistics Section
-                HomeHeadLineText(title: tr('instructor_home.statistics.title')),
-                SliverToBoxAdapter(child: verticalSpacing(16)),
-
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  sliver: SliverGrid(
-                    delegate: SliverChildListDelegate([
-                      StatisticsCard(
-                        icon: Icons.book_rounded,
-                        title: tr('instructor_home.statistics.courses'),
-                        value: '12',
-                        color: const Color(0xFF2196F3),
+                      // Statistics
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsiveWidth(20),
+                        ),
+                        child: HomeHeadLineText(
+                          title: tr('instructor_home.statistics.title'),
+                        ),
                       ),
-                      StatisticsCard(
-                        icon: Icons.edit_note_rounded,
-                        title: tr('instructor_home.statistics.quizzes'),
-                        value: '3',
-                        color: const Color(0xFFFF9800),
+                      verticalSpacing(6),
+                      const InstructorStatisticsGrid(),
+                      verticalSpacing(32),
+
+                      // Quick Actions
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsiveWidth(20),
+                        ),
+                        child: HomeHeadLineText(
+                          title: tr('instructor_home.quick_actions.title'),
+                        ),
                       ),
-                      StatisticsCard(
-                        icon: Icons.people_rounded,
-                        title: tr('instructor_home.statistics.avg_score'),
-                        value: '860',
-                        color: const Color(0xFF4CAF50),
+                      verticalSpacing(16),
+                      const InstructorQuickActionsButton(),
+                      verticalSpacing(32),
+
+                      // Active Quizzes
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: responsiveWidth(20),
+                        ),
+                        child: HomeHeadLineText(
+                          title: tr('instructor_home.statistics.quizzes'),
+                        ),
                       ),
-                      const StatisticsCard(
-                        icon: Icons.visibility_rounded,
-                        title: 'Total Views',
-                        value: '34.2K',
-                        color: Color(0xFF9C27B0),
-                      ),
-                    ]),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          childAspectRatio: 1.55,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
-                        ),
+                      verticalSpacing(16),
+                      const InstructorActiveQuizzes(),
+                      verticalSpacing(32),
+                    ],
                   ),
                 ),
-
-                SliverToBoxAdapter(child: verticalSpacing(40)),
-
-                // Quick Actions Section
-                HomeHeadLineText(
-                  title: tr('instructor_home.quick_actions.title'),
-                ),
-                SliverToBoxAdapter(child: verticalSpacing(16)),
-
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  sliver: SliverToBoxAdapter(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: QuickActionButton(
-                            title: tr(
-                              'instructor_home.quick_actions.create_course',
-                            ),
-                            icon: Icons.add_box_rounded,
-                            onTap: () {},
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: QuickActionButton(
-                            title: tr(
-                              'instructor_home.quick_actions.create_video',
-                            ),
-                            icon: Icons.video_library_rounded,
-                            onTap: () {},
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                SliverToBoxAdapter(child: verticalSpacing(12)),
-
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  sliver: SliverToBoxAdapter(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: QuickActionButton(
-                            title: tr(
-                              'instructor_home.quick_actions.create_quiz',
-                            ),
-                            icon: Icons.quiz_rounded,
-                            onTap: () {},
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: QuickActionButton(
-                            title: tr(
-                              'instructor_home.quick_actions.create_assignment',
-                            ),
-                            icon: Icons.pending_actions_rounded,
-                            onTap: () {},
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                SliverToBoxAdapter(child: verticalSpacing(40)),
-
-                // Active Quizzes Section
-                HomeHeadLineText(
-                  title: tr('instructor_home.statistics.quizzes'),
-                ),
-                SliverToBoxAdapter(child: verticalSpacing(16)),
-
-                SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 170,
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      children: [
-                        ActiveQuizCard(
-                          title: 'Aviation Safety Basics',
-                          questionsCount: 20,
-                          deadline: 'Dec 28, 2025',
-                          onTap: () {},
-                        ),
-                        ActiveQuizCard(
-                          title: 'Navigation Quiz',
-                          questionsCount: 15,
-                          deadline: 'Dec 30, 2025',
-                          onTap: () {},
-                        ),
-                        ActiveQuizCard(
-                          title: 'Meteorology Quiz',
-                          questionsCount: 25,
-                          deadline: 'Jan 2, 2026',
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-
-                SliverToBoxAdapter(child: verticalSpacing(32)),
-                const SliverToBoxAdapter(child: LogoutButton()),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

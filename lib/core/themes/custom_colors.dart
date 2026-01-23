@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/themes/app_colors.dart';
+import 'app_colors.dart';
 
 class CustomColors {
   // Backgrounds
   final Color background;
   final Color surface;
   final Color surfaceVariant;
+  final Color surfaceVariant2;
 
   // Text
   final Color textPrimary;
@@ -29,6 +30,7 @@ class CustomColors {
     required this.background,
     required this.surface,
     required this.surfaceVariant,
+    required this.surfaceVariant2,
     required this.textPrimary,
     required this.textSecondary,
     required this.border,
@@ -55,11 +57,13 @@ class CustomColors {
     required final Color errorContainer,
     required final Color accentBlue,
     required final Color accentBlueSoft,
+    required final Color surfaceVariant2,
   }) {
     return CustomColors._(
       background: background,
       surface: surface,
       surfaceVariant: surfaceVariant,
+      surfaceVariant2: surfaceVariant2,
       textPrimary: textPrimary,
       textSecondary: textSecondary,
       border: border,
@@ -79,7 +83,7 @@ class CustomColors {
       background: AppColors.grey25,
       surface: AppColors.grey0,
       surfaceVariant: AppColors.grey100,
-
+      surfaceVariant2: AppColors.openBlue600,
       textPrimary: AppColors.grey900,
       textSecondary: AppColors.grey600,
 
@@ -102,7 +106,7 @@ class CustomColors {
       background: AppColors.grey900,
       surface: AppColors.grey800,
       surfaceVariant: AppColors.grey700,
-
+      surfaceVariant2: AppColors.openBlue800,
       textPrimary: AppColors.grey100,
       textSecondary: AppColors.grey400,
 

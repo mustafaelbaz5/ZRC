@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/spacing.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/utils/spacing.dart';
 
 class HeroVideoSection extends StatelessWidget {
   final VoidCallback onTap;

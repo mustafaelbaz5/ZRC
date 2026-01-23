@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'core/config/constants.dart';
 
 import 'core/di/dependency_injection.dart';
 import 'core/router/app_router.dart';
@@ -25,12 +26,12 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await Supabase.initialize(
-    url: 'https://xazxnrhoqhsvhyazselc.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhhenhucmhvcWhzdmh5YXpzZWxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2NTQ5MzgsImV4cCI6MjA3OTIzMDkzOH0.qv9C21pbuhVAu1MR6TC1Q355MG9BU74PUWn2aI9URpE',
+    url: Constants.supabaseUrl,
+    anonKey: Constants.supabaseAnonKey,
   );
-  await setupGetIt();
+  await setUpDependencies();
   await ScreenUtil.ensureScreenSize();
+
   runApp(
     EasyLocalization(
       supportedLocales: const <Locale>[Locale('en'), Locale('ar')],

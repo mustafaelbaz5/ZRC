@@ -11,6 +11,7 @@
     "server_error": "Server error occurred. Please try again later.",
     "invalid_credentials": "Invalid email or password.",
     "user_not_found": "No account found with this email.",
+    "account_not_configured": "Account not configured. Please contact the university union or student union to get your university email.",
     "email_already_exists": "An account with this email already exists.",
     "weak_password": "Password is too weak. Please use a stronger password.",
     "invalid_email": "Invalid email address format.",
@@ -26,6 +27,7 @@
     "user_disabled": "This account has been disabled.",
     "operation_not_allowed": "This operation is not allowed."
   },
+
   "onboarding": {
     "title1": "Welcome to ZRC",
     "subtitle1": "ZNU Robotics Community",
@@ -60,6 +62,7 @@
 
     "forgot_password": "Forgot Password?",
     "button_login": "Login",
+    "logging_in": "Logging in...",
 
     "title_login_failed": "Login Failed",
     "welcome_user": "Welcome, {name}",
@@ -79,15 +82,6 @@
     "instructors_title": "Top Instructors",
 
     "see_all": "See all",
-
-    "categories": {
-      "programming": "Programming",
-      "hardware": "Hardware",
-      "mechanical_design": "Mechanical Design",
-      "3d_design": "3D Design",
-      "graphic_design": "Graphic Design",
-      "others": "Others"
-    },
 
     "sample_courses": {
       "mathematics": {
@@ -116,6 +110,7 @@
       }
     }
   },
+
   "student_courses": {
     "screen_title": "Courses",
     "categories": "Categories",
@@ -183,6 +178,7 @@
       "paid": "Paid"
     }
   },
+
   "student_quizzes": {
     "screen_title": "Quizzes",
     "filters": {
@@ -315,6 +311,17 @@
       }
     }
   },
+
+  "general": {
+    "logout": {
+      "button": "LogOut",
+      "dialog_title": "Logout",
+      "dialog_message": "Are you sure you want to logout?",
+      "cancel": "Cancel",
+      "confirm": "Logout"
+    }
+  },
+
   "student_profile": {
     "screen_title": "Profile",
     "unable_to_load": "Unable to load profile",
@@ -345,18 +352,12 @@
       "quizzes": "Quizzes",
       "avg_score": "Avg Score"
     },
-    "logout": {
-      "button": "LogOut",
-      "dialog_title": "Logout",
-      "dialog_message": "Are you sure you want to logout?",
-      "cancel": "Cancel",
-      "confirm": "Logout"
-    },
     "header": {
       "id_label": "ID"
     },
     "copy_to_clipboard": "Copied to clipboard"
   },
+
   "instructor_home": {
     "statistics": {
       "title": "Statistics",
@@ -371,5 +372,77 @@
       "create_video": "Create Video",
       "create_assignment": "Create Assignment"
     }
+  },
+
+  "instructor_drawer": {
+    "home": "Home",
+    "courses": "Courses",
+    "quizzes": "Quizzes",
+    "profile": "Profile",
+    "settings": "Settings",
+    "theme": "Change Theme",
+    "language": "Change Language",
+    "navigation": "Navigation",
+    "common": {
+      "english": "English",
+      "arabic": "العربية",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+
+  "instructor_courses": {
+    "drafts": "Drafts",
+    "pending": "Pending",
+    "published": "Published",
+    "rejected": "Rejected",
+    "new_course": "New Course",
+    "empty_state": {
+      "title_drafts": "No courses found",
+      "subtitle_drafts": "Tap the + button to create your first course",
+      "title_pending": "No courses pending review",
+      "subtitle_pending": "Tap the + button to create your first course",
+      "title_published": "No published courses yet",
+      "subtitle_published": "Your courses will appear here once published",
+      "title_rejected": "No rejected courses yet",
+      "subtitle_rejected": "Your courses will appear here once rejected"
+    },
+    "course_card": {
+      "edit": "Edit",
+      "preview": "Preview",
+      "view_details": "View Details",
+      "delete_course": "Delete Course?",
+      "delete_course_message": "This action cannot be undone."
+    }
+  },
+
+  "instructor_course_create": {
+    "title": "Create New Course",
+    "edit_title": "Edit Course",
+    "course_title": "Course Title",
+    "course_title_hint": "Enter course title",
+    "youtube_url": "YouTube Video URL",
+    "description": "Course Description",
+    "description_hint": "Describe what students will learn",
+    "category": "Category",
+    "category_hint": "Enter category",
+    "learning_points": "What Students Will Learn",
+    "learning_points_hint": "• Point one\n• Point two\n• Point three",
+    "learning_points_help": "Separate each point with a new line",
+    "is_optional": "Optional",
+    "save": "Save",
+    "submit_for_review": "Submit for Review",
+    "saved": "Course saved",
+    "submitted_for_review": "Course submitted for review",
+    "validation": {
+      "required": "This field is required",
+      "invalid_youtube_url": "Please enter a valid YouTube URL"
+    }
+  },
+
+  "instructor_course_preview": {
+    "title": "Course Preview",
+    "description": "description",
+    "what_you_learn": "What You'll Learn"
   }
 }

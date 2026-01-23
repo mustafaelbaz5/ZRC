@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/router/routes.dart';
-import 'package:zrc/core/utils/app_assets.dart';
-import 'package:zrc/core/utils/spacing.dart';
-import 'package:zrc/modules/student/core/models/courses_card_model.dart';
-import 'package:zrc/modules/student/features/home/ui/widgets/home_course/home_courses_list_view_card.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/router/routes.dart';
+import '../../../../../../../core/utils/app_assets.dart';
+import '../../../../../../../core/utils/spacing.dart';
+import '../../../../../core/models/courses_card_model.dart';
+import 'home_courses_list_view_card.dart';
 
 class HomeCoursesListView extends StatelessWidget {
   const HomeCoursesListView({super.key});

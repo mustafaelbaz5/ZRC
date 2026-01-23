@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
+import '../../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../../core/utils/functions/string_fun.dart';
 
 import '../../../../../../../core/auth/data/model/user_model.dart';
 import '../profile_section_body.dart';

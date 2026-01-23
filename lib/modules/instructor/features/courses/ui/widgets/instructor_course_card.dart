@@ -1,0 +1,123 @@
+import 'package:flutter/material.dart';
+import '../../../../../../core/models/course_model.dart';
+
+import '../../../../../../core/extensions/context_extensions.dart';
+import '../../../../../../core/router/routes.dart';
+import '../../../../../../core/themes/app_text_styles.dart';
+import '../../../../../../core/utils/functions/date_formate.dart';
+import '../../../../../../core/utils/spacing.dart';
+import 'courses_tab_view/course_card_footer.dart';
+import 'courses_tab_view/course_card_thumbnail.dart';
+
+class InstructorCourseCard extends StatelessWidget {
+  const InstructorCourseCard({super.key, required this.course});
+
+  final CourseModel course;
+
+  @override
+  Widget build(final BuildContext context) {
+    final colors = context.customColors;
+    final canEdit =
+        course.status == CourseStatus.draft ||
+        course.status == CourseStatus.rejected;
+
+    return Card(
+      elevation: 3,
+      shadowColor: Colors.black26,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      color: colors.surface,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => context.pushNamed(
+          Routes.instructorCoursePreviewScreen,
+          arguments: {'course': course},
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Thumbnail with overlay
+            CourseCardThumbnail(course: course),
+
+            // Content
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title
+                  Text(
+                    course.title,
+                    style: AppTextStyles.font18Bold,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  verticalSpacing(6),
+
+                  // Category
+                  Chip(
+                    label: Text(course.category),
+                    avatar: const Icon(Icons.category_rounded, size: 14),
+                    backgroundColor: colors.surfaceVariant,
+                    labelStyle: AppTextStyles.font13Regular,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 2,
+                    ),
+                  ),
+                  verticalSpacing(12),
+
+                  // Stats
+                  Row(
+                    children: [
+                      _Stat(
+                        icon: Icons.people_rounded,
+                        value: '${course.learningPoints.length}',
+                        color: colors.accentBlue,
+                      ),
+                      horizontalSpacing(16),
+                      _Stat(
+                        icon: Icons.visibility_rounded,
+                        value: '${course.totalViews}',
+                        color: colors.textSecondary,
+                      ),
+                      const Spacer(),
+                      Text(
+                        formatSmart(course.updatedAt),
+                        style: AppTextStyles.font13Bold.copyWith(
+                          color: colors.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ),
+                  verticalSpacing(16),
+
+                  // Action Buttons
+                  CourseCardFooter(canEdit: canEdit, course: course),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Stat extends StatelessWidget {
+  const _Stat({required this.icon, required this.value, required this.color});
+
+  final IconData icon;
+  final String value;
+  final Color color;
+
+  @override
+  Widget build(final BuildContext context) {
+    return Row(
+      children: [
+        Icon(icon, size: 18, color: color),
+        horizontalSpacing(6),
+        Text(value, style: AppTextStyles.font14Regular),
+      ],
+    );
+  }
+}

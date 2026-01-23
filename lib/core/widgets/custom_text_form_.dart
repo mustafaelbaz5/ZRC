@@ -1,13 +1,15 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_colors.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/functions/string_fun.dart';
+import '../utils/spacing.dart';
 
+import '../extensions/context_extensions.dart';
+import '../themes/app_colors.dart';
+import '../themes/app_text_styles.dart';
+import '../utils/functions/string_fun.dart';
 import '../utils/regex.dart';
+
+enum CustomTextFieldStyle { filled, outlined, soft }
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({
@@ -18,16 +20,20 @@ class CustomTextFormField extends StatefulWidget {
     this.keyboardType,
     this.onChanged,
     this.prefixIcon,
-    this.isObscureText = false,
+    this.suffixIcon,
+    this.isPassword = false,
     this.maxLines = 1,
-    this.innerBackgroundColor,
+    this.style = CustomTextFieldStyle.filled,
     this.inputTextStyle,
     this.hintStyle,
+    this.backgroundColor,
+    this.borderColor,
+    this.focusedBorderColor,
     this.contentPadding,
-    this.focusedBorder,
-    this.enabledBorder,
     this.borderRadius,
     this.autofocus = false,
+    this.enabled = true,
+    this.convertArabicNames = false,
   });
 
   final String hintText;
@@ -36,16 +42,24 @@ class CustomTextFormField extends StatefulWidget {
   final TextInputType? keyboardType;
   final void Function(String)? onChanged;
   final Widget? prefixIcon;
-  final bool isObscureText;
+  final Widget? suffixIcon;
+  final bool isPassword;
   final int maxLines;
-  final Color? innerBackgroundColor;
+  final CustomTextFieldStyle style;
+
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
+
+  final Color? backgroundColor;
+  final Color? borderColor;
+  final Color? focusedBorderColor;
+
   final EdgeInsetsGeometry? contentPadding;
-  final InputBorder? focusedBorder;
-  final InputBorder? enabledBorder;
   final double? borderRadius;
   final bool autofocus;
+  final bool enabled;
+  final bool
+  convertArabicNames; // Optional: convert Arabic names to English typing
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -53,110 +67,147 @@ class CustomTextFormField extends StatefulWidget {
 
 class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _obscureText;
-  ui.TextDirection _direction = ui.TextDirection.ltr;
+  ui.TextDirection _textDirection = ui.TextDirection.ltr;
 
   @override
   void initState() {
     super.initState();
-    _obscureText = widget.isObscureText;
-
-    final text = widget.controller?.text;
-    if (text != null && text.isNotEmpty) {
-      _direction = AppRegex().isArabic(text)
-          ? ui.TextDirection.rtl
-          : ui.TextDirection.ltr;
-    }
+    _obscureText = widget.isPassword;
+    _updateTextDirection(widget.controller?.text ?? '');
   }
 
   void _toggleObscure() => setState(() => _obscureText = !_obscureText);
 
-  void _updateDirection(final String value) {
+  void _updateTextDirection(final String value) {
     setState(() {
-      _direction = AppRegex().isArabic(value)
+      _textDirection = AppRegex().isArabic(value)
           ? ui.TextDirection.rtl
           : ui.TextDirection.ltr;
     });
   }
 
-  OutlineInputBorder _buildBorder(final Color color, {final double width = 1}) {
+  OutlineInputBorder _buildBorder(
+    final Color color, {
+    final double width = 1.0,
+  }) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color, width: width),
-      borderRadius: BorderRadius.circular(widget.borderRadius ?? 16.r),
+      borderRadius: BorderRadius.circular(
+        widget.borderRadius ?? responsiveRadius(16),
+      ),
     );
   }
 
   @override
   Widget build(final BuildContext context) {
+    final colors = context.customColors;
+    final isEnabled = widget.enabled;
+
+    // Resolve background
+    final Color resolvedBackground =
+        widget.backgroundColor ??
+        (widget.style == CustomTextFieldStyle.outlined
+            ? Colors.transparent
+            : widget.style == CustomTextFieldStyle.soft
+            ? colors.accentBlueSoft.withValues(alpha: 0.3)
+            : colors.surfaceVariant.withValues(alpha: 0.35));
+
+    // Resolve border colors
+    final Color defaultBorderColor = widget.borderColor ?? colors.border;
+    final Color focusedBorderColor =
+        widget.focusedBorderColor ?? colors.accentBlue;
+
+    // Text styles
+    final TextStyle baseInputStyle =
+        widget.inputTextStyle ??
+        AppTextStyles.font16Regular.copyWith(color: colors.textPrimary);
+
+    final TextStyle effectiveInputStyle = baseInputStyle.color == null
+        ? baseInputStyle.copyWith(
+            color: isEnabled ? colors.textPrimary : colors.textSecondary,
+          )
+        : baseInputStyle;
+
+    final TextStyle effectiveHintStyle =
+        widget.hintStyle ??
+        AppTextStyles.font16Regular.copyWith(
+          color: colors.textSecondary.withValues(alpha: 0.6),
+        );
+
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: _obscureText,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
-      textDirection: _direction,
+      enabled: isEnabled,
+      textDirection: _textDirection,
+      style: effectiveInputStyle,
       validator: widget.validator,
-      style:
-          widget.inputTextStyle ??
-          AppTextStyles.font16Regular.copyWith(
-            color: context.customColors.textPrimary,
-          ),
-      onChanged: (final value) {
-        _updateDirection(value);
+      onChanged: (value) {
+        _updateTextDirection(value);
 
-        if (context.isArabic && AppRegex().isArabic(value)) {
+        // Optional: Convert Arabic-typed names to English (for forms)
+        if (widget.convertArabicNames &&
+            context.isArabic &&
+            AppRegex().isArabic(value)) {
           final converted = convertNamesToEn(context, value);
           widget.controller?.value = TextEditingValue(
             text: converted,
             selection: TextSelection.collapsed(offset: converted.length),
           );
+          value = converted;
         }
 
         widget.onChanged?.call(value);
       },
       decoration: InputDecoration(
         isDense: true,
+        filled: widget.style != CustomTextFieldStyle.outlined,
+        fillColor: resolvedBackground,
+        hintText: widget.hintText,
+        hintStyle: effectiveHintStyle,
         contentPadding:
             widget.contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-
-        filled: true,
-        fillColor:
-            widget.innerBackgroundColor ??
-            context.customColors.surfaceVariant.withAlpha(88),
-
-        hintText: widget.hintText,
-        hintStyle:
-            widget.hintStyle ??
-            AppTextStyles.font16Regular.copyWith(
-              color: context.customColors.textSecondary.withAlpha(128),
+            EdgeInsets.symmetric(
+              horizontal: responsiveWidth(20),
+              vertical: responsiveHeight(18),
             ),
-
         prefixIcon: widget.prefixIcon,
-
-        suffixIcon: widget.isObscureText
-            ? GestureDetector(
-                onTap: _toggleObscure,
-                child: Icon(
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                icon: Icon(
                   _obscureText ? Icons.visibility_off : Icons.visibility,
                   color: _obscureText
-                      ? context.customColors.textSecondary
-                      : context.customColors.textPrimary,
-                  size: 22.sp,
+                      ? colors.textSecondary
+                      : colors.textPrimary,
+                  size: responsiveRadius(22),
                 ),
+                onPressed: _toggleObscure,
               )
+            : widget.suffixIcon,
+        enabledBorder: widget.style == CustomTextFieldStyle.outlined
+            ? _buildBorder(defaultBorderColor, width: responsiveRadius(1.2))
+            : _buildBorder(
+                defaultBorderColor.withValues(alpha: 0.6),
+                width: responsiveRadius(0.8),
+              ),
+        focusedBorder: _buildBorder(
+          focusedBorderColor,
+          width: responsiveRadius(1.5),
+        ),
+        disabledBorder: _buildBorder(colors.border.withValues(alpha: 0.3)),
+        errorBorder: _buildBorder(
+          AppColors.error100,
+          width: responsiveRadius(1.4),
+        ),
+        focusedErrorBorder: _buildBorder(
+          AppColors.error100,
+          width: responsiveRadius(1.6),
+        ),
+        border: widget.style == CustomTextFieldStyle.outlined
+            ? _buildBorder(defaultBorderColor)
             : null,
-
-        focusedBorder:
-            widget.focusedBorder ??
-            _buildBorder(context.customColors.textPrimary, width: 1.3),
-
-        enabledBorder:
-            widget.enabledBorder ??
-            _buildBorder(context.customColors.border, width: 0.8),
-
-        errorBorder: _buildBorder(AppColors.error100, width: 1.4),
-
-        focusedErrorBorder: _buildBorder(AppColors.error100, width: 1.4),
       ),
     );
   }

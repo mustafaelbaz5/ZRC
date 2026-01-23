@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/extensions/context_extensions.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
-import 'package:zrc/core/utils/spacing.dart';
 
-/// Reusable icon button for top bar actions
+import '../../../extensions/context_extensions.dart';
+import '../../../themes/app_text_styles.dart';
+import '../../../utils/spacing.dart';
+
 class TopBarIconButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onPressed;
@@ -30,24 +30,25 @@ class TopBarIconButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: label != null ? 12.w : 10.w,
-            vertical: 10.h,
+            horizontal: label != null
+                ? responsiveWidth(12)
+                : responsiveWidth(10),
+            vertical: responsiveHeight(10),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
                 icon,
-                size: 20.sp,
+                size: responsiveFontSize(20),
                 color: context.customColors.textSecondary,
               ),
               if (label != null) ...[
-                horizontalSpacing(6.w),
+                horizontalSpacing(6),
                 Text(
                   label!,
                   style: AppTextStyles.font16Bold.copyWith(
                     color: context.customColors.textPrimary,
-                    fontSize: 14.sp,
                   ),
                 ),
               ],

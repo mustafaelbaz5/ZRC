@@ -1,77 +1,93 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zrc/modules/instructor/features/courses/ui/instructor_courses_screen.dart';
-import 'package:zrc/modules/instructor/features/home/ui/instructor_home_screen.dart';
-import 'package:zrc/modules/instructor/features/profile/ui/instructor_profile_screen.dart';
-import 'package:zrc/modules/instructor/features/quizzes/ui/instructor_quizzes_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/themes/app_colors.dart';
-import '../../../../core/utils/app_assets.dart';
+import '../../../../core/config/constants.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/extensions/context_extensions.dart';
+import '../../../../core/router/routes.dart';
+import '../../features/courses/logic/cubit/instructor_courses_cubit.dart';
+import '../../features/courses/ui/instructor_courses_screen.dart';
+import '../../features/courses/ui/widgets/custom_floating_button.dart';
+import '../../features/home/ui/instructor_home_screen.dart';
+import '../../features/profile/ui/instructor_profile_screen.dart';
+import '../../features/quizzes/ui/instructor_quizzes_screen.dart';
+import 'instructor_drawer.dart';
 
 class InstructorScaffold extends StatefulWidget {
-  const InstructorScaffold({super.key, required this.navigationKey});
-  final GlobalKey<CurvedNavigationBarState> navigationKey;
+  const InstructorScaffold({super.key, this.selectedIndex = 0});
+  final int selectedIndex;
 
   @override
   State<InstructorScaffold> createState() => _InstructorScaffoldState();
 }
 
 class _InstructorScaffoldState extends State<InstructorScaffold> {
-  int bottomNavIndex = 0;
+  late int _selectedIndex;
+  late final InstructorCoursesCubit _coursesCubit;
 
-  // Instructor-specific navigation icons
-  late final List<String> icons = <String>[
-    AppAssets.homeIcon, // Home/Dashboard
-    AppAssets.computerIcon, // Courses Management
-    AppAssets.bookIcon, // Quizzes/Content
-    AppAssets.profileIcon, // Profile/Settings
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.selectedIndex;
+    _coursesCubit = getIt<InstructorCoursesCubit>();
+    if (_selectedIndex == 1) {
+      _coursesCubit.loadInstructorCourses();
+    }
+  }
+
+  List<Widget> get _screens => [
+    const InstructorHomeScreen(),
+    BlocProvider.value(
+      value: _coursesCubit,
+      child: const InstructorCoursesScreen(),
+    ),
+    const InstructorQuizzesScreen(),
+    const InstructorProfileScreen(),
   ];
 
-  // Instructor screens corresponding to each nav item
-  late final List<Widget> screens = <Widget>[
-    const InstructorHomeScreen(), // Home Dashboard
-    const InstructorCoursesScreen(), // Courses Management
-    const InstructorQuizzesScreen(), // Quizzes & Content
-    const InstructorProfileScreen(), // Profile & Settings
-  ];
+  void _onDrawerItemSelected(final int index) {
+    if (_selectedIndex != index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+      if (index == 1) {
+        _coursesCubit.loadInstructorCourses();
+      }
+    }
+    Constants.scaffoldKey.currentState?.closeDrawer();
+  }
+
+  Future<void> _onAddNewCourse() async {
+    final result = await context.pushNamed(Routes.addEditCourseScreen);
+
+    if (result != null && result is bool && result == true) {
+      _coursesCubit.loadInstructorCourses();
+    }
+  }
 
   @override
   Widget build(final BuildContext context) {
-    const Color activeColor = Colors.white;
-    const Color inactiveColor = AppColors.primary300;
-
-    final List<ColorFiltered> items = icons.map((final String icon) {
-      final int i = icons.indexOf(icon);
-
-      return ColorFiltered(
-        colorFilter: ColorFilter.mode(
-          i == bottomNavIndex ? activeColor : inactiveColor,
-          BlendMode.srcIn,
-        ),
-        child: SvgPicture.asset(icon, height: 24.h, width: 24.w),
-      );
-    }).toList();
-
-    return SafeArea(
-      top: false,
-      child: Scaffold(
-        extendBody: true,
-        bottomNavigationBar: CurvedNavigationBar(
-          key: widget.navigationKey,
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 600),
-          backgroundColor: Colors.transparent,
-          color: const Color.fromARGB(255, 242, 242, 242),
-          buttonBackgroundColor: AppColors.primary300,
-          height: 50.h,
-          index: bottomNavIndex,
-          items: items,
-          onTap: (final int index) => setState(() => bottomNavIndex = index),
-        ),
-        body: screens[bottomNavIndex],
+    return Scaffold(
+      key: Constants.scaffoldKey,
+      drawer: InstructorDrawer(
+        selectedIndex: _selectedIndex,
+        onItemSelected: _onDrawerItemSelected,
       ),
+      body: _screens[_selectedIndex],
+      floatingActionButton: _selectedIndex == 1
+          ? BlocBuilder<InstructorCoursesCubit, InstructorCoursesState>(
+              bloc: _coursesCubit,
+              builder: (final context, final state) {
+                final isLoading = state is InstructorCoursesLoading;
+                return CustomFloatingButton(
+                  label: 'instructor_courses.new_course'.tr(),
+                  onTap: isLoading ? null : _onAddNewCourse,
+                );
+              },
+            )
+          : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

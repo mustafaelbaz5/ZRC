@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zrc/core/themes/app_text_styles.dart';
 
 import '../../../utils/spacing.dart';
 import '../../../widgets/custom_text_button.dart';
@@ -51,13 +50,11 @@ class OnBoardingBottomSection extends StatelessWidget {
         horizontalSpacing(12.w),
         Expanded(
           child: CustomTextButton(
-            textStyle: AppTextStyles.font20Bold,
-            buttonText: isLastPage
+            size: CustomButtonSize.large,
+            text: isLastPage
                 ? 'onboarding.button_get_started'.tr()
                 : 'onboarding.button_next'.tr(),
             onPressed: onNext,
-            buttonHeight: 56.h,
-            buttonWidth: double.infinity,
             borderRadius: 12.r,
           ),
         ),
